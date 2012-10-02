@@ -21,6 +21,7 @@ import net.minecraft.src.ScaledResolution;
 import net.minecraft.src.Tessellator;
 import net.minecraftforge.client.IItemRenderer;
 import net.minecraftforge.client.MinecraftForgeClient;
+import net.minecraftforge.common.MinecraftForge;
 
 import cpw.mods.fml.client.FMLClientHandler;
 import cpw.mods.fml.client.registry.RenderingRegistry;
@@ -39,6 +40,8 @@ public class CrossbowModClient
 	
 	public static void preInit(FMLPreInitializationEvent event)
 	{
+		MinecraftForge.EVENT_BUS.register(new ClientEvents());
+		
 		try
 		{
 			RenderPlayerAPI.register("CrossbowMod2", RenderPlayerCrossbowMod.class);
@@ -52,7 +55,6 @@ public class CrossbowModClient
 	
 	public static void init(FMLInitializationEvent event)
 	{
-		FMLClientHandler.instance().getClient().sndManager.soundPoolSounds.addSound("cbowfire.ogg", CrossbowModCore.instance.getClass().getResource("/Mic'sMods/CrossbowMod/sounds/cbowfire.ogg"));
 	}
 	
 	public static void onRenderTick()
