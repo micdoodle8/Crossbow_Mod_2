@@ -42,7 +42,7 @@ public class ItemIronCrossbow extends ItemCrossbow
     @Override
     public int getCrossbowMaxDamage()
     {
-    	return 400;
+    	return 251;
     }
 
     @Override
