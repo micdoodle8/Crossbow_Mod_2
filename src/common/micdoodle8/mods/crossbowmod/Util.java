@@ -176,37 +176,37 @@ public class Util
 			" YA",
 			Character.valueOf('Y'), Item.ingotIron, Character.valueOf('A'), Item.diamond, Character.valueOf('Z'), Item.bucketLava
 		});
-		GameRegistry.addRecipe(new ItemStack(Items.woodLimb, 1), new Object[] {
+		GameRegistry.addRecipe(new ItemStack(Items.woodLimb, 3), new Object[] {
 			"XY", 
 			"XY",
 			"XY",
 			Character.valueOf('X'), Item.stick, Character.valueOf('Y'), Block.planks
 		});
-		GameRegistry.addRecipe(new ItemStack(Items.stoneLimb, 1), new Object[] {
+		GameRegistry.addRecipe(new ItemStack(Items.stoneLimb, 3), new Object[] {
 			"XY", 
 			"XY",
 			"XY",
 			Character.valueOf('X'), Item.stick, Character.valueOf('Y'), Block.cobblestone
 		});
-		GameRegistry.addRecipe(new ItemStack(Items.stoneLimb, 1), new Object[] {
+		GameRegistry.addRecipe(new ItemStack(Items.stoneLimb, 3), new Object[] {
 			"XY", 
 			"XY",
 			"XY",
 			Character.valueOf('X'), Item.stick, Character.valueOf('Y'), Block.stone
 		});
-		GameRegistry.addRecipe(new ItemStack(Items.ironLimb, 1), new Object[] {
+		GameRegistry.addRecipe(new ItemStack(Items.ironLimb, 3), new Object[] {
 			"XY", 
 			"XY",
 			"XY",
 			Character.valueOf('X'), Item.stick, Character.valueOf('Y'), Item.ingotIron
 		});
-		GameRegistry.addRecipe(new ItemStack(Items.goldLimb, 1), new Object[] {
+		GameRegistry.addRecipe(new ItemStack(Items.goldLimb, 3), new Object[] {
 			"XY", 
 			"XY",
 			"XY",
 			Character.valueOf('X'), Item.stick, Character.valueOf('Y'), Item.ingotGold
 		});
-		GameRegistry.addRecipe(new ItemStack(Items.diamondLimb, 1), new Object[] {
+		GameRegistry.addRecipe(new ItemStack(Items.diamondLimb, 3), new Object[] {
 			"XY", 
 			"XY",
 			"XY",
