@@ -24,7 +24,7 @@ import cpw.mods.fml.common.network.PacketDispatcher;
 public class ItemCrossbow extends Item
 {
 	private int shootTime;
-	private boolean mouseHeld;
+	public boolean mouseHeld;
 	public int reloadStage;
 	protected boolean isBoltLoaded;
 	public int reloadingTime;
@@ -40,15 +40,16 @@ public class ItemCrossbow extends Item
         this.setCreativeTab(CreativeTabs.tabCombat);
         CrossbowModCore.crossbowsList.add(this);
 	}
+	
+	@Override
+	public void onUsingItemTick(ItemStack stack, EntityPlayer player, int count) 
+    {
+		this.shootTime = count;
+    }
 
 	@Override
 	public void onUpdate(ItemStack itemstack, World world, Entity entity, int i, boolean flag)
 	{
-		if (!world.isRemote)
-		{
-	        shootTime++;
-		}
-        
 		EntityPlayer entityplayer = (EntityPlayer) entity;
 		
 		if (!world.isRemote)
@@ -109,12 +110,10 @@ public class ItemCrossbow extends Item
 		if (ModLoader.getMinecraftInstance().gameSettings.keyBindUseItem.pressed)
         {
         	mouseHeld = true;
-    		sendMouseHeldPacket(true);
         }
         else
         {
         	mouseHeld = false;
-    		sendMouseHeldPacket(false);
         }
 	}
 	
@@ -466,22 +465,7 @@ public class ItemCrossbow extends Item
     @SideOnly(Side.CLIENT)
 	public void sendMouseHeldPacket(boolean b)
 	{
-//        ByteArrayOutputStream bytes = new ByteArrayOutputStream();
-//        DataOutputStream data = new DataOutputStream(bytes);
-//        try
-//        {
-//            data.writeBoolean(Boolean.valueOf(b));
-//        }
-//        catch(IOException e)
-//        {
-//            e.printStackTrace();
-//        }
-//        
-//        Packet250CustomPayload packet = new Packet250CustomPayload();
-//        packet.channel = "CrossbowMod";
-//        packet.data = bytes.toByteArray();
-//        packet.length = packet.data.length;
-//        
-//        ModLoader.sendPacket(packet);
+    	Object[] toSend = {b};
+    	PacketDispatcher.sendPacketToServer(Util.createPacket("CrossbowMod", 0, toSend));
 	}
 }

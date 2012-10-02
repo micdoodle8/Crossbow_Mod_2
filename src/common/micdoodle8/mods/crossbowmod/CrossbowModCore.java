@@ -9,6 +9,7 @@ import net.minecraft.src.Packet250CustomPayload;
 import net.minecraft.src.World;
 import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.Mod;
+import cpw.mods.fml.common.Side;
 import cpw.mods.fml.common.Mod.Init;
 import cpw.mods.fml.common.Mod.Instance;
 import cpw.mods.fml.common.Mod.PreInit;
@@ -66,6 +67,7 @@ public class CrossbowModCore
 		EntityRegistry.registerModEntity(EntityDiamondBolt.class, "CB_DiamondBolt", ConfigManager.idEntityDiamondCrossbow, this, 64, 4, true);
 		
 		NetworkRegistry.instance().registerGuiHandler(this, new GuiHandler());
+		NetworkRegistry.instance().registerChannel(new ServerPacketHandler(), "CrossbowMod", Side.SERVER);
 		
 		GameRegistry.registerBlock(Items.crossbowBench);
 		
@@ -74,8 +76,6 @@ public class CrossbowModCore
 		Util.addRecipes();
 		
 		proxy.registerRenderInformation();
-		
-		FMLLog.info("" + crossbowsList.size());
 	}
 	
 	public class GuiHandler implements IGuiHandler
@@ -98,7 +98,6 @@ public class CrossbowModCore
 				}
 				else
 				{
-					FMLLog.info("server");
 					return new ContainerCrossbowBench(player.inventory);
 				}
 			}
@@ -126,7 +125,6 @@ public class CrossbowModCore
 				}
 				else
 				{
-					FMLLog.info("client");
 					return new GuiCrossbowBench(player.inventory);
 				}
 			}
