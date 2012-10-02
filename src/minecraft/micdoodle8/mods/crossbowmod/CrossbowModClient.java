@@ -3,10 +3,6 @@ package micdoodle8.mods.crossbowmod;
 import java.io.ByteArrayInputStream;
 import java.io.DataInputStream;
 import java.text.DecimalFormat;
-import java.util.EnumSet;
-
-import org.lwjgl.input.Mouse;
-import org.lwjgl.opengl.GL11;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.src.EntityRenderer;
@@ -23,11 +19,11 @@ import net.minecraftforge.client.IItemRenderer;
 import net.minecraftforge.client.MinecraftForgeClient;
 import net.minecraftforge.common.MinecraftForge;
 
+import org.lwjgl.input.Mouse;
+import org.lwjgl.opengl.GL11;
+
 import cpw.mods.fml.client.FMLClientHandler;
 import cpw.mods.fml.client.registry.RenderingRegistry;
-import cpw.mods.fml.common.FMLLog;
-import cpw.mods.fml.common.ITickHandler;
-import cpw.mods.fml.common.TickType;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.Player;
@@ -70,13 +66,13 @@ public class CrossbowModClient
 		{
 			mc.gameSettings.hideGUI = true;
 			mc.gameSettings.noclip = true;
-	        ScaledResolution scaledresolution = new ScaledResolution(mc.gameSettings, mc.displayWidth, mc.displayHeight);
-	        int i = scaledresolution.getScaledWidth();
-	        int k = scaledresolution.getScaledHeight();
-	        mc.entityRenderer.setupOverlayRendering();
-	        GL11.glEnable(GL11.GL_BLEND);
-	        GL11.glDisable(GL11.GL_DEPTH_TEST);
-	        GL11.glDepthMask(false);
+			ScaledResolution scaledresolution = new ScaledResolution(mc.gameSettings, mc.displayWidth, mc.displayHeight);
+			int i = scaledresolution.getScaledWidth();
+			int k = scaledresolution.getScaledHeight();
+			mc.entityRenderer.setupOverlayRendering();
+			GL11.glEnable(GL11.GL_BLEND);
+			GL11.glDisable(GL11.GL_DEPTH_TEST);
+			GL11.glDepthMask(false);
 			GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);
 			GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
 			GL11.glDisable(GL11.GL_ALPHA_TEST);
@@ -92,70 +88,70 @@ public class CrossbowModClient
 			GL11.glEnable(GL11.GL_DEPTH_TEST);
 			GL11.glEnable(GL11.GL_ALPHA_TEST);
 			GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
-			
+
 			String var1 = String.valueOf((getZoom() / 2) - 0.5);
 			mc.fontRenderer.drawString("Zoom: " + var1, i / 2 - 5 - (mc.fontRenderer.getStringWidth(var1)), k / 6, 4210752);
-          
+
 			float var3;
-			
+
 			while (Mouse.next())
-	          {
-	              KeyBinding.setKeyBindState(Mouse.getEventButton() - 100, Mouse.getEventButtonState());
-	
-	              if (Mouse.getEventButtonState())
-	              {
-	                  KeyBinding.onTick(Mouse.getEventButton() - 100);
-	              }
-	              
-	              if (Mouse.hasWheel() && !Double.isNaN(Mouse.getEventDWheel()))
-	              {
-	              	try
-	              	{
-	              		zoom(Double.parseDouble(oneDigit.format(Mouse.getEventDWheel() / 60)));
-	              	}
-	              	catch (NumberFormatException e)
-	              	{
-	              		zoom(0D);
-	              	}
-	              }
-	
-	              if (System.currentTimeMillis() - CrossbowModCore.firstBootTime <= 10L)
-	              {
-	                  var3 = Mouse.getEventDWheel();
-	                  
-	                  if (var3 != 0)
-	                  {
-	                  	mc.thePlayer.inventory.changeCurrentItem((int) var3);
-	                      
-	                      if (mc.gameSettings.noclip)
-	                      {
-	                          if (var3 > 0)
-	                          {
-	                              var3 = -1;
-	                          }
-	
-	                          if (var3 < 0)
-	                          {
-	                              var3 = 1;
-	                          }
-	
-	                          mc.gameSettings.noclipRate += (float)var3 * 0.25F;
-	                      }
-	                  }
-	
-	                  if (mc.currentScreen == null)
-	                  {
-	                      if (!mc.inGameHasFocus && Mouse.getEventButtonState())
-	                      {
-	                      	mc.setIngameFocus();
-	                      }
-	                  }
-	                  else if (mc.currentScreen != null)
-	                  {
-	                  	mc.currentScreen.handleMouseInput();
-	                  }
-	              }
-	          }
+			{
+				KeyBinding.setKeyBindState(Mouse.getEventButton() - 100, Mouse.getEventButtonState());
+
+				if (Mouse.getEventButtonState())
+				{
+					KeyBinding.onTick(Mouse.getEventButton() - 100);
+				}
+
+				if (Mouse.hasWheel() && !Double.isNaN(Mouse.getEventDWheel()))
+				{
+					try
+					{
+						zoom(Double.parseDouble(oneDigit.format(Mouse.getEventDWheel() / 60)));
+					}
+					catch (NumberFormatException e)
+					{
+						zoom(0D);
+					}
+				}
+
+				if (System.currentTimeMillis() - CrossbowModCore.firstBootTime <= 10L)
+				{
+					var3 = Mouse.getEventDWheel();
+
+					if (var3 != 0)
+					{
+						mc.thePlayer.inventory.changeCurrentItem((int) var3);
+
+						if (mc.gameSettings.noclip)
+						{
+							if (var3 > 0)
+							{
+								var3 = -1;
+							}
+
+							if (var3 < 0)
+							{
+								var3 = 1;
+							}
+
+							mc.gameSettings.noclipRate += var3 * 0.25F;
+						}
+					}
+
+					if (mc.currentScreen == null)
+					{
+						if (!mc.inGameHasFocus && Mouse.getEventButtonState())
+						{
+							mc.setIngameFocus();
+						}
+					}
+					else if (mc.currentScreen != null)
+					{
+						mc.currentScreen.handleMouseInput();
+					}
+				}
+			}
 		}
 		else if (mc.thePlayer.isUsingItem() && Util.hasBasicScope(mc.thePlayer.getCurrentEquippedItem()) && mc.gameSettings.thirdPersonView == 0 && !mc.renderViewEntity.isPlayerSleeping())
 		{

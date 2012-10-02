@@ -5,7 +5,6 @@ import net.minecraft.src.MathHelper;
 import net.minecraft.src.ModLoader;
 import net.minecraft.src.ModelPlayerAPI;
 import net.minecraft.src.ModelPlayerBase;
-import cpw.mods.fml.common.FMLLog;
 
 public class ModelPlayerCrossbowMod extends ModelPlayerBase
 {

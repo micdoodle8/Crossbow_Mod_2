@@ -21,11 +21,13 @@ import cpw.mods.fml.common.registry.TickRegistry;
 
 public class ClientProxy extends CommonProxy
 {
+	@Override
 	public void preInit(FMLPreInitializationEvent event)
 	{
 		CrossbowModClient.preInit(event);
 	}
 	
+	@Override
 	public void load(FMLInitializationEvent event)
 	{
 		TickRegistry.registerTickHandler(new ClientTickHandler(), Side.CLIENT);
@@ -33,16 +35,19 @@ public class ClientProxy extends CommonProxy
         NetworkRegistry.instance().registerChannel(new ClientPacketHandler(), "CrossbowMod", Side.CLIENT);
 	}
 
+	@Override
 	public void registerRenderInformation()
 	{
 		CrossbowModClient.registerRenderInformation();
 	}
 	
+	@Override
 	public void onCrossbowHeld(ItemStack itemstack, World world, EntityPlayer player)
 	{
 		//Handled client-side
 	}
 	
+	@Override
 	public void onCrossbowClicked(ItemStack itemstack, World world, EntityPlayer player)
 	{
 		//Handled client-side

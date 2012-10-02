@@ -5,10 +5,7 @@ import net.minecraft.src.EntityLiving;
 import net.minecraft.src.EntityPlayer;
 import net.minecraft.src.ItemStack;
 import net.minecraft.src.ModLoader;
-import net.minecraft.src.Render;
 import net.minecraft.src.RenderBlocks;
-import net.minecraft.src.RenderManager;
-import net.minecraft.src.RenderPlayer;
 import net.minecraft.src.Tessellator;
 import net.minecraftforge.client.IItemRenderer;
 import net.minecraftforge.client.MinecraftForgeClient;
@@ -50,12 +47,6 @@ public class ItemRendererCrossbowMod implements IItemRenderer
 	{
 		if (type == type.EQUIPPED)
 		{
-//			GL11.glPushMatrix();
-//	        Render var24 = RenderManager.instance.getEntityRenderObject(this.mcinstance.thePlayer);
-//	        RenderPlayer var26 = (RenderPlayer)var24;
-//	        var26.drawFirstPersonHand();
-//	        GL11.glPopMatrix();
-	        
 			if (!(item.getItem() instanceof ItemCrossbow))
 			{
 				return;
@@ -131,7 +122,7 @@ public class ItemRendererCrossbowMod implements IItemRenderer
 			GL11.glPopMatrix();
 			GL11.glPushMatrix();
 			
-			float f28 = (float)item.getMaxItemUseDuration() - (((float)par1EntityLiving.getItemInUseCount() - 1) + 1.0F);
+			float f28 = item.getMaxItemUseDuration() - (((float)par1EntityLiving.getItemInUseCount() - 1) + 1.0F);
             float f32 = f28 / 50F;
             f32 = (f32 * f32 + f32 * 2.0F) / 3F;
 
@@ -206,10 +197,10 @@ public class ItemRendererCrossbowMod implements IItemRenderer
 
         Tessellator var4 = Tessellator.instance;
         int var5 = par1EntityLiving.getItemIcon(item, par3);
-        float var6 = ((float)(var5 % 16 * 16) + 0.0F) / 256.0F;
-        float var7 = ((float)(var5 % 16 * 16) + 15.99F) / 256.0F;
-        float var8 = ((float)(var5 / 16 * 16) + 0.0F) / 256.0F;
-        float var9 = ((float)(var5 / 16 * 16) + 15.99F) / 256.0F;
+        float var6 = (var5 % 16 * 16 + 0.0F) / 256.0F;
+        float var7 = (var5 % 16 * 16 + 15.99F) / 256.0F;
+        float var8 = (var5 / 16 * 16 + 0.0F) / 256.0F;
+        float var9 = (var5 / 16 * 16 + 15.99F) / 256.0F;
         float var10 = 0.0F;
         float var11 = 0.3F;
         GL11.glEnable(GL12.GL_RESCALE_NORMAL);
@@ -234,14 +225,14 @@ public class ItemRendererCrossbowMod implements IItemRenderer
             GL11.glPushMatrix();
             float var14 = 0.125F;
             GL11.glScalef(var14, var14, var14);
-            float var15 = (float)(System.currentTimeMillis() % 3000L) / 3000.0F * 8.0F;
+            float var15 = System.currentTimeMillis() % 3000L / 3000.0F * 8.0F;
             GL11.glTranslatef(var15, 0.0F, 0.0F);
             GL11.glRotatef(-50.0F, 0.0F, 0.0F, 1.0F);
             this.renderItemIn2D(var4, 0.0F, 0.0F, 1.0F, 1.0F);
             GL11.glPopMatrix();
             GL11.glPushMatrix();
             GL11.glScalef(var14, var14, var14);
-            var15 = (float)(System.currentTimeMillis() % 4873L) / 4873.0F * 8.0F;
+            var15 = System.currentTimeMillis() % 4873L / 4873.0F * 8.0F;
             GL11.glTranslatef(-var15, 0.0F, 0.0F);
             GL11.glRotatef(10.0F, 0.0F, 0.0F, 1.0F);
             this.renderItemIn2D(var4, 0.0F, 0.0F, 1.0F, 1.0F);
@@ -263,17 +254,17 @@ public class ItemRendererCrossbowMod implements IItemRenderer
         float var7 = 0.0625F;
         par1Tessellator.startDrawingQuads();
         par1Tessellator.setNormal(0.0F, 0.0F, 1.0F);
-        par1Tessellator.addVertexWithUV(0.0D, 0.0D, 0.0D, (double)par2, (double)par5);
-        par1Tessellator.addVertexWithUV((double)var6, 0.0D, 0.0D, (double)par4, (double)par5);
-        par1Tessellator.addVertexWithUV((double)var6, 1.0D, 0.0D, (double)par4, (double)par3);
-        par1Tessellator.addVertexWithUV(0.0D, 1.0D, 0.0D, (double)par2, (double)par3);
+        par1Tessellator.addVertexWithUV(0.0D, 0.0D, 0.0D, par2, par5);
+        par1Tessellator.addVertexWithUV(var6, 0.0D, 0.0D, par4, par5);
+        par1Tessellator.addVertexWithUV(var6, 1.0D, 0.0D, par4, par3);
+        par1Tessellator.addVertexWithUV(0.0D, 1.0D, 0.0D, par2, par3);
         par1Tessellator.draw();
         par1Tessellator.startDrawingQuads();
         par1Tessellator.setNormal(0.0F, 0.0F, -1.0F);
-        par1Tessellator.addVertexWithUV(0.0D, 1.0D, (double)(0.0F - var7), (double)par2, (double)par3);
-        par1Tessellator.addVertexWithUV((double)var6, 1.0D, (double)(0.0F - var7), (double)par4, (double)par3);
-        par1Tessellator.addVertexWithUV((double)var6, 0.0D, (double)(0.0F - var7), (double)par4, (double)par5);
-        par1Tessellator.addVertexWithUV(0.0D, 0.0D, (double)(0.0F - var7), (double)par2, (double)par5);
+        par1Tessellator.addVertexWithUV(0.0D, 1.0D, 0.0F - var7, par2, par3);
+        par1Tessellator.addVertexWithUV(var6, 1.0D, 0.0F - var7, par4, par3);
+        par1Tessellator.addVertexWithUV(var6, 0.0D, 0.0F - var7, par4, par5);
+        par1Tessellator.addVertexWithUV(0.0D, 0.0D, 0.0F - var7, par2, par5);
         par1Tessellator.draw();
         par1Tessellator.startDrawingQuads();
         par1Tessellator.setNormal(-1.0F, 0.0F, 0.0F);
@@ -284,13 +275,13 @@ public class ItemRendererCrossbowMod implements IItemRenderer
 
         for (var8 = 0; var8 < 16; ++var8)
         {
-            var9 = (float)var8 / 16.0F;
+            var9 = var8 / 16.0F;
             var10 = par2 + (par4 - par2) * var9 - 0.001953125F;
             var11 = var6 * var9;
-            par1Tessellator.addVertexWithUV((double)var11, 0.0D, (double)(0.0F - var7), (double)var10, (double)par5);
-            par1Tessellator.addVertexWithUV((double)var11, 0.0D, 0.0D, (double)var10, (double)par5);
-            par1Tessellator.addVertexWithUV((double)var11, 1.0D, 0.0D, (double)var10, (double)par3);
-            par1Tessellator.addVertexWithUV((double)var11, 1.0D, (double)(0.0F - var7), (double)var10, (double)par3);
+            par1Tessellator.addVertexWithUV(var11, 0.0D, 0.0F - var7, var10, par5);
+            par1Tessellator.addVertexWithUV(var11, 0.0D, 0.0D, var10, par5);
+            par1Tessellator.addVertexWithUV(var11, 1.0D, 0.0D, var10, par3);
+            par1Tessellator.addVertexWithUV(var11, 1.0D, 0.0F - var7, var10, par3);
         }
 
         par1Tessellator.draw();
@@ -299,13 +290,13 @@ public class ItemRendererCrossbowMod implements IItemRenderer
 
         for (var8 = 0; var8 < 16; ++var8)
         {
-            var9 = (float)var8 / 16.0F;
+            var9 = var8 / 16.0F;
             var10 = par2 + (par4 - par2) * var9 - 0.001953125F;
             var11 = var6 * var9 + 0.0625F;
-            par1Tessellator.addVertexWithUV((double)var11, 1.0D, (double)(0.0F - var7), (double)var10, (double)par3);
-            par1Tessellator.addVertexWithUV((double)var11, 1.0D, 0.0D, (double)var10, (double)par3);
-            par1Tessellator.addVertexWithUV((double)var11, 0.0D, 0.0D, (double)var10, (double)par5);
-            par1Tessellator.addVertexWithUV((double)var11, 0.0D, (double)(0.0F - var7), (double)var10, (double)par5);
+            par1Tessellator.addVertexWithUV(var11, 1.0D, 0.0F - var7, var10, par3);
+            par1Tessellator.addVertexWithUV(var11, 1.0D, 0.0D, var10, par3);
+            par1Tessellator.addVertexWithUV(var11, 0.0D, 0.0D, var10, par5);
+            par1Tessellator.addVertexWithUV(var11, 0.0D, 0.0F - var7, var10, par5);
         }
 
         par1Tessellator.draw();
@@ -314,13 +305,13 @@ public class ItemRendererCrossbowMod implements IItemRenderer
 
         for (var8 = 0; var8 < 16; ++var8)
         {
-            var9 = (float)var8 / 16.0F;
+            var9 = var8 / 16.0F;
             var10 = par5 + (par3 - par5) * var9 - 0.001953125F;
             var11 = var6 * var9 + 0.0625F;
-            par1Tessellator.addVertexWithUV(0.0D, (double)var11, 0.0D, (double)par2, (double)var10);
-            par1Tessellator.addVertexWithUV((double)var6, (double)var11, 0.0D, (double)par4, (double)var10);
-            par1Tessellator.addVertexWithUV((double)var6, (double)var11, (double)(0.0F - var7), (double)par4, (double)var10);
-            par1Tessellator.addVertexWithUV(0.0D, (double)var11, (double)(0.0F - var7), (double)par2, (double)var10);
+            par1Tessellator.addVertexWithUV(0.0D, var11, 0.0D, par2, var10);
+            par1Tessellator.addVertexWithUV(var6, var11, 0.0D, par4, var10);
+            par1Tessellator.addVertexWithUV(var6, var11, 0.0F - var7, par4, var10);
+            par1Tessellator.addVertexWithUV(0.0D, var11, 0.0F - var7, par2, var10);
         }
 
         par1Tessellator.draw();
@@ -329,13 +320,13 @@ public class ItemRendererCrossbowMod implements IItemRenderer
 
         for (var8 = 0; var8 < 16; ++var8)
         {
-            var9 = (float)var8 / 16.0F;
+            var9 = var8 / 16.0F;
             var10 = par5 + (par3 - par5) * var9 - 0.001953125F;
             var11 = var6 * var9;
-            par1Tessellator.addVertexWithUV((double)var6, (double)var11, 0.0D, (double)par4, (double)var10);
-            par1Tessellator.addVertexWithUV(0.0D, (double)var11, 0.0D, (double)par2, (double)var10);
-            par1Tessellator.addVertexWithUV(0.0D, (double)var11, (double)(0.0F - var7), (double)par2, (double)var10);
-            par1Tessellator.addVertexWithUV((double)var6, (double)var11, (double)(0.0F - var7), (double)par4, (double)var10);
+            par1Tessellator.addVertexWithUV(var6, var11, 0.0D, par4, var10);
+            par1Tessellator.addVertexWithUV(0.0D, var11, 0.0D, par2, var10);
+            par1Tessellator.addVertexWithUV(0.0D, var11, 0.0F - var7, par2, var10);
+            par1Tessellator.addVertexWithUV(var6, var11, 0.0F - var7, par4, var10);
         }
 
         par1Tessellator.draw();

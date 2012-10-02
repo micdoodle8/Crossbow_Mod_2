@@ -1,7 +1,16 @@
 package micdoodle8.mods.crossbowmod;
 
+import net.minecraft.src.EntityPlayer;
+import net.minecraft.src.EnumAction;
+import net.minecraft.src.ItemStack;
+import net.minecraft.src.ModLoader;
+import net.minecraft.src.Render;
+import net.minecraft.src.RenderManager;
+import net.minecraft.src.RenderPlayer;
+import net.minecraft.src.RenderPlayerAPI;
+import net.minecraft.src.RenderPlayerBase;
+
 import org.lwjgl.opengl.GL11;
-import net.minecraft.src.*;
 
 public class RenderPlayerCrossbowMod extends RenderPlayerBase
 {
@@ -78,6 +87,8 @@ public class RenderPlayerCrossbowMod extends RenderPlayerBase
             GL11.glRotatef(50.0F, 0.0F, 1.0F, 0.0F);
 		}
 		else
+		{
 			super.positionSpecialItemInHand(var1, var2, var3, var4);
+		}
 	}
 }

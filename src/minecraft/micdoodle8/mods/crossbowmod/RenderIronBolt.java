@@ -1,9 +1,12 @@
 package micdoodle8.mods.crossbowmod;
 
+import net.minecraft.src.Entity;
+import net.minecraft.src.MathHelper;
+import net.minecraft.src.Render;
+import net.minecraft.src.Tessellator;
+
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL12;
-import net.minecraft.src.*;
-import net.minecraft.src.*;
 
 public class RenderIronBolt extends Render
 {
@@ -27,15 +30,15 @@ public class RenderIronBolt extends Render
         int i = 0;
         float f2 = 0.0F;
         float f3 = 0.5F;
-        float f4 = (float)(0 + i * 10) / 32F;
-        float f5 = (float)(5 + i * 10) / 32F;
+        float f4 = (0 + i * 10) / 32F;
+        float f5 = (5 + i * 10) / 32F;
         float f6 = 0.0F;
         float f7 = 0.15625F;
-        float f8 = (float)(5 + i * 10) / 32F;
-        float f9 = (float)(10 + i * 10) / 32F;
+        float f8 = (5 + i * 10) / 32F;
+        float f9 = (10 + i * 10) / 32F;
         float f10 = 0.05625F;
         GL11.glEnable(GL12.GL_RESCALE_NORMAL);
-        float f11 = (float) entityironbolt.arrowShake - f1;
+        float f11 = entityironbolt.arrowShake - f1;
 
         if (f11 > 0.0F)
         {
@@ -77,13 +80,8 @@ public class RenderIronBolt extends Render
         GL11.glPopMatrix();
     }
 
-    /**
-     * Actually renders the given argument. This is a synthetic bridge method, always casting down its argument and then
-     * handing it off to a worker function which does the actual work. In all probabilty, the class Render is generic
-     * (Render<T extends Entity) and this method has signature public void doRender(T entity, double d, double d1,
-     * double d2, float f, float f1). But JAD is pre 1.5 so doesn't do that.
-     */
-    public void doRender(Entity entity, double d, double d1, double d2, float f, float f1)
+    @Override
+	public void doRender(Entity entity, double d, double d1, double d2, float f, float f1)
     {
         renderArrow((EntityIronBolt)entity, d, d1, d2, f, f1);
     }
