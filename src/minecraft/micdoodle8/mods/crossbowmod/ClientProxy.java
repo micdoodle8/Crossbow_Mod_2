@@ -32,7 +32,7 @@ public class ClientProxy extends CommonProxy
 	{
 		TickRegistry.registerTickHandler(new ClientTickHandler(), Side.CLIENT);
 		CrossbowModClient.init(event);
-        NetworkRegistry.instance().registerChannel(new ClientPacketHandler(), "CrossbowMod", Side.CLIENT);
+//        NetworkRegistry.instance().registerChannel(new ClientPacketHandler(), "CrossbowMod", Side.CLIENT);
 	}
 
 	@Override
@@ -105,12 +105,12 @@ public class ClientProxy extends CommonProxy
 	    }
 	}
 	
-	public class ClientPacketHandler implements IPacketHandler
-	{
-		@Override
-		public void onPacketData(NetworkManager manager, Packet250CustomPayload packet, Player player) 
-		{
-			CrossbowModClient.onPacketData(manager, packet, player);
-		}
-	}
+//	public class ClientPacketHandler implements IPacketHandler
+//	{
+//		@Override
+//		public void onPacketData(NetworkManager manager, Packet250CustomPayload packet, Player player) 
+//		{
+//			CrossbowModClient.onPacketData(manager, packet, player);
+//		}
+//	}
 }

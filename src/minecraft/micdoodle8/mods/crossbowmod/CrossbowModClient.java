@@ -290,17 +290,17 @@ public class CrossbowModClient
 		return zoom;
 	}
 	
-	public static void onPacketData(NetworkManager manager, Packet250CustomPayload packet, Player player)
-    {
-        Minecraft mcinstance = FMLClientHandler.instance().getClient();
-        
-		DataInputStream data = new DataInputStream(new ByteArrayInputStream(packet.data));
-        
-        int packetID = Util.readPacketID(data);
-        
-        if (packetID == 0)
-        {
-        	
-        }
-    }
+//	public static void onPacketData(NetworkManager manager, Packet250CustomPayload packet, Player player)
+//    {
+//        Minecraft mcinstance = FMLClientHandler.instance().getClient();
+//        
+//		DataInputStream data = new DataInputStream(new ByteArrayInputStream(packet.data));
+//        
+//        int packetID = Util.readPacketID(data);
+//        
+//        if (packetID == 0)
+//        {
+//        	
+//        }
+//    }
 }
