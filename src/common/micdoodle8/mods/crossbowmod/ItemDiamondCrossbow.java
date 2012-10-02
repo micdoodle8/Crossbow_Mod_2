@@ -16,6 +16,7 @@ public class ItemDiamondCrossbow extends ItemCrossbow
     public ItemDiamondCrossbow(int par1)
     {
         super(par1);
+        CrossbowModCore.diamondCrossbowsList.add(this);
     }
     
     @Override

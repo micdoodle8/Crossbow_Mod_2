@@ -478,210 +478,32 @@ public class Items
 	
 	public static void addNames()
 	{
-        LanguageRegistry.instance().addNameForObject(woodenCrossbowBase, "en_US", "Wooden Crossbow");
-        LanguageRegistry.instance().addNameForObject(woodenCrossbowWithBasicScope, "en_US", "Wooden Crossbow");
-        LanguageRegistry.instance().addNameForObject(woodenCrossbowWithLongScope, "en_US", "Wooden Crossbow");
-        LanguageRegistry.instance().addNameForObject(woodenCrossbowWithBasicScopeAndLightMech, "en_US", "Wooden Crossbow");
-        LanguageRegistry.instance().addNameForObject(woodenCrossbowWithLongScopeAndLightMech, "en_US", "Wooden Crossbow");
-        LanguageRegistry.instance().addNameForObject(woodenCrossbowWithBasicScopeAndMediumMech, "en_US", "Wooden Crossbow");
-        LanguageRegistry.instance().addNameForObject(woodenCrossbowWithLongScopeAndMediumMech, "en_US", "Wooden Crossbow");
-        LanguageRegistry.instance().addNameForObject(woodenCrossbowWithBasicScopeAndHeavyMech, "en_US", "Wooden Crossbow");
-        LanguageRegistry.instance().addNameForObject(woodenCrossbowWithLongScopeAndHeavyMech, "en_US", "Wooden Crossbow");
-        LanguageRegistry.instance().addNameForObject(woodenCrossbowWithLightMech, "en_US", "Wooden Crossbow");
-        LanguageRegistry.instance().addNameForObject(woodenCrossbowWithMediumMech, "en_US", "Wooden Crossbow");
-        LanguageRegistry.instance().addNameForObject(woodenCrossbowWithHeavyMech, "en_US", "Wooden Crossbow");
-        LanguageRegistry.instance().addNameForObject(woodenCrossbowWithExplosiveAttachment, "en_US", "Wooden Crossbow");
-        LanguageRegistry.instance().addNameForObject(woodenCrossbowWithExplosiveAttachmentAndLightMech, "en_US", "Wooden Crossbow");
-        LanguageRegistry.instance().addNameForObject(woodenCrossbowWithExplosiveAttachmentAndMediumMech, "en_US", "Wooden Crossbow");
-        LanguageRegistry.instance().addNameForObject(woodenCrossbowWithExplosiveAttachmentAndHeavyMech, "en_US", "Wooden Crossbow");
-        LanguageRegistry.instance().addNameForObject(woodenCrossbowWithFlameAttachment, "en_US", "Wooden Crossbow");
-        LanguageRegistry.instance().addNameForObject(woodenCrossbowWithFlameAttachmentAndLightMech, "en_US", "Wooden Crossbow");
-        LanguageRegistry.instance().addNameForObject(woodenCrossbowWithFlameAttachmentAndMediumMech, "en_US", "Wooden Crossbow");
-        LanguageRegistry.instance().addNameForObject(woodenCrossbowWithFlameAttachmentAndHeavyMech, "en_US", "Wooden Crossbow");
-        LanguageRegistry.instance().addNameForObject(woodenCrossbowWithLavaAttachment, "en_US", "Wooden Crossbow");
-        LanguageRegistry.instance().addNameForObject(woodenCrossbowWithLavaAttachmentAndLightMech, "en_US", "Wooden Crossbow");
-        LanguageRegistry.instance().addNameForObject(woodenCrossbowWithLavaAttachmentAndMediumMech, "en_US", "Wooden Crossbow");
-        LanguageRegistry.instance().addNameForObject(woodenCrossbowWithLavaAttachmentAndHeavyMech, "en_US", "Wooden Crossbow");
-        LanguageRegistry.instance().addNameForObject(woodenCrossbowWithIceAttachment, "en_US", "Wooden Crossbow");
-        LanguageRegistry.instance().addNameForObject(woodenCrossbowWithIceAttachmentAndLightMech, "en_US", "Wooden Crossbow");
-        LanguageRegistry.instance().addNameForObject(woodenCrossbowWithIceAttachmentAndMediumMech, "en_US", "Wooden Crossbow");
-        LanguageRegistry.instance().addNameForObject(woodenCrossbowWithIceAttachmentAndHeavyMech, "en_US", "Wooden Crossbow");
-        LanguageRegistry.instance().addNameForObject(woodenCrossbowWithLightningAttachment, "en_US", "Wooden Crossbow");
-        LanguageRegistry.instance().addNameForObject(woodenCrossbowWithLightningAttachmentAndLightMech, "en_US", "Wooden Crossbow");
-        LanguageRegistry.instance().addNameForObject(woodenCrossbowWithLightningAttachmentAndMediumMech, "en_US", "Wooden Crossbow");
-        LanguageRegistry.instance().addNameForObject(woodenCrossbowWithLightningAttachmentAndHeavyMech, "en_US", "Wooden Crossbow");
-        LanguageRegistry.instance().addNameForObject(woodenCrossbowWithTorchAttachment, "en_US", "Wooden Crossbow");
-        LanguageRegistry.instance().addNameForObject(woodenCrossbowWithTorchAttachmentAndLightMech, "en_US", "Wooden Crossbow");
-        LanguageRegistry.instance().addNameForObject(woodenCrossbowWithTorchAttachmentAndMediumMech, "en_US", "Wooden Crossbow");
-        LanguageRegistry.instance().addNameForObject(woodenCrossbowWithTorchAttachmentAndHeavyMech, "en_US", "Wooden Crossbow");
-        LanguageRegistry.instance().addNameForObject(woodenCrossbowWithPoisonAttachment, "en_US", "Wooden Crossbow");
-        LanguageRegistry.instance().addNameForObject(woodenCrossbowWithPoisonAttachmentAndLightMech, "en_US", "Wooden Crossbow");
-        LanguageRegistry.instance().addNameForObject(woodenCrossbowWithPoisonAttachmentAndMediumMech, "en_US", "Wooden Crossbow");
-        LanguageRegistry.instance().addNameForObject(woodenCrossbowWithPoisonAttachmentAndHeavyMech, "en_US", "Wooden Crossbow");
-
-        LanguageRegistry.instance().addNameForObject(stoneCrossbowBase, "en_US", "Stone Crossbow");
-        LanguageRegistry.instance().addNameForObject(stoneCrossbowWithBasicScope, "en_US", "Stone Crossbow");
-        LanguageRegistry.instance().addNameForObject(stoneCrossbowWithLongScope, "en_US", "Stone Crossbow");
-        LanguageRegistry.instance().addNameForObject(stoneCrossbowWithBasicScopeAndLightMech, "en_US", "Stone Crossbow");
-        LanguageRegistry.instance().addNameForObject(stoneCrossbowWithLongScopeAndLightMech, "en_US", "Stone Crossbow");
-        LanguageRegistry.instance().addNameForObject(stoneCrossbowWithBasicScopeAndMediumMech, "en_US", "Stone Crossbow");
-        LanguageRegistry.instance().addNameForObject(stoneCrossbowWithLongScopeAndMediumMech, "en_US", "Stone Crossbow");
-        LanguageRegistry.instance().addNameForObject(stoneCrossbowWithBasicScopeAndHeavyMech, "en_US", "Stone Crossbow");
-        LanguageRegistry.instance().addNameForObject(stoneCrossbowWithLongScopeAndHeavyMech, "en_US", "Stone Crossbow");
-        LanguageRegistry.instance().addNameForObject(stoneCrossbowWithLightMech, "en_US", "Stone Crossbow");
-        LanguageRegistry.instance().addNameForObject(stoneCrossbowWithMediumMech, "en_US", "Stone Crossbow");
-        LanguageRegistry.instance().addNameForObject(stoneCrossbowWithHeavyMech, "en_US", "Stone Crossbow");
-        LanguageRegistry.instance().addNameForObject(stoneCrossbowWithExplosiveAttachment, "en_US", "Stone Crossbow");
-        LanguageRegistry.instance().addNameForObject(stoneCrossbowWithExplosiveAttachmentAndLightMech, "en_US", "Stone Crossbow");
-        LanguageRegistry.instance().addNameForObject(stoneCrossbowWithExplosiveAttachmentAndMediumMech, "en_US", "Stone Crossbow");
-        LanguageRegistry.instance().addNameForObject(stoneCrossbowWithExplosiveAttachmentAndHeavyMech, "en_US", "Stone Crossbow");
-        LanguageRegistry.instance().addNameForObject(stoneCrossbowWithFlameAttachment, "en_US", "Stone Crossbow");
-        LanguageRegistry.instance().addNameForObject(stoneCrossbowWithFlameAttachmentAndLightMech, "en_US", "Stone Crossbow");
-        LanguageRegistry.instance().addNameForObject(stoneCrossbowWithFlameAttachmentAndMediumMech, "en_US", "Stone Crossbow");
-        LanguageRegistry.instance().addNameForObject(stoneCrossbowWithFlameAttachmentAndHeavyMech, "en_US", "Stone Crossbow");
-        LanguageRegistry.instance().addNameForObject(stoneCrossbowWithLavaAttachment, "en_US", "Stone Crossbow");
-        LanguageRegistry.instance().addNameForObject(stoneCrossbowWithLavaAttachmentAndLightMech, "en_US", "Stone Crossbow");
-        LanguageRegistry.instance().addNameForObject(stoneCrossbowWithLavaAttachmentAndMediumMech, "en_US", "Stone Crossbow");
-        LanguageRegistry.instance().addNameForObject(stoneCrossbowWithLavaAttachmentAndHeavyMech, "en_US", "Stone Crossbow");
-        LanguageRegistry.instance().addNameForObject(stoneCrossbowWithIceAttachment, "en_US", "Stone Crossbow");
-        LanguageRegistry.instance().addNameForObject(stoneCrossbowWithIceAttachmentAndLightMech, "en_US", "Stone Crossbow");
-        LanguageRegistry.instance().addNameForObject(stoneCrossbowWithIceAttachmentAndMediumMech, "en_US", "Stone Crossbow");
-        LanguageRegistry.instance().addNameForObject(stoneCrossbowWithIceAttachmentAndHeavyMech, "en_US", "Stone Crossbow");
-        LanguageRegistry.instance().addNameForObject(stoneCrossbowWithLightningAttachment, "en_US", "Stone Crossbow");
-        LanguageRegistry.instance().addNameForObject(stoneCrossbowWithLightningAttachmentAndLightMech, "en_US", "Stone Crossbow");
-        LanguageRegistry.instance().addNameForObject(stoneCrossbowWithLightningAttachmentAndMediumMech, "en_US", "Stone Crossbow");
-        LanguageRegistry.instance().addNameForObject(stoneCrossbowWithLightningAttachmentAndHeavyMech, "en_US", "Stone Crossbow");
-        LanguageRegistry.instance().addNameForObject(stoneCrossbowWithTorchAttachment, "en_US", "Stone Crossbow");
-        LanguageRegistry.instance().addNameForObject(stoneCrossbowWithTorchAttachmentAndLightMech, "en_US", "Stone Crossbow");
-        LanguageRegistry.instance().addNameForObject(stoneCrossbowWithTorchAttachmentAndMediumMech, "en_US", "Stone Crossbow");
-        LanguageRegistry.instance().addNameForObject(stoneCrossbowWithTorchAttachmentAndHeavyMech, "en_US", "Stone Crossbow");
-        LanguageRegistry.instance().addNameForObject(stoneCrossbowWithPoisonAttachment, "en_US", "Stone Crossbow");
-        LanguageRegistry.instance().addNameForObject(stoneCrossbowWithPoisonAttachmentAndLightMech, "en_US", "Stone Crossbow");
-        LanguageRegistry.instance().addNameForObject(stoneCrossbowWithPoisonAttachmentAndMediumMech, "en_US", "Stone Crossbow");
-        LanguageRegistry.instance().addNameForObject(stoneCrossbowWithPoisonAttachmentAndHeavyMech, "en_US", "Stone Crossbow");
-
-        LanguageRegistry.instance().addNameForObject(ironCrossbowBase, "en_US", "Iron Crossbow");
-        LanguageRegistry.instance().addNameForObject(ironCrossbowWithBasicScope, "en_US", "Iron Crossbow");
-        LanguageRegistry.instance().addNameForObject(ironCrossbowWithLongScope, "en_US", "Iron Crossbow");
-        LanguageRegistry.instance().addNameForObject(ironCrossbowWithBasicScopeAndLightMech, "en_US", "Iron Crossbow");
-        LanguageRegistry.instance().addNameForObject(ironCrossbowWithLongScopeAndLightMech, "en_US", "Iron Crossbow");
-        LanguageRegistry.instance().addNameForObject(ironCrossbowWithBasicScopeAndMediumMech, "en_US", "Iron Crossbow");
-        LanguageRegistry.instance().addNameForObject(ironCrossbowWithLongScopeAndMediumMech, "en_US", "Iron Crossbow");
-        LanguageRegistry.instance().addNameForObject(ironCrossbowWithBasicScopeAndHeavyMech, "en_US", "Iron Crossbow");
-        LanguageRegistry.instance().addNameForObject(ironCrossbowWithLongScopeAndHeavyMech, "en_US", "Iron Crossbow");
-        LanguageRegistry.instance().addNameForObject(ironCrossbowWithLightMech, "en_US", "Iron Crossbow");
-        LanguageRegistry.instance().addNameForObject(ironCrossbowWithMediumMech, "en_US", "Iron Crossbow");
-        LanguageRegistry.instance().addNameForObject(ironCrossbowWithHeavyMech, "en_US", "Iron Crossbow");
-        LanguageRegistry.instance().addNameForObject(ironCrossbowWithExplosiveAttachment, "en_US", "Iron Crossbow");
-        LanguageRegistry.instance().addNameForObject(ironCrossbowWithExplosiveAttachmentAndLightMech, "en_US", "Iron Crossbow");
-        LanguageRegistry.instance().addNameForObject(ironCrossbowWithExplosiveAttachmentAndMediumMech, "en_US", "Iron Crossbow");
-        LanguageRegistry.instance().addNameForObject(ironCrossbowWithExplosiveAttachmentAndHeavyMech, "en_US", "Iron Crossbow");
-        LanguageRegistry.instance().addNameForObject(ironCrossbowWithFlameAttachment, "en_US", "Iron Crossbow");
-        LanguageRegistry.instance().addNameForObject(ironCrossbowWithFlameAttachmentAndLightMech, "en_US", "Iron Crossbow");
-        LanguageRegistry.instance().addNameForObject(ironCrossbowWithFlameAttachmentAndMediumMech, "en_US", "Iron Crossbow");
-        LanguageRegistry.instance().addNameForObject(ironCrossbowWithFlameAttachmentAndHeavyMech, "en_US", "Iron Crossbow");
-        LanguageRegistry.instance().addNameForObject(ironCrossbowWithLavaAttachment, "en_US", "Iron Crossbow");
-        LanguageRegistry.instance().addNameForObject(ironCrossbowWithLavaAttachmentAndLightMech, "en_US", "Iron Crossbow");
-        LanguageRegistry.instance().addNameForObject(ironCrossbowWithLavaAttachmentAndMediumMech, "en_US", "Iron Crossbow");
-        LanguageRegistry.instance().addNameForObject(ironCrossbowWithLavaAttachmentAndHeavyMech, "en_US", "Iron Crossbow");
-        LanguageRegistry.instance().addNameForObject(ironCrossbowWithIceAttachment, "en_US", "Iron Crossbow");
-        LanguageRegistry.instance().addNameForObject(ironCrossbowWithIceAttachmentAndLightMech, "en_US", "Iron Crossbow");
-        LanguageRegistry.instance().addNameForObject(ironCrossbowWithIceAttachmentAndMediumMech, "en_US", "Iron Crossbow");
-        LanguageRegistry.instance().addNameForObject(ironCrossbowWithIceAttachmentAndHeavyMech, "en_US", "Iron Crossbow");
-        LanguageRegistry.instance().addNameForObject(ironCrossbowWithLightningAttachment, "en_US", "Iron Crossbow");
-        LanguageRegistry.instance().addNameForObject(ironCrossbowWithLightningAttachmentAndLightMech, "en_US", "Iron Crossbow");
-        LanguageRegistry.instance().addNameForObject(ironCrossbowWithLightningAttachmentAndMediumMech, "en_US", "Iron Crossbow");
-        LanguageRegistry.instance().addNameForObject(ironCrossbowWithLightningAttachmentAndHeavyMech, "en_US", "Iron Crossbow");
-        LanguageRegistry.instance().addNameForObject(ironCrossbowWithTorchAttachment, "en_US", "Iron Crossbow");
-        LanguageRegistry.instance().addNameForObject(ironCrossbowWithTorchAttachmentAndLightMech, "en_US", "Iron Crossbow");
-        LanguageRegistry.instance().addNameForObject(ironCrossbowWithTorchAttachmentAndMediumMech, "en_US", "Iron Crossbow");
-        LanguageRegistry.instance().addNameForObject(ironCrossbowWithTorchAttachmentAndHeavyMech, "en_US", "Iron Crossbow");
-        LanguageRegistry.instance().addNameForObject(ironCrossbowWithPoisonAttachment, "en_US", "Iron Crossbow");
-        LanguageRegistry.instance().addNameForObject(ironCrossbowWithPoisonAttachmentAndLightMech, "en_US", "Iron Crossbow");
-        LanguageRegistry.instance().addNameForObject(ironCrossbowWithPoisonAttachmentAndMediumMech, "en_US", "Iron Crossbow");
-        LanguageRegistry.instance().addNameForObject(ironCrossbowWithPoisonAttachmentAndHeavyMech, "en_US", "Iron Crossbow");
-
-        LanguageRegistry.instance().addNameForObject(goldCrossbowBase, "en_US", "Gold Crossbow");
-        LanguageRegistry.instance().addNameForObject(goldCrossbowWithBasicScope, "en_US", "Gold Crossbow");
-        LanguageRegistry.instance().addNameForObject(goldCrossbowWithLongScope, "en_US", "Gold Crossbow");
-        LanguageRegistry.instance().addNameForObject(goldCrossbowWithBasicScopeAndLightMech, "en_US", "Gold Crossbow");
-        LanguageRegistry.instance().addNameForObject(goldCrossbowWithLongScopeAndLightMech, "en_US", "Gold Crossbow");
-        LanguageRegistry.instance().addNameForObject(goldCrossbowWithBasicScopeAndMediumMech, "en_US", "Gold Crossbow");
-        LanguageRegistry.instance().addNameForObject(goldCrossbowWithLongScopeAndMediumMech, "en_US", "Gold Crossbow");
-        LanguageRegistry.instance().addNameForObject(goldCrossbowWithBasicScopeAndHeavyMech, "en_US", "Gold Crossbow");
-        LanguageRegistry.instance().addNameForObject(goldCrossbowWithLongScopeAndHeavyMech, "en_US", "Gold Crossbow");
-        LanguageRegistry.instance().addNameForObject(goldCrossbowWithLightMech, "en_US", "Gold Crossbow");
-        LanguageRegistry.instance().addNameForObject(goldCrossbowWithMediumMech, "en_US", "Gold Crossbow");
-        LanguageRegistry.instance().addNameForObject(goldCrossbowWithHeavyMech, "en_US", "Gold Crossbow");
-        LanguageRegistry.instance().addNameForObject(goldCrossbowWithExplosiveAttachment, "en_US", "Gold Crossbow");
-        LanguageRegistry.instance().addNameForObject(goldCrossbowWithExplosiveAttachmentAndLightMech, "en_US", "Gold Crossbow");
-        LanguageRegistry.instance().addNameForObject(goldCrossbowWithExplosiveAttachmentAndMediumMech, "en_US", "Gold Crossbow");
-        LanguageRegistry.instance().addNameForObject(goldCrossbowWithExplosiveAttachmentAndHeavyMech, "en_US", "Gold Crossbow");
-        LanguageRegistry.instance().addNameForObject(goldCrossbowWithFlameAttachment, "en_US", "Gold Crossbow");
-        LanguageRegistry.instance().addNameForObject(goldCrossbowWithFlameAttachmentAndLightMech, "en_US", "Gold Crossbow");
-        LanguageRegistry.instance().addNameForObject(goldCrossbowWithFlameAttachmentAndMediumMech, "en_US", "Gold Crossbow");
-        LanguageRegistry.instance().addNameForObject(goldCrossbowWithFlameAttachmentAndHeavyMech, "en_US", "Gold Crossbow");
-        LanguageRegistry.instance().addNameForObject(goldCrossbowWithLavaAttachment, "en_US", "Gold Crossbow");
-        LanguageRegistry.instance().addNameForObject(goldCrossbowWithLavaAttachmentAndLightMech, "en_US", "Gold Crossbow");
-        LanguageRegistry.instance().addNameForObject(goldCrossbowWithLavaAttachmentAndMediumMech, "en_US", "Gold Crossbow");
-        LanguageRegistry.instance().addNameForObject(goldCrossbowWithLavaAttachmentAndHeavyMech, "en_US", "Gold Crossbow");
-        LanguageRegistry.instance().addNameForObject(goldCrossbowWithIceAttachment, "en_US", "Gold Crossbow");
-        LanguageRegistry.instance().addNameForObject(goldCrossbowWithIceAttachmentAndLightMech, "en_US", "Gold Crossbow");
-        LanguageRegistry.instance().addNameForObject(goldCrossbowWithIceAttachmentAndMediumMech, "en_US", "Gold Crossbow");
-        LanguageRegistry.instance().addNameForObject(goldCrossbowWithIceAttachmentAndHeavyMech, "en_US", "Gold Crossbow");
-        LanguageRegistry.instance().addNameForObject(goldCrossbowWithLightningAttachment, "en_US", "Gold Crossbow");
-        LanguageRegistry.instance().addNameForObject(goldCrossbowWithLightningAttachmentAndLightMech, "en_US", "Gold Crossbow");
-        LanguageRegistry.instance().addNameForObject(goldCrossbowWithLightningAttachmentAndMediumMech, "en_US", "Gold Crossbow");
-        LanguageRegistry.instance().addNameForObject(goldCrossbowWithLightningAttachmentAndHeavyMech, "en_US", "Gold Crossbow");
-        LanguageRegistry.instance().addNameForObject(goldCrossbowWithTorchAttachment, "en_US", "Gold Crossbow");
-        LanguageRegistry.instance().addNameForObject(goldCrossbowWithTorchAttachmentAndLightMech, "en_US", "Gold Crossbow");
-        LanguageRegistry.instance().addNameForObject(goldCrossbowWithTorchAttachmentAndMediumMech, "en_US", "Gold Crossbow");
-        LanguageRegistry.instance().addNameForObject(goldCrossbowWithTorchAttachmentAndHeavyMech, "en_US", "Gold Crossbow");
-        LanguageRegistry.instance().addNameForObject(goldCrossbowWithPoisonAttachment, "en_US", "Gold Crossbow");
-        LanguageRegistry.instance().addNameForObject(goldCrossbowWithPoisonAttachmentAndLightMech, "en_US", "Gold Crossbow");
-        LanguageRegistry.instance().addNameForObject(goldCrossbowWithPoisonAttachmentAndMediumMech, "en_US", "Gold Crossbow");
-        LanguageRegistry.instance().addNameForObject(goldCrossbowWithPoisonAttachmentAndHeavyMech, "en_US", "Gold Crossbow");
-
-        LanguageRegistry.instance().addNameForObject(diamondCrossbowBase, "en_US", "Diamond Crossbow");
-        LanguageRegistry.instance().addNameForObject(diamondCrossbowWithBasicScope, "en_US", "Diamond Crossbow");
-        LanguageRegistry.instance().addNameForObject(diamondCrossbowWithLongScope, "en_US", "Diamond Crossbow");
-        LanguageRegistry.instance().addNameForObject(diamondCrossbowWithBasicScopeAndLightMech, "en_US", "Diamond Crossbow");
-        LanguageRegistry.instance().addNameForObject(diamondCrossbowWithLongScopeAndLightMech, "en_US", "Diamond Crossbow");
-        LanguageRegistry.instance().addNameForObject(diamondCrossbowWithBasicScopeAndMediumMech, "en_US", "Diamond Crossbow");
-        LanguageRegistry.instance().addNameForObject(diamondCrossbowWithLongScopeAndMediumMech, "en_US", "Diamond Crossbow");
-        LanguageRegistry.instance().addNameForObject(diamondCrossbowWithBasicScopeAndHeavyMech, "en_US", "Diamond Crossbow");
-        LanguageRegistry.instance().addNameForObject(diamondCrossbowWithLongScopeAndHeavyMech, "en_US", "Diamond Crossbow");
-        LanguageRegistry.instance().addNameForObject(diamondCrossbowWithLightMech, "en_US", "Diamond Crossbow");
-        LanguageRegistry.instance().addNameForObject(diamondCrossbowWithMediumMech, "en_US", "Diamond Crossbow");
-        LanguageRegistry.instance().addNameForObject(diamondCrossbowWithHeavyMech, "en_US", "Diamond Crossbow");
-        LanguageRegistry.instance().addNameForObject(diamondCrossbowWithExplosiveAttachment, "en_US", "Diamond Crossbow");
-        LanguageRegistry.instance().addNameForObject(diamondCrossbowWithExplosiveAttachmentAndLightMech, "en_US", "Diamond Crossbow");
-        LanguageRegistry.instance().addNameForObject(diamondCrossbowWithExplosiveAttachmentAndMediumMech, "en_US", "Diamond Crossbow");
-        LanguageRegistry.instance().addNameForObject(diamondCrossbowWithExplosiveAttachmentAndHeavyMech, "en_US", "Diamond Crossbow");
-        LanguageRegistry.instance().addNameForObject(diamondCrossbowWithFlameAttachment, "en_US", "Diamond Crossbow");
-        LanguageRegistry.instance().addNameForObject(diamondCrossbowWithFlameAttachmentAndLightMech, "en_US", "Diamond Crossbow");
-        LanguageRegistry.instance().addNameForObject(diamondCrossbowWithFlameAttachmentAndMediumMech, "en_US", "Diamond Crossbow");
-        LanguageRegistry.instance().addNameForObject(diamondCrossbowWithFlameAttachmentAndHeavyMech, "en_US", "Diamond Crossbow");
-        LanguageRegistry.instance().addNameForObject(diamondCrossbowWithLavaAttachment, "en_US", "Diamond Crossbow");
-        LanguageRegistry.instance().addNameForObject(diamondCrossbowWithLavaAttachmentAndLightMech, "en_US", "Diamond Crossbow");
-        LanguageRegistry.instance().addNameForObject(diamondCrossbowWithLavaAttachmentAndMediumMech, "en_US", "Diamond Crossbow");
-        LanguageRegistry.instance().addNameForObject(diamondCrossbowWithLavaAttachmentAndHeavyMech, "en_US", "Diamond Crossbow");
-        LanguageRegistry.instance().addNameForObject(diamondCrossbowWithIceAttachment, "en_US", "Diamond Crossbow");
-        LanguageRegistry.instance().addNameForObject(diamondCrossbowWithIceAttachmentAndLightMech, "en_US", "Diamond Crossbow");
-        LanguageRegistry.instance().addNameForObject(diamondCrossbowWithIceAttachmentAndMediumMech, "en_US", "Diamond Crossbow");
-        LanguageRegistry.instance().addNameForObject(diamondCrossbowWithIceAttachmentAndHeavyMech, "en_US", "Diamond Crossbow");
-        LanguageRegistry.instance().addNameForObject(diamondCrossbowWithLightningAttachment, "en_US", "Diamond Crossbow");
-        LanguageRegistry.instance().addNameForObject(diamondCrossbowWithLightningAttachmentAndLightMech, "en_US", "Diamond Crossbow");
-        LanguageRegistry.instance().addNameForObject(diamondCrossbowWithLightningAttachmentAndMediumMech, "en_US", "Diamond Crossbow");
-        LanguageRegistry.instance().addNameForObject(diamondCrossbowWithLightningAttachmentAndHeavyMech, "en_US", "Diamond Crossbow");
-        LanguageRegistry.instance().addNameForObject(diamondCrossbowWithTorchAttachment, "en_US", "Diamond Crossbow");
-        LanguageRegistry.instance().addNameForObject(diamondCrossbowWithTorchAttachmentAndLightMech, "en_US", "Diamond Crossbow");
-        LanguageRegistry.instance().addNameForObject(diamondCrossbowWithTorchAttachmentAndMediumMech, "en_US", "Diamond Crossbow");
-        LanguageRegistry.instance().addNameForObject(diamondCrossbowWithTorchAttachmentAndHeavyMech, "en_US", "Diamond Crossbow");
-        LanguageRegistry.instance().addNameForObject(diamondCrossbowWithPoisonAttachment, "en_US", "Diamond Crossbow");
-        LanguageRegistry.instance().addNameForObject(diamondCrossbowWithPoisonAttachmentAndLightMech, "en_US", "Diamond Crossbow");
-        LanguageRegistry.instance().addNameForObject(diamondCrossbowWithPoisonAttachmentAndMediumMech, "en_US", "Diamond Crossbow");
-        LanguageRegistry.instance().addNameForObject(diamondCrossbowWithPoisonAttachmentAndHeavyMech, "en_US", "Diamond Crossbow");
+        int i;
+        
+        for (i = 0; i < CrossbowModCore.woodenCrossbowsList.size(); i++)
+        {
+            LanguageRegistry.instance().addNameForObject(CrossbowModCore.woodenCrossbowsList.get(i), "en_US", "Wooden Crossbow");
+        }
+        
+        for (i = 0; i < CrossbowModCore.stoneCrossbowsList.size(); i++)
+        {
+            LanguageRegistry.instance().addNameForObject(CrossbowModCore.stoneCrossbowsList.get(i), "en_US", "Stone Crossbow");
+        }
+        
+        for (i = 0; i < CrossbowModCore.ironCrossbowsList.size(); i++)
+        {
+            LanguageRegistry.instance().addNameForObject(CrossbowModCore.ironCrossbowsList.get(i), "en_US", "Iron Crossbow");
+        }
+        
+        for (i = 0; i < CrossbowModCore.goldCrossbowsList.size(); i++)
+        {
+            LanguageRegistry.instance().addNameForObject(CrossbowModCore.goldCrossbowsList.get(i), "en_US", "Gold Crossbow");
+        }
+        
+        for (i = 0; i < CrossbowModCore.diamondCrossbowsList.size(); i++)
+        {
+            LanguageRegistry.instance().addNameForObject(CrossbowModCore.diamondCrossbowsList.get(i), "en_US", "Diamond Crossbow");
+        }
 
         LanguageRegistry.instance().addNameForObject(woodBolt, "en_US", "Wood Bolt");
         LanguageRegistry.instance().addNameForObject(stoneBolt, "en_US", "Stone Bolt");

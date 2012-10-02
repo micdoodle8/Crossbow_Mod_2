@@ -16,6 +16,7 @@ public class ItemStoneCrossbow extends ItemCrossbow
     public ItemStoneCrossbow(int par1)
     {
         super(par1);
+        CrossbowModCore.stoneCrossbowsList.add(this);
     }
     
     @Override

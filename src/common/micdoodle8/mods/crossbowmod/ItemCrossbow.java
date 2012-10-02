@@ -38,6 +38,7 @@ public class ItemCrossbow extends Item
 		setMaxDamage(getCrossbowMaxDamage());
 		this.isBoltLoaded = false;
         this.setCreativeTab(CreativeTabs.tabCombat);
+        CrossbowModCore.crossbowsList.add(this);
 	}
 
 	@Override

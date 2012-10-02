@@ -16,6 +16,7 @@ public class ItemWoodCrossbow extends ItemCrossbow
     public ItemWoodCrossbow(int par1)
     {
         super(par1);
+        CrossbowModCore.woodenCrossbowsList.add(this);
     }
     
     @Override

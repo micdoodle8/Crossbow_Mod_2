@@ -1,7 +1,7 @@
 package micdoodle8.mods.crossbowmod;
 
-import java.io.ByteArrayInputStream;
-import java.io.DataInputStream;
+import java.util.ArrayList;
+import java.util.List;
 
 import net.minecraft.src.EntityPlayer;
 import net.minecraft.src.NetworkManager;
@@ -18,7 +18,6 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.IGuiHandler;
 import cpw.mods.fml.common.network.IPacketHandler;
 import cpw.mods.fml.common.network.NetworkMod;
-import cpw.mods.fml.common.network.NetworkMod.SidedPacketHandler;
 import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.network.Player;
 import cpw.mods.fml.common.registry.EntityRegistry;
@@ -37,6 +36,13 @@ public class CrossbowModCore
 	public static long firstBootTime = System.currentTimeMillis();
 	
 	private static long hasBooted;
+	
+	public static List crossbowsList = new ArrayList();
+	public static List woodenCrossbowsList = new ArrayList();
+	public static List stoneCrossbowsList = new ArrayList();
+	public static List ironCrossbowsList = new ArrayList();
+	public static List goldCrossbowsList = new ArrayList();
+	public static List diamondCrossbowsList = new ArrayList();
 	
 	@PreInit
 	public void preInit(FMLPreInitializationEvent event)
@@ -68,6 +74,8 @@ public class CrossbowModCore
 		Util.addRecipes();
 		
 		proxy.registerRenderInformation();
+		
+		FMLLog.info("" + crossbowsList.size());
 	}
 	
 	public class GuiHandler implements IGuiHandler
