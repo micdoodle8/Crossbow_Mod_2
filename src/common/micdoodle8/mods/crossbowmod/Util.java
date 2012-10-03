@@ -162,19 +162,19 @@ public class Util
 			"AY ", 
 			"YZY",
 			" YA",
-			Character.valueOf('Y'), Item.ingotIron, Character.valueOf('A'), Item.diamond, Character.valueOf('Z'), Block.tnt
+			Character.valueOf('Y'), Item.ingotIron, Character.valueOf('A'), Item.ingotGold, Character.valueOf('Z'), Block.tnt
 		});
 		GameRegistry.addRecipe(new ItemStack(Items.attachmentFire, 1), new Object[] {
 			"AY ", 
 			"YZY",
 			" YA",
-			Character.valueOf('Y'), Item.ingotIron, Character.valueOf('A'), Item.diamond, Character.valueOf('Z'), Item.flintAndSteel
+			Character.valueOf('Y'), Item.ingotIron, Character.valueOf('A'), Item.ingotGold, Character.valueOf('Z'), Item.flintAndSteel
 		});
 		GameRegistry.addRecipe(new ItemStack(Items.attachmentLava, 1), new Object[] {
 			"AY ", 
 			"YZY",
 			" YA",
-			Character.valueOf('Y'), Item.ingotIron, Character.valueOf('A'), Item.diamond, Character.valueOf('Z'), Item.bucketLava
+			Character.valueOf('Y'), Item.ingotIron, Character.valueOf('A'), Item.ingotGold, Character.valueOf('Z'), Item.bucketLava
 		});
 		GameRegistry.addRecipe(new ItemStack(Items.woodLimb, 3), new Object[] {
 			"XY", 
@@ -231,10 +231,10 @@ public class Util
 			Character.valueOf('X'), Item.ingotIron, Character.valueOf('Y'), Item.stick, Character.valueOf('Z'), Item.redstone, Character.valueOf('B'), Items.mechanismLightAuto
 		});
 		GameRegistry.addRecipe(new ItemStack(Items.mechanismHeavyAuto, 1), new Object[] {
-			"XXX", 
-			"XBZ",
-			"XZY",
-			Character.valueOf('X'), Item.diamond, Character.valueOf('Y'), Item.stick, Character.valueOf('Z'), Item.redstone, Character.valueOf('B'), Items.mechanismMediumAuto
+			"XAA", 
+			"ABZ",
+			"AZY",
+			Character.valueOf('X'), Item.diamond, Character.valueOf('A'), Item.ingotIron, Character.valueOf('Y'), Item.stick, Character.valueOf('Z'), Item.redstone, Character.valueOf('B'), Items.mechanismMediumAuto
 		});
 		GameRegistry.addRecipe(new ItemStack(Items.attachmentShortScope, 1), new Object[] {
 			"ZX ", 

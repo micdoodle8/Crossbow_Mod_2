@@ -414,16 +414,6 @@ public class ItemCrossbow extends Item
     	}
     }
 
-    public ItemStack onFoodEaten(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer)
-    {
-        return par1ItemStack;
-    }
-
-    public int getMaxItemUseDuration(ItemStack par1ItemStack)
-    {
-        return 72000;
-    }
-
     public ItemStack onItemRightClick(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer)
     {
         if (par3EntityPlayer.capabilities.isCreativeMode || par3EntityPlayer.inventory.hasItem(requiredItem(par3EntityPlayer).shiftedIndex))
