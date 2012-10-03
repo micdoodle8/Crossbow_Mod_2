@@ -110,19 +110,7 @@ public class ClientProxy extends CommonProxy
 		@Override
 		public void tickStart(EnumSet<TickType> type, Object... tickData) 
 		{
-			Minecraft client = FMLClientHandler.instance().getClient();
 			
-			EntityPlayer player = client.thePlayer;
-			
-			if (client != null && player != null)
-			{
-				if (player.inventory.getCurrentItem() != null && player.inventory.getCurrentItem().getItem() instanceof ItemCrossbow)
-				{
-					ItemCrossbow crossbow = (ItemCrossbow) player.inventory.getCurrentItem().getItem();
-					
-					crossbow.sendMouseHeldPacket(ModLoader.getMinecraftInstance().gameSettings.keyBindUseItem.pressed);
-				}
-			}
 		}
 
 		@Override

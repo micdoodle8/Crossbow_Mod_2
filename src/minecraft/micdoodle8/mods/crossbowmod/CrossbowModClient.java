@@ -33,6 +33,8 @@ public class CrossbowModClient
 	private Minecraft mcinstance = ModLoader.getMinecraftInstance();
 
     private static DecimalFormat oneDigit = new DecimalFormat("#,##0.0");
+    
+    public static int shootTime = 0;
 	
 	public static void preInit(FMLPreInitializationEvent event)
 	{
@@ -201,7 +203,10 @@ public class CrossbowModClient
 
     public static void onTickInGame()
     {
-		
+		if (shootTime > 0)
+		{
+			shootTime--;
+		}
     }
 
 	public static void registerRenderInformation()
