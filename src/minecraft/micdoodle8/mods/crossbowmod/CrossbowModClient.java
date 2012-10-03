@@ -201,7 +201,7 @@ public class CrossbowModClient
 
     public static void onTickInGame()
     {
-
+		
     }
 
 	public static void registerRenderInformation()
