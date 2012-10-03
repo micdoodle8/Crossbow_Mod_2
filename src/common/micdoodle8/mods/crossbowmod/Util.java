@@ -158,24 +158,6 @@ public class Util
     
 	public static void addRecipes() 
 	{
-		GameRegistry.addRecipe(new ItemStack(Items.attachmentExplosive, 1), new Object[] {
-			"AY ", 
-			"YZY",
-			" YA",
-			Character.valueOf('Y'), Item.ingotIron, Character.valueOf('A'), Item.ingotGold, Character.valueOf('Z'), Block.tnt
-		});
-		GameRegistry.addRecipe(new ItemStack(Items.attachmentFire, 1), new Object[] {
-			"AY ", 
-			"YZY",
-			" YA",
-			Character.valueOf('Y'), Item.ingotIron, Character.valueOf('A'), Item.ingotGold, Character.valueOf('Z'), Item.flintAndSteel
-		});
-		GameRegistry.addRecipe(new ItemStack(Items.attachmentLava, 1), new Object[] {
-			"AY ", 
-			"YZY",
-			" YA",
-			Character.valueOf('Y'), Item.ingotIron, Character.valueOf('A'), Item.ingotGold, Character.valueOf('Z'), Item.bucketLava
-		});
 		GameRegistry.addRecipe(new ItemStack(Items.woodLimb, 3), new Object[] {
 			"XY", 
 			"XY",
