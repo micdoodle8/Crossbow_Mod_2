@@ -9,7 +9,6 @@ import cpw.mods.fml.common.asm.SideOnly;
 
 import net.minecraft.src.*;
 
-
 public abstract class EntityBolt extends Entity
 {
     public float speed;
@@ -43,11 +42,6 @@ public abstract class EntityBolt extends Entity
     public EntityBolt(World world)
     {
         super(world);
-    }
-    
-    public void bounceBack()
-    {
-    	
     }
 
     public EntityBolt(World world, double d, double d1, double d2)
@@ -143,15 +137,9 @@ public abstract class EntityBolt extends Entity
         this.setRotation(par7, par8);
     }
     
-    public float getSpeed()
-    {
-    	return 1.0F;
-    }
+    public abstract float getSpeed();
     
-    public int getDamage()
-    {
-    	return 3;
-    }
+    public abstract int getDamage();
 
     @Override
     public void onUpdate()
@@ -232,45 +220,48 @@ public abstract class EntityBolt extends Entity
         {
             movingobjectposition = new MovingObjectPosition(entity);
         }
-        if(movingobjectposition != null && (entity != shooter || ticksFlying > 2) && (!worldObj.isRemote && onHit()))
+        if(movingobjectposition != null && (entity != shooter || ticksFlying > 2) && (onHit()))
         {
             Entity entity1 = movingobjectposition.entityHit;
-            if(entity1 != null || worldObj.isRemote)
+            if(entity1 != null)
             {
-                if(onHitTarget(entity1) && hasTorchAttachment == false)
-                {
-                    if((entity1 instanceof EntityLiving) && !(entity1 instanceof EntityPlayer))
+            	if (!worldObj.isRemote)
+            	{
+                    if(onHitTarget(entity1) && hasTorchAttachment == false)
                     {
-                        ++((EntityLiving)entity1).arrowHitTempCounter;
+                        if((entity1 instanceof EntityLiving) && !(entity1 instanceof EntityPlayer))
+                        {
+                            ++((EntityLiving)entity1).arrowHitTempCounter;
+                        }
+                        
+                        entity1.attackEntityFrom(DamageSource.causePlayerDamage((EntityPlayer)shooter), this.arrowCritical ? dmg * 2 : dmg);
+                        setDead();
                     }
-                    
-                    entity1.attackEntityFrom(DamageSource.causePlayerDamage((EntityPlayer)shooter), this.arrowCritical ? dmg * 2 : dmg);
-                    setDead();
-                }
+            	}
             }
             else
             {
-                xTile = movingobjectposition.blockX;
+            	xTile = movingobjectposition.blockX;
                 yTile = movingobjectposition.blockY;
                 zTile = movingobjectposition.blockZ;
                 inTile = worldObj.getBlockId(xTile, yTile, zTile);
                 inData = worldObj.getBlockMetadata(xTile, yTile, zTile);
-                if(onHitBlock(movingobjectposition))
+                Block block = Block.blocksList[inTile];
+                if (block != null && !(block instanceof BlockFlower))
                 {
-                    motionX = (float)(movingobjectposition.hitVec.xCoord - posX);
-                    motionY = (float)(movingobjectposition.hitVec.yCoord - posY);
-                    motionZ = (float)(movingobjectposition.hitVec.zCoord - posZ);
-                    float f2 = MathHelper.sqrt_double(motionX * motionX + motionY * motionY + motionZ * motionZ);
-                    posX -= (motionX / (double)f2) * 0.05000000074505806D;
-                    posY -= (motionY / (double)f2) * 0.05000000074505806D;
-                    posZ -= (motionZ / (double)f2) * 0.05000000074505806D;
-                    inGround = true;
-                    arrowShake = 7;
-                    this.arrowCritical = false;
-                } else
-                {
-                    inTile = 0;
-                    inData = 0;
+                    if(onHitBlock(movingobjectposition))
+                    {
+                        motionX = (float)(movingobjectposition.hitVec.xCoord - posX);
+                        motionY = (float)(movingobjectposition.hitVec.yCoord - posY);
+                        motionZ = (float)(movingobjectposition.hitVec.zCoord - posZ);
+                        float f2 = MathHelper.sqrt_double(motionX * motionX + motionY * motionY + motionZ * motionZ);
+                        posX -= (motionX / (double)f2) * 0.05000000074505806D;
+                        posY -= (motionY / (double)f2) * 0.05000000074505806D;
+                        posZ -= (motionZ / (double)f2) * 0.05000000074505806D;
+                        inGround = true;
+                        arrowShake = 7;
+                        this.arrowCritical = false;
+                    }
                 }
             }
         }
@@ -302,10 +293,12 @@ public abstract class EntityBolt extends Entity
             }
         }
         
-        posX += motionX;
-        posY += motionY;
-        posZ += motionZ;
-        handleMotionUpdate();
+        FMLLog.info("" + this.inGround);
+
+            posX += motionX;
+            posZ += motionZ;
+            posY += motionY;
+            handleMotionUpdate();
         float f1 = MathHelper.sqrt_double(motionX * motionX + motionZ * motionZ);
         rotationYaw = (float)((Math.atan2(motionX, motionZ) * 180D) / 3.1415927410125732D);
         for(rotationPitch = (float)((Math.atan2(motionY, f1) * 180D) / 3.1415927410125732D); rotationPitch - prevRotationPitch < -180F; prevRotationPitch -= 360F) { }
@@ -319,21 +312,21 @@ public abstract class EntityBolt extends Entity
 
     public void handleMotionUpdate()
     {
-        float f = slowdown;
-        if(handleWaterMovement())
-        {
-            for(int i = 0; i < 4; i++)
+            float f = slowdown;
+            if(handleWaterMovement())
             {
-                float f1 = 0.25F;
-                worldObj.spawnParticle("bubble", posX - motionX * (double)f1, posY - motionY * (double)f1, posZ - motionZ * (double)f1, motionX, motionY, motionZ);
-            }
+                for(int i = 0; i < 4; i++)
+                {
+                    float f1 = 0.25F;
+                    worldObj.spawnParticle("bubble", posX - motionX * (double)f1, posY - motionY * (double)f1, posZ - motionZ * (double)f1, motionX, motionY, motionZ);
+                }
 
-            f *= 0.8F;
-        }
-        motionX *= f;
-        motionY *= f;
-        motionZ *= f;
-        motionY -= curvature;
+                f *= 0.8F;
+            }
+            motionX *= f;
+            motionY *= f;
+            motionZ *= f;
+            motionY -= curvature;
     }
 
     @Override

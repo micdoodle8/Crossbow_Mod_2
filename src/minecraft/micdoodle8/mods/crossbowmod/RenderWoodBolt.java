@@ -26,54 +26,54 @@ public class RenderWoodBolt extends Render
         GL11.glTranslatef((float)d, (float)d1, (float)d2);
         GL11.glRotatef(entitywoodbolt.prevRotationYaw + (entitywoodbolt.rotationYaw - entitywoodbolt.prevRotationYaw) * f1 - 90.0F, 0.0F, 1.0F, 0.0F);
         GL11.glRotatef(entitywoodbolt.prevRotationPitch + (entitywoodbolt.rotationPitch - entitywoodbolt.prevRotationPitch) * f1, 0.0F, 0.0F, 1.0F);
-        Tessellator tessellator = Tessellator.instance;
-        int i = 0;
-        float f2 = 0.0F;
-        float f3 = 0.5F;
-        float f4 = (0 + i * 10) / 32F;
-        float f5 = (5 + i * 10) / 32F;
-        float f6 = 0.0F;
-        float f7 = 0.15625F;
-        float f8 = (5 + i * 10) / 32F;
-        float f9 = (10 + i * 10) / 32F;
-        float f10 = 0.05625F;
+        Tessellator var10 = Tessellator.instance;
+        byte var11 = 0;
+        float var12 = 0.0F;
+        float var13 = 0.5F;
+        float var14 = (float)(0 + var11 * 10) / 32.0F;
+        float var15 = (float)(5 + var11 * 10) / 32.0F;
+        float var16 = 0.0F;
+        float var17 = 0.15625F;
+        float var18 = (float)(5 + var11 * 10) / 32.0F;
+        float var19 = (float)(10 + var11 * 10) / 32.0F;
+        float var20 = 0.05625F;
         GL11.glEnable(GL12.GL_RESCALE_NORMAL);
-        float f11 = entitywoodbolt.arrowShake - f1;
+        float var21 = (float)entitywoodbolt.arrowShake - f1;
 
-        if (f11 > 0.0F)
+        if (var21 > 0.0F)
         {
-            float f12 = -MathHelper.sin(f11 * 3F) * f11;
-            GL11.glRotatef(f12, 0.0F, 0.0F, 1.0F);
+            float var22 = -MathHelper.sin(var21 * 3.0F) * var21;
+            GL11.glRotatef(var22, 0.0F, 0.0F, 1.0F);
         }
 
-        GL11.glRotatef(45F, 1.0F, 0.0F, 0.0F);
-        GL11.glScalef(f10, f10, f10);
-        GL11.glTranslatef(-4F, 0.0F, 0.0F);
-        GL11.glNormal3f(f10, 0.0F, 0.0F);
-        tessellator.startDrawingQuads();
-        tessellator.addVertexWithUV(-4D, -2D, -2D, f6, f8);
-        tessellator.addVertexWithUV(-4D, -2D, 2D, f7, f8);
-        tessellator.addVertexWithUV(-4D, 2D, 2D, f7, f9);
-        tessellator.addVertexWithUV(-4D, 2D, -2D, f6, f9);
-        tessellator.draw();
-        GL11.glNormal3f(-f10, 0.0F, 0.0F);
-        tessellator.startDrawingQuads();
-        tessellator.addVertexWithUV(-4D, 2D, -2D, f6, f8);
-        tessellator.addVertexWithUV(-4D, 2D, 2D, f7, f8);
-        tessellator.addVertexWithUV(-4D, -2D, 2D, f7, f9);
-        tessellator.addVertexWithUV(-4D, -2D, -2D, f6, f9);
-        tessellator.draw();
+        GL11.glRotatef(45.0F, 1.0F, 0.0F, 0.0F);
+        GL11.glScalef(var20, var20, var20);
+        GL11.glTranslatef(-4.0F, 0.0F, 0.0F);
+        GL11.glNormal3f(var20, 0.0F, 0.0F);
+        var10.startDrawingQuads();
+        var10.addVertexWithUV(-7.0D, -2.0D, -2.0D, (double)var16, (double)var18);
+        var10.addVertexWithUV(-7.0D, -2.0D, 2.0D, (double)var17, (double)var18);
+        var10.addVertexWithUV(-7.0D, 2.0D, 2.0D, (double)var17, (double)var19);
+        var10.addVertexWithUV(-7.0D, 2.0D, -2.0D, (double)var16, (double)var19);
+        var10.draw();
+        GL11.glNormal3f(-var20, 0.0F, 0.0F);
+        var10.startDrawingQuads();
+        var10.addVertexWithUV(-7.0D, 2.0D, -2.0D, (double)var16, (double)var18);
+        var10.addVertexWithUV(-7.0D, 2.0D, 2.0D, (double)var17, (double)var18);
+        var10.addVertexWithUV(-7.0D, -2.0D, 2.0D, (double)var17, (double)var19);
+        var10.addVertexWithUV(-7.0D, -2.0D, -2.0D, (double)var16, (double)var19);
+        var10.draw();
 
-        for (int j = 0; j < 4; j++)
+        for (int var23 = 0; var23 < 4; ++var23)
         {
-            GL11.glRotatef(90F, 1.0F, 0.0F, 0.0F);
-            GL11.glNormal3f(0.0F, 0.0F, f10);
-            tessellator.startDrawingQuads();
-            tessellator.addVertexWithUV(-5D, -2D, 0.0D, f2, f4);
-            tessellator.addVertexWithUV(5D, -2D, 0.0D, f3, f4);
-            tessellator.addVertexWithUV(5D, 2D, 0.0D, f3, f5);
-            tessellator.addVertexWithUV(-5D, 2D, 0.0D, f2, f5);
-            tessellator.draw();
+            GL11.glRotatef(90.0F, 1.0F, 0.0F, 0.0F);
+            GL11.glNormal3f(0.0F, 0.0F, var20);
+            var10.startDrawingQuads();
+            var10.addVertexWithUV(-8.0D, -2.0D, 0.0D, (double)var12, (double)var14);
+            var10.addVertexWithUV(8.0D, -2.0D, 0.0D, (double)var13, (double)var14);
+            var10.addVertexWithUV(8.0D, 2.0D, 0.0D, (double)var13, (double)var15);
+            var10.addVertexWithUV(-8.0D, 2.0D, 0.0D, (double)var12, (double)var15);
+            var10.draw();
         }
 
         GL11.glDisable(GL12.GL_RESCALE_NORMAL);
