@@ -21,6 +21,7 @@ import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.Side;
 import cpw.mods.fml.common.asm.SideOnly;
 import cpw.mods.fml.common.network.PacketDispatcher;
+import cpw.mods.fml.common.registry.LanguageRegistry;
 
 public class ItemCrossbow extends Item
 {
@@ -334,69 +335,69 @@ public class ItemCrossbow extends Item
     @SideOnly(Side.CLIENT)
     public EnumRarity getRarity(ItemStack par1ItemStack)
     {
-        return EnumRarity.rare;
+        return EnumRarity.epic;
     }
     
     public void addInformation(ItemStack var1, List var2)
     {
     	if (Util.hasBasicScope(var1))
     	{
-            var2.add("Basic Scope");
+            var2.add(LanguageRegistry.instance().getStringLocalization(Items.attachmentShortScope.getItemName() + ".name"));
     	}
 
     	if (Util.hasLongRangeScope(var1))
     	{
-            var2.add("Long-Range Scope");
+            var2.add(LanguageRegistry.instance().getStringLocalization(Items.attachmentShortScope.getItemName() + ".name"));
     	}
 
     	if (Util.hasLightMech(var1))
     	{
-            var2.add("Light Mechanism");
+            var2.add(LanguageRegistry.instance().getStringLocalization(Items.mechanismLightAuto.getItemName() + ".name"));
     	}
 
     	if (Util.hasMediumMech(var1))
     	{
-            var2.add("Medium Mechanism");
+            var2.add(LanguageRegistry.instance().getStringLocalization(Items.mechanismMediumAuto.getItemName() + ".name"));
     	}
 
     	if (Util.hasHeavyMech(var1))
     	{
-            var2.add("Heavy Mechanism");
+            var2.add(LanguageRegistry.instance().getStringLocalization(Items.mechanismHeavyAuto.getItemName() + ".name"));
     	}
 
     	if (Util.hasExplosiveAttachment(var1))
     	{
-    		var2.add("Explosive Attachment");
+            var2.add(LanguageRegistry.instance().getStringLocalization(Items.attachmentExplosive.getItemName() + ".name"));
     	}
 
     	if (Util.hasFlameAttachment(var1))
     	{
-    		var2.add("Flame Attachment");
+            var2.add(LanguageRegistry.instance().getStringLocalization(Items.attachmentFire.getItemName() + ".name"));
     	}
 
     	if (Util.hasLavaAttachment(var1))
     	{
-    		var2.add("Lava Attachment");
+            var2.add(LanguageRegistry.instance().getStringLocalization(Items.attachmentLava.getItemName() + ".name"));
     	}
 
     	if (Util.hasIceAttachment(var1))
     	{
-    		var2.add("Frost Attachment");
+            var2.add(LanguageRegistry.instance().getStringLocalization(Items.attachmentIce.getItemName() + ".name"));
     	}
     	
     	if (Util.hasLightningAttachment(var1))
     	{
-    		var2.add("Lightning Attachment");
+            var2.add(LanguageRegistry.instance().getStringLocalization(Items.attachmentLightning.getItemName() + ".name"));
     	}
     	
     	if (Util.hasTorchAttachment(var1))
     	{
-    		var2.add("Torch Attachment");
+            var2.add(LanguageRegistry.instance().getStringLocalization(Items.attachmentTorch.getItemName() + ".name"));
     	}
     	
     	if (Util.hasPoisonAttachment(var1))
     	{
-    		var2.add("Poison Attachment");
+            var2.add(LanguageRegistry.instance().getStringLocalization(Items.attachmentPoison.getItemName() + ".name"));
     	}
     }
 
