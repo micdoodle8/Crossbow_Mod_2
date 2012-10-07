@@ -34,6 +34,8 @@ public class CrossbowModCore
 	@Instance
 	public static CrossbowModCore instance;
 	
+	public static CrossbowModLocalization lang;
+	
 	public static long firstBootTime = System.currentTimeMillis();
 	
 	private static long hasBooted;
@@ -71,11 +73,15 @@ public class CrossbowModCore
 		
 		GameRegistry.registerBlock(Items.crossbowBench);
 		
+		this.lang = new CrossbowModLocalization("Mic'sMods/CrossbowMod");
+		
 		Items.addNames();
 		
 		Util.addRecipes();
 		
 		proxy.registerRenderInformation();
+		
+		FMLLog.info(lang.get("item.woodenCrossbow.name"));
 	}
 	
 	public class GuiHandler implements IGuiHandler
