@@ -233,62 +233,62 @@ public abstract class ItemCrossbow extends Item
     {
     	if (Util.hasBasicScope(var1))
     	{
-            var2.add(LanguageRegistry.instance().getStringLocalization(Items.attachmentShortScope.getItemName() + ".name"));
+            var2.add(CrossbowModCore.lang.get(Items.attachmentShortScope.getItemName() + ".name"));
     	}
 
     	if (Util.hasLongRangeScope(var1))
     	{
-            var2.add(LanguageRegistry.instance().getStringLocalization(Items.attachmentShortScope.getItemName() + ".name"));
+            var2.add(CrossbowModCore.lang.get(Items.attachmentShortScope.getItemName() + ".name"));
     	}
 
     	if (Util.hasLightMech(var1))
     	{
-            var2.add(LanguageRegistry.instance().getStringLocalization(Items.mechanismLightAuto.getItemName() + ".name"));
+            var2.add(CrossbowModCore.lang.get(Items.mechanismLightAuto.getItemName() + ".name"));
     	}
 
     	if (Util.hasMediumMech(var1))
     	{
-            var2.add(LanguageRegistry.instance().getStringLocalization(Items.mechanismMediumAuto.getItemName() + ".name"));
+            var2.add(CrossbowModCore.lang.get(Items.mechanismMediumAuto.getItemName() + ".name"));
     	}
 
     	if (Util.hasHeavyMech(var1))
     	{
-            var2.add(LanguageRegistry.instance().getStringLocalization(Items.mechanismHeavyAuto.getItemName() + ".name"));
+            var2.add(CrossbowModCore.lang.get(Items.mechanismHeavyAuto.getItemName() + ".name"));
     	}
 
     	if (Util.hasExplosiveAttachment(var1))
     	{
-            var2.add(LanguageRegistry.instance().getStringLocalization(Items.attachmentExplosive.getItemName() + ".name"));
+            var2.add(CrossbowModCore.lang.get(Items.attachmentExplosive.getItemName() + ".name"));
     	}
 
     	if (Util.hasFlameAttachment(var1))
     	{
-            var2.add(LanguageRegistry.instance().getStringLocalization(Items.attachmentFire.getItemName() + ".name"));
+            var2.add(CrossbowModCore.lang.get(Items.attachmentFire.getItemName() + ".name"));
     	}
 
     	if (Util.hasLavaAttachment(var1))
     	{
-            var2.add(LanguageRegistry.instance().getStringLocalization(Items.attachmentLava.getItemName() + ".name"));
+            var2.add(CrossbowModCore.lang.get(Items.attachmentLava.getItemName() + ".name"));
     	}
 
     	if (Util.hasIceAttachment(var1))
     	{
-            var2.add(LanguageRegistry.instance().getStringLocalization(Items.attachmentIce.getItemName() + ".name"));
+            var2.add(CrossbowModCore.lang.get(Items.attachmentIce.getItemName() + ".name"));
     	}
     	
     	if (Util.hasLightningAttachment(var1))
     	{
-            var2.add(LanguageRegistry.instance().getStringLocalization(Items.attachmentLightning.getItemName() + ".name"));
+            var2.add(CrossbowModCore.lang.get(Items.attachmentLightning.getItemName() + ".name"));
     	}
     	
     	if (Util.hasTorchAttachment(var1))
     	{
-            var2.add(LanguageRegistry.instance().getStringLocalization(Items.attachmentTorch.getItemName() + ".name"));
+            var2.add(CrossbowModCore.lang.get(Items.attachmentTorch.getItemName() + ".name"));
     	}
     	
     	if (Util.hasPoisonAttachment(var1))
     	{
-            var2.add(LanguageRegistry.instance().getStringLocalization(Items.attachmentPoison.getItemName() + ".name"));
+            var2.add(CrossbowModCore.lang.get(Items.attachmentPoison.getItemName() + ".name"));
     	}
     }
 

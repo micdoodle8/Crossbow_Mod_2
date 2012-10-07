@@ -242,7 +242,7 @@ public class Items
 	
 	public Items()
 	{
-		crossbowBench = new BlockCrossbowBench(ConfigManager.idBlockCrossbowBench).setHardness(2.5F).setStepSound(Block.soundWoodFootstep).setBlockName("blockBlockCrossbowBench");
+		crossbowBench = new BlockCrossbowBench(ConfigManager.idBlockCrossbowBench).setHardness(2.5F).setStepSound(Block.soundWoodFootstep).setBlockName("crossbowBench");
 
 	    woodenCrossbowBase = (ItemWoodCrossbow) new ItemWoodCrossbow(ConfigManager.idItemWoodCrossbowBase - 256).setIconIndex(0).setItemName("woodenCrossbow").setMaxStackSize(1);
 		woodenCrossbowWithBasicScope = (ItemWoodCrossbow) new ItemWoodCrossbow(ConfigManager.idItemWoodCrossbowWithBasicScope - 256).setIconIndex(1).setItemName("woodenCrossbow").setMaxStackSize(1);
@@ -449,22 +449,22 @@ public class Items
 		diamondCrossbowWithPoisonAttachmentAndMediumMech = (ItemDiamondCrossbow) new ItemDiamondCrossbow(ConfigManager.idItemDiamondCrossbowWithPoisonAttachmentAndMediumMech - 256).setIconIndex(6 + 64 + 32).setItemName("diamondCrossbow").setMaxStackSize(1);
 		diamondCrossbowWithPoisonAttachmentAndHeavyMech = (ItemDiamondCrossbow) new ItemDiamondCrossbow(ConfigManager.idItemDiamondCrossbowWithPoisonAttachmentAndHeavyMech - 256).setIconIndex(7 + 64 + 32).setItemName("diamondCrossbow").setMaxStackSize(1);
 
-		woodBolt = (ItemCBMod) new ItemCBMod(ConfigManager.idItemWoodBolt - 256).setIconIndex(12).setItemName("woodenBolt");
+		woodBolt = (ItemCBMod) new ItemCBMod(ConfigManager.idItemWoodBolt - 256).setIconIndex(12).setItemName("woodBolt");
 		stoneBolt = (ItemCBMod) new ItemCBMod(ConfigManager.idItemStoneBolt - 256).setIconIndex(14).setItemName("stoneBolt");
 		ironBolt = (ItemCBMod) new ItemCBMod(ConfigManager.idItemIronBolt - 256).setIconIndex(16).setItemName("ironBolt");
 		goldBolt = (ItemCBMod) new ItemCBMod(ConfigManager.idItemGoldBolt - 256).setIconIndex(18).setItemName("goldBolt");
 		diamondBolt = (ItemCBMod) new ItemCBMod(ConfigManager.idItemDiamondBolt - 256).setIconIndex(20).setItemName("diamondBolt");
 		
-		woodLimb = (ItemCBMod) new ItemCBMod(ConfigManager.idItemWoodLimb - 256).setIconIndex(13).setItemName("woodenLimb");
+		woodLimb = (ItemCBMod) new ItemCBMod(ConfigManager.idItemWoodLimb - 256).setIconIndex(13).setItemName("woodLimb");
 		stoneLimb = (ItemCBMod) new ItemCBMod(ConfigManager.idItemStoneLimb - 256).setIconIndex(15).setItemName("stoneLimb");
 		ironLimb = (ItemCBMod) new ItemCBMod(ConfigManager.idItemIronLimb - 256).setIconIndex(17).setItemName("ironLimb");
 		goldLimb = (ItemCBMod) new ItemCBMod(ConfigManager.idItemGoldLimb - 256).setIconIndex(19).setItemName("goldLimb");
 		diamondLimb = (ItemCBMod) new ItemCBMod(ConfigManager.idItemDiamondLimb - 256).setIconIndex(21).setItemName("diamondLimb");
 		
-		mechanismSemiAuto = (ItemCBMod) new ItemCBMod(ConfigManager.idItemSemiAutoMechanism - 256).setIconIndex(3).setItemName("semiAutoMechanism");
-		mechanismLightAuto = (ItemCBMod) new ItemCBMod(ConfigManager.idItemLightAutoMechanism - 256).setIconIndex(4).setItemName("lightAutoMechanism");
-		mechanismMediumAuto = (ItemCBMod) new ItemCBMod(ConfigManager.idItemMediumAutoMechanism - 256).setIconIndex(5).setItemName("medAutoMechanism");
-		mechanismHeavyAuto = (ItemCBMod) new ItemCBMod(ConfigManager.idItemHeavyAutoMechanism - 256).setIconIndex(6).setItemName("heavyAutoMechanism");
+		mechanismSemiAuto = (ItemCBMod) new ItemCBMod(ConfigManager.idItemSemiAutoMechanism - 256).setIconIndex(3).setItemName("mechanismSemiAuto");
+		mechanismLightAuto = (ItemCBMod) new ItemCBMod(ConfigManager.idItemLightAutoMechanism - 256).setIconIndex(4).setItemName("mechanismLightAuto");
+		mechanismMediumAuto = (ItemCBMod) new ItemCBMod(ConfigManager.idItemMediumAutoMechanism - 256).setIconIndex(5).setItemName("mechanismMediumAuto");
+		mechanismHeavyAuto = (ItemCBMod) new ItemCBMod(ConfigManager.idItemHeavyAutoMechanism - 256).setIconIndex(6).setItemName("mechanismHeavyAuto");
 		attachmentShortScope = (ItemCBMod) new ItemCBMod(ConfigManager.idItemBasicScope - 256).setIconIndex(7).setItemName("attachmentShortScope");
 		attachmentLongScope = (ItemCBMod) new ItemCBMod(ConfigManager.idItemLongRangeScope - 256).setIconIndex(8).setItemName("attachmentLongScope");
 		attachmentFire = (ItemCBMod) new ItemCBMod(ConfigManager.idItemFlameAttachment - 256).setIconIndex(10).setItemName("attachmentFire");
@@ -478,137 +478,49 @@ public class Items
 	
 	public static void addNames()
 	{
-        int i;
+        addName(woodenCrossbowBase);
+        addName(stoneCrossbowBase);
+        addName(ironCrossbowBase);
+        addName(goldCrossbowBase);
+        addName(diamondCrossbowBase);
+
+        addName(woodBolt);
+        addName(stoneBolt);
+        addName(ironBolt);
+        addName(goldBolt);
+        addName(diamondBolt);
+
+        addName(woodLimb);
+        addName(stoneLimb);
+        addName(ironLimb);
+        addName(goldLimb);
+        addName(diamondLimb);
+
+        addName(mechanismSemiAuto);
+        addName(mechanismLightAuto);
+        addName(mechanismMediumAuto);
+        addName(mechanismHeavyAuto);
+
+        addName(attachmentShortScope);
+        addName(attachmentLongScope);
+        addName(attachmentExplosive);
+        addName(attachmentFire);
+        addName(attachmentLava);
+        addName(attachmentIce);
+        addName(attachmentLightning);
+        addName(attachmentTorch);
+        addName(attachmentPoison);
         
-        for (i = 0; i < CrossbowModCore.woodenCrossbowsList.size(); i++)
-        {
-//            LanguageRegistry.instance().addNameForObject(CrossbowModCore.woodenCrossbowsList.get(i), CrossbowModCore.lang.get("item.woodenCrossbow.name"));
-            LanguageRegistry.instance().addStringLocalization("item.woodenCrossbow.name", CrossbowModCore.lang.get("item.woodenCrossbow.name"));
-//            LanguageRegistry.instance().addNameForObject(CrossbowModCore.woodenCrossbowsList.get(i), "fr_CA", "Arbalète en bois");
-//            LanguageRegistry.instance().addNameForObject(CrossbowModCore.woodenCrossbowsList.get(i), "fr_FR", "Arbalète en bois");
-        }
-        
-        for (i = 0; i < CrossbowModCore.stoneCrossbowsList.size(); i++)
-        {
-            LanguageRegistry.instance().addNameForObject(CrossbowModCore.stoneCrossbowsList.get(i), "en_US", "Stone Crossbow");
-            LanguageRegistry.instance().addNameForObject(CrossbowModCore.stoneCrossbowsList.get(i), "fr_CA", "Arbalète en pierre");
-            LanguageRegistry.instance().addNameForObject(CrossbowModCore.stoneCrossbowsList.get(i), "fr_FR", "Arbalète en pierre");
-        }
-        
-        for (i = 0; i < CrossbowModCore.ironCrossbowsList.size(); i++)
-        {
-            LanguageRegistry.instance().addNameForObject(CrossbowModCore.ironCrossbowsList.get(i), "en_US", "Iron Crossbow");
-            LanguageRegistry.instance().addNameForObject(CrossbowModCore.ironCrossbowsList.get(i), "fr_CA", "Arbalète en fer");
-            LanguageRegistry.instance().addNameForObject(CrossbowModCore.ironCrossbowsList.get(i), "fr_FR", "Arbalète en fer");
-        }
-        
-        for (i = 0; i < CrossbowModCore.goldCrossbowsList.size(); i++)
-        {
-            LanguageRegistry.instance().addNameForObject(CrossbowModCore.goldCrossbowsList.get(i), "en_US", "Gold Crossbow");
-            LanguageRegistry.instance().addNameForObject(CrossbowModCore.goldCrossbowsList.get(i), "fr_CA", "Arbalète en or");
-            LanguageRegistry.instance().addNameForObject(CrossbowModCore.goldCrossbowsList.get(i), "fr_FR", "Arbalète en or");
-        }
-        
-        for (i = 0; i < CrossbowModCore.diamondCrossbowsList.size(); i++)
-        {
-            LanguageRegistry.instance().addNameForObject(CrossbowModCore.diamondCrossbowsList.get(i), "en_US", "Diamond Crossbow");
-            LanguageRegistry.instance().addNameForObject(CrossbowModCore.diamondCrossbowsList.get(i), "fr_CA", "Arbalète en diamant");
-            LanguageRegistry.instance().addNameForObject(CrossbowModCore.diamondCrossbowsList.get(i), "fr_FR", "Arbalète en diamant");
-        }
-
-        // BOLTS:
-        
-        LanguageRegistry.instance().addNameForObject(woodBolt, "en_US", "Wood Bolt");
-        LanguageRegistry.instance().addNameForObject(stoneBolt, "en_US", "Stone Bolt");
-        LanguageRegistry.instance().addNameForObject(ironBolt, "en_US", "Iron Bolt");
-        LanguageRegistry.instance().addNameForObject(goldBolt, "en_US", "Gold Bolt");
-        LanguageRegistry.instance().addNameForObject(diamondBolt, "en_US", "Diamond Bolt");
-
-	        LanguageRegistry.instance().addNameForObject(woodBolt, "fr_CA", "Carreau en bois");
-	        LanguageRegistry.instance().addNameForObject(stoneBolt, "fr_CA", "Carreau en pierre");
-	        LanguageRegistry.instance().addNameForObject(ironBolt, "fr_CA", "Carreau en fer");
-	        LanguageRegistry.instance().addNameForObject(goldBolt, "fr_CA", "Carreau en or");
-	        LanguageRegistry.instance().addNameForObject(diamondBolt, "fr_CA", "Carreau en diamant");
-
-	        LanguageRegistry.instance().addNameForObject(woodBolt, "fr_FR", "Carreau en bois");
-	        LanguageRegistry.instance().addNameForObject(stoneBolt, "fr_FR", "Carreau en pierre");
-	        LanguageRegistry.instance().addNameForObject(ironBolt, "fr_FR", "Carreau en fer");
-	        LanguageRegistry.instance().addNameForObject(goldBolt, "fr_FR", "Carreau en or");
-	        LanguageRegistry.instance().addNameForObject(diamondBolt, "fr_FR", "Carreau en diamant");
-        
-	    // LIMBS:
-	        
-        LanguageRegistry.instance().addNameForObject(woodLimb, "en_US", "Wood Limb");
-        LanguageRegistry.instance().addNameForObject(stoneLimb, "en_US", "Stone Limb");
-        LanguageRegistry.instance().addNameForObject(ironLimb, "en_US", "Iron Limb");
-        LanguageRegistry.instance().addNameForObject(goldLimb, "en_US", "Gold Limb");
-        LanguageRegistry.instance().addNameForObject(diamondLimb, "en_US", "Diamond Limb");
-
-	        LanguageRegistry.instance().addNameForObject(woodLimb, "fr_CA", "Morceau de bois");
-	        LanguageRegistry.instance().addNameForObject(stoneLimb, "fr_CA", "Morceau de pierre");
-	        LanguageRegistry.instance().addNameForObject(ironLimb, "fr_CA", "Morceau de fer");
-	        LanguageRegistry.instance().addNameForObject(goldLimb, "fr_CA", "Morceau d'or");
-	        LanguageRegistry.instance().addNameForObject(diamondLimb, "fr_CA", "Morceau de diamant");
-
-	        LanguageRegistry.instance().addNameForObject(woodLimb, "fr_FR", "Morceau de bois");
-	        LanguageRegistry.instance().addNameForObject(stoneLimb, "fr_FR", "Morceau de pierre");
-	        LanguageRegistry.instance().addNameForObject(ironLimb, "fr_FR", "Morceau de fer");
-	        LanguageRegistry.instance().addNameForObject(goldLimb, "fr_FR", "Morceau d'or");
-	        LanguageRegistry.instance().addNameForObject(diamondLimb, "fr_FR", "Morceau de diamant");
-	        
-	    // MECHANISMS:
-		
-		LanguageRegistry.instance().addNameForObject(mechanismSemiAuto, "en_US", "Basic Crossbow Mechanism");
-		LanguageRegistry.instance().addNameForObject(mechanismLightAuto, "en_US", "Light Automatic Crossbow Mechanism");
-		LanguageRegistry.instance().addNameForObject(mechanismMediumAuto, "en_US", "Medium Automatic Crossbow Mechanism");
-		LanguageRegistry.instance().addNameForObject(mechanismHeavyAuto, "en_US", "Heavy Automatic Crossbow Mechanism");
-
-			LanguageRegistry.instance().addNameForObject(mechanismSemiAuto, "fr_CA", "Mécanisme semi-automatique");
-			LanguageRegistry.instance().addNameForObject(mechanismLightAuto, "fr_CA", "Mécanisme automatique léger");
-			LanguageRegistry.instance().addNameForObject(mechanismMediumAuto, "fr_CA", "Mécanisme automatique moyen");
-			LanguageRegistry.instance().addNameForObject(mechanismHeavyAuto, "fr_CA", "Mécanisme automatique lourd");
-		
-			LanguageRegistry.instance().addNameForObject(mechanismSemiAuto, "fr_FR", "Mécanisme semi-automatique");
-			LanguageRegistry.instance().addNameForObject(mechanismLightAuto, "fr_FR", "Mécanisme automatique léger");
-			LanguageRegistry.instance().addNameForObject(mechanismMediumAuto, "fr_FR", "Mécanisme automatique moyen");
-			LanguageRegistry.instance().addNameForObject(mechanismHeavyAuto, "fr_FR", "Mécanisme automatique lourd");
-		
-		// ATTACHMENTS:
-			
-		LanguageRegistry.instance().addNameForObject(attachmentShortScope, "en_US",  "Basic Crossbow Scope");
-		LanguageRegistry.instance().addNameForObject(attachmentLongScope, "en_US",  "Long-Range Crossbow Scope");
-		LanguageRegistry.instance().addNameForObject(attachmentExplosive, "en_US",  "Explosive Crossbow Attachment");
-		LanguageRegistry.instance().addNameForObject(attachmentFire, "en_US",  "Flame Crossbow Attachment");
-		LanguageRegistry.instance().addNameForObject(attachmentLava, "en_US",  "Lava Crossbow Attachment");
-		LanguageRegistry.instance().addNameForObject(attachmentIce, "en_US",  "Frost Crossbow Attachment");
-		LanguageRegistry.instance().addNameForObject(attachmentLightning, "en_US",  "Lightning Crossbow Attachment");
-		LanguageRegistry.instance().addNameForObject(attachmentTorch, "en_US",  "Torch Crossbow Attachment");
-		LanguageRegistry.instance().addNameForObject(attachmentPoison, "en_US",  "Poison Crossbow Attachment");
-
-			LanguageRegistry.instance().addNameForObject(attachmentShortScope, "fr_CA", "Lunette basique");
-			LanguageRegistry.instance().addNameForObject(attachmentLongScope, "fr_CA", "Lunette de longue portée");
-			LanguageRegistry.instance().addNameForObject(attachmentExplosive, "fr_CA", "Accessoire explosif");
-			LanguageRegistry.instance().addNameForObject(attachmentFire, "fr_CA", "Accessoire feu");
-			LanguageRegistry.instance().addNameForObject(attachmentLava, "fr_CA", "Accessoire lave");
-			LanguageRegistry.instance().addNameForObject(attachmentIce, "fr_CA", "Accessoire glaçiation");
-			LanguageRegistry.instance().addNameForObject(attachmentLightning, "fr_CA", "Accessoire éclair");
-			LanguageRegistry.instance().addNameForObject(attachmentTorch, "fr_CA", "Accessoire torche");
-			LanguageRegistry.instance().addNameForObject(attachmentPoison, "fr_CA", "Accessoire poison");
-		
-			LanguageRegistry.instance().addNameForObject(attachmentShortScope, "fr_FR", "Lunette basique");
-			LanguageRegistry.instance().addNameForObject(attachmentLongScope, "fr_FR", "Lunette de longue portée");
-			LanguageRegistry.instance().addNameForObject(attachmentExplosive, "fr_FR", "Accessoire explosif");
-			LanguageRegistry.instance().addNameForObject(attachmentFire, "fr_FR", "Accessoire feu");
-			LanguageRegistry.instance().addNameForObject(attachmentLava, "fr_FR", "Accessoire lave");
-			LanguageRegistry.instance().addNameForObject(attachmentIce, "fr_FR", "Accessoire glaçiation");
-			LanguageRegistry.instance().addNameForObject(attachmentLightning, "fr_FR", "Accessoire éclair");
-			LanguageRegistry.instance().addNameForObject(attachmentTorch, "fr_FR", "Accessoire torche");
-			LanguageRegistry.instance().addNameForObject(attachmentPoison, "fr_FR", "Accessoire poison");
-		
-		LanguageRegistry.instance().addNameForObject(crossbowBench, "en_US", "Crossbow Crafting Bench");
-
-			LanguageRegistry.instance().addNameForObject(crossbowBench, "fr_CA", "Établi pour arbalètes");
-
-			LanguageRegistry.instance().addNameForObject(crossbowBench, "fr_FR", "Établi pour arbalètes");
+        addName(crossbowBench);
+	}
+	
+	private static void addName(Item item)
+	{
+        LanguageRegistry.instance().addStringLocalization(item.getItemName() + ".name", CrossbowModCore.lang.get(item.getItemName() + ".name"));
+	}
+	
+	private static void addName(Block block)
+	{
+        LanguageRegistry.instance().addStringLocalization(block.getBlockName() + ".name", CrossbowModCore.lang.get(block.getBlockName() + ".name"));
 	}
 }
