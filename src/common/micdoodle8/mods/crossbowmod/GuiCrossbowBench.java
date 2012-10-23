@@ -11,7 +11,7 @@ public class GuiCrossbowBench extends GuiContainer
     }
 
     @Override
-    protected void drawGuiContainerForegroundLayer()
+    protected void drawGuiContainerForegroundLayer(int par1, int par2)
     {
         this.fontRenderer.drawString("Crossbow Workbench", 10, -13, 4210752);
         this.fontRenderer.drawString(StatCollector.translateToLocal("container.inventory"), 8, 202 - 113 + 2, 4210752);

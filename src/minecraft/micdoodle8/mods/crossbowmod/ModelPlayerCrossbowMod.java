@@ -1,5 +1,6 @@
 package micdoodle8.mods.crossbowmod;
 
+import net.minecraft.src.Entity;
 import net.minecraft.src.ItemStack;
 import net.minecraft.src.MathHelper;
 import net.minecraft.src.ModLoader;
