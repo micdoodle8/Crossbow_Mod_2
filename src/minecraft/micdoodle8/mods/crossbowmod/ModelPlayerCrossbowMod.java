@@ -3,8 +3,6 @@ package micdoodle8.mods.crossbowmod;
 import net.minecraft.src.ItemStack;
 import net.minecraft.src.MathHelper;
 import net.minecraft.src.ModLoader;
-import net.minecraft.src.ModelPlayerAPI;
-import net.minecraft.src.ModelPlayerBase;
 
 public class ModelPlayerCrossbowMod extends ModelPlayerBase
 {
@@ -17,7 +15,7 @@ public class ModelPlayerCrossbowMod extends ModelPlayerBase
 	}
 	
 	@Override
-	public void setRotationAngles(float var1, float var2, float var3, float var4, float var5, float var6)
+	public void setRotationAngles(float var1, float var2, float var3, float var4, float var5, float var6, Entity entity)
     {
 		super.setRotationAngles(var1, var2, var3, var4, var5, var6);
 		
@@ -90,6 +88,5 @@ public class ModelPlayerCrossbowMod extends ModelPlayerBase
         {
             modelPlayer.bipedLeftArm.rotateAngleX += -(0.5);
         }
-
     }
 }

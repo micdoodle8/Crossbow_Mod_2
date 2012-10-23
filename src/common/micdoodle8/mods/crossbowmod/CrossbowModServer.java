@@ -5,16 +5,15 @@ import java.io.DataInputStream;
 
 import net.minecraft.src.EntityPlayer;
 import net.minecraft.src.EntityPlayerMP;
+import net.minecraft.src.INetworkManager;
 import net.minecraft.src.ItemStack;
-import net.minecraft.src.NetworkManager;
 import net.minecraft.src.Packet250CustomPayload;
 import net.minecraft.src.World;
-import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.network.Player;
 
 public class CrossbowModServer
 {
-	public static void onPacketData(NetworkManager networkmanager, Packet250CustomPayload packet, Player p)
+	public static void onPacketData(INetworkManager networkmanager, Packet250CustomPayload packet, Player p)
     {
 		DataInputStream data = new DataInputStream(new ByteArrayInputStream(packet.data));
         int packetID = Util.readPacketID(data);

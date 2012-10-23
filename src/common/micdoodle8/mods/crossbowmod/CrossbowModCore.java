@@ -4,15 +4,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 import net.minecraft.src.EntityPlayer;
-import net.minecraft.src.NetworkManager;
+import net.minecraft.src.INetworkManager;
 import net.minecraft.src.Packet250CustomPayload;
 import net.minecraft.src.World;
 import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.Mod;
-import cpw.mods.fml.common.Side;
 import cpw.mods.fml.common.Mod.Init;
 import cpw.mods.fml.common.Mod.Instance;
 import cpw.mods.fml.common.Mod.PreInit;
+import cpw.mods.fml.common.Side;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
@@ -144,7 +144,7 @@ public class CrossbowModCore
 	public class ServerPacketHandler implements IPacketHandler
 	{
 		@Override
-		public void onPacketData(NetworkManager manager, Packet250CustomPayload packet, Player player) 
+		public void onPacketData(INetworkManager manager, Packet250CustomPayload packet, Player player) 
 		{
 			CrossbowModServer.onPacketData(manager, packet, player);
 		}
