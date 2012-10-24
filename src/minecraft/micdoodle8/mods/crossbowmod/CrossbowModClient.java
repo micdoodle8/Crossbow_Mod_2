@@ -1,7 +1,5 @@
 package micdoodle8.mods.crossbowmod;
 
-import java.io.ByteArrayInputStream;
-import java.io.DataInputStream;
 import java.text.DecimalFormat;
 
 import net.minecraft.client.Minecraft;
@@ -9,10 +7,6 @@ import net.minecraft.src.EntityRenderer;
 import net.minecraft.src.GuiScreen;
 import net.minecraft.src.KeyBinding;
 import net.minecraft.src.ModLoader;
-import net.minecraft.src.ModelPlayerAPI;
-import net.minecraft.src.NetworkManager;
-import net.minecraft.src.Packet250CustomPayload;
-import net.minecraft.src.RenderPlayerAPI;
 import net.minecraft.src.ScaledResolution;
 import net.minecraft.src.Tessellator;
 import net.minecraftforge.client.IItemRenderer;
@@ -22,11 +16,9 @@ import net.minecraftforge.common.MinecraftForge;
 import org.lwjgl.input.Mouse;
 import org.lwjgl.opengl.GL11;
 
-import cpw.mods.fml.client.FMLClientHandler;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
-import cpw.mods.fml.common.network.Player;
 
 public class CrossbowModClient 
 {
@@ -38,17 +30,17 @@ public class CrossbowModClient
 	
 	public static void preInit(FMLPreInitializationEvent event)
 	{
-		MinecraftForge.EVENT_BUS.register(new ClientEvents());
+		MinecraftForge.EVENT_BUS.register(new CrossbowEvents());
 		
-		try
-		{
-			RenderPlayerAPI.register("CrossbowMod2", RenderPlayerCrossbowMod.class);
-			ModelPlayerAPI.register("CrossbowMod2", ModelPlayerCrossbowMod.class);
-		}
-		catch(Exception e)
-		{
-			e.printStackTrace();
-		}
+//		try
+//		{
+//			RenderPlayerAPI.register("CrossbowMod2", RenderPlayerCrossbowMod.class);
+//			ModelPlayerAPI.register("CrossbowMod2", ModelPlayerCrossbowMod.class);
+//		}
+//		catch(Exception e)
+//		{
+//			e.printStackTrace();
+//		}
 	}
 	
 	public static void init(FMLInitializationEvent event)

@@ -134,7 +134,7 @@ public class ContainerCrossbowBench extends Container
                 return null;
             }
 
-            var4.func_82870_a(par1EntityPlayer, var4);
+            var3.func_82870_a(par1EntityPlayer, var4);
         }
 
         return var2;

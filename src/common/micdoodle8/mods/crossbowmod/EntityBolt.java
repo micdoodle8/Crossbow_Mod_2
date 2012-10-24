@@ -272,7 +272,7 @@ public abstract class EntityBolt extends Entity
             {
                 if (hasExplosiveAttachment && ((EntityLiving)entity1).arrowHitTempCounter < 10)
                 {
-                	this.worldObj.createExplosion(this, (int)Math.floor(((EntityLiving)entity1).posX), (int)((EntityLiving)entity1).posY, (int)Math.floor(((EntityLiving)entity1).posZ), 1);
+                	this.worldObj.createExplosion(this, (int)Math.floor(((EntityLiving)entity1).posX), (int)((EntityLiving)entity1).posY, (int)Math.floor(((EntityLiving)entity1).posZ), 1, true);
                 }
                 
                 if (hasIceAttachment)
@@ -419,7 +419,7 @@ public abstract class EntityBolt extends Entity
         	
             if (ticksInGround >= 40)
         	{
-            	this.worldObj.createExplosion(this, (int)Math.floor(this.posX), (int)this.posY, (int)Math.floor(this.posZ), 4);
+            	this.worldObj.createExplosion(this, (int)Math.floor(this.posX), (int)this.posY, (int)Math.floor(this.posZ), 4, true);
                 this.setDead();
         	}
         }

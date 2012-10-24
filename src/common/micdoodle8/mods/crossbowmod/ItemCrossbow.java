@@ -229,7 +229,7 @@ public abstract class ItemCrossbow extends Item
     }
 
     @Override
-    public void addInformation(ItemStack var1, List var2)
+    public void addInformation(ItemStack var1, EntityPlayer player, List var2, boolean b)
     {
     	if (Util.hasBasicScope(var1))
     	{

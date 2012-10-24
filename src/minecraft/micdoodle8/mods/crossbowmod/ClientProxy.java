@@ -6,10 +6,8 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.src.EntityPlayer;
 import net.minecraft.src.GuiScreen;
 import net.minecraft.src.ItemStack;
-import net.minecraft.src.ModLoader;
 import net.minecraft.src.World;
-import cpw.mods.fml.client.FMLClientHandler;
-import cpw.mods.fml.common.FMLLog;
+import net.minecraftforge.common.MinecraftForge;
 import cpw.mods.fml.common.IScheduledTickHandler;
 import cpw.mods.fml.common.ITickHandler;
 import cpw.mods.fml.common.Side;
@@ -32,6 +30,7 @@ public class ClientProxy extends CommonProxy
 		TickRegistry.registerTickHandler(new ClientTickHandler(), Side.CLIENT);
 		TickRegistry.registerScheduledTickHandler(new ClientScheduledTickHandler(), Side.CLIENT);
 		CrossbowModClient.init(event);
+		MinecraftForge.EVENT_BUS.register(new ClientEvents());
 //        NetworkRegistry.instance().registerChannel(new ClientPacketHandler(), "CrossbowMod", Side.CLIENT);
 	}
 
