@@ -3,6 +3,7 @@ package micdoodle8.mods.crossbowmod;
 import java.util.ArrayList;
 import java.util.List;
 
+import net.minecraft.src.CreativeTabs;
 import net.minecraft.src.EntityPlayer;
 import net.minecraft.src.INetworkManager;
 import net.minecraft.src.Packet250CustomPayload;
@@ -47,6 +48,8 @@ public class CrossbowModCore
 	public static List goldCrossbowsList = new ArrayList();
 	public static List diamondCrossbowsList = new ArrayList();
 	
+	public static final CreativeTabs crossbowTab = new CreativeTabCrossbows("crossbows");
+	
 	@PreInit
 	public void preInit(FMLPreInitializationEvent event)
 	{
@@ -80,8 +83,6 @@ public class CrossbowModCore
 		Util.addRecipes();
 		
 		proxy.registerRenderInformation();
-		
-		FMLLog.info(lang.get("item.woodenCrossbow.name"));
 	}
 	
 	public class GuiHandler implements IGuiHandler

@@ -2,11 +2,9 @@ package micdoodle8.mods.crossbowmod;
 
 import java.util.List;
 
-import net.minecraft.src.CreativeTabs;
 import net.minecraft.src.Entity;
 import net.minecraft.src.EntityLiving;
 import net.minecraft.src.EntityPlayer;
-import net.minecraft.src.EntityPlayerMP;
 import net.minecraft.src.EnumRarity;
 import net.minecraft.src.Item;
 import net.minecraft.src.ItemStack;
@@ -17,11 +15,9 @@ import org.lwjgl.input.Keyboard;
 import org.lwjgl.input.Mouse;
 
 import cpw.mods.fml.client.FMLClientHandler;
-import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.Side;
 import cpw.mods.fml.common.asm.SideOnly;
 import cpw.mods.fml.common.network.PacketDispatcher;
-import cpw.mods.fml.common.registry.LanguageRegistry;
 
 public abstract class ItemCrossbow extends Item
 {
@@ -38,7 +34,7 @@ public abstract class ItemCrossbow extends Item
 		this.setMaxStackSize(1);
 		this.setMaxDamage(this.getCrossbowMaxDamage());
 		this.isBoltLoaded = false;
-        this.setCreativeTab(CreativeTabs.tabCombat);
+        this.setCreativeTab(CrossbowModCore.crossbowTab);
         CrossbowModCore.crossbowsList.add(this);
 	}
 
