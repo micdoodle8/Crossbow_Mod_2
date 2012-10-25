@@ -1,13 +1,26 @@
 package micdoodle8.mods.crossbowmod;
 
 import java.util.List;
-import java.util.Random;
 
-import cpw.mods.fml.common.FMLLog;
+import net.minecraft.src.AxisAlignedBB;
+import net.minecraft.src.Block;
+import net.minecraft.src.BlockFlower;
+import net.minecraft.src.DamageSource;
+import net.minecraft.src.Entity;
+import net.minecraft.src.EntityLightningBolt;
+import net.minecraft.src.EntityLiving;
+import net.minecraft.src.EntityPlayer;
+import net.minecraft.src.Item;
+import net.minecraft.src.ItemStack;
+import net.minecraft.src.MathHelper;
+import net.minecraft.src.MovingObjectPosition;
+import net.minecraft.src.NBTTagCompound;
+import net.minecraft.src.Potion;
+import net.minecraft.src.PotionEffect;
+import net.minecraft.src.Vec3;
+import net.minecraft.src.World;
 import cpw.mods.fml.common.Side;
 import cpw.mods.fml.common.asm.SideOnly;
-
-import net.minecraft.src.*;
 
 public abstract class EntityBolt extends Entity
 {
@@ -293,12 +306,10 @@ public abstract class EntityBolt extends Entity
             }
         }
         
-        FMLLog.info("" + this.inGround);
-
-            posX += motionX;
-            posZ += motionZ;
-            posY += motionY;
-            handleMotionUpdate();
+        posX += motionX;
+        posZ += motionZ;
+        posY += motionY;
+        handleMotionUpdate();
         float f1 = MathHelper.sqrt_double(motionX * motionX + motionZ * motionZ);
         rotationYaw = (float)((Math.atan2(motionX, motionZ) * 180D) / 3.1415927410125732D);
         for(rotationPitch = (float)((Math.atan2(motionY, f1) * 180D) / 3.1415927410125732D); rotationPitch - prevRotationPitch < -180F; prevRotationPitch -= 360F) { }

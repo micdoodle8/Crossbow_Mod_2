@@ -93,8 +93,6 @@ public class CrossbowModLocalization {
 
                 if (!var4.startsWith("#"))
                 {
-                	FMLLog.info("" + var4);
-                	
                     String[] var5 = var4.split("=");
 
                     if (var5 != null && var5.length == 2)

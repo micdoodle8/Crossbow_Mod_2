@@ -1,15 +1,9 @@
 package micdoodle8.mods.crossbowmod;
 
-import java.io.ByteArrayOutputStream;
-import net.minecraft.src.*;
-import java.io.DataOutputStream;
-import java.io.IOException;
-import java.util.List;
-import java.util.Random;
-
-import org.lwjgl.input.Mouse;
-
-import net.minecraft.client.Minecraft;
+import net.minecraft.src.EntityLiving;
+import net.minecraft.src.EntityPlayer;
+import net.minecraft.src.Item;
+import net.minecraft.src.World;
 
 public class ItemStoneCrossbow extends ItemCrossbow
 {

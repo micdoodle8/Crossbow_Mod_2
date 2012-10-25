@@ -1,18 +1,6 @@
 package micdoodle8.mods.crossbowmod;
 
-import java.util.List;
-import net.minecraft.src.*;
-import java.util.Random;
-
-import net.minecraft.src.AxisAlignedBB;
-import net.minecraft.src.DamageSource;
-import net.minecraft.src.Entity;
 import net.minecraft.src.EntityLiving;
-import net.minecraft.src.EntityPlayer;
-import net.minecraft.src.ItemStack;
-import net.minecraft.src.MathHelper;
-import net.minecraft.src.MovingObjectPosition;
-import net.minecraft.src.NBTTagCompound;
 import net.minecraft.src.World;
 
 public class EntityWoodBolt extends EntityBolt

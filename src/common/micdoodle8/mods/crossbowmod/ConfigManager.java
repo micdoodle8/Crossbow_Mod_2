@@ -1,12 +1,10 @@
 package micdoodle8.mods.crossbowmod;
 
-import java.io.File;
 import java.util.logging.Level;
 
+import net.minecraftforge.common.Configuration;
 import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
-
-import net.minecraftforge.common.Configuration;
 
 public class ConfigManager 
 {

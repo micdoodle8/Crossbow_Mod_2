@@ -1,7 +1,10 @@
 package micdoodle8.mods.crossbowmod;
 
+import net.minecraft.src.GuiContainer;
+import net.minecraft.src.InventoryPlayer;
+import net.minecraft.src.StatCollector;
+
 import org.lwjgl.opengl.GL11;
-import net.minecraft.src.*;
 
 public class GuiCrossbowBench extends GuiContainer
 {

@@ -1,6 +1,7 @@
 package micdoodle8.mods.crossbowmod;
 
-import net.minecraft.src.*;
+import net.minecraft.src.CreativeTabs;
+import net.minecraft.src.Item;
 
 public class ItemCBMod extends Item
 {
