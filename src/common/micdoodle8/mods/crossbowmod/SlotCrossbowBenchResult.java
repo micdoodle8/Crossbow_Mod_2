@@ -65,11 +65,8 @@ public class SlotCrossbowBenchResult extends Slot
     /**
      * Called when the player picks up an item from an inventory slot
      */
-    public void onPickupFromSlot(ItemStack par1ItemStack)
+    public void func_82870_a(EntityPlayer par1EntityPlayer, ItemStack par1ItemStack)
     {
-        ModLoader.takenFromCrafting(this.thePlayer, par1ItemStack, this.craftMatrix);
-//        ForgeHooks.onTakenFromCrafting(thePlayer, par1ItemStack, craftMatrix); TODO
-        
         this.func_48434_c(par1ItemStack);
 
         for (int var2 = 0; var2 < this.craftMatrix.getSizeInventory(); ++var2)
