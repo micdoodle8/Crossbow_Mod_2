@@ -228,7 +228,7 @@ public class Util
 			"ZX ", 
 			"XAB",
 			" XZ",
-			Character.valueOf('X'), Item.ingotIron, Character.valueOf('A'), Items.attachmentShortScope, Character.valueOf('Z'), Block.thinGlass, Character.valueOf('B'), Block.button
+			Character.valueOf('X'), Item.ingotIron, Character.valueOf('A'), Items.attachmentShortScope, Character.valueOf('Z'), Block.thinGlass, Character.valueOf('B'), Block.stoneButton
 		});
 		GameRegistry.addRecipe(new ItemStack(Items.woodBolt, 8), new Object[] {
 			"X", 

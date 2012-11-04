@@ -244,7 +244,7 @@ public abstract class EntityBolt extends Entity
                     {
                         if((entity1 instanceof EntityLiving) && !(entity1 instanceof EntityPlayer))
                         {
-                            ++((EntityLiving)entity1).arrowHitTempCounter;
+                            ++((EntityLiving)entity1).arrowHitTimer;
                         }
                         
                         entity1.attackEntityFrom(DamageSource.causePlayerDamage((EntityPlayer)shooter), this.arrowCritical ? dmg * 2 : dmg);
@@ -283,7 +283,7 @@ public abstract class EntityBolt extends Entity
             Entity entity1 = movingobjectposition.entityHit;
             if (entity1 != null && entity1 instanceof EntityLiving && entity1 != shooter)
             {
-                if (hasExplosiveAttachment && ((EntityLiving)entity1).arrowHitTempCounter < 10)
+                if (hasExplosiveAttachment && ((EntityLiving)entity1).arrowHitTimer < 10)
                 {
                 	this.worldObj.createExplosion(this, (int)Math.floor(((EntityLiving)entity1).posX), (int)((EntityLiving)entity1).posY, (int)Math.floor(((EntityLiving)entity1).posZ), 1, true);
                 }
