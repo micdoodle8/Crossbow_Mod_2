@@ -3,12 +3,13 @@ package micdoodle8.mods.crossbowmod;
 import java.util.ArrayList;
 import java.util.List;
 
+import net.minecraft.src.Achievement;
 import net.minecraft.src.CreativeTabs;
 import net.minecraft.src.EntityPlayer;
 import net.minecraft.src.INetworkManager;
 import net.minecraft.src.Packet250CustomPayload;
 import net.minecraft.src.World;
-import cpw.mods.fml.common.FMLLog;
+import net.minecraftforge.common.AchievementPage;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.Init;
 import cpw.mods.fml.common.Mod.Instance;
@@ -24,6 +25,7 @@ import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.network.Player;
 import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
+import cpw.mods.fml.common.registry.LanguageRegistry;
 
 
 @Mod(modid = "CrossbowMod2", name = "Crossbow Mod 2 1.3.2", version = "v1")
@@ -49,6 +51,10 @@ public class CrossbowModCore
 	public static List diamondCrossbowsList = new ArrayList();
 	
 	public static final CreativeTabs crossbowTab = new CreativeTabCrossbows("crossbows");
+
+	public static Achievement createBench;
+	public static Achievement createCrossbow;
+	public static Achievement sniper;
 	
 	@PreInit
 	public void preInit(FMLPreInitializationEvent event)
@@ -81,6 +87,18 @@ public class CrossbowModCore
 		Items.addNames();
 		
 		Util.addRecipes();
+		
+		createBench = new Achievement(491, "CreateBench", 0, 0, Items.crossbowBench, (Achievement) null).registerAchievement();
+		createCrossbow = new Achievement(492, "CreateCrossbow", 0, 2, Items.woodenCrossbowBase, createBench).registerAchievement();
+		sniper = new Achievement(493, "Sniper", 2, 3, Items.diamondCrossbowWithLongScope, createCrossbow).setSpecial().registerAchievement();
+		LanguageRegistry.instance().addStringLocalization(createBench.getName(), "First Step");
+		LanguageRegistry.instance().addStringLocalization(createBench.getName() + ".desc", "Create a Crossbow Bench");
+		LanguageRegistry.instance().addStringLocalization(createCrossbow.getName(), "Well-Prepared!");
+		LanguageRegistry.instance().addStringLocalization(createCrossbow.getName() + ".desc", "Create any crossbow on a Crossbow Crafting Bench");
+		LanguageRegistry.instance().addStringLocalization(sniper.getName(), "Sniper King");
+		LanguageRegistry.instance().addStringLocalization(sniper.getName() + ".desc", "Kill a chicken with any crossbow bolt from more than 75 meters away using a long range scope");
+		AchievementPage.registerAchievementPage(new AchievementPage("Crossbow Mod", createBench, createCrossbow, sniper));
+		
 		
 		proxy.registerRenderInformation();
 	}
