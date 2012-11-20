@@ -25,6 +25,7 @@ public class SlotCrossbowBenchResult extends Slot
     /**
      * Check if the stack is a valid item for this slot. Always true beside for the armor slots.
      */
+    @Override
     public boolean isItemValid(ItemStack par1ItemStack)
     {
         return false;
@@ -34,6 +35,7 @@ public class SlotCrossbowBenchResult extends Slot
      * Decrease the size of the stack in slot (first int arg) by the amount of the second int arg. Returns the new
      * stack.
      */
+    @Override
     public ItemStack decrStackSize(int par1)
     {
         if (this.getHasStack())
@@ -44,13 +46,15 @@ public class SlotCrossbowBenchResult extends Slot
         return super.decrStackSize(par1);
     }
 
-    protected void func_48435_a(ItemStack par1ItemStack, int par2)
+    @Override
+    protected void onCrafting(ItemStack par1ItemStack, int par2)
     {
         this.field_48436_g += par2;
-        this.func_48434_c(par1ItemStack);
+        this.onCrafting(par1ItemStack);
     }
 
-    protected void func_48434_c(ItemStack par1ItemStack)
+    @Override
+    protected void onCrafting(ItemStack par1ItemStack)
     {
         par1ItemStack.onCrafting(this.thePlayer.worldObj, this.thePlayer, this.field_48436_g);
         this.field_48436_g = 0;
@@ -58,16 +62,14 @@ public class SlotCrossbowBenchResult extends Slot
         if (Util.isWooden(par1ItemStack) || Util.isStone(par1ItemStack) || Util.isIron(par1ItemStack) || Util.isGold(par1ItemStack) || Util.isDiamond(par1ItemStack))
         {
         	ItemCrossbow item = (ItemCrossbow) par1ItemStack.getItem();
-//            this.thePlayer.addStat(mod_CrossbowMod.createCrossbow, 1); TODO
+            this.thePlayer.addStat(CrossbowModCore.createCrossbow, 1);
         }
     }
 
-    /**
-     * Called when the player picks up an item from an inventory slot
-     */
-    public void func_82870_a(EntityPlayer par1EntityPlayer, ItemStack par1ItemStack)
+    @Override
+    public void onPickupFromSlot(EntityPlayer entityplayer, ItemStack itemstack)
     {
-        this.func_48434_c(par1ItemStack);
+        this.onCrafting(itemstack);
 
         for (int var2 = 0; var2 < this.craftMatrix.getSizeInventory(); ++var2)
         {
