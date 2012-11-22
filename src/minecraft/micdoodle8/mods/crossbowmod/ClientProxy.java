@@ -7,7 +7,11 @@ import net.minecraft.src.EntityPlayer;
 import net.minecraft.src.GuiScreen;
 import net.minecraft.src.ItemStack;
 import net.minecraft.src.World;
+import net.minecraftforge.client.event.sound.SoundLoadEvent;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.ForgeSubscribe;
+import cpw.mods.fml.client.FMLClientHandler;
+import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.IScheduledTickHandler;
 import cpw.mods.fml.common.ITickHandler;
 import cpw.mods.fml.common.Side;
@@ -30,26 +34,13 @@ public class ClientProxy extends CommonProxy
 		TickRegistry.registerTickHandler(new ClientTickHandler(), Side.CLIENT);
 		TickRegistry.registerScheduledTickHandler(new ClientScheduledTickHandler(), Side.CLIENT);
 		CrossbowModClient.init(event);
-		MinecraftForge.EVENT_BUS.register(new ClientEvents());
-//        NetworkRegistry.instance().registerChannel(new ClientPacketHandler(), "CrossbowMod", Side.CLIENT);
+    	FMLClientHandler.instance().getClient().sndManager.soundPoolSounds.addSound("cbowfire.ogg", CrossbowModCore.instance.getClass().getResource("/Mic'sMods/CrossbowMod/sounds/cbowfire.ogg")); 
 	}
 
 	@Override
 	public void registerRenderInformation()
 	{
 		CrossbowModClient.registerRenderInformation();
-	}
-	
-	@Override
-	public void onCrossbowHeld(ItemStack itemstack, World world, EntityPlayer player)
-	{
-		//Handled client-side
-	}
-	
-	@Override
-	public void onCrossbowClicked(ItemStack itemstack, World world, EntityPlayer player)
-	{
-		//Handled client-side
 	}
 	
 	public class ClientTickHandler implements ITickHandler

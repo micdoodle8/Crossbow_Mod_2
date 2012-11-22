@@ -2,6 +2,7 @@ package micdoodle8.mods.crossbowmod;
 
 import net.minecraftforge.client.event.sound.SoundLoadEvent;
 import net.minecraftforge.event.ForgeSubscribe;
+import cpw.mods.fml.common.FMLLog;
 
 public class ClientEvents 
 {
@@ -11,7 +12,6 @@ public class ClientEvents
         try
         {
             event.manager.soundPoolSounds.addSound("cbowfire.ogg", CrossbowModCore.instance.getClass().getResource("/Mic'sMods/CrossbowMod/sounds/cbowfire.ogg"));            
-       
         }
         catch (Exception e)
         {
