@@ -15,6 +15,7 @@ import org.lwjgl.input.Keyboard;
 import org.lwjgl.input.Mouse;
 
 import cpw.mods.fml.client.FMLClientHandler;
+import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.Side;
 import cpw.mods.fml.common.asm.SideOnly;
 import cpw.mods.fml.common.network.PacketDispatcher;
@@ -84,7 +85,11 @@ public abstract class ItemCrossbow extends Item
         	{
         		itemstack = shoot(itemstack, world, entityplayer);
         	}
-        	else if (mouseHeld && !lastMouseHeld)
+        	else if (mouseHeld && !lastMouseHeld && !Util.hasBasicScope(itemstack) && !Util.hasLongRangeScope(itemstack))
+        	{
+        		itemstack = shoot(itemstack, world, entityplayer);
+        	}
+        	else if ((Util.hasBasicScope(itemstack) || Util.hasLongRangeScope(itemstack)) && lastMouseHeld && !mouseHeld)
         	{
         		itemstack = shoot(itemstack, world, entityplayer);
         	}
@@ -187,6 +192,8 @@ public abstract class ItemCrossbow extends Item
 		        	entityarrow.hasPoisonAttachment = false;
 		        }
 
+	            world.playSoundAtEntity(player, "cbowfire", 1.0F, 0.92F);
+	            
 		        if (world.isRemote)
 		        {
 					Object[] toSend = {itemstack};
@@ -195,7 +202,6 @@ public abstract class ItemCrossbow extends Item
 		        else
 		        {
 		            itemstack.damageItem(1, player);
-		            world.playSoundAtEntity(player, "cbowfire", 1.0F, 0.92F);
 		            player.inventory.consumeInventoryItem(requiredItem(player).shiftedIndex);
 		        	world.spawnEntityInWorld(entityarrow);
 		        }
