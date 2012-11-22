@@ -22,20 +22,4 @@ public class CommonProxy
 	{
 		//Handled client-side
 	}
-	
-	public void onCrossbowHeld(ItemStack itemstack, World world, EntityPlayer player)
-	{
-		//Handled client-side
-	}
-	
-	public void onCrossbowClicked(ItemStack itemstack, World world, EntityPlayer player)
-	{
-		//Handled client-side
-	}
-	
-	public boolean hasCrossbowInHand(EntityPlayer player)
-	{
-		return false;
-//		return (player.inventory.getCurrentItem().getItem() instanceof ) TODO
-	}
 }
