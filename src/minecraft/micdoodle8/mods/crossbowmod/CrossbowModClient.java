@@ -235,19 +235,22 @@ public class CrossbowModClient
 
 		    		if (remoteVer > localVer)
 		    		{
-		    			FMLClientHandler.instance().getClient().thePlayer.addChatMessage("§7New §3Crossbow Mod 2 §7version available! v" + String.valueOf(remoteVer).substring(String.valueOf(remoteVer).length() - 1) + " §1http://bit.ly/U0WYXP");
-
-			    		if (str.contains("Desc="))
-			    		{
-			    			str = str.replace("Desc=", "");
-			    			
-			    			String[] strs = str.split("#");
-			    			
-			    			for (String string : strs)
-			    			{
-				    			FMLClientHandler.instance().getClient().thePlayer.addChatMessage("§8 - " + string);
-			    			}
-			    		}
+		    			FMLClientHandler.instance().getClient().thePlayer.addChatMessage("\u00a77New \u00a73Crossbow Mod 2 \u00a77version available! v" + String.valueOf(remoteVer).substring(String.valueOf(remoteVer).length() - 1) + " \u00a71http://bit.ly/U0WYXP");
+		    		}
+	    		}
+	    		
+	    		if (str.contains("Desc="))
+	    		{
+		    		if (remoteVer > localVer)
+		    		{
+		    			str = str.replace("Desc=", "");
+		    			
+		    			String[] strs = str.split("#");
+		    			
+		    			for (String string : strs)
+		    			{
+			    			FMLClientHandler.instance().getClient().thePlayer.addChatMessage("\u00a78 - " + string);
+		    			}
 		    		}
 	    		}
     		}
