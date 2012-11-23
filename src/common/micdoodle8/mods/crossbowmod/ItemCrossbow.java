@@ -2,6 +2,7 @@ package micdoodle8.mods.crossbowmod;
 
 import java.util.List;
 
+import net.minecraft.src.CreativeTabs;
 import net.minecraft.src.Entity;
 import net.minecraft.src.EntityLiving;
 import net.minecraft.src.EntityPlayer;
@@ -9,13 +10,13 @@ import net.minecraft.src.EnumRarity;
 import net.minecraft.src.Item;
 import net.minecraft.src.ItemStack;
 import net.minecraft.src.ModLoader;
+import net.minecraft.src.NBTTagCompound;
 import net.minecraft.src.World;
 
 import org.lwjgl.input.Keyboard;
 import org.lwjgl.input.Mouse;
 
 import cpw.mods.fml.client.FMLClientHandler;
-import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.Side;
 import cpw.mods.fml.common.asm.SideOnly;
 import cpw.mods.fml.common.network.PacketDispatcher;
@@ -231,67 +232,116 @@ public abstract class ItemCrossbow extends Item
     }
 
     @Override
-    public void addInformation(ItemStack var1, EntityPlayer player, List var2, boolean b)
+    public void addInformation(ItemStack stack, EntityPlayer player, List var2, boolean b)
     {
-    	if (Util.hasBasicScope(var1))
+    	if (stack.getTagCompound() != null)
     	{
-            var2.add(CrossbowModCore.lang.get(Items.attachmentShortScope.getItemName() + ".name"));
-    	}
-
-    	if (Util.hasLongRangeScope(var1))
-    	{
-            var2.add(CrossbowModCore.lang.get(Items.attachmentShortScope.getItemName() + ".name"));
-    	}
-
-    	if (Util.hasLightMech(var1))
-    	{
-            var2.add(CrossbowModCore.lang.get(Items.mechanismLightAuto.getItemName() + ".name"));
-    	}
-
-    	if (Util.hasMediumMech(var1))
-    	{
-            var2.add(CrossbowModCore.lang.get(Items.mechanismMediumAuto.getItemName() + ".name"));
-    	}
-
-    	if (Util.hasHeavyMech(var1))
-    	{
-            var2.add(CrossbowModCore.lang.get(Items.mechanismHeavyAuto.getItemName() + ".name"));
-    	}
-
-    	if (Util.hasExplosiveAttachment(var1))
-    	{
-            var2.add(CrossbowModCore.lang.get(Items.attachmentExplosive.getItemName() + ".name"));
-    	}
-
-    	if (Util.hasFlameAttachment(var1))
-    	{
-            var2.add(CrossbowModCore.lang.get(Items.attachmentFire.getItemName() + ".name"));
-    	}
-
-    	if (Util.hasLavaAttachment(var1))
-    	{
-            var2.add(CrossbowModCore.lang.get(Items.attachmentLava.getItemName() + ".name"));
-    	}
-
-    	if (Util.hasIceAttachment(var1))
-    	{
-            var2.add(CrossbowModCore.lang.get(Items.attachmentIce.getItemName() + ".name"));
-    	}
-    	
-    	if (Util.hasLightningAttachment(var1))
-    	{
-            var2.add(CrossbowModCore.lang.get(Items.attachmentLightning.getItemName() + ".name"));
-    	}
-    	
-    	if (Util.hasTorchAttachment(var1))
-    	{
-            var2.add(CrossbowModCore.lang.get(Items.attachmentTorch.getItemName() + ".name"));
+        	NBTTagCompound comp = stack.getTagCompound();
+    		switch (comp.getInteger("attachment"))
+    		{
+    		case 0:
+                break;
+    		case 1:
+                var2.add(CrossbowModCore.lang.get(Items.attachmentShortScope.getItemName() + ".name"));
+                break;
+    		case 2:
+                var2.add(CrossbowModCore.lang.get(Items.attachmentShortScope.getItemName() + ".name"));
+                break;
+    		case 3:
+                var2.add(CrossbowModCore.lang.get(Items.attachmentLava.getItemName() + ".name"));
+                break;
+    		case 4:
+                var2.add(CrossbowModCore.lang.get(Items.attachmentIce.getItemName() + ".name"));
+                break;
+    		case 5:
+                var2.add(CrossbowModCore.lang.get(Items.attachmentPoison.getItemName() + ".name"));
+                break;
+    		case 6:
+                var2.add(CrossbowModCore.lang.get(Items.attachmentTorch.getItemName() + ".name"));
+                break;
+    		case 7:
+                var2.add(CrossbowModCore.lang.get(Items.attachmentLightning.getItemName() + ".name"));
+                break;
+    		case 8:
+                var2.add(CrossbowModCore.lang.get(Items.attachmentExplosive.getItemName() + ".name"));
+                break;
+    		}
+    		
+    		switch (comp.getInteger("firerate"))
+    		{
+    		case 0:
+                break;
+    		case 1:
+    			var2.add(CrossbowModCore.lang.get(Items.mechanismLightAuto.getItemName() + ".name"));
+                break;
+    		case 2:
+    			var2.add(CrossbowModCore.lang.get(Items.mechanismMediumAuto.getItemName() + ".name"));
+                break;
+    		case 3:
+    			var2.add(CrossbowModCore.lang.get(Items.mechanismHeavyAuto.getItemName() + ".name"));
+                break;
+    		}
     	}
     	
-    	if (Util.hasPoisonAttachment(var1))
-    	{
-            var2.add(CrossbowModCore.lang.get(Items.attachmentPoison.getItemName() + ".name"));
-    	}
+//    	if (Util.hasBasicScope(var1))
+//    	{
+//            var2.add(CrossbowModCore.lang.get(Items.attachmentShortScope.getItemName() + ".name"));
+//    	}
+//
+//    	if (Util.hasLongRangeScope(var1))
+//    	{
+//            var2.add(CrossbowModCore.lang.get(Items.attachmentShortScope.getItemName() + ".name"));
+//    	}
+//
+//    	if (Util.hasLightMech(var1))
+//    	{
+//            var2.add(CrossbowModCore.lang.get(Items.mechanismLightAuto.getItemName() + ".name"));
+//    	}
+//
+//    	if (Util.hasMediumMech(var1))
+//    	{
+//            var2.add(CrossbowModCore.lang.get(Items.mechanismMediumAuto.getItemName() + ".name"));
+//    	}
+//
+//    	if (Util.hasHeavyMech(var1))
+//    	{
+//            var2.add(CrossbowModCore.lang.get(Items.mechanismHeavyAuto.getItemName() + ".name"));
+//    	}
+//
+//    	if (Util.hasExplosiveAttachment(var1))
+//    	{
+//            var2.add(CrossbowModCore.lang.get(Items.attachmentExplosive.getItemName() + ".name"));
+//    	}
+//
+//    	if (Util.hasFlameAttachment(var1))
+//    	{
+//            var2.add(CrossbowModCore.lang.get(Items.attachmentFire.getItemName() + ".name"));
+//    	}
+//
+//    	if (Util.hasLavaAttachment(var1))
+//    	{
+//            var2.add(CrossbowModCore.lang.get(Items.attachmentLava.getItemName() + ".name"));
+//    	}
+//
+//    	if (Util.hasIceAttachment(var1))
+//    	{
+//            var2.add(CrossbowModCore.lang.get(Items.attachmentIce.getItemName() + ".name"));
+//    	}
+//    	
+//    	if (Util.hasLightningAttachment(var1))
+//    	{
+//            var2.add(CrossbowModCore.lang.get(Items.attachmentLightning.getItemName() + ".name"));
+//    	}
+//    	
+//    	if (Util.hasTorchAttachment(var1))
+//    	{
+//            var2.add(CrossbowModCore.lang.get(Items.attachmentTorch.getItemName() + ".name"));
+//    	}
+//    	
+//    	if (Util.hasPoisonAttachment(var1))
+//    	{
+//            var2.add(CrossbowModCore.lang.get(Items.attachmentPoison.getItemName() + ".name"));
+//    	}
     }
 
     @Override
@@ -311,11 +361,188 @@ public abstract class ItemCrossbow extends Item
     {
     	return getSpriteSheetLoc();
     }
+    
+    @Override
+    public void getSubItems(int par1, CreativeTabs par2CreativeTabs, List par3List)
+    {
+    	if (par1 == 11003)
+    	{
+            par3List.add(setAttachmentAndMaterial(new ItemStack(par1, 1, 0), EnumAttachmentType.longscope, EnumCrossbowMaterial.wooden, EnumCrossbowFireRate.heavy));
+            par3List.add(setAttachmentAndMaterial(new ItemStack(par1, 1, 0), EnumAttachmentType.shortscope, EnumCrossbowMaterial.wooden, EnumCrossbowFireRate.none));
+    	}
+    }
+    
+    public ItemStack setAttachmentAndMaterial(ItemStack stack, EnumAttachmentType type, EnumCrossbowMaterial material, EnumCrossbowFireRate fireRate)
+    {
+        if (stack.stackTagCompound == null)
+        {
+        	stack.setTagCompound(new NBTTagCompound());
+        }
+        
+        if (type != null && material != null && fireRate != null)
+        {
+        	stack.getTagCompound().setInteger("attachment", type.getIndex());
+        	stack.getTagCompound().setInteger("material", material.getIndex());
+        	stack.getTagCompound().setInteger("firerate", fireRate.getIndex());
+        }
+        
+        return stack;
+    }
+    
+
+//	if (stack.getTagCompound() != null)
+//	{
+//    	NBTTagCompound comp = stack.getTagCompound();
+//    	switch (comp.getInteger("material"))
+//    	{
+//    	case 0:
+//    		switch (comp.getInteger("attachment"))
+//    		{
+//    		case 0:
+//    		case 1:
+//    		case 2:
+//    		case 3:
+//    		case 4:
+//    		case 5:
+//    		case 6:
+//    		case 7:
+//    		case 8:
+//    		}
+//    	case 1:
+//    		switch (comp.getInteger("attachment"))
+//    		{
+//    		case 0:
+//    		case 1:
+//    		case 2:
+//    		case 3:
+//    		case 4:
+//    		case 5:
+//    		case 6:
+//    		case 7:
+//    		case 8:
+//    		}
+//    	case 2:
+//    		switch (comp.getInteger("attachment"))
+//    		{
+//    		case 0:
+//    		case 1:
+//    		case 2:
+//    		case 3:
+//    		case 4:
+//    		case 5:
+//    		case 6:
+//    		case 7:
+//    		case 8:
+//    		}
+//    	case 3:
+//    		switch (comp.getInteger("attachment"))
+//    		{
+//    		case 0:
+//    		case 1:
+//    		case 2:
+//    		case 3:
+//    		case 4:
+//    		case 5:
+//    		case 6:
+//    		case 7:
+//    		case 8:
+//    		}
+//    	case 4:
+//    		switch (comp.getInteger("attachment"))
+//    		{
+//    		case 0:
+//    		case 1:
+//    		case 2:
+//    		case 3:
+//    		case 4:
+//    		case 5:
+//    		case 6:
+//    		case 7:
+//    		case 8:
+//    		}
+//    	}
+//	}
 
     @Override
     @SideOnly(Side.CLIENT)
     public int getIconIndex(ItemStack stack, int renderPass, EntityPlayer player, ItemStack usingItem, int useRemaining)
     {
+    	if (stack.getTagCompound() != null)
+    	{
+        	NBTTagCompound comp = stack.getTagCompound();
+        	switch (comp.getInteger("material"))
+        	{
+        	case 0:
+        		switch (comp.getInteger("attachment"))
+        		{
+        		case 0:
+        			return 0;
+        		case 1:
+        			return 2;
+        		case 2:
+        			return 1;
+        		case 3:
+        		case 4:
+        		case 5:
+        		case 6:
+        		case 7:
+        		case 8:
+        		}
+        	case 1:
+        		switch (comp.getInteger("attachment"))
+        		{
+        		case 0:
+        		case 1:
+        		case 2:
+        		case 3:
+        		case 4:
+        		case 5:
+        		case 6:
+        		case 7:
+        		case 8:
+        		}
+        	case 2:
+        		switch (comp.getInteger("attachment"))
+        		{
+        		case 0:
+        		case 1:
+        		case 2:
+        		case 3:
+        		case 4:
+        		case 5:
+        		case 6:
+        		case 7:
+        		case 8:
+        		}
+        	case 3:
+        		switch (comp.getInteger("attachment"))
+        		{
+        		case 0:
+        		case 1:
+        		case 2:
+        		case 3:
+        		case 4:
+        		case 5:
+        		case 6:
+        		case 7:
+        		case 8:
+        		}
+        	case 4:
+        		switch (comp.getInteger("attachment"))
+        		{
+        		case 0:
+        		case 1:
+        		case 2:
+        		case 3:
+        		case 4:
+        		case 5:
+        		case 6:
+        		case 7:
+        		case 8:
+        		}
+        	}
+    	}
+    	
     	if (!(ModLoader.getMinecraftInstance().currentScreen != null && ModLoader.getMinecraftInstance().currentScreen.allowUserInput) && (Mouse.getEventDWheel() != 0 || (Keyboard.isKeyDown(Keyboard.KEY_0) || Keyboard.isKeyDown(Keyboard.KEY_1) || Keyboard.isKeyDown(Keyboard.KEY_2) || Keyboard.isKeyDown(Keyboard.KEY_3) || Keyboard.isKeyDown(Keyboard.KEY_4) || Keyboard.isKeyDown(Keyboard.KEY_5) || Keyboard.isKeyDown(Keyboard.KEY_6) || Keyboard.isKeyDown(Keyboard.KEY_7) || Keyboard.isKeyDown(Keyboard.KEY_8) || Keyboard.isKeyDown(Keyboard.KEY_9))))
 		{
         	return this.iconIndex;
