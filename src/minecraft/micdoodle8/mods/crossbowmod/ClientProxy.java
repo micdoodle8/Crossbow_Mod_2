@@ -58,6 +58,7 @@ public class ClientProxy extends CommonProxy
 	        else if (type.equals(EnumSet.of(TickType.CLIENT)))
 	        {
 	            GuiScreen guiscreen = Minecraft.getMinecraft().currentScreen;
+	            
 	            if (guiscreen != null)
 	            {
 	                onTickInGUI(guiscreen);

@@ -1,6 +1,13 @@
 package micdoodle8.mods.crossbowmod;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.text.DecimalFormat;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.src.EntityRenderer;
@@ -16,7 +23,9 @@ import net.minecraftforge.common.MinecraftForge;
 import org.lwjgl.input.Mouse;
 import org.lwjgl.opengl.GL11;
 
+import cpw.mods.fml.client.FMLClientHandler;
 import cpw.mods.fml.client.registry.RenderingRegistry;
+import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 
@@ -27,20 +36,12 @@ public class CrossbowModClient
     private static DecimalFormat oneDigit = new DecimalFormat("#,##0.0");
     
     public static int shootTime = 0;
+    
+    public static boolean checkVersion = true;
 	
 	public static void preInit(FMLPreInitializationEvent event)
 	{
 		MinecraftForge.EVENT_BUS.register(new CrossbowEvents());
-		
-//		try
-//		{
-//			RenderPlayerAPI.register("CrossbowMod2", RenderPlayerCrossbowMod.class);
-//			ModelPlayerAPI.register("CrossbowMod2", ModelPlayerCrossbowMod.class);
-//		}
-//		catch(Exception e)
-//		{
-//			e.printStackTrace();
-//		}
 	}
 	
 	public static void init(FMLInitializationEvent event)
@@ -195,10 +196,80 @@ public class CrossbowModClient
 
     public static void onTickInGame()
     {
+    	if (checkVersion)
+    	{
+    		checkVersion();
+    		checkVersion = false;
+    	}
+    	
 		if (shootTime > 0)
 		{
 			shootTime--;
 		}
+    }
+    
+    public static int remoteVer;
+    public static int localVer = 44;
+    
+    private static void checkVersion()
+    {
+    	try 
+    	{
+    		URL url = new URL("http://micdoodle8.com/version.html");
+
+    		BufferedReader in = new BufferedReader(new InputStreamReader(url.openStream()));
+    		Pattern pat = Pattern.compile("Version=\\d+");
+    		Pattern pat2 = Pattern.compile("Desc=\\S+");
+    		Matcher matcher;
+    		String str;
+    		
+    		while ((str = in.readLine()) != null) 
+    		{
+	    		if (str.contains("Version")) 
+	    		{
+		    		matcher = pat.matcher(str);
+		    		if (matcher.find())
+		    		{
+			    		remoteVer = Integer.parseInt(matcher.group(0).substring(8));
+		    		}
+
+		    		if (remoteVer > localVer)
+		    		{
+		    			FMLClientHandler.instance().getClient().thePlayer.addChatMessage("§7New §3Crossbow Mod 2 §7version available! v" + String.valueOf(remoteVer).substring(String.valueOf(remoteVer).length() - 1) + " §1http://bit.ly/U0WYXP");
+
+			    		if (str.contains("Desc="))
+			    		{
+			    			str = str.replace("Desc=", "");
+			    			
+			    			String[] strs = str.split("#");
+			    			
+			    			for (String string : strs)
+			    			{
+				    			FMLClientHandler.instance().getClient().thePlayer.addChatMessage("§8 - " + string);
+			    			}
+			    		}
+		    		}
+	    		}
+    		}
+    	} 
+    	catch (MalformedURLException e) 
+    	{
+    		e.printStackTrace();
+    		FMLClientHandler.instance().getClient().thePlayer.addChatMessage("[Crossbow Mod] Update Check Failed!");
+    		FMLLog.info("Crossbow Mod Update Check Failure - MalformedURLException");
+    	} 
+    	catch (IOException e) 
+    	{
+    		e.printStackTrace();
+    		FMLClientHandler.instance().getClient().thePlayer.addChatMessage("[Crossbow Mod] Update Check Failed!");
+    		FMLLog.info("Crossbow Mod Update Check Failure - IOException");
+    	}
+    	catch (NumberFormatException e)
+    	{
+    		e.printStackTrace();
+    		FMLClientHandler.instance().getClient().thePlayer.addChatMessage("[Crossbow Mod] Update Check Failed!");
+    		FMLLog.info("Crossbow Mod Update Check Failure - NumberFormatException");
+    	}
     }
 
 	public static void registerRenderInformation()
