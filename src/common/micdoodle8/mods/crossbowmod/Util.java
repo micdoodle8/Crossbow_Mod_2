@@ -159,99 +159,99 @@ public class Util
     
 	public static void addRecipes() 
 	{
-		GameRegistry.addRecipe(new ItemStack(Items.woodLimb, 3), new Object[] {
+		GameRegistry.addRecipe(new ItemStack(Items.attachmentLimbBolt, 3, 4), new Object[] {
 			"XY", 
 			"XY",
 			"XY",
 			Character.valueOf('X'), Item.stick, Character.valueOf('Y'), Block.planks
 		});
-		GameRegistry.addRecipe(new ItemStack(Items.stoneLimb, 3), new Object[] {
+		GameRegistry.addRecipe(new ItemStack(Items.attachmentLimbBolt, 3, 5), new Object[] {
 			"XY", 
 			"XY",
 			"XY",
 			Character.valueOf('X'), Item.stick, Character.valueOf('Y'), Block.cobblestone
 		});
-		GameRegistry.addRecipe(new ItemStack(Items.stoneLimb, 3), new Object[] {
+		GameRegistry.addRecipe(new ItemStack(Items.attachmentLimbBolt, 3, 6), new Object[] {
 			"XY", 
 			"XY",
 			"XY",
 			Character.valueOf('X'), Item.stick, Character.valueOf('Y'), Block.stone
 		});
-		GameRegistry.addRecipe(new ItemStack(Items.ironLimb, 3), new Object[] {
+		GameRegistry.addRecipe(new ItemStack(Items.attachmentLimbBolt, 3, 7), new Object[] {
 			"XY", 
 			"XY",
 			"XY",
 			Character.valueOf('X'), Item.stick, Character.valueOf('Y'), Item.ingotIron
 		});
-		GameRegistry.addRecipe(new ItemStack(Items.goldLimb, 3), new Object[] {
+		GameRegistry.addRecipe(new ItemStack(Items.attachmentLimbBolt, 3, 8), new Object[] {
 			"XY", 
 			"XY",
 			"XY",
 			Character.valueOf('X'), Item.stick, Character.valueOf('Y'), Item.ingotGold
 		});
-		GameRegistry.addRecipe(new ItemStack(Items.diamondLimb, 3), new Object[] {
+		GameRegistry.addRecipe(new ItemStack(Items.attachmentLimbBolt, 3, 9), new Object[] {
 			"XY", 
 			"XY",
 			"XY",
 			Character.valueOf('X'), Item.stick, Character.valueOf('Y'), Item.diamond
 		});
-		GameRegistry.addRecipe(new ItemStack(Items.mechanismSemiAuto, 1), new Object[] {
+		GameRegistry.addRecipe(new ItemStack(Items.attachmentLimbBolt, 1, 10), new Object[] {
 			"XXX", 
 			"XYZ",
 			"XZY",
 			Character.valueOf('X'), Block.cobblestone, Character.valueOf('Y'), Item.stick, Character.valueOf('Z'), Item.silk
 		});
-		GameRegistry.addRecipe(new ItemStack(Items.mechanismLightAuto, 1), new Object[] {
+		GameRegistry.addRecipe(new ItemStack(Items.attachmentLimbBolt, 1, 11), new Object[] {
 			"AXX", 
 			"XBZ",
 			"XZY",
-			Character.valueOf('X'), Block.cobblestone, Character.valueOf('Y'), Item.stick, Character.valueOf('Z'), Item.silk, Character.valueOf('A'), Item.ingotIron, Character.valueOf('B'), Items.mechanismSemiAuto
+			Character.valueOf('X'), Block.cobblestone, Character.valueOf('Y'), Item.stick, Character.valueOf('Z'), Item.silk, Character.valueOf('A'), Item.ingotIron, Character.valueOf('B'), new ItemStack(Items.attachmentLimbBolt, 1, 10)
 		});
-		GameRegistry.addRecipe(new ItemStack(Items.mechanismMediumAuto, 1), new Object[] {
+		GameRegistry.addRecipe(new ItemStack(Items.attachmentLimbBolt, 1, 12), new Object[] {
 			"XXX", 
 			"XBZ",
 			"XZY",
-			Character.valueOf('X'), Item.ingotIron, Character.valueOf('Y'), Item.stick, Character.valueOf('Z'), Item.redstone, Character.valueOf('B'), Items.mechanismLightAuto
+			Character.valueOf('X'), Item.ingotIron, Character.valueOf('Y'), Item.stick, Character.valueOf('Z'), Item.redstone, Character.valueOf('B'), new ItemStack(Items.attachmentLimbBolt, 1, 11)
 		});
-		GameRegistry.addRecipe(new ItemStack(Items.mechanismHeavyAuto, 1), new Object[] {
+		GameRegistry.addRecipe(new ItemStack(Items.attachmentLimbBolt, 1, 13), new Object[] {
 			"XAA", 
 			"ABZ",
 			"AZY",
-			Character.valueOf('X'), Item.diamond, Character.valueOf('A'), Item.ingotIron, Character.valueOf('Y'), Item.stick, Character.valueOf('Z'), Item.redstone, Character.valueOf('B'), Items.mechanismMediumAuto
+			Character.valueOf('X'), Item.diamond, Character.valueOf('A'), Item.ingotIron, Character.valueOf('Y'), Item.stick, Character.valueOf('Z'), Item.redstone, Character.valueOf('B'), new ItemStack(Items.attachmentLimbBolt, 1, 12)
 		});
-		GameRegistry.addRecipe(new ItemStack(Items.attachmentShortScope, 1), new Object[] {
+		GameRegistry.addRecipe(new ItemStack(Items.attachmentLimbBolt, 1, 14), new Object[] {
 			"ZX ", 
 			"XAX",
 			" XZ",
 			Character.valueOf('X'), Item.ingotIron, Character.valueOf('A'), Block.torchRedstoneActive, Character.valueOf('Z'), Block.thinGlass
 		});
-		GameRegistry.addRecipe(new ItemStack(Items.attachmentLongScope, 1), new Object[] {
+		GameRegistry.addRecipe(new ItemStack(Items.attachmentLimbBolt, 1, 15), new Object[] {
 			"ZX ", 
 			"XAB",
 			" XZ",
-			Character.valueOf('X'), Item.ingotIron, Character.valueOf('A'), Items.attachmentShortScope, Character.valueOf('Z'), Block.thinGlass, Character.valueOf('B'), Block.stoneButton
+			Character.valueOf('X'), Item.ingotIron, Character.valueOf('A'), new ItemStack(Items.attachmentLimbBolt, 1, 14), Character.valueOf('Z'), Block.thinGlass, Character.valueOf('B'), Block.stoneButton
 		});
-		GameRegistry.addRecipe(new ItemStack(Items.woodBolt, 8), new Object[] {
+		GameRegistry.addRecipe(new ItemStack(Items.attachmentLimbBolt, 8, 0), new Object[] {
 			"X", 
 			"#",
 			Character.valueOf('X'), Block.planks, Character.valueOf('#'), Item.stick
 		});
-		GameRegistry.addRecipe(new ItemStack(Items.stoneBolt, 8), new Object[] {
+		GameRegistry.addRecipe(new ItemStack(Items.attachmentLimbBolt, 8, 1), new Object[] {
 			"X", 
 			"#",
 			Character.valueOf('X'), Block.cobblestone, Character.valueOf('#'), Item.stick
 		});
-		GameRegistry.addRecipe(new ItemStack(Items.ironBolt, 8), new Object[] {
+		GameRegistry.addRecipe(new ItemStack(Items.attachmentLimbBolt, 8, 2), new Object[] {
 			"X", 
 			"#",
 			Character.valueOf('X'), Item.ingotIron, Character.valueOf('#'), Item.stick
 		});
-		GameRegistry.addRecipe(new ItemStack(Items.goldBolt, 8), new Object[] {
+		GameRegistry.addRecipe(new ItemStack(Items.attachmentLimbBolt, 8, 3), new Object[] {
 			"X", 
 			"#",
 			Character.valueOf('X'), Item.ingotGold, Character.valueOf('#'), Item.stick
 		});
-		GameRegistry.addRecipe(new ItemStack(Items.diamondBolt, 8), new Object[] {
+		GameRegistry.addRecipe(new ItemStack(Items.attachmentLimbBolt, 8, 4), new Object[] {
 			"X", 
 			"#",
 			Character.valueOf('X'), Item.diamond, Character.valueOf('#'), Item.stick
@@ -262,43 +262,43 @@ public class Util
 			"ZZZ",
 			Character.valueOf('X'), Block.workbench, Character.valueOf('Y'), Item.ingotIron, Character.valueOf('Z'), Block.planks
 		});
-		GameRegistry.addRecipe(new ItemStack(Items.attachmentFire, 1), new Object[] {
+		GameRegistry.addRecipe(new ItemStack(Items.attachmentLimbBolt, 1, 16), new Object[] {
 			"XZZ",
 			"ZXZ",
 			"ZZX",
 			Character.valueOf('X'), Item.flintAndSteel, Character.valueOf('Z'), Item.ingotIron
 		});
-		GameRegistry.addRecipe(new ItemStack(Items.attachmentLava, 1), new Object[] {
+		GameRegistry.addRecipe(new ItemStack(Items.attachmentLimbBolt, 1, 18), new Object[] {
 			"XZZ",
 			"ZXZ",
 			"ZZX",
 			Character.valueOf('X'), Item.bucketLava, Character.valueOf('Z'), Item.ingotIron
 		});
-		GameRegistry.addRecipe(new ItemStack(Items.attachmentExplosive, 1), new Object[] {
+		GameRegistry.addRecipe(new ItemStack(Items.attachmentLimbBolt, 1, 17), new Object[] {
 			"XZZ",
 			"ZXZ",
 			"ZZX",
 			Character.valueOf('X'), Block.tnt, Character.valueOf('Z'), Item.ingotIron
 		});
-		GameRegistry.addRecipe(new ItemStack(Items.attachmentIce, 1), new Object[] {
+		GameRegistry.addRecipe(new ItemStack(Items.attachmentLimbBolt, 1, 19), new Object[] {
 			"XZZ",
 			"ZXZ",
 			"ZZX",
 			Character.valueOf('X'), Block.blockSnow, Character.valueOf('Z'), Item.ingotIron
 		});
-		GameRegistry.addRecipe(new ItemStack(Items.attachmentLightning, 1), new Object[] {
+		GameRegistry.addRecipe(new ItemStack(Items.attachmentLimbBolt, 1, 20), new Object[] {
 			"GZZ",
 			"ZRZ",
 			"ZZG",
 			Character.valueOf('G'), Item.lightStoneDust, Character.valueOf('Z'), Item.ingotIron, Character.valueOf('R'), Item.redstone
 		});
-		GameRegistry.addRecipe(new ItemStack(Items.attachmentTorch, 1), new Object[] {
+		GameRegistry.addRecipe(new ItemStack(Items.attachmentLimbBolt, 1, 21), new Object[] {
 			"SZZ",
 			"ZCZ",
 			"ZZF",
 			Character.valueOf('S'), Item.stick, Character.valueOf('C'), Item.coal, Character.valueOf('F'), Item.flintAndSteel, Character.valueOf('Z'), Item.ingotIron
 		});
-		GameRegistry.addRecipe(new ItemStack(Items.attachmentPoison, 1), new Object[] {
+		GameRegistry.addRecipe(new ItemStack(Items.attachmentLimbBolt, 1, 22), new Object[] {
 			"NZZ",
 			"ZSZ",
 			"ZZN",
@@ -312,1411 +312,1411 @@ public class Util
 		if (inventoryBlockCrossbowBench.getStackInSlot(3) != null && inventoryBlockCrossbowBench.getStackInSlot(3).itemID == Item.stick.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(4) != null && inventoryBlockCrossbowBench.getStackInSlot(4).itemID == Item.stick.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(5) != null && inventoryBlockCrossbowBench.getStackInSlot(5).itemID == Item.stick.shiftedIndex)
 		{
 			// If the limbs are the right material and in the correct position
-			if (inventoryBlockCrossbowBench.getStackInSlot(2) != null && inventoryBlockCrossbowBench.getStackInSlot(2).itemID == Items.woodLimb.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(6) != null && inventoryBlockCrossbowBench.getStackInSlot(6).itemID == Items.woodLimb.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(7) != null && inventoryBlockCrossbowBench.getStackInSlot(7).itemID == Items.woodLimb.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(8) != null && inventoryBlockCrossbowBench.getStackInSlot(8).itemID == Items.woodLimb.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(9) != null && inventoryBlockCrossbowBench.getStackInSlot(9).itemID == Items.woodLimb.shiftedIndex)
+			if (inventoryBlockCrossbowBench.getStackInSlot(2) != null && inventoryBlockCrossbowBench.getStackInSlot(2).getItemDamage() == 5 && inventoryBlockCrossbowBench.getStackInSlot(6) != null && inventoryBlockCrossbowBench.getStackInSlot(6).getItemDamage() == 5 && inventoryBlockCrossbowBench.getStackInSlot(7) != null && inventoryBlockCrossbowBench.getStackInSlot(7).getItemDamage() == 5 && inventoryBlockCrossbowBench.getStackInSlot(8) != null && inventoryBlockCrossbowBench.getStackInSlot(8).getItemDamage() == 5 && inventoryBlockCrossbowBench.getStackInSlot(9) != null && inventoryBlockCrossbowBench.getStackInSlot(9).getItemDamage() == 5)
 			{
 				// If there is a semi-auto mechanism
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID ==Items.mechanismSemiAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) == null)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 10 && inventoryBlockCrossbowBench.getStackInSlot(10) == null)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.woodenCrossbowBase), EnumAttachmentType.none, EnumCrossbowMaterial.wooden, EnumCrossbowFireRate.none);
 				}
 				
 				// If there is a semi-auto mechanism and a basic scope
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID ==Items.mechanismSemiAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentShortScope.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 10 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 14)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.woodenCrossbowBase), EnumAttachmentType.shortscope, EnumCrossbowMaterial.wooden, EnumCrossbowFireRate.none);
 				}
 
 				// If there is a semi-auto mechanism and a long scope
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID ==Items.mechanismSemiAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentLongScope.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 10 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 15)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.woodenCrossbowBase), EnumAttachmentType.longscope, EnumCrossbowMaterial.wooden, EnumCrossbowFireRate.none);
 				}
 
 				// If there is a light auto mechanism and a basic scope
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismLightAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentShortScope.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 11 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 14)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.woodenCrossbowBase), EnumAttachmentType.shortscope, EnumCrossbowMaterial.wooden, EnumCrossbowFireRate.light);
 				}
 
 				// If there is a light auto mechanism and a long scope
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismLightAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentLongScope.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 11 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 15)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.woodenCrossbowBase), EnumAttachmentType.longscope, EnumCrossbowMaterial.wooden, EnumCrossbowFireRate.light);
 				}
 
 				// If there is a medium auto mechanism and a basic scope
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismMediumAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentShortScope.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 12 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 14)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.woodenCrossbowBase), EnumAttachmentType.shortscope, EnumCrossbowMaterial.wooden, EnumCrossbowFireRate.medium);
 				}
 
 				// If there is a medium auto mechanism and a long scope
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismMediumAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentLongScope.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 12 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 15)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.woodenCrossbowBase), EnumAttachmentType.longscope, EnumCrossbowMaterial.wooden, EnumCrossbowFireRate.medium);
 				}
 
 				// If there is a heavy auto mechanism and a basic scope
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismHeavyAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentShortScope.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 13 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 14)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.woodenCrossbowBase), EnumAttachmentType.shortscope, EnumCrossbowMaterial.wooden, EnumCrossbowFireRate.heavy);
 				}
 
 				// If there is a heavy auto mechanism and a long scope
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismHeavyAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentLongScope.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 13 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 15)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.woodenCrossbowBase), EnumAttachmentType.longscope, EnumCrossbowMaterial.wooden, EnumCrossbowFireRate.heavy);
 				}
 				
 				// If there is a light mechanism
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismLightAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) == null)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 11 && inventoryBlockCrossbowBench.getStackInSlot(10) == null)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.woodenCrossbowBase), EnumAttachmentType.none, EnumCrossbowMaterial.wooden, EnumCrossbowFireRate.light);
 				}
 
 				// If there is a medium mechanism
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismMediumAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) == null)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 12 && inventoryBlockCrossbowBench.getStackInSlot(10) == null)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.woodenCrossbowBase), EnumAttachmentType.none, EnumCrossbowMaterial.wooden, EnumCrossbowFireRate.medium);
 				}
 
 				// If there is a heavy mechanism
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismHeavyAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) == null)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 13 && inventoryBlockCrossbowBench.getStackInSlot(10) == null)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.woodenCrossbowBase), EnumAttachmentType.none, EnumCrossbowMaterial.wooden, EnumCrossbowFireRate.heavy);
 				}
 				
 				// If there is a semi-auto mechanism and an explosive attachment
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID ==Items.mechanismSemiAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentIce.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 10 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 19)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.woodenCrossbowBase), EnumAttachmentType.ice, EnumCrossbowMaterial.wooden, EnumCrossbowFireRate.none);
 				}
 				
 				// If there is a light auto mechanism and an explosive attachment
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismLightAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentIce.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 11 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 19)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.woodenCrossbowBase), EnumAttachmentType.ice, EnumCrossbowMaterial.wooden, EnumCrossbowFireRate.light);
 				}
 				
 				// If there is a medium auto mechanism and an explosive attachment
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismMediumAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentIce.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 12 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 19)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.woodenCrossbowBase), EnumAttachmentType.ice, EnumCrossbowMaterial.wooden, EnumCrossbowFireRate.medium);
 				}
 				
 				// If there is a heavy auto mechanism and an explosive attachment
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismHeavyAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentIce.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 13 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 19)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.woodenCrossbowBase), EnumAttachmentType.ice, EnumCrossbowMaterial.wooden, EnumCrossbowFireRate.heavy);
 				}
 				
 				// If there is a semi-auto mechanism and an explosive attachment
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID ==Items.mechanismSemiAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentExplosive.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 10 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 17)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.woodenCrossbowBase), EnumAttachmentType.explosive, EnumCrossbowMaterial.wooden, EnumCrossbowFireRate.none);
 				}
 				
 				// If there is a light auto mechanism and an explosive attachment
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismLightAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentExplosive.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 11 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 17)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.woodenCrossbowBase), EnumAttachmentType.explosive, EnumCrossbowMaterial.wooden, EnumCrossbowFireRate.light);
 				}
 				
 				// If there is a medium auto mechanism and an explosive attachment
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismMediumAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentExplosive.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 12 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 17)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.woodenCrossbowBase), EnumAttachmentType.explosive, EnumCrossbowMaterial.wooden, EnumCrossbowFireRate.medium);
 				}
 				
 				// If there is a heavy auto mechanism and an explosive attachment
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismHeavyAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentExplosive.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 13 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 17)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.woodenCrossbowBase), EnumAttachmentType.explosive, EnumCrossbowMaterial.wooden, EnumCrossbowFireRate.heavy);
 				}
 				
 				// If there is a semi-auto mechanism and an Flame attachment
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID ==Items.mechanismSemiAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentFire.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 10 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 16)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.woodenCrossbowBase), EnumAttachmentType.flame, EnumCrossbowMaterial.wooden, EnumCrossbowFireRate.none);
 				}
 				
 				// If there is a light auto mechanism and an Flame attachment
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismLightAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentFire.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 11 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 16)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.woodenCrossbowBase), EnumAttachmentType.flame, EnumCrossbowMaterial.wooden, EnumCrossbowFireRate.light);
 				}
 				
 				// If there is a medium auto mechanism and an Flame attachment
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismMediumAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentFire.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 12 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 16)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.woodenCrossbowBase), EnumAttachmentType.flame, EnumCrossbowMaterial.wooden, EnumCrossbowFireRate.medium);
 				}
 				
 				// If there is a heavy auto mechanism and an Flame attachment
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismHeavyAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentFire.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 13 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 16)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.woodenCrossbowBase), EnumAttachmentType.flame, EnumCrossbowMaterial.wooden, EnumCrossbowFireRate.heavy);
 				}
 				
 				// If there is a semi-auto mechanism and an explosive attachment
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID ==Items.mechanismSemiAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentLightning.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 10 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 20)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.woodenCrossbowBase), EnumAttachmentType.lightning, EnumCrossbowMaterial.wooden, EnumCrossbowFireRate.none);
 				}
 				
 				// If there is a light auto mechanism and an explosive attachment
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismLightAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentLightning.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 11 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 20)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.woodenCrossbowBase), EnumAttachmentType.lightning, EnumCrossbowMaterial.wooden, EnumCrossbowFireRate.light);
 				}
 				
 				// If there is a medium auto mechanism and an explosive attachment
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismMediumAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentLightning.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 12 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 20)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.woodenCrossbowBase), EnumAttachmentType.lightning, EnumCrossbowMaterial.wooden, EnumCrossbowFireRate.medium);
 				}
 				
 				// If there is a heavy auto mechanism and an explosive attachment
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismHeavyAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentLightning.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 13 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 20)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.woodenCrossbowBase), EnumAttachmentType.lightning, EnumCrossbowMaterial.wooden, EnumCrossbowFireRate.heavy);
 				}
 				
 				// If there is a semi-auto mechanism and an lava attachment
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID ==Items.mechanismSemiAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentLava.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 10 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 18)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.woodenCrossbowBase), EnumAttachmentType.lava, EnumCrossbowMaterial.wooden, EnumCrossbowFireRate.none);
 				}
 				
 				// If there is a light auto mechanism and an lava attachment
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismLightAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentLava.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 11 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 18)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.woodenCrossbowBase), EnumAttachmentType.lava, EnumCrossbowMaterial.wooden, EnumCrossbowFireRate.light);
 				}
 				
 				// If there is a medium auto mechanism and an lava attachment
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismMediumAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentLava.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 12 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 18)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.woodenCrossbowBase), EnumAttachmentType.lava, EnumCrossbowMaterial.wooden, EnumCrossbowFireRate.medium);
 				}
 				
 				// If there is a heavy auto mechanism and an lava attachment
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismHeavyAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentLava.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 13 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 18)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.woodenCrossbowBase), EnumAttachmentType.lava, EnumCrossbowMaterial.wooden, EnumCrossbowFireRate.heavy);
 				}
 				
 				// If there is a semi-auto mechanism and an explosive attachment
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID ==Items.mechanismSemiAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentTorch.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 10 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 21)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.woodenCrossbowBase), EnumAttachmentType.torch, EnumCrossbowMaterial.wooden, EnumCrossbowFireRate.none);
 				}
 				
 				// If there is a light auto mechanism and an explosive attachment
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismLightAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentTorch.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 11 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 21)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.woodenCrossbowBase), EnumAttachmentType.torch, EnumCrossbowMaterial.wooden, EnumCrossbowFireRate.light);
 				}
 				
 				// If there is a medium auto mechanism and an explosive attachment
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismMediumAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentTorch.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 12 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 21)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.woodenCrossbowBase), EnumAttachmentType.torch, EnumCrossbowMaterial.wooden, EnumCrossbowFireRate.medium);
 				}
 				
 				// If there is a heavy auto mechanism and an explosive attachment
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismHeavyAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentTorch.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 13 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 21)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.woodenCrossbowBase), EnumAttachmentType.torch, EnumCrossbowMaterial.wooden, EnumCrossbowFireRate.heavy);
 				}
 				
 				// If there is a semi-auto mechanism and an explosive attachment
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID ==Items.mechanismSemiAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentPoison.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 10 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 22)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.woodenCrossbowBase), EnumAttachmentType.poison, EnumCrossbowMaterial.wooden, EnumCrossbowFireRate.none);
 				}
 				
 				// If there is a light auto mechanism and an explosive attachment
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismLightAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentPoison.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 11 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 22)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.woodenCrossbowBase), EnumAttachmentType.poison, EnumCrossbowMaterial.wooden, EnumCrossbowFireRate.light);
 				}
 				
 				// If there is a medium auto mechanism and an explosive attachment
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismMediumAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentPoison.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 12 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 22)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.woodenCrossbowBase), EnumAttachmentType.poison, EnumCrossbowMaterial.wooden, EnumCrossbowFireRate.medium);
 				}
 				
 				// If there is a heavy auto mechanism and an explosive attachment
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismHeavyAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentPoison.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 13 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 22)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.woodenCrossbowBase), EnumAttachmentType.poison, EnumCrossbowMaterial.wooden, EnumCrossbowFireRate.heavy);
 				}
 			}
 			// If the limbs are the right material and in the correct position
-			if (inventoryBlockCrossbowBench.getStackInSlot(2) != null && inventoryBlockCrossbowBench.getStackInSlot(2).itemID == Items.stoneLimb.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(6) != null && inventoryBlockCrossbowBench.getStackInSlot(6).itemID == Items.stoneLimb.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(7) != null && inventoryBlockCrossbowBench.getStackInSlot(7).itemID == Items.stoneLimb.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(8) != null && inventoryBlockCrossbowBench.getStackInSlot(8).itemID == Items.stoneLimb.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(9) != null && inventoryBlockCrossbowBench.getStackInSlot(9).itemID == Items.stoneLimb.shiftedIndex)
+			if (inventoryBlockCrossbowBench.getStackInSlot(2) != null && inventoryBlockCrossbowBench.getStackInSlot(2).getItemDamage() == 6 && inventoryBlockCrossbowBench.getStackInSlot(6) != null && inventoryBlockCrossbowBench.getStackInSlot(6).getItemDamage() == 6 && inventoryBlockCrossbowBench.getStackInSlot(7) != null && inventoryBlockCrossbowBench.getStackInSlot(7).getItemDamage() == 6 && inventoryBlockCrossbowBench.getStackInSlot(8) != null && inventoryBlockCrossbowBench.getStackInSlot(8).getItemDamage() == 6 && inventoryBlockCrossbowBench.getStackInSlot(9) != null && inventoryBlockCrossbowBench.getStackInSlot(9).getItemDamage() == 6)
 			{
 				// If there is a semi-auto mechanism
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID ==Items.mechanismSemiAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) == null)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 10 && inventoryBlockCrossbowBench.getStackInSlot(10) == null)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.stoneCrossbowBase), EnumAttachmentType.none, EnumCrossbowMaterial.stone, EnumCrossbowFireRate.none);
 				}
 				
 				// If there is a semi-auto mechanism and a basic scope
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID ==Items.mechanismSemiAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentShortScope.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 10 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 14)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.stoneCrossbowBase), EnumAttachmentType.shortscope, EnumCrossbowMaterial.stone, EnumCrossbowFireRate.none);
 				}
 
 				// If there is a semi-auto mechanism and a long scope
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID ==Items.mechanismSemiAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentLongScope.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 10 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 15)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.stoneCrossbowBase), EnumAttachmentType.longscope, EnumCrossbowMaterial.stone, EnumCrossbowFireRate.none);
 				}
 
 				// If there is a light auto mechanism and a basic scope
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismLightAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentShortScope.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 11 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 14)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.stoneCrossbowBase), EnumAttachmentType.shortscope, EnumCrossbowMaterial.stone, EnumCrossbowFireRate.light);
 				}
 
 				// If there is a light auto mechanism and a long scope
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismLightAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentLongScope.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 11 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 15)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.stoneCrossbowBase), EnumAttachmentType.longscope, EnumCrossbowMaterial.stone, EnumCrossbowFireRate.light);
 				}
 
 				// If there is a medium auto mechanism and a basic scope
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismMediumAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentShortScope.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 12 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 14)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.stoneCrossbowBase), EnumAttachmentType.shortscope, EnumCrossbowMaterial.stone, EnumCrossbowFireRate.medium);
 				}
 
 				// If there is a medium auto mechanism and a long scope
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismMediumAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentLongScope.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 12 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 15)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.stoneCrossbowBase), EnumAttachmentType.longscope, EnumCrossbowMaterial.stone, EnumCrossbowFireRate.medium);
 				}
 
 				// If there is a heavy auto mechanism and a basic scope
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismHeavyAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentShortScope.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 13 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 14)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.stoneCrossbowBase), EnumAttachmentType.shortscope, EnumCrossbowMaterial.stone, EnumCrossbowFireRate.heavy);
 				}
 
 				// If there is a heavy auto mechanism and a long scope
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismHeavyAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentLongScope.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 13 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 15)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.stoneCrossbowBase), EnumAttachmentType.longscope, EnumCrossbowMaterial.stone, EnumCrossbowFireRate.heavy);
 				}
 				
 				// If there is a light mechanism
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismLightAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) == null)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 11 && inventoryBlockCrossbowBench.getStackInSlot(10) == null)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.stoneCrossbowBase), EnumAttachmentType.none, EnumCrossbowMaterial.stone, EnumCrossbowFireRate.light);
 				}
 
 				// If there is a medium mechanism
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismMediumAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) == null)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 12 && inventoryBlockCrossbowBench.getStackInSlot(10) == null)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.stoneCrossbowBase), EnumAttachmentType.none, EnumCrossbowMaterial.stone, EnumCrossbowFireRate.medium);
 				}
 
 				// If there is a heavy mechanism
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismHeavyAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) == null)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 13 && inventoryBlockCrossbowBench.getStackInSlot(10) == null)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.stoneCrossbowBase), EnumAttachmentType.none, EnumCrossbowMaterial.stone, EnumCrossbowFireRate.heavy);
 				}
 				
 				// If there is a semi-auto mechanism and an explosive attachment
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID ==Items.mechanismSemiAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentIce.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 10 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 19)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.stoneCrossbowBase), EnumAttachmentType.ice, EnumCrossbowMaterial.stone, EnumCrossbowFireRate.none);
 				}
 				
 				// If there is a light auto mechanism and an explosive attachment
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismLightAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentIce.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 11 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 19)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.stoneCrossbowBase), EnumAttachmentType.ice, EnumCrossbowMaterial.stone, EnumCrossbowFireRate.light);
 				}
 				
 				// If there is a medium auto mechanism and an explosive attachment
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismMediumAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentIce.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 12 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 19)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.stoneCrossbowBase), EnumAttachmentType.ice, EnumCrossbowMaterial.stone, EnumCrossbowFireRate.medium);
 				}
 				
 				// If there is a heavy auto mechanism and an explosive attachment
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismHeavyAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentIce.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 13 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 19)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.stoneCrossbowBase), EnumAttachmentType.ice, EnumCrossbowMaterial.stone, EnumCrossbowFireRate.heavy);
 				}
 				
 				// If there is a semi-auto mechanism and an explosive attachment
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID ==Items.mechanismSemiAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentExplosive.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 10 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 17)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.stoneCrossbowBase), EnumAttachmentType.explosive, EnumCrossbowMaterial.stone, EnumCrossbowFireRate.none);
 				}
 				
 				// If there is a light auto mechanism and an explosive attachment
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismLightAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentExplosive.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 11 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 17)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.stoneCrossbowBase), EnumAttachmentType.explosive, EnumCrossbowMaterial.stone, EnumCrossbowFireRate.light);
 				}
 				
 				// If there is a medium auto mechanism and an explosive attachment
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismMediumAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentExplosive.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 12 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 17)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.stoneCrossbowBase), EnumAttachmentType.explosive, EnumCrossbowMaterial.stone, EnumCrossbowFireRate.medium);
 				}
 				
 				// If there is a heavy auto mechanism and an explosive attachment
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismHeavyAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentExplosive.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 13 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 17)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.stoneCrossbowBase), EnumAttachmentType.explosive, EnumCrossbowMaterial.stone, EnumCrossbowFireRate.heavy);
 				}
 				
 				// If there is a semi-auto mechanism and an Flame attachment
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID ==Items.mechanismSemiAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentFire.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 10 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 16)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.stoneCrossbowBase), EnumAttachmentType.flame, EnumCrossbowMaterial.stone, EnumCrossbowFireRate.none);
 				}
 				
 				// If there is a light auto mechanism and an Flame attachment
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismLightAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentFire.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 11 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 16)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.stoneCrossbowBase), EnumAttachmentType.flame, EnumCrossbowMaterial.stone, EnumCrossbowFireRate.light);
 				}
 				
 				// If there is a medium auto mechanism and an Flame attachment
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismMediumAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentFire.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 12 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 16)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.stoneCrossbowBase), EnumAttachmentType.flame, EnumCrossbowMaterial.stone, EnumCrossbowFireRate.medium);
 				}
 				
 				// If there is a heavy auto mechanism and an Flame attachment
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismHeavyAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentFire.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 13 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 16)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.stoneCrossbowBase), EnumAttachmentType.flame, EnumCrossbowMaterial.stone, EnumCrossbowFireRate.heavy);
 				}
 				
 				// If there is a semi-auto mechanism and an explosive attachment
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID ==Items.mechanismSemiAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentLightning.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 10 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 20)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.stoneCrossbowBase), EnumAttachmentType.lightning, EnumCrossbowMaterial.stone, EnumCrossbowFireRate.none);
 				}
 				
 				// If there is a light auto mechanism and an explosive attachment
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismLightAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentLightning.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 11 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 20)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.stoneCrossbowBase), EnumAttachmentType.lightning, EnumCrossbowMaterial.stone, EnumCrossbowFireRate.light);
 				}
 				
 				// If there is a medium auto mechanism and an explosive attachment
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismMediumAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentLightning.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 12 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 20)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.stoneCrossbowBase), EnumAttachmentType.lightning, EnumCrossbowMaterial.stone, EnumCrossbowFireRate.medium);
 				}
 				
 				// If there is a heavy auto mechanism and an explosive attachment
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismHeavyAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentLightning.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 13 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 20)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.stoneCrossbowBase), EnumAttachmentType.lightning, EnumCrossbowMaterial.stone, EnumCrossbowFireRate.heavy);
 				}
 				
 				// If there is a semi-auto mechanism and an lava attachment
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID ==Items.mechanismSemiAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentLava.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 10 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 18)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.stoneCrossbowBase), EnumAttachmentType.lava, EnumCrossbowMaterial.stone, EnumCrossbowFireRate.none);
 				}
 				
 				// If there is a light auto mechanism and an lava attachment
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismLightAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentLava.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 11 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 18)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.stoneCrossbowBase), EnumAttachmentType.lava, EnumCrossbowMaterial.stone, EnumCrossbowFireRate.light);
 				}
 				
 				// If there is a medium auto mechanism and an lava attachment
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismMediumAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentLava.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 12 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 18)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.stoneCrossbowBase), EnumAttachmentType.lava, EnumCrossbowMaterial.stone, EnumCrossbowFireRate.medium);
 				}
 				
 				// If there is a heavy auto mechanism and an lava attachment
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismHeavyAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentLava.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 13 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 18)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.stoneCrossbowBase), EnumAttachmentType.lava, EnumCrossbowMaterial.stone, EnumCrossbowFireRate.heavy);
 				}
 				
 				// If there is a semi-auto mechanism and an explosive attachment
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID ==Items.mechanismSemiAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentTorch.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 10 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 21)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.stoneCrossbowBase), EnumAttachmentType.torch, EnumCrossbowMaterial.stone, EnumCrossbowFireRate.none);
 				}
 				
 				// If there is a light auto mechanism and an explosive attachment
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismLightAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentTorch.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 11 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 21)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.stoneCrossbowBase), EnumAttachmentType.torch, EnumCrossbowMaterial.stone, EnumCrossbowFireRate.light);
 				}
 				
 				// If there is a medium auto mechanism and an explosive attachment
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismMediumAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentTorch.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 12 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 21)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.stoneCrossbowBase), EnumAttachmentType.torch, EnumCrossbowMaterial.stone, EnumCrossbowFireRate.medium);
 				}
 				
 				// If there is a heavy auto mechanism and an explosive attachment
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismHeavyAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentTorch.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 13 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 21)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.stoneCrossbowBase), EnumAttachmentType.torch, EnumCrossbowMaterial.stone, EnumCrossbowFireRate.heavy);
 				}
 				
 				// If there is a semi-auto mechanism and an explosive attachment
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID ==Items.mechanismSemiAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentPoison.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 10 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 22)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.stoneCrossbowBase), EnumAttachmentType.poison, EnumCrossbowMaterial.stone, EnumCrossbowFireRate.none);
 				}
 				
 				// If there is a light auto mechanism and an explosive attachment
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismLightAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentPoison.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 11 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 22)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.stoneCrossbowBase), EnumAttachmentType.poison, EnumCrossbowMaterial.stone, EnumCrossbowFireRate.light);
 				}
 				
 				// If there is a medium auto mechanism and an explosive attachment
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismMediumAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentPoison.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 12 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 22)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.stoneCrossbowBase), EnumAttachmentType.poison, EnumCrossbowMaterial.stone, EnumCrossbowFireRate.medium);
 				}
 				
 				// If there is a heavy auto mechanism and an explosive attachment
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismHeavyAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentPoison.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 13 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 22)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.stoneCrossbowBase), EnumAttachmentType.poison, EnumCrossbowMaterial.stone, EnumCrossbowFireRate.heavy);
 				}
 			}
 			// If the limbs are the right material and in the correct position
-			if (inventoryBlockCrossbowBench.getStackInSlot(2) != null && inventoryBlockCrossbowBench.getStackInSlot(2).itemID == Items.ironLimb.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(6) != null && inventoryBlockCrossbowBench.getStackInSlot(6).itemID == Items.ironLimb.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(7) != null && inventoryBlockCrossbowBench.getStackInSlot(7).itemID == Items.ironLimb.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(8) != null && inventoryBlockCrossbowBench.getStackInSlot(8).itemID == Items.ironLimb.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(9) != null && inventoryBlockCrossbowBench.getStackInSlot(9).itemID == Items.ironLimb.shiftedIndex)
+			if (inventoryBlockCrossbowBench.getStackInSlot(2) != null && inventoryBlockCrossbowBench.getStackInSlot(2).getItemDamage() == 7 && inventoryBlockCrossbowBench.getStackInSlot(6) != null && inventoryBlockCrossbowBench.getStackInSlot(6).getItemDamage() == 7 && inventoryBlockCrossbowBench.getStackInSlot(7) != null && inventoryBlockCrossbowBench.getStackInSlot(7).getItemDamage() == 7 && inventoryBlockCrossbowBench.getStackInSlot(8) != null && inventoryBlockCrossbowBench.getStackInSlot(8).getItemDamage() == 7 && inventoryBlockCrossbowBench.getStackInSlot(9) != null && inventoryBlockCrossbowBench.getStackInSlot(9).getItemDamage() == 7)
 			{
 				// If there is a semi-auto mechanism
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID ==Items.mechanismSemiAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) == null)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 10 && inventoryBlockCrossbowBench.getStackInSlot(10) == null)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.ironCrossbowBase), EnumAttachmentType.none, EnumCrossbowMaterial.iron, EnumCrossbowFireRate.none);
 				}
 				
 				// If there is a semi-auto mechanism and a basic scope
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID ==Items.mechanismSemiAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentShortScope.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 10 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 14)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.ironCrossbowBase), EnumAttachmentType.shortscope, EnumCrossbowMaterial.iron, EnumCrossbowFireRate.none);
 				}
 
 				// If there is a semi-auto mechanism and a long scope
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID ==Items.mechanismSemiAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentLongScope.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 10 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 15)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.ironCrossbowBase), EnumAttachmentType.longscope, EnumCrossbowMaterial.iron, EnumCrossbowFireRate.none);
 				}
 
 				// If there is a light auto mechanism and a basic scope
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismLightAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentShortScope.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 11 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 14)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.ironCrossbowBase), EnumAttachmentType.shortscope, EnumCrossbowMaterial.iron, EnumCrossbowFireRate.light);
 				}
 
 				// If there is a light auto mechanism and a long scope
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismLightAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentLongScope.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 11 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 15)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.ironCrossbowBase), EnumAttachmentType.longscope, EnumCrossbowMaterial.iron, EnumCrossbowFireRate.light);
 				}
 
 				// If there is a medium auto mechanism and a basic scope
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismMediumAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentShortScope.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 12 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 14)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.ironCrossbowBase), EnumAttachmentType.shortscope, EnumCrossbowMaterial.iron, EnumCrossbowFireRate.medium);
 				}
 
 				// If there is a medium auto mechanism and a long scope
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismMediumAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentLongScope.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 12 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 15)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.ironCrossbowBase), EnumAttachmentType.longscope, EnumCrossbowMaterial.iron, EnumCrossbowFireRate.medium);
 				}
 
 				// If there is a heavy auto mechanism and a basic scope
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismHeavyAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentShortScope.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 13 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 14)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.ironCrossbowBase), EnumAttachmentType.shortscope, EnumCrossbowMaterial.iron, EnumCrossbowFireRate.heavy);
 				}
 
 				// If there is a heavy auto mechanism and a long scope
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismHeavyAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentLongScope.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 13 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 15)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.ironCrossbowBase), EnumAttachmentType.longscope, EnumCrossbowMaterial.iron, EnumCrossbowFireRate.heavy);
 				}
 				
 				// If there is a light mechanism
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismLightAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) == null)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 11 && inventoryBlockCrossbowBench.getStackInSlot(10) == null)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.ironCrossbowBase), EnumAttachmentType.none, EnumCrossbowMaterial.iron, EnumCrossbowFireRate.light);
 				}
 
 				// If there is a medium mechanism
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismMediumAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) == null)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 12 && inventoryBlockCrossbowBench.getStackInSlot(10) == null)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.ironCrossbowBase), EnumAttachmentType.none, EnumCrossbowMaterial.iron, EnumCrossbowFireRate.medium);
 				}
 
 				// If there is a heavy mechanism
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismHeavyAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) == null)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 13 && inventoryBlockCrossbowBench.getStackInSlot(10) == null)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.ironCrossbowBase), EnumAttachmentType.none, EnumCrossbowMaterial.iron, EnumCrossbowFireRate.heavy);
 				}
 				
 				// If there is a semi-auto mechanism and an explosive attachment
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID ==Items.mechanismSemiAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentIce.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 10 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 19)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.ironCrossbowBase), EnumAttachmentType.ice, EnumCrossbowMaterial.iron, EnumCrossbowFireRate.none);
 				}
 				
 				// If there is a light auto mechanism and an explosive attachment
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismLightAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentIce.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 11 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 19)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.ironCrossbowBase), EnumAttachmentType.ice, EnumCrossbowMaterial.iron, EnumCrossbowFireRate.light);
 				}
 				
 				// If there is a medium auto mechanism and an explosive attachment
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismMediumAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentIce.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 12 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 19)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.ironCrossbowBase), EnumAttachmentType.ice, EnumCrossbowMaterial.iron, EnumCrossbowFireRate.medium);
 				}
 				
 				// If there is a heavy auto mechanism and an explosive attachment
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismHeavyAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentIce.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 13 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 19)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.ironCrossbowBase), EnumAttachmentType.ice, EnumCrossbowMaterial.iron, EnumCrossbowFireRate.heavy);
 				}
 				
 				// If there is a semi-auto mechanism and an explosive attachment
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID ==Items.mechanismSemiAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentExplosive.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 10 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 17)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.ironCrossbowBase), EnumAttachmentType.explosive, EnumCrossbowMaterial.iron, EnumCrossbowFireRate.none);
 				}
 				
 				// If there is a light auto mechanism and an explosive attachment
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismLightAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentExplosive.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 11 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 17)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.ironCrossbowBase), EnumAttachmentType.explosive, EnumCrossbowMaterial.iron, EnumCrossbowFireRate.light);
 				}
 				
 				// If there is a medium auto mechanism and an explosive attachment
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismMediumAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentExplosive.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 12 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 17)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.ironCrossbowBase), EnumAttachmentType.explosive, EnumCrossbowMaterial.iron, EnumCrossbowFireRate.medium);
 				}
 				
 				// If there is a heavy auto mechanism and an explosive attachment
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismHeavyAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentExplosive.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 13 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 17)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.ironCrossbowBase), EnumAttachmentType.explosive, EnumCrossbowMaterial.iron, EnumCrossbowFireRate.heavy);
 				}
 				
 				// If there is a semi-auto mechanism and an Flame attachment
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID ==Items.mechanismSemiAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentFire.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 10 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 16)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.ironCrossbowBase), EnumAttachmentType.flame, EnumCrossbowMaterial.iron, EnumCrossbowFireRate.none);
 				}
 				
 				// If there is a light auto mechanism and an Flame attachment
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismLightAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentFire.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 11 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 16)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.ironCrossbowBase), EnumAttachmentType.flame, EnumCrossbowMaterial.iron, EnumCrossbowFireRate.light);
 				}
 				
 				// If there is a medium auto mechanism and an Flame attachment
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismMediumAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentFire.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 12 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 16)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.ironCrossbowBase), EnumAttachmentType.flame, EnumCrossbowMaterial.iron, EnumCrossbowFireRate.medium);
 				}
 				
 				// If there is a heavy auto mechanism and an Flame attachment
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismHeavyAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentFire.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 13 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 16)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.ironCrossbowBase), EnumAttachmentType.flame, EnumCrossbowMaterial.iron, EnumCrossbowFireRate.heavy);
 				}
 				
 				// If there is a semi-auto mechanism and an explosive attachment
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID ==Items.mechanismSemiAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentLightning.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 10 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 20)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.ironCrossbowBase), EnumAttachmentType.lightning, EnumCrossbowMaterial.iron, EnumCrossbowFireRate.none);
 				}
 				
 				// If there is a light auto mechanism and an explosive attachment
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismLightAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentLightning.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 11 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 20)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.ironCrossbowBase), EnumAttachmentType.lightning, EnumCrossbowMaterial.iron, EnumCrossbowFireRate.light);
 				}
 				
 				// If there is a medium auto mechanism and an explosive attachment
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismMediumAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentLightning.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 12 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 20)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.ironCrossbowBase), EnumAttachmentType.lightning, EnumCrossbowMaterial.iron, EnumCrossbowFireRate.medium);
 				}
 				
 				// If there is a heavy auto mechanism and an explosive attachment
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismHeavyAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentLightning.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 13 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 20)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.ironCrossbowBase), EnumAttachmentType.lightning, EnumCrossbowMaterial.iron, EnumCrossbowFireRate.heavy);
 				}
 				
 				// If there is a semi-auto mechanism and an lava attachment
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID ==Items.mechanismSemiAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentLava.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 10 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 18)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.ironCrossbowBase), EnumAttachmentType.lava, EnumCrossbowMaterial.iron, EnumCrossbowFireRate.none);
 				}
 				
 				// If there is a light auto mechanism and an lava attachment
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismLightAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentLava.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 11 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 18)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.ironCrossbowBase), EnumAttachmentType.lava, EnumCrossbowMaterial.iron, EnumCrossbowFireRate.light);
 				}
 				
 				// If there is a medium auto mechanism and an lava attachment
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismMediumAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentLava.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 12 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 18)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.ironCrossbowBase), EnumAttachmentType.lava, EnumCrossbowMaterial.iron, EnumCrossbowFireRate.medium);
 				}
 				
 				// If there is a heavy auto mechanism and an lava attachment
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismHeavyAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentLava.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 13 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 18)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.ironCrossbowBase), EnumAttachmentType.lava, EnumCrossbowMaterial.iron, EnumCrossbowFireRate.heavy);
 				}
 				
 				// If there is a semi-auto mechanism and an explosive attachment
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID ==Items.mechanismSemiAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentTorch.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 10 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 21)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.ironCrossbowBase), EnumAttachmentType.torch, EnumCrossbowMaterial.iron, EnumCrossbowFireRate.none);
 				}
 				
 				// If there is a light auto mechanism and an explosive attachment
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismLightAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentTorch.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 11 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 21)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.ironCrossbowBase), EnumAttachmentType.torch, EnumCrossbowMaterial.iron, EnumCrossbowFireRate.light);
 				}
 				
 				// If there is a medium auto mechanism and an explosive attachment
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismMediumAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentTorch.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 12 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 21)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.ironCrossbowBase), EnumAttachmentType.torch, EnumCrossbowMaterial.iron, EnumCrossbowFireRate.medium);
 				}
 				
 				// If there is a heavy auto mechanism and an explosive attachment
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismHeavyAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentTorch.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 13 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 21)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.ironCrossbowBase), EnumAttachmentType.torch, EnumCrossbowMaterial.iron, EnumCrossbowFireRate.heavy);
 				}
 				
 				// If there is a semi-auto mechanism and an explosive attachment
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID ==Items.mechanismSemiAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentPoison.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 10 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 22)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.ironCrossbowBase), EnumAttachmentType.poison, EnumCrossbowMaterial.iron, EnumCrossbowFireRate.none);
 				}
 				
 				// If there is a light auto mechanism and an explosive attachment
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismLightAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentPoison.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 11 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 22)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.ironCrossbowBase), EnumAttachmentType.poison, EnumCrossbowMaterial.iron, EnumCrossbowFireRate.light);
 				}
 				
 				// If there is a medium auto mechanism and an explosive attachment
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismMediumAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentPoison.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 12 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 22)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.ironCrossbowBase), EnumAttachmentType.poison, EnumCrossbowMaterial.iron, EnumCrossbowFireRate.medium);
 				}
 				
 				// If there is a heavy auto mechanism and an explosive attachment
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismHeavyAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentPoison.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 13 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 22)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.ironCrossbowBase), EnumAttachmentType.poison, EnumCrossbowMaterial.iron, EnumCrossbowFireRate.heavy);
 				}
 			}
 			// If the limbs are the right material and in the correct position
-			if (inventoryBlockCrossbowBench.getStackInSlot(2) != null && inventoryBlockCrossbowBench.getStackInSlot(2).itemID == Items.goldLimb.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(6) != null && inventoryBlockCrossbowBench.getStackInSlot(6).itemID == Items.goldLimb.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(7) != null && inventoryBlockCrossbowBench.getStackInSlot(7).itemID == Items.goldLimb.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(8) != null && inventoryBlockCrossbowBench.getStackInSlot(8).itemID == Items.goldLimb.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(9) != null && inventoryBlockCrossbowBench.getStackInSlot(9).itemID == Items.goldLimb.shiftedIndex)
+			if (inventoryBlockCrossbowBench.getStackInSlot(2) != null && inventoryBlockCrossbowBench.getStackInSlot(2).getItemDamage() == 8 && inventoryBlockCrossbowBench.getStackInSlot(6) != null && inventoryBlockCrossbowBench.getStackInSlot(6).getItemDamage() == 8 && inventoryBlockCrossbowBench.getStackInSlot(7) != null && inventoryBlockCrossbowBench.getStackInSlot(7).getItemDamage() == 8 && inventoryBlockCrossbowBench.getStackInSlot(8) != null && inventoryBlockCrossbowBench.getStackInSlot(8).getItemDamage() == 8 && inventoryBlockCrossbowBench.getStackInSlot(9) != null && inventoryBlockCrossbowBench.getStackInSlot(9).getItemDamage() == 8)
 			{
 				// If there is a semi-auto mechanism
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID ==Items.mechanismSemiAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) == null)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 10 && inventoryBlockCrossbowBench.getStackInSlot(10) == null)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.goldCrossbowBase), EnumAttachmentType.none, EnumCrossbowMaterial.gold, EnumCrossbowFireRate.none);
 				}
 				
 				// If there is a semi-auto mechanism and a basic scope
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID ==Items.mechanismSemiAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentShortScope.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 10 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 14)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.goldCrossbowBase), EnumAttachmentType.shortscope, EnumCrossbowMaterial.gold, EnumCrossbowFireRate.none);
 				}
 
 				// If there is a semi-auto mechanism and a long scope
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID ==Items.mechanismSemiAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentLongScope.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 10 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 15)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.goldCrossbowBase), EnumAttachmentType.longscope, EnumCrossbowMaterial.gold, EnumCrossbowFireRate.none);
 				}
 
 				// If there is a light auto mechanism and a basic scope
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismLightAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentShortScope.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 11 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 14)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.goldCrossbowBase), EnumAttachmentType.shortscope, EnumCrossbowMaterial.gold, EnumCrossbowFireRate.light);
 				}
 
 				// If there is a light auto mechanism and a long scope
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismLightAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentLongScope.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 11 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 15)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.goldCrossbowBase), EnumAttachmentType.longscope, EnumCrossbowMaterial.gold, EnumCrossbowFireRate.light);
 				}
 
 				// If there is a medium auto mechanism and a basic scope
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismMediumAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentShortScope.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 12 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 14)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.goldCrossbowBase), EnumAttachmentType.shortscope, EnumCrossbowMaterial.gold, EnumCrossbowFireRate.medium);
 				}
 
 				// If there is a medium auto mechanism and a long scope
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismMediumAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentLongScope.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 12 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 15)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.goldCrossbowBase), EnumAttachmentType.longscope, EnumCrossbowMaterial.gold, EnumCrossbowFireRate.medium);
 				}
 
 				// If there is a heavy auto mechanism and a basic scope
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismHeavyAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentShortScope.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 13 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 14)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.goldCrossbowBase), EnumAttachmentType.shortscope, EnumCrossbowMaterial.gold, EnumCrossbowFireRate.heavy);
 				}
 
 				// If there is a heavy auto mechanism and a long scope
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismHeavyAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentLongScope.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 13 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 15)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.goldCrossbowBase), EnumAttachmentType.longscope, EnumCrossbowMaterial.gold, EnumCrossbowFireRate.heavy);
 				}
 				
 				// If there is a light mechanism
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismLightAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) == null)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 11 && inventoryBlockCrossbowBench.getStackInSlot(10) == null)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.goldCrossbowBase), EnumAttachmentType.none, EnumCrossbowMaterial.gold, EnumCrossbowFireRate.light);
 				}
 
 				// If there is a medium mechanism
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismMediumAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) == null)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 12 && inventoryBlockCrossbowBench.getStackInSlot(10) == null)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.goldCrossbowBase), EnumAttachmentType.none, EnumCrossbowMaterial.gold, EnumCrossbowFireRate.medium);
 				}
 
 				// If there is a heavy mechanism
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismHeavyAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) == null)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 13 && inventoryBlockCrossbowBench.getStackInSlot(10) == null)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.goldCrossbowBase), EnumAttachmentType.none, EnumCrossbowMaterial.gold, EnumCrossbowFireRate.heavy);
 				}
 				
 				// If there is a semi-auto mechanism and an explosive attachment
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID ==Items.mechanismSemiAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentIce.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 10 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 19)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.goldCrossbowBase), EnumAttachmentType.ice, EnumCrossbowMaterial.gold, EnumCrossbowFireRate.none);
 				}
 				
 				// If there is a light auto mechanism and an explosive attachment
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismLightAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentIce.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 11 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 19)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.goldCrossbowBase), EnumAttachmentType.ice, EnumCrossbowMaterial.gold, EnumCrossbowFireRate.light);
 				}
 				
 				// If there is a medium auto mechanism and an explosive attachment
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismMediumAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentIce.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 12 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 19)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.goldCrossbowBase), EnumAttachmentType.ice, EnumCrossbowMaterial.gold, EnumCrossbowFireRate.medium);
 				}
 				
 				// If there is a heavy auto mechanism and an explosive attachment
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismHeavyAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentIce.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 13 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 19)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.goldCrossbowBase), EnumAttachmentType.ice, EnumCrossbowMaterial.gold, EnumCrossbowFireRate.heavy);
 				}
 				
 				// If there is a semi-auto mechanism and an explosive attachment
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID ==Items.mechanismSemiAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentExplosive.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 10 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 17)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.goldCrossbowBase), EnumAttachmentType.explosive, EnumCrossbowMaterial.gold, EnumCrossbowFireRate.none);
 				}
 				
 				// If there is a light auto mechanism and an explosive attachment
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismLightAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentExplosive.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 11 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 17)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.goldCrossbowBase), EnumAttachmentType.explosive, EnumCrossbowMaterial.gold, EnumCrossbowFireRate.light);
 				}
 				
 				// If there is a medium auto mechanism and an explosive attachment
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismMediumAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentExplosive.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 12 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 17)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.goldCrossbowBase), EnumAttachmentType.explosive, EnumCrossbowMaterial.gold, EnumCrossbowFireRate.medium);
 				}
 				
 				// If there is a heavy auto mechanism and an explosive attachment
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismHeavyAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentExplosive.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 13 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 17)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.goldCrossbowBase), EnumAttachmentType.explosive, EnumCrossbowMaterial.gold, EnumCrossbowFireRate.heavy);
 				}
 				
 				// If there is a semi-auto mechanism and an Flame attachment
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID ==Items.mechanismSemiAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentFire.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 10 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 16)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.goldCrossbowBase), EnumAttachmentType.flame, EnumCrossbowMaterial.gold, EnumCrossbowFireRate.none);
 				}
 				
 				// If there is a light auto mechanism and an Flame attachment
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismLightAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentFire.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 11 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 16)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.goldCrossbowBase), EnumAttachmentType.flame, EnumCrossbowMaterial.gold, EnumCrossbowFireRate.light);
 				}
 				
 				// If there is a medium auto mechanism and an Flame attachment
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismMediumAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentFire.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 12 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 16)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.goldCrossbowBase), EnumAttachmentType.flame, EnumCrossbowMaterial.gold, EnumCrossbowFireRate.medium);
 				}
 				
 				// If there is a heavy auto mechanism and an Flame attachment
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismHeavyAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentFire.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 13 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 16)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.goldCrossbowBase), EnumAttachmentType.flame, EnumCrossbowMaterial.gold, EnumCrossbowFireRate.heavy);
 				}
 				
 				// If there is a semi-auto mechanism and an explosive attachment
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID ==Items.mechanismSemiAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentLightning.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 10 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 20)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.goldCrossbowBase), EnumAttachmentType.lightning, EnumCrossbowMaterial.gold, EnumCrossbowFireRate.none);
 				}
 				
 				// If there is a light auto mechanism and an explosive attachment
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismLightAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentLightning.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 11 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 20)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.goldCrossbowBase), EnumAttachmentType.lightning, EnumCrossbowMaterial.gold, EnumCrossbowFireRate.light);
 				}
 				
 				// If there is a medium auto mechanism and an explosive attachment
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismMediumAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentLightning.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 12 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 20)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.goldCrossbowBase), EnumAttachmentType.lightning, EnumCrossbowMaterial.gold, EnumCrossbowFireRate.medium);
 				}
 				
 				// If there is a heavy auto mechanism and an explosive attachment
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismHeavyAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentLightning.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 13 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 20)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.goldCrossbowBase), EnumAttachmentType.lightning, EnumCrossbowMaterial.gold, EnumCrossbowFireRate.heavy);
 				}
 				
 				// If there is a semi-auto mechanism and an lava attachment
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID ==Items.mechanismSemiAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentLava.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 10 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 18)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.goldCrossbowBase), EnumAttachmentType.lava, EnumCrossbowMaterial.gold, EnumCrossbowFireRate.none);
 				}
 				
 				// If there is a light auto mechanism and an lava attachment
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismLightAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentLava.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 11 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 18)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.goldCrossbowBase), EnumAttachmentType.lava, EnumCrossbowMaterial.gold, EnumCrossbowFireRate.light);
 				}
 				
 				// If there is a medium auto mechanism and an lava attachment
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismMediumAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentLava.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 12 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 18)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.goldCrossbowBase), EnumAttachmentType.lava, EnumCrossbowMaterial.gold, EnumCrossbowFireRate.medium);
 				}
 				
 				// If there is a heavy auto mechanism and an lava attachment
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismHeavyAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentLava.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 13 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 18)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.goldCrossbowBase), EnumAttachmentType.lava, EnumCrossbowMaterial.gold, EnumCrossbowFireRate.heavy);
 				}
 				
 				// If there is a semi-auto mechanism and an explosive attachment
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID ==Items.mechanismSemiAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentTorch.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 10 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 21)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.goldCrossbowBase), EnumAttachmentType.torch, EnumCrossbowMaterial.gold, EnumCrossbowFireRate.none);
 				}
 				
 				// If there is a light auto mechanism and an explosive attachment
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismLightAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentTorch.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 11 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 21)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.goldCrossbowBase), EnumAttachmentType.torch, EnumCrossbowMaterial.gold, EnumCrossbowFireRate.light);
 				}
 				
 				// If there is a medium auto mechanism and an explosive attachment
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismMediumAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentTorch.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 12 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 21)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.goldCrossbowBase), EnumAttachmentType.torch, EnumCrossbowMaterial.gold, EnumCrossbowFireRate.medium);
 				}
 				
 				// If there is a heavy auto mechanism and an explosive attachment
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismHeavyAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentTorch.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 13 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 21)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.goldCrossbowBase), EnumAttachmentType.torch, EnumCrossbowMaterial.gold, EnumCrossbowFireRate.heavy);
 				}
 				
 				// If there is a semi-auto mechanism and an explosive attachment
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID ==Items.mechanismSemiAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentPoison.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 10 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 22)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.goldCrossbowBase), EnumAttachmentType.poison, EnumCrossbowMaterial.gold, EnumCrossbowFireRate.none);
 				}
 				
 				// If there is a light auto mechanism and an explosive attachment
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismLightAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentPoison.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 11 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 22)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.goldCrossbowBase), EnumAttachmentType.poison, EnumCrossbowMaterial.gold, EnumCrossbowFireRate.light);
 				}
 				
 				// If there is a medium auto mechanism and an explosive attachment
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismMediumAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentPoison.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 12 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 22)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.goldCrossbowBase), EnumAttachmentType.poison, EnumCrossbowMaterial.gold, EnumCrossbowFireRate.medium);
 				}
 				
 				// If there is a heavy auto mechanism and an explosive attachment
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismHeavyAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentPoison.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 13 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 22)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.goldCrossbowBase), EnumAttachmentType.poison, EnumCrossbowMaterial.gold, EnumCrossbowFireRate.heavy);
 				}
 			}
 			// If the limbs are the right material and in the correct position
-			if (inventoryBlockCrossbowBench.getStackInSlot(2) != null && inventoryBlockCrossbowBench.getStackInSlot(2).itemID == Items.diamondLimb.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(6) != null && inventoryBlockCrossbowBench.getStackInSlot(6).itemID == Items.diamondLimb.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(7) != null && inventoryBlockCrossbowBench.getStackInSlot(7).itemID == Items.diamondLimb.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(8) != null && inventoryBlockCrossbowBench.getStackInSlot(8).itemID == Items.diamondLimb.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(9) != null && inventoryBlockCrossbowBench.getStackInSlot(9).itemID == Items.diamondLimb.shiftedIndex)
+			if (inventoryBlockCrossbowBench.getStackInSlot(2) != null && inventoryBlockCrossbowBench.getStackInSlot(2).getItemDamage() == 9 && inventoryBlockCrossbowBench.getStackInSlot(6) != null && inventoryBlockCrossbowBench.getStackInSlot(6).getItemDamage() == 9 && inventoryBlockCrossbowBench.getStackInSlot(7) != null && inventoryBlockCrossbowBench.getStackInSlot(7).getItemDamage() == 9 && inventoryBlockCrossbowBench.getStackInSlot(8) != null && inventoryBlockCrossbowBench.getStackInSlot(8).getItemDamage() == 9 && inventoryBlockCrossbowBench.getStackInSlot(9) != null && inventoryBlockCrossbowBench.getStackInSlot(9).getItemDamage() == 9)
 			{
 				// If there is a semi-auto mechanism
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID ==Items.mechanismSemiAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) == null)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 10 && inventoryBlockCrossbowBench.getStackInSlot(10) == null)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.diamondCrossbowBase), EnumAttachmentType.none, EnumCrossbowMaterial.diamond, EnumCrossbowFireRate.none);
 				}
 				
 				// If there is a semi-auto mechanism and a basic scope
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID ==Items.mechanismSemiAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentShortScope.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 10 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 14)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.diamondCrossbowBase), EnumAttachmentType.shortscope, EnumCrossbowMaterial.diamond, EnumCrossbowFireRate.none);
 				}
 
 				// If there is a semi-auto mechanism and a long scope
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID ==Items.mechanismSemiAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentLongScope.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 10 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 15)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.diamondCrossbowBase), EnumAttachmentType.longscope, EnumCrossbowMaterial.diamond, EnumCrossbowFireRate.none);
 				}
 
 				// If there is a light auto mechanism and a basic scope
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismLightAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentShortScope.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 11 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 14)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.diamondCrossbowBase), EnumAttachmentType.shortscope, EnumCrossbowMaterial.diamond, EnumCrossbowFireRate.light);
 				}
 
 				// If there is a light auto mechanism and a long scope
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismLightAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentLongScope.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 11 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 15)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.diamondCrossbowBase), EnumAttachmentType.longscope, EnumCrossbowMaterial.diamond, EnumCrossbowFireRate.light);
 				}
 
 				// If there is a medium auto mechanism and a basic scope
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismMediumAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentShortScope.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 12 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 14)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.diamondCrossbowBase), EnumAttachmentType.shortscope, EnumCrossbowMaterial.diamond, EnumCrossbowFireRate.medium);
 				}
 
 				// If there is a medium auto mechanism and a long scope
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismMediumAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentLongScope.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 12 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 15)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.diamondCrossbowBase), EnumAttachmentType.longscope, EnumCrossbowMaterial.diamond, EnumCrossbowFireRate.medium);
 				}
 
 				// If there is a heavy auto mechanism and a basic scope
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismHeavyAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentShortScope.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 13 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 14)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.diamondCrossbowBase), EnumAttachmentType.shortscope, EnumCrossbowMaterial.diamond, EnumCrossbowFireRate.heavy);
 				}
 
 				// If there is a heavy auto mechanism and a long scope
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismHeavyAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentLongScope.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 13 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 15)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.diamondCrossbowBase), EnumAttachmentType.longscope, EnumCrossbowMaterial.diamond, EnumCrossbowFireRate.heavy);
 				}
 				
 				// If there is a light mechanism
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismLightAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) == null)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 11 && inventoryBlockCrossbowBench.getStackInSlot(10) == null)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.diamondCrossbowBase), EnumAttachmentType.none, EnumCrossbowMaterial.diamond, EnumCrossbowFireRate.light);
 				}
 
 				// If there is a medium mechanism
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismMediumAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) == null)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 12 && inventoryBlockCrossbowBench.getStackInSlot(10) == null)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.diamondCrossbowBase), EnumAttachmentType.none, EnumCrossbowMaterial.diamond, EnumCrossbowFireRate.medium);
 				}
 
 				// If there is a heavy mechanism
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismHeavyAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) == null)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 13 && inventoryBlockCrossbowBench.getStackInSlot(10) == null)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.diamondCrossbowBase), EnumAttachmentType.none, EnumCrossbowMaterial.diamond, EnumCrossbowFireRate.heavy);
 				}
 				
 				// If there is a semi-auto mechanism and an explosive attachment
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID ==Items.mechanismSemiAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentIce.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 10 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 19)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.diamondCrossbowBase), EnumAttachmentType.ice, EnumCrossbowMaterial.diamond, EnumCrossbowFireRate.none);
 				}
 				
 				// If there is a light auto mechanism and an explosive attachment
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismLightAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentIce.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 11 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 19)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.diamondCrossbowBase), EnumAttachmentType.ice, EnumCrossbowMaterial.diamond, EnumCrossbowFireRate.light);
 				}
 				
 				// If there is a medium auto mechanism and an explosive attachment
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismMediumAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentIce.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 12 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 19)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.diamondCrossbowBase), EnumAttachmentType.ice, EnumCrossbowMaterial.diamond, EnumCrossbowFireRate.medium);
 				}
 				
 				// If there is a heavy auto mechanism and an explosive attachment
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismHeavyAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentIce.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 13 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 19)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.diamondCrossbowBase), EnumAttachmentType.ice, EnumCrossbowMaterial.diamond, EnumCrossbowFireRate.heavy);
 				}
 				
 				// If there is a semi-auto mechanism and an explosive attachment
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID ==Items.mechanismSemiAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentExplosive.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 10 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 17)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.diamondCrossbowBase), EnumAttachmentType.explosive, EnumCrossbowMaterial.diamond, EnumCrossbowFireRate.none);
 				}
 				
 				// If there is a light auto mechanism and an explosive attachment
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismLightAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentExplosive.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 11 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 17)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.diamondCrossbowBase), EnumAttachmentType.explosive, EnumCrossbowMaterial.diamond, EnumCrossbowFireRate.light);
 				}
 				
 				// If there is a medium auto mechanism and an explosive attachment
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismMediumAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentExplosive.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 12 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 17)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.diamondCrossbowBase), EnumAttachmentType.explosive, EnumCrossbowMaterial.diamond, EnumCrossbowFireRate.medium);
 				}
 				
 				// If there is a heavy auto mechanism and an explosive attachment
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismHeavyAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentExplosive.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 13 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 17)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.diamondCrossbowBase), EnumAttachmentType.explosive, EnumCrossbowMaterial.diamond, EnumCrossbowFireRate.heavy);
 				}
 				
 				// If there is a semi-auto mechanism and an Flame attachment
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID ==Items.mechanismSemiAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentFire.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 10 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 16)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.diamondCrossbowBase), EnumAttachmentType.flame, EnumCrossbowMaterial.diamond, EnumCrossbowFireRate.none);
 				}
 				
 				// If there is a light auto mechanism and an Flame attachment
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismLightAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentFire.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 11 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 16)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.diamondCrossbowBase), EnumAttachmentType.flame, EnumCrossbowMaterial.diamond, EnumCrossbowFireRate.light);
 				}
 				
 				// If there is a medium auto mechanism and an Flame attachment
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismMediumAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentFire.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 12 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 16)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.diamondCrossbowBase), EnumAttachmentType.flame, EnumCrossbowMaterial.diamond, EnumCrossbowFireRate.medium);
 				}
 				
 				// If there is a heavy auto mechanism and an Flame attachment
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismHeavyAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentFire.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 13 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 16)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.diamondCrossbowBase), EnumAttachmentType.flame, EnumCrossbowMaterial.diamond, EnumCrossbowFireRate.heavy);
 				}
 				
 				// If there is a semi-auto mechanism and an explosive attachment
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID ==Items.mechanismSemiAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentLightning.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 10 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 20)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.diamondCrossbowBase), EnumAttachmentType.lightning, EnumCrossbowMaterial.diamond, EnumCrossbowFireRate.none);
 				}
 				
 				// If there is a light auto mechanism and an explosive attachment
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismLightAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentLightning.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 11 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 20)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.diamondCrossbowBase), EnumAttachmentType.lightning, EnumCrossbowMaterial.diamond, EnumCrossbowFireRate.light);
 				}
 				
 				// If there is a medium auto mechanism and an explosive attachment
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismMediumAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentLightning.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 12 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 20)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.diamondCrossbowBase), EnumAttachmentType.lightning, EnumCrossbowMaterial.diamond, EnumCrossbowFireRate.medium);
 				}
 				
 				// If there is a heavy auto mechanism and an explosive attachment
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismHeavyAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentLightning.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 13 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 20)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.diamondCrossbowBase), EnumAttachmentType.lightning, EnumCrossbowMaterial.diamond, EnumCrossbowFireRate.heavy);
 				}
 				
 				// If there is a semi-auto mechanism and an lava attachment
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID ==Items.mechanismSemiAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentLava.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 10 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 18)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.diamondCrossbowBase), EnumAttachmentType.lava, EnumCrossbowMaterial.diamond, EnumCrossbowFireRate.none);
 				}
 				
 				// If there is a light auto mechanism and an lava attachment
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismLightAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentLava.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 11 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 18)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.diamondCrossbowBase), EnumAttachmentType.lava, EnumCrossbowMaterial.diamond, EnumCrossbowFireRate.light);
 				}
 				
 				// If there is a medium auto mechanism and an lava attachment
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismMediumAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentLava.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 12 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 18)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.diamondCrossbowBase), EnumAttachmentType.lava, EnumCrossbowMaterial.diamond, EnumCrossbowFireRate.medium);
 				}
 				
 				// If there is a heavy auto mechanism and an lava attachment
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismHeavyAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentLava.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 13 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 18)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.diamondCrossbowBase), EnumAttachmentType.lava, EnumCrossbowMaterial.diamond, EnumCrossbowFireRate.heavy);
 				}
 				
 				// If there is a semi-auto mechanism and an explosive attachment
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID ==Items.mechanismSemiAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentTorch.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 10 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 21)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.diamondCrossbowBase), EnumAttachmentType.torch, EnumCrossbowMaterial.diamond, EnumCrossbowFireRate.none);
 				}
 				
 				// If there is a light auto mechanism and an explosive attachment
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismLightAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentTorch.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 11 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 21)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.diamondCrossbowBase), EnumAttachmentType.torch, EnumCrossbowMaterial.diamond, EnumCrossbowFireRate.light);
 				}
 				
 				// If there is a medium auto mechanism and an explosive attachment
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismMediumAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentTorch.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 12 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 21)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.diamondCrossbowBase), EnumAttachmentType.torch, EnumCrossbowMaterial.diamond, EnumCrossbowFireRate.medium);
 				}
 				
 				// If there is a heavy auto mechanism and an explosive attachment
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismHeavyAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentTorch.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 13 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 21)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.diamondCrossbowBase), EnumAttachmentType.torch, EnumCrossbowMaterial.diamond, EnumCrossbowFireRate.heavy);
 				}
 				
 				// If there is a semi-auto mechanism and an explosive attachment
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID ==Items.mechanismSemiAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentPoison.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 10 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 22)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.diamondCrossbowBase), EnumAttachmentType.poison, EnumCrossbowMaterial.diamond, EnumCrossbowFireRate.none);
 				}
 				
 				// If there is a light auto mechanism and an explosive attachment
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismLightAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentPoison.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 11 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 22)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.diamondCrossbowBase), EnumAttachmentType.poison, EnumCrossbowMaterial.diamond, EnumCrossbowFireRate.light);
 				}
 				
 				// If there is a medium auto mechanism and an explosive attachment
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismMediumAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentPoison.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 12 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 22)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.diamondCrossbowBase), EnumAttachmentType.poison, EnumCrossbowMaterial.diamond, EnumCrossbowFireRate.medium);
 				}
 				
 				// If there is a heavy auto mechanism and an explosive attachment
 				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismHeavyAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentPoison.shiftedIndex)
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).getItemDamage() == 13 && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).getItemDamage() == 22)
 				{
 					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.diamondCrossbowBase), EnumAttachmentType.poison, EnumCrossbowMaterial.diamond, EnumCrossbowFireRate.heavy);
 				}

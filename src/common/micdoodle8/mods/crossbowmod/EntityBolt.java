@@ -30,7 +30,7 @@ public abstract class EntityBolt extends Entity
     public float precision;
     public float hitBox;
     public int dmg;
-    public Item item;
+    public int item = -1;
     public int ttlInGround;
     public int xTile;
     public int yTile;
@@ -369,12 +369,12 @@ public abstract class EntityBolt extends Entity
     @Override
     public void onCollideWithPlayer(EntityPlayer entityplayer)
     {
-        if(item == null || worldObj.isRemote || entityplayer.capabilities.isCreativeMode)
+        if(item != -1 || worldObj.isRemote || entityplayer.capabilities.isCreativeMode)
         {
             return;
         }
         
-        if(inGround && shotByPlayer && arrowShake <= 0 && entityplayer.inventory.addItemStackToInventory(new ItemStack(this.item)))
+        if(inGround && shotByPlayer && arrowShake <= 0 && entityplayer.inventory.addItemStackToInventory(new ItemStack(Items.attachmentLimbBolt, 1, item)))
         {
             worldObj.playSoundAtEntity(this, "random.pop", 0.2F, ((rand.nextFloat() - rand.nextFloat()) * 0.7F + 1.0F) * 2.0F);
             entityplayer.onItemPickup(this, 1);

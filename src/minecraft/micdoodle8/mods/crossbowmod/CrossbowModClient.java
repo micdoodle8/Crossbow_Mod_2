@@ -203,7 +203,7 @@ public class CrossbowModClient
     {
     	if (!checkedConfig)
     	{
-    		if (ConfigManager.idItemGoldBolt == 11166)
+    		if (ConfigManager.idItemStoneCrossbow == 11044)
     		{
     			badConfig = true;
     		}

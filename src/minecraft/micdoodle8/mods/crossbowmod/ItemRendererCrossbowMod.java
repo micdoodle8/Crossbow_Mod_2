@@ -163,27 +163,27 @@ public class ItemRendererCrossbowMod implements IItemRenderer
 	                GL11.glTranslatef(-1.5F, -1.22F, -0.7F);
 	            }
 	            
-	            if (crossbow.requiredItem(par1EntityLiving) != null && crossbow.reloadingTime <= 0 && (par1EntityLiving.inventory.hasItem(crossbow.requiredItem(par1EntityLiving).shiftedIndex) || par1EntityLiving.capabilities.isCreativeMode))
+	            if (crossbow.reloadingTime <= 0 && (par1EntityLiving.inventory.hasItemStack(new ItemStack(Items.attachmentLimbBolt, 1, crossbow.requiredMetadata(par1EntityLiving))) || par1EntityLiving.capabilities.isCreativeMode))
 	        	{
-	        		if (crossbow.requiredItem(par1EntityLiving) == Items.diamondBolt)
+	        		if (crossbow.requiredMetadata(par1EntityLiving) == 4)
 	        		{
-	                	this.renderItemCustom(type, new ItemStack(Items.diamondBolt), data);
+	                	this.renderItemCustom(type, new ItemStack(Items.attachmentLimbBolt, 1, 4), data);
 	        		}
-	        		else if (crossbow.requiredItem(par1EntityLiving) == Items.goldBolt)
+	        		else if (crossbow.requiredMetadata(par1EntityLiving) == 3)
 	        		{
-	                	this.renderItemCustom(type, new ItemStack(Items.goldBolt), data);
+	                	this.renderItemCustom(type, new ItemStack(Items.attachmentLimbBolt, 1, 3), data);
 	        		}
-	        		else if (crossbow.requiredItem(par1EntityLiving) == Items.ironBolt)
+	        		else if (crossbow.requiredMetadata(par1EntityLiving) == 2)
 	        		{
-	                	this.renderItemCustom(type, new ItemStack(Items.ironBolt), data);
+	                	this.renderItemCustom(type, new ItemStack(Items.attachmentLimbBolt, 1, 2), data);
 	        		}
-	        		else if (crossbow.requiredItem(par1EntityLiving) == Items.stoneBolt)
+	        		else if (crossbow.requiredMetadata(par1EntityLiving) == 1)
 	        		{
-	                	this.renderItemCustom(type, new ItemStack(Items.stoneBolt), data);
+	                	this.renderItemCustom(type, new ItemStack(Items.attachmentLimbBolt, 1, 1), data);
 	        		}
-	        		else if (crossbow.requiredItem(par1EntityLiving) == Items.woodBolt)
+	        		else if (crossbow.requiredMetadata(par1EntityLiving) == 0)
 	        		{
-	                	this.renderItemCustom(type, new ItemStack(Items.woodBolt), data);
+	                	this.renderItemCustom(type, new ItemStack(Items.attachmentLimbBolt, 1, 0), data);
 	        		}
 	        	}
 			

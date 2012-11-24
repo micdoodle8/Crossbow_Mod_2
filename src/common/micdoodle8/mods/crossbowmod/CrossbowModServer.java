@@ -49,7 +49,7 @@ public class CrossbowModServer
 		
 		EntityBolt entityarrow = crossbow.getEntity(world, entityplayer);
 
-        entityarrow.item = crossbow.requiredItem(entityplayer);
+        entityarrow.item = crossbow.requiredMetadata(entityplayer);
         
         if (Util.hasFlameAttachment(itemstack))
         {
@@ -117,7 +117,16 @@ public class CrossbowModServer
 
         itemstack.damageItem(1, entityplayer);
         world.playSoundAtEntity(entityplayer, "cbowfire", 1.0F, 0.92F);
-        entityplayer.inventory.consumeInventoryItem(crossbow.requiredItem(entityplayer).shiftedIndex);
+        for (int j = 0; j < entityplayer.inventory.getSizeInventory(); j++)
+        {
+        	ItemStack stack = entityplayer.inventory.getStackInSlot(j);
+        	
+        	if (stack.getItem().shiftedIndex == Items.attachmentLimbBolt.shiftedIndex && stack.getItemDamage() == crossbow.requiredMetadata(entityplayer))
+        	{
+        		stack.stackSize--;
+        		break;
+        	}
+        }
 
     	world.spawnEntityInWorld(entityarrow);
 	}

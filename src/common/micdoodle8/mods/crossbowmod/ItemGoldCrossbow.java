@@ -22,19 +22,19 @@ public class ItemGoldCrossbow extends ItemCrossbow
     {
     	EntityPlayer player = (EntityPlayer) entityliving;
     	
-    	if (player.inventory.hasItem(Items.goldBolt.shiftedIndex) || (player.capabilities.isCreativeMode))
+    	if (player.inventory.hasItemStack(new ItemStack(Items.attachmentLimbBolt, 1, 3)) || (player.capabilities.isCreativeMode))
     	{
     		return new EntityGoldBolt(world, entityliving, 1.66F);
     	}
-    	else if (player.inventory.hasItem(Items.ironBolt.shiftedIndex))
+    	else if (player.inventory.hasItemStack(new ItemStack(Items.attachmentLimbBolt, 1, 2)))
     	{
     		return new EntityIronBolt(world, entityliving, 1.66F);
     	}
-    	else if (player.inventory.hasItem(Items.stoneBolt.shiftedIndex))
+    	else if (player.inventory.hasItemStack(new ItemStack(Items.attachmentLimbBolt, 1, 1)))
     	{
     		return new EntityStoneBolt(world, entityliving, 1.66F);
     	}
-    	else if (player.inventory.hasItem(Items.woodBolt.shiftedIndex))
+    	else if (player.inventory.hasItemStack(new ItemStack(Items.attachmentLimbBolt, 1, 0)))
     	{
     		return new EntityWoodBolt(world, entityliving, 1.66F);
     	}
@@ -99,27 +99,27 @@ public class ItemGoldCrossbow extends ItemCrossbow
     }
 
     @Override
-    public Item requiredItem(EntityLiving entityliving)
+    public int requiredMetadata(EntityLiving entityliving)
     {
     	EntityPlayer player = (EntityPlayer) entityliving;
     	
-    	if (player.inventory.hasItem(Items.goldBolt.shiftedIndex) || (player.capabilities.isCreativeMode))
+    	if (player.inventory.hasItemStack(new ItemStack(Items.attachmentLimbBolt, 1, 3)) || (player.capabilities.isCreativeMode))
     	{
-        	return Items.goldBolt;
+        	return 3;
     	}
-    	else if (player.inventory.hasItem(Items.ironBolt.shiftedIndex))
+    	else if (player.inventory.hasItemStack(new ItemStack(Items.attachmentLimbBolt, 1, 2)))
     	{
-        	return Items.ironBolt;
+        	return 2;
     	}
-    	else if (player.inventory.hasItem(Items.stoneBolt.shiftedIndex))
+    	else if (player.inventory.hasItemStack(new ItemStack(Items.attachmentLimbBolt, 1, 1)))
     	{
-        	return Items.stoneBolt;
+        	return 1;
     	}
-    	else if (player.inventory.hasItem(Items.woodBolt.shiftedIndex))
+    	else if (player.inventory.hasItemStack(new ItemStack(Items.attachmentLimbBolt, 1, 0)))
     	{
-        	return Items.woodBolt;
+        	return 0;
     	}
-    	return Items.goldBolt;
+    	return 3;
     }
 
     @Override

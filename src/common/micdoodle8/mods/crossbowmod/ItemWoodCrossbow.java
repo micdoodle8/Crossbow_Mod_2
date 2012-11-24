@@ -80,9 +80,9 @@ public class ItemWoodCrossbow extends ItemCrossbow
     }
 
     @Override
-    public Item requiredItem(EntityLiving entityliving)
+    public int requiredMetadata(EntityLiving entityliving)
     {
-    	return Items.woodBolt;
+    	return 0;
     }
 
     @Override

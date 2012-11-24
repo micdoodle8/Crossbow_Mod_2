@@ -103,15 +103,11 @@ public abstract class ItemCrossbow extends Item
 	{
 		if (CrossbowModClient.shootTime <= 0)
 		{
-	    	if (requiredItem(player) == null)
-	    	{
-	    		return itemstack;
-	    	}
-	    	else if (player.capabilities.isCreativeMode || player.inventory.hasItem(requiredItem(player).shiftedIndex))
+	    	if (player.capabilities.isCreativeMode || player.inventory.hasItemStack(new ItemStack(Items.attachmentLimbBolt, 1, requiredMetadata(player))))
 	    	{
 		        EntityBolt entityarrow = getEntity(world, player);
 
-		        entityarrow.item = this.requiredItem(player);
+		        entityarrow.item = this.requiredMetadata(player);
 		        
 	    		if (Util.hasLightMech(itemstack))
 		    	{
@@ -204,7 +200,16 @@ public abstract class ItemCrossbow extends Item
 		        else
 		        {
 		            itemstack.damageItem(1, player);
-		            player.inventory.consumeInventoryItem(requiredItem(player).shiftedIndex);
+		            for (int j = 0; j < player.inventory.getSizeInventory(); j++)
+		            {
+		            	ItemStack stack = player.inventory.getStackInSlot(j);
+		            	
+		            	if (stack.getItem().shiftedIndex == Items.attachmentLimbBolt.shiftedIndex && stack.getItemDamage() == this.requiredMetadata(player))
+		            	{
+		            		stack.stackSize--;
+		            		break;
+		            	}
+		            }
 		        	world.spawnEntityInWorld(entityarrow);
 		        }
 		        
@@ -221,7 +226,7 @@ public abstract class ItemCrossbow extends Item
     
     public abstract int getReloadTime();
     
-    public abstract Item requiredItem(EntityLiving entityliving);
+    public abstract int requiredMetadata(EntityLiving entityliving);
     
     public abstract String getSpriteSheetLoc();
 
@@ -245,28 +250,31 @@ public abstract class ItemCrossbow extends Item
     		case 0:
                 break;
     		case 1:
-                var2.add(CrossbowModCore.lang.get(Items.attachmentShortScope.getItemName() + ".name"));
+                var2.add(CrossbowModCore.lang.get(Items.attachmentLimbBolt.getItemNameIS(new ItemStack(Items.attachmentLimbBolt, 1, 15)) + ".name"));
                 break;
     		case 2:
-                var2.add(CrossbowModCore.lang.get(Items.attachmentShortScope.getItemName() + ".name"));
+                var2.add(CrossbowModCore.lang.get(Items.attachmentLimbBolt.getItemNameIS(new ItemStack(Items.attachmentLimbBolt, 1, 14)) + ".name"));
                 break;
     		case 3:
-                var2.add(CrossbowModCore.lang.get(Items.attachmentLava.getItemName() + ".name"));
+                var2.add(CrossbowModCore.lang.get(Items.attachmentLimbBolt.getItemNameIS(new ItemStack(Items.attachmentLimbBolt, 1, 18)) + ".name"));
                 break;
     		case 4:
-                var2.add(CrossbowModCore.lang.get(Items.attachmentIce.getItemName() + ".name"));
+                var2.add(CrossbowModCore.lang.get(Items.attachmentLimbBolt.getItemNameIS(new ItemStack(Items.attachmentLimbBolt, 1, 19)) + ".name"));
                 break;
     		case 5:
-                var2.add(CrossbowModCore.lang.get(Items.attachmentPoison.getItemName() + ".name"));
+                var2.add(CrossbowModCore.lang.get(Items.attachmentLimbBolt.getItemNameIS(new ItemStack(Items.attachmentLimbBolt, 1, 22)) + ".name"));
                 break;
     		case 6:
-                var2.add(CrossbowModCore.lang.get(Items.attachmentTorch.getItemName() + ".name"));
+                var2.add(CrossbowModCore.lang.get(Items.attachmentLimbBolt.getItemNameIS(new ItemStack(Items.attachmentLimbBolt, 1, 21)) + ".name"));
                 break;
     		case 7:
-                var2.add(CrossbowModCore.lang.get(Items.attachmentLightning.getItemName() + ".name"));
+                var2.add(CrossbowModCore.lang.get(Items.attachmentLimbBolt.getItemNameIS(new ItemStack(Items.attachmentLimbBolt, 1, 20)) + ".name"));
                 break;
     		case 8:
-                var2.add(CrossbowModCore.lang.get(Items.attachmentExplosive.getItemName() + ".name"));
+                var2.add(CrossbowModCore.lang.get(Items.attachmentLimbBolt.getItemNameIS(new ItemStack(Items.attachmentLimbBolt, 1, 17)) + ".name"));
+                break;
+    		case 9:
+                var2.add(CrossbowModCore.lang.get(Items.attachmentLimbBolt.getItemNameIS(new ItemStack(Items.attachmentLimbBolt, 1, 16)) + ".name"));
                 break;
     		}
     		
@@ -275,13 +283,13 @@ public abstract class ItemCrossbow extends Item
     		case 0:
                 break;
     		case 1:
-    			var2.add(CrossbowModCore.lang.get(Items.mechanismLightAuto.getItemName() + ".name"));
+                var2.add(CrossbowModCore.lang.get(Items.attachmentLimbBolt.getItemNameIS(new ItemStack(Items.attachmentLimbBolt, 1, 11)) + ".name"));
                 break;
     		case 2:
-    			var2.add(CrossbowModCore.lang.get(Items.mechanismMediumAuto.getItemName() + ".name"));
+                var2.add(CrossbowModCore.lang.get(Items.attachmentLimbBolt.getItemNameIS(new ItemStack(Items.attachmentLimbBolt, 1, 12)) + ".name"));
                 break;
     		case 3:
-    			var2.add(CrossbowModCore.lang.get(Items.mechanismHeavyAuto.getItemName() + ".name"));
+                var2.add(CrossbowModCore.lang.get(Items.attachmentLimbBolt.getItemNameIS(new ItemStack(Items.attachmentLimbBolt, 1, 13)) + ".name"));
                 break;
     		}
     	}
@@ -350,7 +358,7 @@ public abstract class ItemCrossbow extends Item
     @Override
     public ItemStack onItemRightClick(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer)
     {
-        if (par3EntityPlayer.capabilities.isCreativeMode || par3EntityPlayer.inventory.hasItem(requiredItem(par3EntityPlayer).shiftedIndex))
+        if (par3EntityPlayer.capabilities.isCreativeMode || par3EntityPlayer.inventory.hasItemStack(new ItemStack(Items.attachmentLimbBolt, 1, requiredMetadata(par3EntityPlayer))))
         {
             par3EntityPlayer.setItemInUse(par1ItemStack, this.getMaxItemUseDuration(par1ItemStack));
         }

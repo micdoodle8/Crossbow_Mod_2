@@ -22,11 +22,11 @@ public class ItemStoneCrossbow extends ItemCrossbow
     {
     	EntityPlayer player = (EntityPlayer) entityliving;
     	
-    	if (player.inventory.hasItem(Items.stoneBolt.shiftedIndex) || (player.capabilities.isCreativeMode))
+    	if (player.inventory.hasItemStack(new ItemStack(Items.attachmentLimbBolt, 1, 1)) || (player.capabilities.isCreativeMode))
     	{
     		return new EntityStoneBolt(world, entityliving, 1.0F);
     	}
-    	else if (player.inventory.hasItem(Items.woodBolt.shiftedIndex))
+    	else if (player.inventory.hasItemStack(new ItemStack(Items.attachmentLimbBolt, 1, 0)))
     	{
     		return new EntityWoodBolt(world, entityliving, 1.0F);
     	}
@@ -91,19 +91,19 @@ public class ItemStoneCrossbow extends ItemCrossbow
     }
 
     @Override
-    public Item requiredItem(EntityLiving entityliving)
+    public int requiredMetadata(EntityLiving entityliving)
     {
     	EntityPlayer player = (EntityPlayer) entityliving;
     	
-    	if (player.inventory.hasItem(Items.stoneBolt.shiftedIndex) || (player.capabilities.isCreativeMode))
+    	if (player.inventory.hasItemStack(new ItemStack(Items.attachmentLimbBolt, 1, 1)) || (player.capabilities.isCreativeMode))
     	{
-        	return Items.stoneBolt;
+        	return 1;
     	}
-    	else if (player.inventory.hasItem(Items.woodBolt.shiftedIndex))
+    	else if (player.inventory.hasItemStack(new ItemStack(Items.attachmentLimbBolt, 1, 0)))
     	{
-        	return Items.woodBolt;
+        	return 0;
     	}
-    	return Items.stoneBolt;
+    	return 1;
     }
 
     @Override
