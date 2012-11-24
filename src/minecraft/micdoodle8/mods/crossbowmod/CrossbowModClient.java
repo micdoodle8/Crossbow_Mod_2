@@ -1,6 +1,7 @@
 package micdoodle8.mods.crossbowmod;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.MalformedURLException;
@@ -38,6 +39,10 @@ public class CrossbowModClient
     public static int shootTime = 0;
     
     public static boolean checkVersion = true;
+    
+    public static boolean badConfig = false;
+    
+    public static boolean checkedConfig = false;
 	
 	public static void preInit(FMLPreInitializationEvent event)
 	{
@@ -196,7 +201,22 @@ public class CrossbowModClient
 
     public static void onTickInGame()
     {
-    	if (checkVersion)
+    	if (!checkedConfig)
+    	{
+    		if (ConfigManager.idItemGoldBolt == 11166)
+    		{
+    			badConfig = true;
+    		}
+    		checkedConfig = true;
+    	}
+    	
+    	if (badConfig)
+    	{
+    		resetConfig();
+    		badConfig = false;
+    	}
+    	
+    	if (!badConfig && checkVersion)
     	{
     		checkVersion();
     		checkVersion = false;
@@ -206,6 +226,32 @@ public class CrossbowModClient
 		{
 			shootTime--;
 		}
+    }
+    
+    private static void resetConfig()
+    {
+    	File file = new File(Minecraft.getMinecraftDir() + "/config/CrossbowMod2.cfg");
+    	
+    	if (file.exists())
+    	{
+    		try
+    		{
+    			file.renameTo(new File(Minecraft.getMinecraftDir() + "/config/CrossbowMod2OLD.cfg"));
+        		FMLClientHandler.instance().getClient().thePlayer.addChatMessage("Crossbow Mod 2 config deleted successfully.");
+        		FMLClientHandler.instance().getClient().thePlayer.addChatMessage("Please restart Minecraft for changes to take effect.");
+        		FMLClientHandler.instance().getClient().thePlayer.addChatMessage("This change will most likely remove any crossbows you already have.");
+    		}
+    		catch (Exception e)
+    		{
+        		FMLClientHandler.instance().getClient().thePlayer.addChatMessage("COULD NOT DELETE CONFIG! Please manually delete Crossbow Mod 2 config.");
+        		FMLClientHandler.instance().getClient().thePlayer.addChatMessage("%appdata%/.minecraft/config/CrossbowMod2.cfg");
+    		}
+    	}
+    	else
+    	{
+    		FMLClientHandler.instance().getClient().thePlayer.addChatMessage("COULD NOT DELETE CONFIG! Please manually delete Crossbow Mod 2 config.");
+    		FMLClientHandler.instance().getClient().thePlayer.addChatMessage("%appdata%/.minecraft/config/CrossbowMod2.cfg");
+    	}
     }
     
     public static int remoteVer;
