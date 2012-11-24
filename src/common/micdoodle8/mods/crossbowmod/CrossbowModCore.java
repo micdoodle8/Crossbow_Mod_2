@@ -7,10 +7,11 @@ import net.minecraft.src.Achievement;
 import net.minecraft.src.CreativeTabs;
 import net.minecraft.src.EntityPlayer;
 import net.minecraft.src.INetworkManager;
+import net.minecraft.src.ItemStack;
+import net.minecraft.src.NBTTagCompound;
 import net.minecraft.src.Packet250CustomPayload;
 import net.minecraft.src.World;
 import net.minecraftforge.common.AchievementPage;
-import net.minecraftforge.common.MinecraftForge;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.Init;
 import cpw.mods.fml.common.Mod.Instance;
@@ -91,7 +92,8 @@ public class CrossbowModCore
 		
 		createBench = new Achievement(491, "CreateBench", 0, 0, Items.crossbowBench, (Achievement) null).registerAchievement();
 		createCrossbow = new Achievement(492, "CreateCrossbow", 0, 2, Items.woodenCrossbowBase, createBench).registerAchievement();
-		sniper = new Achievement(493, "Sniper", 2, 3, Items.diamondCrossbowWithLongScope, createCrossbow).setSpecial().registerAchievement();
+		ItemStack stack = ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.diamondCrossbowBase), EnumAttachmentType.longscope, EnumCrossbowMaterial.diamond, EnumCrossbowFireRate.none);
+		sniper = new Achievement(493, "Sniper", 2, 3, stack, createCrossbow).setSpecial().registerAchievement();
 		LanguageRegistry.instance().addStringLocalization(createBench.getName(), "First Step");
 		LanguageRegistry.instance().addStringLocalization(createBench.getName() + ".desc", "Create a Crossbow Bench");
 		LanguageRegistry.instance().addStringLocalization(createCrossbow.getName(), "Well-Prepared!");

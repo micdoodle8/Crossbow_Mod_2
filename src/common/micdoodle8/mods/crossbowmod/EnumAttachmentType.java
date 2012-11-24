@@ -10,7 +10,8 @@ public enum EnumAttachmentType
 	poison("poison", 5), 
 	torch("torch", 6), 
 	lightning("lightning", 7), 
-	explosive("explosive", 8);
+	explosive("explosive", 8),
+	flame("flame", 9);
 	
 	private final String name;
 	private final int index;

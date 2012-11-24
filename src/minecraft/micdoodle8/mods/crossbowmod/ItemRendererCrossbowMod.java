@@ -211,6 +211,17 @@ public class ItemRendererCrossbowMod implements IItemRenderer
 
         Tessellator var4 = Tessellator.instance;
         int var5 = par1EntityLiving.getItemIcon(item, par3);
+        if (item.getItem() instanceof ItemCrossbow)
+        {
+            if (((ItemCrossbow)item.getItem()).reloadStage == 1)
+            {
+            	var5 += 16;
+            }
+            else if (((ItemCrossbow)item.getItem()).reloadStage == 2)
+            {
+            	var5 += 32;
+            }
+        }
         float var6 = (var5 % 16 * 16 + 0.0F) / 256.0F;
         float var7 = (var5 % 16 * 16 + 15.99F) / 256.0F;
         float var8 = (var5 / 16 * 16 + 0.0F) / 256.0F;

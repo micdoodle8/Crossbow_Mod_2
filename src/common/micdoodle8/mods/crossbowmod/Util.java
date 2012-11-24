@@ -10,6 +10,7 @@ import java.util.List;
 import net.minecraft.src.Block;
 import net.minecraft.src.Item;
 import net.minecraft.src.ItemStack;
+import net.minecraft.src.NBTTagCompound;
 import net.minecraft.src.Packet250CustomPayload;
 import cpw.mods.fml.common.registry.GameRegistry;
 
@@ -316,280 +317,280 @@ public class Util
 				// If there is a semi-auto mechanism
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID ==Items.mechanismSemiAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) == null)
 				{
-					return new ItemStack(Items.woodenCrossbowBase);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.woodenCrossbowBase), EnumAttachmentType.none, EnumCrossbowMaterial.wooden, EnumCrossbowFireRate.none);
 				}
 				
 				// If there is a semi-auto mechanism and a basic scope
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID ==Items.mechanismSemiAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentShortScope.shiftedIndex)
 				{
-					return new ItemStack(Items.woodenCrossbowWithBasicScope);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.woodenCrossbowBase), EnumAttachmentType.shortscope, EnumCrossbowMaterial.wooden, EnumCrossbowFireRate.none);
 				}
 
 				// If there is a semi-auto mechanism and a long scope
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID ==Items.mechanismSemiAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentLongScope.shiftedIndex)
 				{
-					return new ItemStack(Items.woodenCrossbowWithLongScope);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.woodenCrossbowBase), EnumAttachmentType.longscope, EnumCrossbowMaterial.wooden, EnumCrossbowFireRate.none);
 				}
 
 				// If there is a light auto mechanism and a basic scope
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismLightAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentShortScope.shiftedIndex)
 				{
-					return new ItemStack(Items.woodenCrossbowWithBasicScopeAndLightMech);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.woodenCrossbowBase), EnumAttachmentType.shortscope, EnumCrossbowMaterial.wooden, EnumCrossbowFireRate.light);
 				}
 
 				// If there is a light auto mechanism and a long scope
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismLightAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentLongScope.shiftedIndex)
 				{
-					return new ItemStack(Items.woodenCrossbowWithLongScopeAndLightMech);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.woodenCrossbowBase), EnumAttachmentType.longscope, EnumCrossbowMaterial.wooden, EnumCrossbowFireRate.light);
 				}
 
 				// If there is a medium auto mechanism and a basic scope
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismMediumAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentShortScope.shiftedIndex)
 				{
-					return new ItemStack(Items.woodenCrossbowWithBasicScopeAndMediumMech);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.woodenCrossbowBase), EnumAttachmentType.shortscope, EnumCrossbowMaterial.wooden, EnumCrossbowFireRate.medium);
 				}
 
 				// If there is a medium auto mechanism and a long scope
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismMediumAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentLongScope.shiftedIndex)
 				{
-					return new ItemStack(Items.woodenCrossbowWithLongScopeAndMediumMech);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.woodenCrossbowBase), EnumAttachmentType.longscope, EnumCrossbowMaterial.wooden, EnumCrossbowFireRate.medium);
 				}
 
 				// If there is a heavy auto mechanism and a basic scope
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismHeavyAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentShortScope.shiftedIndex)
 				{
-					return new ItemStack(Items.woodenCrossbowWithBasicScopeAndHeavyMech);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.woodenCrossbowBase), EnumAttachmentType.shortscope, EnumCrossbowMaterial.wooden, EnumCrossbowFireRate.heavy);
 				}
 
 				// If there is a heavy auto mechanism and a long scope
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismHeavyAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentLongScope.shiftedIndex)
 				{
-					return new ItemStack(Items.woodenCrossbowWithLongScopeAndHeavyMech);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.woodenCrossbowBase), EnumAttachmentType.longscope, EnumCrossbowMaterial.wooden, EnumCrossbowFireRate.heavy);
 				}
 				
 				// If there is a light mechanism
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismLightAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) == null)
 				{
-					return new ItemStack(Items.woodenCrossbowWithLightMech);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.woodenCrossbowBase), EnumAttachmentType.none, EnumCrossbowMaterial.wooden, EnumCrossbowFireRate.light);
 				}
 
 				// If there is a medium mechanism
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismMediumAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) == null)
 				{
-					return new ItemStack(Items.woodenCrossbowWithMediumMech);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.woodenCrossbowBase), EnumAttachmentType.none, EnumCrossbowMaterial.wooden, EnumCrossbowFireRate.medium);
 				}
 
 				// If there is a heavy mechanism
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismHeavyAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) == null)
 				{
-					return new ItemStack(Items.woodenCrossbowWithHeavyMech);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.woodenCrossbowBase), EnumAttachmentType.none, EnumCrossbowMaterial.wooden, EnumCrossbowFireRate.heavy);
 				}
 				
 				// If there is a semi-auto mechanism and an explosive attachment
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID ==Items.mechanismSemiAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentIce.shiftedIndex)
 				{
-					return new ItemStack(Items.woodenCrossbowWithIceAttachment);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.woodenCrossbowBase), EnumAttachmentType.ice, EnumCrossbowMaterial.wooden, EnumCrossbowFireRate.none);
 				}
 				
 				// If there is a light auto mechanism and an explosive attachment
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismLightAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentIce.shiftedIndex)
 				{
-					return new ItemStack(Items.woodenCrossbowWithIceAttachmentAndLightMech);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.woodenCrossbowBase), EnumAttachmentType.ice, EnumCrossbowMaterial.wooden, EnumCrossbowFireRate.light);
 				}
 				
 				// If there is a medium auto mechanism and an explosive attachment
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismMediumAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentIce.shiftedIndex)
 				{
-					return new ItemStack(Items.woodenCrossbowWithIceAttachmentAndMediumMech);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.woodenCrossbowBase), EnumAttachmentType.ice, EnumCrossbowMaterial.wooden, EnumCrossbowFireRate.medium);
 				}
 				
 				// If there is a heavy auto mechanism and an explosive attachment
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismHeavyAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentIce.shiftedIndex)
 				{
-					return new ItemStack(Items.woodenCrossbowWithIceAttachmentAndHeavyMech);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.woodenCrossbowBase), EnumAttachmentType.ice, EnumCrossbowMaterial.wooden, EnumCrossbowFireRate.heavy);
 				}
 				
 				// If there is a semi-auto mechanism and an explosive attachment
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID ==Items.mechanismSemiAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentExplosive.shiftedIndex)
 				{
-					return new ItemStack(Items.woodenCrossbowWithExplosiveAttachment);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.woodenCrossbowBase), EnumAttachmentType.explosive, EnumCrossbowMaterial.wooden, EnumCrossbowFireRate.none);
 				}
 				
 				// If there is a light auto mechanism and an explosive attachment
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismLightAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentExplosive.shiftedIndex)
 				{
-					return new ItemStack(Items.woodenCrossbowWithExplosiveAttachmentAndLightMech);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.woodenCrossbowBase), EnumAttachmentType.explosive, EnumCrossbowMaterial.wooden, EnumCrossbowFireRate.light);
 				}
 				
 				// If there is a medium auto mechanism and an explosive attachment
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismMediumAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentExplosive.shiftedIndex)
 				{
-					return new ItemStack(Items.woodenCrossbowWithExplosiveAttachmentAndMediumMech);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.woodenCrossbowBase), EnumAttachmentType.explosive, EnumCrossbowMaterial.wooden, EnumCrossbowFireRate.medium);
 				}
 				
 				// If there is a heavy auto mechanism and an explosive attachment
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismHeavyAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentExplosive.shiftedIndex)
 				{
-					return new ItemStack(Items.woodenCrossbowWithExplosiveAttachmentAndHeavyMech);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.woodenCrossbowBase), EnumAttachmentType.explosive, EnumCrossbowMaterial.wooden, EnumCrossbowFireRate.heavy);
 				}
 				
 				// If there is a semi-auto mechanism and an Flame attachment
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID ==Items.mechanismSemiAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentFire.shiftedIndex)
 				{
-					return new ItemStack(Items.woodenCrossbowWithFlameAttachment);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.woodenCrossbowBase), EnumAttachmentType.flame, EnumCrossbowMaterial.wooden, EnumCrossbowFireRate.none);
 				}
 				
 				// If there is a light auto mechanism and an Flame attachment
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismLightAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentFire.shiftedIndex)
 				{
-					return new ItemStack(Items.woodenCrossbowWithFlameAttachmentAndLightMech);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.woodenCrossbowBase), EnumAttachmentType.flame, EnumCrossbowMaterial.wooden, EnumCrossbowFireRate.light);
 				}
 				
 				// If there is a medium auto mechanism and an Flame attachment
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismMediumAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentFire.shiftedIndex)
 				{
-					return new ItemStack(Items.woodenCrossbowWithFlameAttachmentAndMediumMech);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.woodenCrossbowBase), EnumAttachmentType.flame, EnumCrossbowMaterial.wooden, EnumCrossbowFireRate.medium);
 				}
 				
 				// If there is a heavy auto mechanism and an Flame attachment
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismHeavyAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentFire.shiftedIndex)
 				{
-					return new ItemStack(Items.woodenCrossbowWithFlameAttachmentAndHeavyMech);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.woodenCrossbowBase), EnumAttachmentType.flame, EnumCrossbowMaterial.wooden, EnumCrossbowFireRate.heavy);
 				}
 				
 				// If there is a semi-auto mechanism and an explosive attachment
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID ==Items.mechanismSemiAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentLightning.shiftedIndex)
 				{
-					return new ItemStack(Items.woodenCrossbowWithLightningAttachment);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.woodenCrossbowBase), EnumAttachmentType.lightning, EnumCrossbowMaterial.wooden, EnumCrossbowFireRate.none);
 				}
 				
 				// If there is a light auto mechanism and an explosive attachment
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismLightAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentLightning.shiftedIndex)
 				{
-					return new ItemStack(Items.woodenCrossbowWithLightningAttachmentAndLightMech);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.woodenCrossbowBase), EnumAttachmentType.lightning, EnumCrossbowMaterial.wooden, EnumCrossbowFireRate.light);
 				}
 				
 				// If there is a medium auto mechanism and an explosive attachment
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismMediumAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentLightning.shiftedIndex)
 				{
-					return new ItemStack(Items.woodenCrossbowWithLightningAttachmentAndMediumMech);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.woodenCrossbowBase), EnumAttachmentType.lightning, EnumCrossbowMaterial.wooden, EnumCrossbowFireRate.medium);
 				}
 				
 				// If there is a heavy auto mechanism and an explosive attachment
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismHeavyAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentLightning.shiftedIndex)
 				{
-					return new ItemStack(Items.woodenCrossbowWithLightningAttachmentAndHeavyMech);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.woodenCrossbowBase), EnumAttachmentType.lightning, EnumCrossbowMaterial.wooden, EnumCrossbowFireRate.heavy);
 				}
 				
 				// If there is a semi-auto mechanism and an lava attachment
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID ==Items.mechanismSemiAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentLava.shiftedIndex)
 				{
-					return new ItemStack(Items.woodenCrossbowWithLavaAttachment);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.woodenCrossbowBase), EnumAttachmentType.lava, EnumCrossbowMaterial.wooden, EnumCrossbowFireRate.none);
 				}
 				
 				// If there is a light auto mechanism and an lava attachment
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismLightAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentLava.shiftedIndex)
 				{
-					return new ItemStack(Items.woodenCrossbowWithLavaAttachmentAndLightMech);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.woodenCrossbowBase), EnumAttachmentType.lava, EnumCrossbowMaterial.wooden, EnumCrossbowFireRate.light);
 				}
 				
 				// If there is a medium auto mechanism and an lava attachment
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismMediumAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentLava.shiftedIndex)
 				{
-					return new ItemStack(Items.woodenCrossbowWithLavaAttachmentAndMediumMech);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.woodenCrossbowBase), EnumAttachmentType.lava, EnumCrossbowMaterial.wooden, EnumCrossbowFireRate.medium);
 				}
 				
 				// If there is a heavy auto mechanism and an lava attachment
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismHeavyAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentLava.shiftedIndex)
 				{
-					return new ItemStack(Items.woodenCrossbowWithLavaAttachmentAndHeavyMech);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.woodenCrossbowBase), EnumAttachmentType.lava, EnumCrossbowMaterial.wooden, EnumCrossbowFireRate.heavy);
 				}
 				
 				// If there is a semi-auto mechanism and an explosive attachment
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID ==Items.mechanismSemiAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentTorch.shiftedIndex)
 				{
-					return new ItemStack(Items.woodenCrossbowWithTorchAttachment);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.woodenCrossbowBase), EnumAttachmentType.torch, EnumCrossbowMaterial.wooden, EnumCrossbowFireRate.none);
 				}
 				
 				// If there is a light auto mechanism and an explosive attachment
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismLightAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentTorch.shiftedIndex)
 				{
-					return new ItemStack(Items.woodenCrossbowWithTorchAttachmentAndLightMech);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.woodenCrossbowBase), EnumAttachmentType.torch, EnumCrossbowMaterial.wooden, EnumCrossbowFireRate.light);
 				}
 				
 				// If there is a medium auto mechanism and an explosive attachment
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismMediumAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentTorch.shiftedIndex)
 				{
-					return new ItemStack(Items.woodenCrossbowWithTorchAttachmentAndMediumMech);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.woodenCrossbowBase), EnumAttachmentType.torch, EnumCrossbowMaterial.wooden, EnumCrossbowFireRate.medium);
 				}
 				
 				// If there is a heavy auto mechanism and an explosive attachment
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismHeavyAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentTorch.shiftedIndex)
 				{
-					return new ItemStack(Items.woodenCrossbowWithTorchAttachmentAndHeavyMech);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.woodenCrossbowBase), EnumAttachmentType.torch, EnumCrossbowMaterial.wooden, EnumCrossbowFireRate.heavy);
 				}
 				
 				// If there is a semi-auto mechanism and an explosive attachment
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID ==Items.mechanismSemiAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentPoison.shiftedIndex)
 				{
-					return new ItemStack(Items.woodenCrossbowWithPoisonAttachment);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.woodenCrossbowBase), EnumAttachmentType.poison, EnumCrossbowMaterial.wooden, EnumCrossbowFireRate.none);
 				}
 				
 				// If there is a light auto mechanism and an explosive attachment
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismLightAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentPoison.shiftedIndex)
 				{
-					return new ItemStack(Items.woodenCrossbowWithPoisonAttachmentAndLightMech);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.woodenCrossbowBase), EnumAttachmentType.poison, EnumCrossbowMaterial.wooden, EnumCrossbowFireRate.light);
 				}
 				
 				// If there is a medium auto mechanism and an explosive attachment
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismMediumAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentPoison.shiftedIndex)
 				{
-					return new ItemStack(Items.woodenCrossbowWithPoisonAttachmentAndMediumMech);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.woodenCrossbowBase), EnumAttachmentType.poison, EnumCrossbowMaterial.wooden, EnumCrossbowFireRate.medium);
 				}
 				
 				// If there is a heavy auto mechanism and an explosive attachment
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismHeavyAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentPoison.shiftedIndex)
 				{
-					return new ItemStack(Items.woodenCrossbowWithPoisonAttachmentAndHeavyMech);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.woodenCrossbowBase), EnumAttachmentType.poison, EnumCrossbowMaterial.wooden, EnumCrossbowFireRate.heavy);
 				}
 			}
 			// If the limbs are the right material and in the correct position
@@ -598,280 +599,280 @@ public class Util
 				// If there is a semi-auto mechanism
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID ==Items.mechanismSemiAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) == null)
 				{
-					return new ItemStack(Items.stoneCrossbowBase);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.stoneCrossbowBase), EnumAttachmentType.none, EnumCrossbowMaterial.stone, EnumCrossbowFireRate.none);
 				}
 				
 				// If there is a semi-auto mechanism and a basic scope
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID ==Items.mechanismSemiAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentShortScope.shiftedIndex)
 				{
-					return new ItemStack(Items.stoneCrossbowWithBasicScope);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.stoneCrossbowBase), EnumAttachmentType.shortscope, EnumCrossbowMaterial.stone, EnumCrossbowFireRate.none);
 				}
 
 				// If there is a semi-auto mechanism and a long scope
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID ==Items.mechanismSemiAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentLongScope.shiftedIndex)
 				{
-					return new ItemStack(Items.stoneCrossbowWithLongScope);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.stoneCrossbowBase), EnumAttachmentType.longscope, EnumCrossbowMaterial.stone, EnumCrossbowFireRate.none);
 				}
 
 				// If there is a light auto mechanism and a basic scope
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismLightAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentShortScope.shiftedIndex)
 				{
-					return new ItemStack(Items.stoneCrossbowWithBasicScopeAndLightMech);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.stoneCrossbowBase), EnumAttachmentType.shortscope, EnumCrossbowMaterial.stone, EnumCrossbowFireRate.light);
 				}
 
 				// If there is a light auto mechanism and a long scope
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismLightAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentLongScope.shiftedIndex)
 				{
-					return new ItemStack(Items.stoneCrossbowWithLongScopeAndLightMech);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.stoneCrossbowBase), EnumAttachmentType.longscope, EnumCrossbowMaterial.stone, EnumCrossbowFireRate.light);
 				}
 
 				// If there is a medium auto mechanism and a basic scope
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismMediumAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentShortScope.shiftedIndex)
 				{
-					return new ItemStack(Items.stoneCrossbowWithBasicScopeAndMediumMech);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.stoneCrossbowBase), EnumAttachmentType.shortscope, EnumCrossbowMaterial.stone, EnumCrossbowFireRate.medium);
 				}
 
 				// If there is a medium auto mechanism and a long scope
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismMediumAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentLongScope.shiftedIndex)
 				{
-					return new ItemStack(Items.stoneCrossbowWithLongScopeAndMediumMech);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.stoneCrossbowBase), EnumAttachmentType.longscope, EnumCrossbowMaterial.stone, EnumCrossbowFireRate.medium);
 				}
 
 				// If there is a heavy auto mechanism and a basic scope
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismHeavyAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentShortScope.shiftedIndex)
 				{
-					return new ItemStack(Items.stoneCrossbowWithBasicScopeAndHeavyMech);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.stoneCrossbowBase), EnumAttachmentType.shortscope, EnumCrossbowMaterial.stone, EnumCrossbowFireRate.heavy);
 				}
 
 				// If there is a heavy auto mechanism and a long scope
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismHeavyAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentLongScope.shiftedIndex)
 				{
-					return new ItemStack(Items.stoneCrossbowWithLongScopeAndHeavyMech);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.stoneCrossbowBase), EnumAttachmentType.longscope, EnumCrossbowMaterial.stone, EnumCrossbowFireRate.heavy);
 				}
 				
 				// If there is a light mechanism
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismLightAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) == null)
 				{
-					return new ItemStack(Items.stoneCrossbowWithLightMech);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.stoneCrossbowBase), EnumAttachmentType.none, EnumCrossbowMaterial.stone, EnumCrossbowFireRate.light);
 				}
 
 				// If there is a medium mechanism
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismMediumAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) == null)
 				{
-					return new ItemStack(Items.stoneCrossbowWithMediumMech);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.stoneCrossbowBase), EnumAttachmentType.none, EnumCrossbowMaterial.stone, EnumCrossbowFireRate.medium);
 				}
 
 				// If there is a heavy mechanism
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismHeavyAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) == null)
 				{
-					return new ItemStack(Items.stoneCrossbowWithHeavyMech);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.stoneCrossbowBase), EnumAttachmentType.none, EnumCrossbowMaterial.stone, EnumCrossbowFireRate.heavy);
 				}
 				
 				// If there is a semi-auto mechanism and an explosive attachment
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID ==Items.mechanismSemiAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentIce.shiftedIndex)
 				{
-					return new ItemStack(Items.stoneCrossbowWithIceAttachment);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.stoneCrossbowBase), EnumAttachmentType.ice, EnumCrossbowMaterial.stone, EnumCrossbowFireRate.none);
 				}
 				
 				// If there is a light auto mechanism and an explosive attachment
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismLightAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentIce.shiftedIndex)
 				{
-					return new ItemStack(Items.stoneCrossbowWithIceAttachmentAndLightMech);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.stoneCrossbowBase), EnumAttachmentType.ice, EnumCrossbowMaterial.stone, EnumCrossbowFireRate.light);
 				}
 				
 				// If there is a medium auto mechanism and an explosive attachment
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismMediumAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentIce.shiftedIndex)
 				{
-					return new ItemStack(Items.stoneCrossbowWithIceAttachmentAndMediumMech);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.stoneCrossbowBase), EnumAttachmentType.ice, EnumCrossbowMaterial.stone, EnumCrossbowFireRate.medium);
 				}
 				
 				// If there is a heavy auto mechanism and an explosive attachment
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismHeavyAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentIce.shiftedIndex)
 				{
-					return new ItemStack(Items.stoneCrossbowWithIceAttachmentAndHeavyMech);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.stoneCrossbowBase), EnumAttachmentType.ice, EnumCrossbowMaterial.stone, EnumCrossbowFireRate.heavy);
 				}
 				
 				// If there is a semi-auto mechanism and an explosive attachment
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID ==Items.mechanismSemiAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentExplosive.shiftedIndex)
 				{
-					return new ItemStack(Items.stoneCrossbowWithExplosiveAttachment);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.stoneCrossbowBase), EnumAttachmentType.explosive, EnumCrossbowMaterial.stone, EnumCrossbowFireRate.none);
 				}
 				
 				// If there is a light auto mechanism and an explosive attachment
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismLightAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentExplosive.shiftedIndex)
 				{
-					return new ItemStack(Items.stoneCrossbowWithExplosiveAttachmentAndLightMech);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.stoneCrossbowBase), EnumAttachmentType.explosive, EnumCrossbowMaterial.stone, EnumCrossbowFireRate.light);
 				}
 				
 				// If there is a medium auto mechanism and an explosive attachment
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismMediumAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentExplosive.shiftedIndex)
 				{
-					return new ItemStack(Items.stoneCrossbowWithExplosiveAttachmentAndMediumMech);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.stoneCrossbowBase), EnumAttachmentType.explosive, EnumCrossbowMaterial.stone, EnumCrossbowFireRate.medium);
 				}
 				
 				// If there is a heavy auto mechanism and an explosive attachment
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismHeavyAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentExplosive.shiftedIndex)
 				{
-					return new ItemStack(Items.stoneCrossbowWithExplosiveAttachmentAndHeavyMech);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.stoneCrossbowBase), EnumAttachmentType.explosive, EnumCrossbowMaterial.stone, EnumCrossbowFireRate.heavy);
 				}
 				
 				// If there is a semi-auto mechanism and an Flame attachment
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID ==Items.mechanismSemiAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentFire.shiftedIndex)
 				{
-					return new ItemStack(Items.stoneCrossbowWithFlameAttachment);
-				}
-				
-				// If there is a semi-auto mechanism and an explosive attachment
-				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID ==Items.mechanismSemiAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentLightning.shiftedIndex)
-				{
-					return new ItemStack(Items.stoneCrossbowWithLightningAttachment);
-				}
-				
-				// If there is a light auto mechanism and an explosive attachment
-				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismLightAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentLightning.shiftedIndex)
-				{
-					return new ItemStack(Items.stoneCrossbowWithLightningAttachmentAndLightMech);
-				}
-				
-				// If there is a medium auto mechanism and an explosive attachment
-				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismMediumAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentLightning.shiftedIndex)
-				{
-					return new ItemStack(Items.stoneCrossbowWithLightningAttachmentAndMediumMech);
-				}
-				
-				// If there is a heavy auto mechanism and an explosive attachment
-				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismHeavyAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentLightning.shiftedIndex)
-				{
-					return new ItemStack(Items.stoneCrossbowWithLightningAttachmentAndHeavyMech);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.stoneCrossbowBase), EnumAttachmentType.flame, EnumCrossbowMaterial.stone, EnumCrossbowFireRate.none);
 				}
 				
 				// If there is a light auto mechanism and an Flame attachment
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismLightAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentFire.shiftedIndex)
 				{
-					return new ItemStack(Items.stoneCrossbowWithFlameAttachmentAndLightMech);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.stoneCrossbowBase), EnumAttachmentType.flame, EnumCrossbowMaterial.stone, EnumCrossbowFireRate.light);
 				}
 				
 				// If there is a medium auto mechanism and an Flame attachment
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismMediumAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentFire.shiftedIndex)
 				{
-					return new ItemStack(Items.stoneCrossbowWithFlameAttachmentAndMediumMech);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.stoneCrossbowBase), EnumAttachmentType.flame, EnumCrossbowMaterial.stone, EnumCrossbowFireRate.medium);
 				}
 				
 				// If there is a heavy auto mechanism and an Flame attachment
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismHeavyAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentFire.shiftedIndex)
 				{
-					return new ItemStack(Items.stoneCrossbowWithFlameAttachmentAndHeavyMech);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.stoneCrossbowBase), EnumAttachmentType.flame, EnumCrossbowMaterial.stone, EnumCrossbowFireRate.heavy);
+				}
+				
+				// If there is a semi-auto mechanism and an explosive attachment
+				else
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID ==Items.mechanismSemiAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentLightning.shiftedIndex)
+				{
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.stoneCrossbowBase), EnumAttachmentType.lightning, EnumCrossbowMaterial.stone, EnumCrossbowFireRate.none);
+				}
+				
+				// If there is a light auto mechanism and an explosive attachment
+				else
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismLightAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentLightning.shiftedIndex)
+				{
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.stoneCrossbowBase), EnumAttachmentType.lightning, EnumCrossbowMaterial.stone, EnumCrossbowFireRate.light);
+				}
+				
+				// If there is a medium auto mechanism and an explosive attachment
+				else
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismMediumAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentLightning.shiftedIndex)
+				{
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.stoneCrossbowBase), EnumAttachmentType.lightning, EnumCrossbowMaterial.stone, EnumCrossbowFireRate.medium);
+				}
+				
+				// If there is a heavy auto mechanism and an explosive attachment
+				else
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismHeavyAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentLightning.shiftedIndex)
+				{
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.stoneCrossbowBase), EnumAttachmentType.lightning, EnumCrossbowMaterial.stone, EnumCrossbowFireRate.heavy);
 				}
 				
 				// If there is a semi-auto mechanism and an lava attachment
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID ==Items.mechanismSemiAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentLava.shiftedIndex)
 				{
-					return new ItemStack(Items.stoneCrossbowWithLavaAttachment);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.stoneCrossbowBase), EnumAttachmentType.lava, EnumCrossbowMaterial.stone, EnumCrossbowFireRate.none);
 				}
 				
 				// If there is a light auto mechanism and an lava attachment
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismLightAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentLava.shiftedIndex)
 				{
-					return new ItemStack(Items.stoneCrossbowWithLavaAttachmentAndLightMech);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.stoneCrossbowBase), EnumAttachmentType.lava, EnumCrossbowMaterial.stone, EnumCrossbowFireRate.light);
 				}
 				
 				// If there is a medium auto mechanism and an lava attachment
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismMediumAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentLava.shiftedIndex)
 				{
-					return new ItemStack(Items.stoneCrossbowWithLavaAttachmentAndMediumMech);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.stoneCrossbowBase), EnumAttachmentType.lava, EnumCrossbowMaterial.stone, EnumCrossbowFireRate.medium);
 				}
 				
 				// If there is a heavy auto mechanism and an lava attachment
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismHeavyAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentLava.shiftedIndex)
 				{
-					return new ItemStack(Items.stoneCrossbowWithLavaAttachmentAndHeavyMech);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.stoneCrossbowBase), EnumAttachmentType.lava, EnumCrossbowMaterial.stone, EnumCrossbowFireRate.heavy);
 				}
 				
 				// If there is a semi-auto mechanism and an explosive attachment
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID ==Items.mechanismSemiAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentTorch.shiftedIndex)
 				{
-					return new ItemStack(Items.stoneCrossbowWithTorchAttachment);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.stoneCrossbowBase), EnumAttachmentType.torch, EnumCrossbowMaterial.stone, EnumCrossbowFireRate.none);
 				}
 				
 				// If there is a light auto mechanism and an explosive attachment
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismLightAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentTorch.shiftedIndex)
 				{
-					return new ItemStack(Items.stoneCrossbowWithTorchAttachmentAndLightMech);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.stoneCrossbowBase), EnumAttachmentType.torch, EnumCrossbowMaterial.stone, EnumCrossbowFireRate.light);
 				}
 				
 				// If there is a medium auto mechanism and an explosive attachment
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismMediumAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentTorch.shiftedIndex)
 				{
-					return new ItemStack(Items.stoneCrossbowWithTorchAttachmentAndMediumMech);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.stoneCrossbowBase), EnumAttachmentType.torch, EnumCrossbowMaterial.stone, EnumCrossbowFireRate.medium);
 				}
 				
 				// If there is a heavy auto mechanism and an explosive attachment
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismHeavyAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentTorch.shiftedIndex)
 				{
-					return new ItemStack(Items.stoneCrossbowWithTorchAttachmentAndHeavyMech);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.stoneCrossbowBase), EnumAttachmentType.torch, EnumCrossbowMaterial.stone, EnumCrossbowFireRate.heavy);
 				}
 				
 				// If there is a semi-auto mechanism and an explosive attachment
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID ==Items.mechanismSemiAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentPoison.shiftedIndex)
 				{
-					return new ItemStack(Items.stoneCrossbowWithPoisonAttachment);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.stoneCrossbowBase), EnumAttachmentType.poison, EnumCrossbowMaterial.stone, EnumCrossbowFireRate.none);
 				}
 				
 				// If there is a light auto mechanism and an explosive attachment
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismLightAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentPoison.shiftedIndex)
 				{
-					return new ItemStack(Items.stoneCrossbowWithPoisonAttachmentAndLightMech);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.stoneCrossbowBase), EnumAttachmentType.poison, EnumCrossbowMaterial.stone, EnumCrossbowFireRate.light);
 				}
 				
 				// If there is a medium auto mechanism and an explosive attachment
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismMediumAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentPoison.shiftedIndex)
 				{
-					return new ItemStack(Items.stoneCrossbowWithPoisonAttachmentAndMediumMech);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.stoneCrossbowBase), EnumAttachmentType.poison, EnumCrossbowMaterial.stone, EnumCrossbowFireRate.medium);
 				}
 				
 				// If there is a heavy auto mechanism and an explosive attachment
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismHeavyAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentPoison.shiftedIndex)
 				{
-					return new ItemStack(Items.stoneCrossbowWithPoisonAttachmentAndHeavyMech);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.stoneCrossbowBase), EnumAttachmentType.poison, EnumCrossbowMaterial.stone, EnumCrossbowFireRate.heavy);
 				}
 			}
 			// If the limbs are the right material and in the correct position
@@ -880,280 +881,280 @@ public class Util
 				// If there is a semi-auto mechanism
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID ==Items.mechanismSemiAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) == null)
 				{
-					return new ItemStack(Items.ironCrossbowBase);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.ironCrossbowBase), EnumAttachmentType.none, EnumCrossbowMaterial.iron, EnumCrossbowFireRate.none);
 				}
 				
 				// If there is a semi-auto mechanism and a basic scope
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID ==Items.mechanismSemiAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentShortScope.shiftedIndex)
 				{
-					return new ItemStack(Items.ironCrossbowWithBasicScope);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.ironCrossbowBase), EnumAttachmentType.shortscope, EnumCrossbowMaterial.iron, EnumCrossbowFireRate.none);
 				}
 
 				// If there is a semi-auto mechanism and a long scope
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID ==Items.mechanismSemiAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentLongScope.shiftedIndex)
 				{
-					return new ItemStack(Items.ironCrossbowWithLongScope);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.ironCrossbowBase), EnumAttachmentType.longscope, EnumCrossbowMaterial.iron, EnumCrossbowFireRate.none);
 				}
 
 				// If there is a light auto mechanism and a basic scope
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismLightAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentShortScope.shiftedIndex)
 				{
-					return new ItemStack(Items.ironCrossbowWithBasicScopeAndLightMech);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.ironCrossbowBase), EnumAttachmentType.shortscope, EnumCrossbowMaterial.iron, EnumCrossbowFireRate.light);
 				}
 
 				// If there is a light auto mechanism and a long scope
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismLightAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentLongScope.shiftedIndex)
 				{
-					return new ItemStack(Items.ironCrossbowWithLongScopeAndLightMech);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.ironCrossbowBase), EnumAttachmentType.longscope, EnumCrossbowMaterial.iron, EnumCrossbowFireRate.light);
 				}
 
 				// If there is a medium auto mechanism and a basic scope
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismMediumAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentShortScope.shiftedIndex)
 				{
-					return new ItemStack(Items.ironCrossbowWithBasicScopeAndMediumMech);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.ironCrossbowBase), EnumAttachmentType.shortscope, EnumCrossbowMaterial.iron, EnumCrossbowFireRate.medium);
 				}
 
 				// If there is a medium auto mechanism and a long scope
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismMediumAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentLongScope.shiftedIndex)
 				{
-					return new ItemStack(Items.ironCrossbowWithLongScopeAndMediumMech);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.ironCrossbowBase), EnumAttachmentType.longscope, EnumCrossbowMaterial.iron, EnumCrossbowFireRate.medium);
 				}
 
 				// If there is a heavy auto mechanism and a basic scope
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismHeavyAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentShortScope.shiftedIndex)
 				{
-					return new ItemStack(Items.ironCrossbowWithBasicScopeAndHeavyMech);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.ironCrossbowBase), EnumAttachmentType.shortscope, EnumCrossbowMaterial.iron, EnumCrossbowFireRate.heavy);
 				}
 
 				// If there is a heavy auto mechanism and a long scope
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismHeavyAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentLongScope.shiftedIndex)
 				{
-					return new ItemStack(Items.ironCrossbowWithLongScopeAndHeavyMech);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.ironCrossbowBase), EnumAttachmentType.longscope, EnumCrossbowMaterial.iron, EnumCrossbowFireRate.heavy);
 				}
 				
 				// If there is a light mechanism
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismLightAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) == null)
 				{
-					return new ItemStack(Items.ironCrossbowWithLightMech);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.ironCrossbowBase), EnumAttachmentType.none, EnumCrossbowMaterial.iron, EnumCrossbowFireRate.light);
 				}
 
 				// If there is a medium mechanism
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismMediumAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) == null)
 				{
-					return new ItemStack(Items.ironCrossbowWithMediumMech);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.ironCrossbowBase), EnumAttachmentType.none, EnumCrossbowMaterial.iron, EnumCrossbowFireRate.medium);
 				}
 
 				// If there is a heavy mechanism
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismHeavyAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) == null)
 				{
-					return new ItemStack(Items.ironCrossbowWithHeavyMech);
-				}
-				
-				// If there is a semi-auto mechanism and an explosive attachment
-				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID ==Items.mechanismSemiAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentLightning.shiftedIndex)
-				{
-					return new ItemStack(Items.ironCrossbowWithLightningAttachment);
-				}
-				
-				// If there is a light auto mechanism and an explosive attachment
-				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismLightAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentLightning.shiftedIndex)
-				{
-					return new ItemStack(Items.ironCrossbowWithLightningAttachmentAndLightMech);
-				}
-				
-				// If there is a medium auto mechanism and an explosive attachment
-				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismMediumAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentLightning.shiftedIndex)
-				{
-					return new ItemStack(Items.ironCrossbowWithLightningAttachmentAndMediumMech);
-				}
-				
-				// If there is a heavy auto mechanism and an explosive attachment
-				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismHeavyAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentLightning.shiftedIndex)
-				{
-					return new ItemStack(Items.ironCrossbowWithLightningAttachmentAndHeavyMech);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.ironCrossbowBase), EnumAttachmentType.none, EnumCrossbowMaterial.iron, EnumCrossbowFireRate.heavy);
 				}
 				
 				// If there is a semi-auto mechanism and an explosive attachment
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID ==Items.mechanismSemiAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentIce.shiftedIndex)
 				{
-					return new ItemStack(Items.ironCrossbowWithIceAttachment);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.ironCrossbowBase), EnumAttachmentType.ice, EnumCrossbowMaterial.iron, EnumCrossbowFireRate.none);
 				}
 				
 				// If there is a light auto mechanism and an explosive attachment
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismLightAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentIce.shiftedIndex)
 				{
-					return new ItemStack(Items.ironCrossbowWithIceAttachmentAndLightMech);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.ironCrossbowBase), EnumAttachmentType.ice, EnumCrossbowMaterial.iron, EnumCrossbowFireRate.light);
 				}
 				
 				// If there is a medium auto mechanism and an explosive attachment
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismMediumAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentIce.shiftedIndex)
 				{
-					return new ItemStack(Items.ironCrossbowWithIceAttachmentAndMediumMech);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.ironCrossbowBase), EnumAttachmentType.ice, EnumCrossbowMaterial.iron, EnumCrossbowFireRate.medium);
 				}
 				
 				// If there is a heavy auto mechanism and an explosive attachment
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismHeavyAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentIce.shiftedIndex)
 				{
-					return new ItemStack(Items.ironCrossbowWithIceAttachmentAndHeavyMech);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.ironCrossbowBase), EnumAttachmentType.ice, EnumCrossbowMaterial.iron, EnumCrossbowFireRate.heavy);
 				}
 				
 				// If there is a semi-auto mechanism and an explosive attachment
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID ==Items.mechanismSemiAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentExplosive.shiftedIndex)
 				{
-					return new ItemStack(Items.ironCrossbowWithExplosiveAttachment);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.ironCrossbowBase), EnumAttachmentType.explosive, EnumCrossbowMaterial.iron, EnumCrossbowFireRate.none);
 				}
 				
 				// If there is a light auto mechanism and an explosive attachment
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismLightAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentExplosive.shiftedIndex)
 				{
-					return new ItemStack(Items.ironCrossbowWithExplosiveAttachmentAndLightMech);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.ironCrossbowBase), EnumAttachmentType.explosive, EnumCrossbowMaterial.iron, EnumCrossbowFireRate.light);
 				}
 				
 				// If there is a medium auto mechanism and an explosive attachment
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismMediumAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentExplosive.shiftedIndex)
 				{
-					return new ItemStack(Items.ironCrossbowWithExplosiveAttachmentAndMediumMech);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.ironCrossbowBase), EnumAttachmentType.explosive, EnumCrossbowMaterial.iron, EnumCrossbowFireRate.medium);
 				}
 				
 				// If there is a heavy auto mechanism and an explosive attachment
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismHeavyAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentExplosive.shiftedIndex)
 				{
-					return new ItemStack(Items.ironCrossbowWithExplosiveAttachmentAndHeavyMech);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.ironCrossbowBase), EnumAttachmentType.explosive, EnumCrossbowMaterial.iron, EnumCrossbowFireRate.heavy);
 				}
 				
 				// If there is a semi-auto mechanism and an Flame attachment
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID ==Items.mechanismSemiAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentFire.shiftedIndex)
 				{
-					return new ItemStack(Items.ironCrossbowWithFlameAttachment);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.ironCrossbowBase), EnumAttachmentType.flame, EnumCrossbowMaterial.iron, EnumCrossbowFireRate.none);
 				}
 				
 				// If there is a light auto mechanism and an Flame attachment
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismLightAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentFire.shiftedIndex)
 				{
-					return new ItemStack(Items.ironCrossbowWithFlameAttachmentAndLightMech);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.ironCrossbowBase), EnumAttachmentType.flame, EnumCrossbowMaterial.iron, EnumCrossbowFireRate.light);
 				}
 				
 				// If there is a medium auto mechanism and an Flame attachment
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismMediumAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentFire.shiftedIndex)
 				{
-					return new ItemStack(Items.ironCrossbowWithFlameAttachmentAndMediumMech);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.ironCrossbowBase), EnumAttachmentType.flame, EnumCrossbowMaterial.iron, EnumCrossbowFireRate.medium);
 				}
 				
 				// If there is a heavy auto mechanism and an Flame attachment
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismHeavyAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentFire.shiftedIndex)
 				{
-					return new ItemStack(Items.ironCrossbowWithFlameAttachmentAndHeavyMech);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.ironCrossbowBase), EnumAttachmentType.flame, EnumCrossbowMaterial.iron, EnumCrossbowFireRate.heavy);
+				}
+				
+				// If there is a semi-auto mechanism and an explosive attachment
+				else
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID ==Items.mechanismSemiAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentLightning.shiftedIndex)
+				{
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.ironCrossbowBase), EnumAttachmentType.lightning, EnumCrossbowMaterial.iron, EnumCrossbowFireRate.none);
+				}
+				
+				// If there is a light auto mechanism and an explosive attachment
+				else
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismLightAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentLightning.shiftedIndex)
+				{
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.ironCrossbowBase), EnumAttachmentType.lightning, EnumCrossbowMaterial.iron, EnumCrossbowFireRate.light);
+				}
+				
+				// If there is a medium auto mechanism and an explosive attachment
+				else
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismMediumAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentLightning.shiftedIndex)
+				{
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.ironCrossbowBase), EnumAttachmentType.lightning, EnumCrossbowMaterial.iron, EnumCrossbowFireRate.medium);
+				}
+				
+				// If there is a heavy auto mechanism and an explosive attachment
+				else
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismHeavyAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentLightning.shiftedIndex)
+				{
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.ironCrossbowBase), EnumAttachmentType.lightning, EnumCrossbowMaterial.iron, EnumCrossbowFireRate.heavy);
 				}
 				
 				// If there is a semi-auto mechanism and an lava attachment
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID ==Items.mechanismSemiAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentLava.shiftedIndex)
 				{
-					return new ItemStack(Items.ironCrossbowWithLavaAttachment);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.ironCrossbowBase), EnumAttachmentType.lava, EnumCrossbowMaterial.iron, EnumCrossbowFireRate.none);
 				}
 				
 				// If there is a light auto mechanism and an lava attachment
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismLightAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentLava.shiftedIndex)
 				{
-					return new ItemStack(Items.ironCrossbowWithLavaAttachmentAndLightMech);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.ironCrossbowBase), EnumAttachmentType.lava, EnumCrossbowMaterial.iron, EnumCrossbowFireRate.light);
 				}
 				
 				// If there is a medium auto mechanism and an lava attachment
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismMediumAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentLava.shiftedIndex)
 				{
-					return new ItemStack(Items.ironCrossbowWithLavaAttachmentAndMediumMech);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.ironCrossbowBase), EnumAttachmentType.lava, EnumCrossbowMaterial.iron, EnumCrossbowFireRate.medium);
 				}
 				
 				// If there is a heavy auto mechanism and an lava attachment
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismHeavyAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentLava.shiftedIndex)
 				{
-					return new ItemStack(Items.ironCrossbowWithLavaAttachmentAndHeavyMech);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.ironCrossbowBase), EnumAttachmentType.lava, EnumCrossbowMaterial.iron, EnumCrossbowFireRate.heavy);
 				}
 				
 				// If there is a semi-auto mechanism and an explosive attachment
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID ==Items.mechanismSemiAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentTorch.shiftedIndex)
 				{
-					return new ItemStack(Items.ironCrossbowWithTorchAttachment);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.ironCrossbowBase), EnumAttachmentType.torch, EnumCrossbowMaterial.iron, EnumCrossbowFireRate.none);
 				}
 				
 				// If there is a light auto mechanism and an explosive attachment
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismLightAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentTorch.shiftedIndex)
 				{
-					return new ItemStack(Items.ironCrossbowWithTorchAttachmentAndLightMech);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.ironCrossbowBase), EnumAttachmentType.torch, EnumCrossbowMaterial.iron, EnumCrossbowFireRate.light);
 				}
 				
 				// If there is a medium auto mechanism and an explosive attachment
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismMediumAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentTorch.shiftedIndex)
 				{
-					return new ItemStack(Items.ironCrossbowWithTorchAttachmentAndMediumMech);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.ironCrossbowBase), EnumAttachmentType.torch, EnumCrossbowMaterial.iron, EnumCrossbowFireRate.medium);
 				}
 				
 				// If there is a heavy auto mechanism and an explosive attachment
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismHeavyAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentTorch.shiftedIndex)
 				{
-					return new ItemStack(Items.ironCrossbowWithTorchAttachmentAndHeavyMech);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.ironCrossbowBase), EnumAttachmentType.torch, EnumCrossbowMaterial.iron, EnumCrossbowFireRate.heavy);
 				}
 				
 				// If there is a semi-auto mechanism and an explosive attachment
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID ==Items.mechanismSemiAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentPoison.shiftedIndex)
 				{
-					return new ItemStack(Items.ironCrossbowWithPoisonAttachment);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.ironCrossbowBase), EnumAttachmentType.poison, EnumCrossbowMaterial.iron, EnumCrossbowFireRate.none);
 				}
 				
 				// If there is a light auto mechanism and an explosive attachment
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismLightAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentPoison.shiftedIndex)
 				{
-					return new ItemStack(Items.ironCrossbowWithPoisonAttachmentAndLightMech);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.ironCrossbowBase), EnumAttachmentType.poison, EnumCrossbowMaterial.iron, EnumCrossbowFireRate.light);
 				}
 				
 				// If there is a medium auto mechanism and an explosive attachment
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismMediumAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentPoison.shiftedIndex)
 				{
-					return new ItemStack(Items.ironCrossbowWithPoisonAttachmentAndMediumMech);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.ironCrossbowBase), EnumAttachmentType.poison, EnumCrossbowMaterial.iron, EnumCrossbowFireRate.medium);
 				}
 				
 				// If there is a heavy auto mechanism and an explosive attachment
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismHeavyAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentPoison.shiftedIndex)
 				{
-					return new ItemStack(Items.ironCrossbowWithPoisonAttachmentAndHeavyMech);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.ironCrossbowBase), EnumAttachmentType.poison, EnumCrossbowMaterial.iron, EnumCrossbowFireRate.heavy);
 				}
 			}
 			// If the limbs are the right material and in the correct position
@@ -1162,280 +1163,280 @@ public class Util
 				// If there is a semi-auto mechanism
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID ==Items.mechanismSemiAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) == null)
 				{
-					return new ItemStack(Items.goldCrossbowBase);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.goldCrossbowBase), EnumAttachmentType.none, EnumCrossbowMaterial.gold, EnumCrossbowFireRate.none);
 				}
 				
 				// If there is a semi-auto mechanism and a basic scope
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID ==Items.mechanismSemiAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentShortScope.shiftedIndex)
 				{
-					return new ItemStack(Items.goldCrossbowWithBasicScope);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.goldCrossbowBase), EnumAttachmentType.shortscope, EnumCrossbowMaterial.gold, EnumCrossbowFireRate.none);
 				}
 
 				// If there is a semi-auto mechanism and a long scope
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID ==Items.mechanismSemiAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentLongScope.shiftedIndex)
 				{
-					return new ItemStack(Items.goldCrossbowWithLongScope);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.goldCrossbowBase), EnumAttachmentType.longscope, EnumCrossbowMaterial.gold, EnumCrossbowFireRate.none);
 				}
 
 				// If there is a light auto mechanism and a basic scope
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismLightAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentShortScope.shiftedIndex)
 				{
-					return new ItemStack(Items.goldCrossbowWithBasicScopeAndLightMech);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.goldCrossbowBase), EnumAttachmentType.shortscope, EnumCrossbowMaterial.gold, EnumCrossbowFireRate.light);
 				}
 
 				// If there is a light auto mechanism and a long scope
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismLightAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentLongScope.shiftedIndex)
 				{
-					return new ItemStack(Items.goldCrossbowWithLongScopeAndLightMech);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.goldCrossbowBase), EnumAttachmentType.longscope, EnumCrossbowMaterial.gold, EnumCrossbowFireRate.light);
 				}
 
 				// If there is a medium auto mechanism and a basic scope
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismMediumAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentShortScope.shiftedIndex)
 				{
-					return new ItemStack(Items.goldCrossbowWithBasicScopeAndMediumMech);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.goldCrossbowBase), EnumAttachmentType.shortscope, EnumCrossbowMaterial.gold, EnumCrossbowFireRate.medium);
 				}
 
 				// If there is a medium auto mechanism and a long scope
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismMediumAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentLongScope.shiftedIndex)
 				{
-					return new ItemStack(Items.goldCrossbowWithLongScopeAndMediumMech);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.goldCrossbowBase), EnumAttachmentType.longscope, EnumCrossbowMaterial.gold, EnumCrossbowFireRate.medium);
 				}
 
 				// If there is a heavy auto mechanism and a basic scope
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismHeavyAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentShortScope.shiftedIndex)
 				{
-					return new ItemStack(Items.goldCrossbowWithBasicScopeAndHeavyMech);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.goldCrossbowBase), EnumAttachmentType.shortscope, EnumCrossbowMaterial.gold, EnumCrossbowFireRate.heavy);
 				}
 
 				// If there is a heavy auto mechanism and a long scope
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismHeavyAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentLongScope.shiftedIndex)
 				{
-					return new ItemStack(Items.goldCrossbowWithLongScopeAndHeavyMech);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.goldCrossbowBase), EnumAttachmentType.longscope, EnumCrossbowMaterial.gold, EnumCrossbowFireRate.heavy);
 				}
 				
 				// If there is a light mechanism
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismLightAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) == null)
 				{
-					return new ItemStack(Items.goldCrossbowWithLightMech);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.goldCrossbowBase), EnumAttachmentType.none, EnumCrossbowMaterial.gold, EnumCrossbowFireRate.light);
 				}
 
 				// If there is a medium mechanism
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismMediumAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) == null)
 				{
-					return new ItemStack(Items.goldCrossbowWithMediumMech);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.goldCrossbowBase), EnumAttachmentType.none, EnumCrossbowMaterial.gold, EnumCrossbowFireRate.medium);
 				}
 
 				// If there is a heavy mechanism
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismHeavyAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) == null)
 				{
-					return new ItemStack(Items.goldCrossbowWithHeavyMech);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.goldCrossbowBase), EnumAttachmentType.none, EnumCrossbowMaterial.gold, EnumCrossbowFireRate.heavy);
 				}
 				
 				// If there is a semi-auto mechanism and an explosive attachment
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID ==Items.mechanismSemiAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentIce.shiftedIndex)
 				{
-					return new ItemStack(Items.goldCrossbowWithIceAttachment);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.goldCrossbowBase), EnumAttachmentType.ice, EnumCrossbowMaterial.gold, EnumCrossbowFireRate.none);
 				}
 				
 				// If there is a light auto mechanism and an explosive attachment
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismLightAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentIce.shiftedIndex)
 				{
-					return new ItemStack(Items.goldCrossbowWithIceAttachmentAndLightMech);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.goldCrossbowBase), EnumAttachmentType.ice, EnumCrossbowMaterial.gold, EnumCrossbowFireRate.light);
 				}
 				
 				// If there is a medium auto mechanism and an explosive attachment
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismMediumAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentIce.shiftedIndex)
 				{
-					return new ItemStack(Items.goldCrossbowWithIceAttachmentAndMediumMech);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.goldCrossbowBase), EnumAttachmentType.ice, EnumCrossbowMaterial.gold, EnumCrossbowFireRate.medium);
 				}
 				
 				// If there is a heavy auto mechanism and an explosive attachment
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismHeavyAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentIce.shiftedIndex)
 				{
-					return new ItemStack(Items.goldCrossbowWithIceAttachmentAndHeavyMech);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.goldCrossbowBase), EnumAttachmentType.ice, EnumCrossbowMaterial.gold, EnumCrossbowFireRate.heavy);
 				}
 				
 				// If there is a semi-auto mechanism and an explosive attachment
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID ==Items.mechanismSemiAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentExplosive.shiftedIndex)
 				{
-					return new ItemStack(Items.goldCrossbowWithExplosiveAttachment);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.goldCrossbowBase), EnumAttachmentType.explosive, EnumCrossbowMaterial.gold, EnumCrossbowFireRate.none);
 				}
 				
 				// If there is a light auto mechanism and an explosive attachment
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismLightAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentExplosive.shiftedIndex)
 				{
-					return new ItemStack(Items.goldCrossbowWithExplosiveAttachmentAndLightMech);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.goldCrossbowBase), EnumAttachmentType.explosive, EnumCrossbowMaterial.gold, EnumCrossbowFireRate.light);
 				}
 				
 				// If there is a medium auto mechanism and an explosive attachment
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismMediumAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentExplosive.shiftedIndex)
 				{
-					return new ItemStack(Items.goldCrossbowWithExplosiveAttachmentAndMediumMech);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.goldCrossbowBase), EnumAttachmentType.explosive, EnumCrossbowMaterial.gold, EnumCrossbowFireRate.medium);
 				}
 				
 				// If there is a heavy auto mechanism and an explosive attachment
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismHeavyAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentExplosive.shiftedIndex)
 				{
-					return new ItemStack(Items.goldCrossbowWithExplosiveAttachmentAndHeavyMech);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.goldCrossbowBase), EnumAttachmentType.explosive, EnumCrossbowMaterial.gold, EnumCrossbowFireRate.heavy);
 				}
 				
 				// If there is a semi-auto mechanism and an Flame attachment
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID ==Items.mechanismSemiAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentFire.shiftedIndex)
 				{
-					return new ItemStack(Items.goldCrossbowWithFlameAttachment);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.goldCrossbowBase), EnumAttachmentType.flame, EnumCrossbowMaterial.gold, EnumCrossbowFireRate.none);
 				}
 				
 				// If there is a light auto mechanism and an Flame attachment
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismLightAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentFire.shiftedIndex)
 				{
-					return new ItemStack(Items.goldCrossbowWithFlameAttachmentAndLightMech);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.goldCrossbowBase), EnumAttachmentType.flame, EnumCrossbowMaterial.gold, EnumCrossbowFireRate.light);
 				}
 				
 				// If there is a medium auto mechanism and an Flame attachment
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismMediumAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentFire.shiftedIndex)
 				{
-					return new ItemStack(Items.goldCrossbowWithFlameAttachmentAndMediumMech);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.goldCrossbowBase), EnumAttachmentType.flame, EnumCrossbowMaterial.gold, EnumCrossbowFireRate.medium);
 				}
 				
 				// If there is a heavy auto mechanism and an Flame attachment
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismHeavyAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentFire.shiftedIndex)
 				{
-					return new ItemStack(Items.goldCrossbowWithFlameAttachmentAndHeavyMech);
-				}
-				
-				// If there is a semi-auto mechanism and an lava attachment
-				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID ==Items.mechanismSemiAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentLava.shiftedIndex)
-				{
-					return new ItemStack(Items.goldCrossbowWithLavaAttachment);
-				}
-				
-				// If there is a light auto mechanism and an lava attachment
-				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismLightAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentLava.shiftedIndex)
-				{
-					return new ItemStack(Items.goldCrossbowWithLavaAttachmentAndLightMech);
-				}
-				
-				// If there is a medium auto mechanism and an lava attachment
-				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismMediumAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentLava.shiftedIndex)
-				{
-					return new ItemStack(Items.goldCrossbowWithLavaAttachmentAndMediumMech);
-				}
-				
-				// If there is a heavy auto mechanism and an lava attachment
-				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismHeavyAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentLava.shiftedIndex)
-				{
-					return new ItemStack(Items.goldCrossbowWithLavaAttachmentAndHeavyMech);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.goldCrossbowBase), EnumAttachmentType.flame, EnumCrossbowMaterial.gold, EnumCrossbowFireRate.heavy);
 				}
 				
 				// If there is a semi-auto mechanism and an explosive attachment
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID ==Items.mechanismSemiAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentLightning.shiftedIndex)
 				{
-					return new ItemStack(Items.goldCrossbowWithLightningAttachment);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.goldCrossbowBase), EnumAttachmentType.lightning, EnumCrossbowMaterial.gold, EnumCrossbowFireRate.none);
 				}
 				
 				// If there is a light auto mechanism and an explosive attachment
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismLightAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentLightning.shiftedIndex)
 				{
-					return new ItemStack(Items.goldCrossbowWithLightningAttachmentAndLightMech);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.goldCrossbowBase), EnumAttachmentType.lightning, EnumCrossbowMaterial.gold, EnumCrossbowFireRate.light);
 				}
 				
 				// If there is a medium auto mechanism and an explosive attachment
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismMediumAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentLightning.shiftedIndex)
 				{
-					return new ItemStack(Items.goldCrossbowWithLightningAttachmentAndMediumMech);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.goldCrossbowBase), EnumAttachmentType.lightning, EnumCrossbowMaterial.gold, EnumCrossbowFireRate.medium);
 				}
 				
 				// If there is a heavy auto mechanism and an explosive attachment
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismHeavyAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentLightning.shiftedIndex)
 				{
-					return new ItemStack(Items.goldCrossbowWithLightningAttachmentAndHeavyMech);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.goldCrossbowBase), EnumAttachmentType.lightning, EnumCrossbowMaterial.gold, EnumCrossbowFireRate.heavy);
+				}
+				
+				// If there is a semi-auto mechanism and an lava attachment
+				else
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID ==Items.mechanismSemiAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentLava.shiftedIndex)
+				{
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.goldCrossbowBase), EnumAttachmentType.lava, EnumCrossbowMaterial.gold, EnumCrossbowFireRate.none);
+				}
+				
+				// If there is a light auto mechanism and an lava attachment
+				else
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismLightAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentLava.shiftedIndex)
+				{
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.goldCrossbowBase), EnumAttachmentType.lava, EnumCrossbowMaterial.gold, EnumCrossbowFireRate.light);
+				}
+				
+				// If there is a medium auto mechanism and an lava attachment
+				else
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismMediumAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentLava.shiftedIndex)
+				{
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.goldCrossbowBase), EnumAttachmentType.lava, EnumCrossbowMaterial.gold, EnumCrossbowFireRate.medium);
+				}
+				
+				// If there is a heavy auto mechanism and an lava attachment
+				else
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismHeavyAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentLava.shiftedIndex)
+				{
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.goldCrossbowBase), EnumAttachmentType.lava, EnumCrossbowMaterial.gold, EnumCrossbowFireRate.heavy);
 				}
 				
 				// If there is a semi-auto mechanism and an explosive attachment
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID ==Items.mechanismSemiAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentTorch.shiftedIndex)
 				{
-					return new ItemStack(Items.goldCrossbowWithTorchAttachment);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.goldCrossbowBase), EnumAttachmentType.torch, EnumCrossbowMaterial.gold, EnumCrossbowFireRate.none);
 				}
 				
 				// If there is a light auto mechanism and an explosive attachment
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismLightAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentTorch.shiftedIndex)
 				{
-					return new ItemStack(Items.goldCrossbowWithTorchAttachmentAndLightMech);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.goldCrossbowBase), EnumAttachmentType.torch, EnumCrossbowMaterial.gold, EnumCrossbowFireRate.light);
 				}
 				
 				// If there is a medium auto mechanism and an explosive attachment
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismMediumAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentTorch.shiftedIndex)
 				{
-					return new ItemStack(Items.goldCrossbowWithTorchAttachmentAndMediumMech);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.goldCrossbowBase), EnumAttachmentType.torch, EnumCrossbowMaterial.gold, EnumCrossbowFireRate.medium);
 				}
 				
 				// If there is a heavy auto mechanism and an explosive attachment
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismHeavyAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentTorch.shiftedIndex)
 				{
-					return new ItemStack(Items.goldCrossbowWithTorchAttachmentAndHeavyMech);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.goldCrossbowBase), EnumAttachmentType.torch, EnumCrossbowMaterial.gold, EnumCrossbowFireRate.heavy);
 				}
 				
 				// If there is a semi-auto mechanism and an explosive attachment
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID ==Items.mechanismSemiAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentPoison.shiftedIndex)
 				{
-					return new ItemStack(Items.goldCrossbowWithPoisonAttachment);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.goldCrossbowBase), EnumAttachmentType.poison, EnumCrossbowMaterial.gold, EnumCrossbowFireRate.none);
 				}
 				
 				// If there is a light auto mechanism and an explosive attachment
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismLightAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentPoison.shiftedIndex)
 				{
-					return new ItemStack(Items.goldCrossbowWithPoisonAttachmentAndLightMech);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.goldCrossbowBase), EnumAttachmentType.poison, EnumCrossbowMaterial.gold, EnumCrossbowFireRate.light);
 				}
 				
 				// If there is a medium auto mechanism and an explosive attachment
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismMediumAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentPoison.shiftedIndex)
 				{
-					return new ItemStack(Items.goldCrossbowWithPoisonAttachmentAndMediumMech);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.goldCrossbowBase), EnumAttachmentType.poison, EnumCrossbowMaterial.gold, EnumCrossbowFireRate.medium);
 				}
 				
 				// If there is a heavy auto mechanism and an explosive attachment
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismHeavyAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentPoison.shiftedIndex)
 				{
-					return new ItemStack(Items.goldCrossbowWithPoisonAttachmentAndHeavyMech);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.goldCrossbowBase), EnumAttachmentType.poison, EnumCrossbowMaterial.gold, EnumCrossbowFireRate.heavy);
 				}
 			}
 			// If the limbs are the right material and in the correct position
@@ -1444,336 +1445,354 @@ public class Util
 				// If there is a semi-auto mechanism
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID ==Items.mechanismSemiAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) == null)
 				{
-					return new ItemStack(Items.diamondCrossbowBase);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.diamondCrossbowBase), EnumAttachmentType.none, EnumCrossbowMaterial.diamond, EnumCrossbowFireRate.none);
 				}
 				
 				// If there is a semi-auto mechanism and a basic scope
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID ==Items.mechanismSemiAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentShortScope.shiftedIndex)
 				{
-					return new ItemStack(Items.diamondCrossbowWithBasicScope);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.diamondCrossbowBase), EnumAttachmentType.shortscope, EnumCrossbowMaterial.diamond, EnumCrossbowFireRate.none);
 				}
 
 				// If there is a semi-auto mechanism and a long scope
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID ==Items.mechanismSemiAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentLongScope.shiftedIndex)
 				{
-					return new ItemStack(Items.diamondCrossbowWithLongScope);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.diamondCrossbowBase), EnumAttachmentType.longscope, EnumCrossbowMaterial.diamond, EnumCrossbowFireRate.none);
 				}
 
 				// If there is a light auto mechanism and a basic scope
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismLightAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentShortScope.shiftedIndex)
 				{
-					return new ItemStack(Items.diamondCrossbowWithBasicScopeAndLightMech);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.diamondCrossbowBase), EnumAttachmentType.shortscope, EnumCrossbowMaterial.diamond, EnumCrossbowFireRate.light);
 				}
 
 				// If there is a light auto mechanism and a long scope
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismLightAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentLongScope.shiftedIndex)
 				{
-					return new ItemStack(Items.diamondCrossbowWithLongScopeAndLightMech);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.diamondCrossbowBase), EnumAttachmentType.longscope, EnumCrossbowMaterial.diamond, EnumCrossbowFireRate.light);
 				}
 
 				// If there is a medium auto mechanism and a basic scope
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismMediumAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentShortScope.shiftedIndex)
 				{
-					return new ItemStack(Items.diamondCrossbowWithBasicScopeAndMediumMech);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.diamondCrossbowBase), EnumAttachmentType.shortscope, EnumCrossbowMaterial.diamond, EnumCrossbowFireRate.medium);
 				}
 
 				// If there is a medium auto mechanism and a long scope
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismMediumAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentLongScope.shiftedIndex)
 				{
-					return new ItemStack(Items.diamondCrossbowWithLongScopeAndMediumMech);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.diamondCrossbowBase), EnumAttachmentType.longscope, EnumCrossbowMaterial.diamond, EnumCrossbowFireRate.medium);
 				}
 
 				// If there is a heavy auto mechanism and a basic scope
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismHeavyAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentShortScope.shiftedIndex)
 				{
-					return new ItemStack(Items.diamondCrossbowWithBasicScopeAndHeavyMech);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.diamondCrossbowBase), EnumAttachmentType.shortscope, EnumCrossbowMaterial.diamond, EnumCrossbowFireRate.heavy);
 				}
 
 				// If there is a heavy auto mechanism and a long scope
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismHeavyAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentLongScope.shiftedIndex)
 				{
-					return new ItemStack(Items.diamondCrossbowWithLongScopeAndHeavyMech);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.diamondCrossbowBase), EnumAttachmentType.longscope, EnumCrossbowMaterial.diamond, EnumCrossbowFireRate.heavy);
 				}
 				
 				// If there is a light mechanism
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismLightAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) == null)
 				{
-					return new ItemStack(Items.diamondCrossbowWithLightMech);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.diamondCrossbowBase), EnumAttachmentType.none, EnumCrossbowMaterial.diamond, EnumCrossbowFireRate.light);
 				}
 
 				// If there is a medium mechanism
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismMediumAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) == null)
 				{
-					return new ItemStack(Items.diamondCrossbowWithMediumMech);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.diamondCrossbowBase), EnumAttachmentType.none, EnumCrossbowMaterial.diamond, EnumCrossbowFireRate.medium);
 				}
 
 				// If there is a heavy mechanism
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismHeavyAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) == null)
 				{
-					return new ItemStack(Items.diamondCrossbowWithHeavyMech);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.diamondCrossbowBase), EnumAttachmentType.none, EnumCrossbowMaterial.diamond, EnumCrossbowFireRate.heavy);
 				}
 				
 				// If there is a semi-auto mechanism and an explosive attachment
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID ==Items.mechanismSemiAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentIce.shiftedIndex)
 				{
-					return new ItemStack(Items.diamondCrossbowWithIceAttachment);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.diamondCrossbowBase), EnumAttachmentType.ice, EnumCrossbowMaterial.diamond, EnumCrossbowFireRate.none);
 				}
 				
 				// If there is a light auto mechanism and an explosive attachment
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismLightAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentIce.shiftedIndex)
 				{
-					return new ItemStack(Items.diamondCrossbowWithIceAttachmentAndLightMech);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.diamondCrossbowBase), EnumAttachmentType.ice, EnumCrossbowMaterial.diamond, EnumCrossbowFireRate.light);
 				}
 				
 				// If there is a medium auto mechanism and an explosive attachment
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismMediumAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentIce.shiftedIndex)
 				{
-					return new ItemStack(Items.diamondCrossbowWithIceAttachmentAndMediumMech);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.diamondCrossbowBase), EnumAttachmentType.ice, EnumCrossbowMaterial.diamond, EnumCrossbowFireRate.medium);
 				}
 				
 				// If there is a heavy auto mechanism and an explosive attachment
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismHeavyAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentIce.shiftedIndex)
 				{
-					return new ItemStack(Items.diamondCrossbowWithIceAttachmentAndHeavyMech);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.diamondCrossbowBase), EnumAttachmentType.ice, EnumCrossbowMaterial.diamond, EnumCrossbowFireRate.heavy);
 				}
 				
 				// If there is a semi-auto mechanism and an explosive attachment
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID ==Items.mechanismSemiAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentExplosive.shiftedIndex)
 				{
-					return new ItemStack(Items.diamondCrossbowWithExplosiveAttachment);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.diamondCrossbowBase), EnumAttachmentType.explosive, EnumCrossbowMaterial.diamond, EnumCrossbowFireRate.none);
 				}
 				
 				// If there is a light auto mechanism and an explosive attachment
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismLightAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentExplosive.shiftedIndex)
 				{
-					return new ItemStack(Items.diamondCrossbowWithExplosiveAttachmentAndLightMech);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.diamondCrossbowBase), EnumAttachmentType.explosive, EnumCrossbowMaterial.diamond, EnumCrossbowFireRate.light);
 				}
 				
 				// If there is a medium auto mechanism and an explosive attachment
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismMediumAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentExplosive.shiftedIndex)
 				{
-					return new ItemStack(Items.diamondCrossbowWithExplosiveAttachmentAndMediumMech);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.diamondCrossbowBase), EnumAttachmentType.explosive, EnumCrossbowMaterial.diamond, EnumCrossbowFireRate.medium);
 				}
 				
 				// If there is a heavy auto mechanism and an explosive attachment
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismHeavyAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentExplosive.shiftedIndex)
 				{
-					return new ItemStack(Items.diamondCrossbowWithExplosiveAttachmentAndHeavyMech);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.diamondCrossbowBase), EnumAttachmentType.explosive, EnumCrossbowMaterial.diamond, EnumCrossbowFireRate.heavy);
 				}
 				
 				// If there is a semi-auto mechanism and an Flame attachment
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID ==Items.mechanismSemiAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentFire.shiftedIndex)
 				{
-					return new ItemStack(Items.diamondCrossbowWithFlameAttachment);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.diamondCrossbowBase), EnumAttachmentType.flame, EnumCrossbowMaterial.diamond, EnumCrossbowFireRate.none);
 				}
 				
 				// If there is a light auto mechanism and an Flame attachment
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismLightAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentFire.shiftedIndex)
 				{
-					return new ItemStack(Items.diamondCrossbowWithFlameAttachmentAndLightMech);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.diamondCrossbowBase), EnumAttachmentType.flame, EnumCrossbowMaterial.diamond, EnumCrossbowFireRate.light);
 				}
 				
 				// If there is a medium auto mechanism and an Flame attachment
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismMediumAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentFire.shiftedIndex)
 				{
-					return new ItemStack(Items.diamondCrossbowWithFlameAttachmentAndMediumMech);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.diamondCrossbowBase), EnumAttachmentType.flame, EnumCrossbowMaterial.diamond, EnumCrossbowFireRate.medium);
 				}
 				
 				// If there is a heavy auto mechanism and an Flame attachment
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismHeavyAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentFire.shiftedIndex)
 				{
-					return new ItemStack(Items.diamondCrossbowWithFlameAttachmentAndHeavyMech);
-				}
-				
-				// If there is a semi-auto mechanism and an lava attachment
-				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID ==Items.mechanismSemiAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentLava.shiftedIndex)
-				{
-					return new ItemStack(Items.diamondCrossbowWithLavaAttachment);
-				}
-				
-				// If there is a light auto mechanism and an lava attachment
-				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismLightAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentLava.shiftedIndex)
-				{
-					return new ItemStack(Items.diamondCrossbowWithLavaAttachmentAndLightMech);
-				}
-				
-				// If there is a medium auto mechanism and an lava attachment
-				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismMediumAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentLava.shiftedIndex)
-				{
-					return new ItemStack(Items.diamondCrossbowWithLavaAttachmentAndMediumMech);
-				}
-				
-				// If there is a heavy auto mechanism and an lava attachment
-				else
-				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismHeavyAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentLava.shiftedIndex)
-				{
-					return new ItemStack(Items.diamondCrossbowWithLavaAttachmentAndHeavyMech);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.diamondCrossbowBase), EnumAttachmentType.flame, EnumCrossbowMaterial.diamond, EnumCrossbowFireRate.heavy);
 				}
 				
 				// If there is a semi-auto mechanism and an explosive attachment
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID ==Items.mechanismSemiAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentLightning.shiftedIndex)
 				{
-					return new ItemStack(Items.diamondCrossbowWithLightningAttachment);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.diamondCrossbowBase), EnumAttachmentType.lightning, EnumCrossbowMaterial.diamond, EnumCrossbowFireRate.none);
 				}
 				
 				// If there is a light auto mechanism and an explosive attachment
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismLightAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentLightning.shiftedIndex)
 				{
-					return new ItemStack(Items.diamondCrossbowWithLightningAttachmentAndLightMech);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.diamondCrossbowBase), EnumAttachmentType.lightning, EnumCrossbowMaterial.diamond, EnumCrossbowFireRate.light);
 				}
 				
 				// If there is a medium auto mechanism and an explosive attachment
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismMediumAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentLightning.shiftedIndex)
 				{
-					return new ItemStack(Items.diamondCrossbowWithLightningAttachmentAndMediumMech);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.diamondCrossbowBase), EnumAttachmentType.lightning, EnumCrossbowMaterial.diamond, EnumCrossbowFireRate.medium);
 				}
 				
 				// If there is a heavy auto mechanism and an explosive attachment
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismHeavyAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentLightning.shiftedIndex)
 				{
-					return new ItemStack(Items.diamondCrossbowWithLightningAttachmentAndHeavyMech);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.diamondCrossbowBase), EnumAttachmentType.lightning, EnumCrossbowMaterial.diamond, EnumCrossbowFireRate.heavy);
+				}
+				
+				// If there is a semi-auto mechanism and an lava attachment
+				else
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID ==Items.mechanismSemiAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentLava.shiftedIndex)
+				{
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.diamondCrossbowBase), EnumAttachmentType.lava, EnumCrossbowMaterial.diamond, EnumCrossbowFireRate.none);
+				}
+				
+				// If there is a light auto mechanism and an lava attachment
+				else
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismLightAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentLava.shiftedIndex)
+				{
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.diamondCrossbowBase), EnumAttachmentType.lava, EnumCrossbowMaterial.diamond, EnumCrossbowFireRate.light);
+				}
+				
+				// If there is a medium auto mechanism and an lava attachment
+				else
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismMediumAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentLava.shiftedIndex)
+				{
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.diamondCrossbowBase), EnumAttachmentType.lava, EnumCrossbowMaterial.diamond, EnumCrossbowFireRate.medium);
+				}
+				
+				// If there is a heavy auto mechanism and an lava attachment
+				else
+				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismHeavyAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentLava.shiftedIndex)
+				{
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.diamondCrossbowBase), EnumAttachmentType.lava, EnumCrossbowMaterial.diamond, EnumCrossbowFireRate.heavy);
 				}
 				
 				// If there is a semi-auto mechanism and an explosive attachment
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID ==Items.mechanismSemiAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentTorch.shiftedIndex)
 				{
-					return new ItemStack(Items.diamondCrossbowWithTorchAttachment);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.diamondCrossbowBase), EnumAttachmentType.torch, EnumCrossbowMaterial.diamond, EnumCrossbowFireRate.none);
 				}
 				
 				// If there is a light auto mechanism and an explosive attachment
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismLightAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentTorch.shiftedIndex)
 				{
-					return new ItemStack(Items.diamondCrossbowWithTorchAttachmentAndLightMech);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.diamondCrossbowBase), EnumAttachmentType.torch, EnumCrossbowMaterial.diamond, EnumCrossbowFireRate.light);
 				}
 				
 				// If there is a medium auto mechanism and an explosive attachment
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismMediumAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentTorch.shiftedIndex)
 				{
-					return new ItemStack(Items.diamondCrossbowWithTorchAttachmentAndMediumMech);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.diamondCrossbowBase), EnumAttachmentType.torch, EnumCrossbowMaterial.diamond, EnumCrossbowFireRate.medium);
 				}
 				
 				// If there is a heavy auto mechanism and an explosive attachment
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismHeavyAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentTorch.shiftedIndex)
 				{
-					return new ItemStack(Items.diamondCrossbowWithTorchAttachmentAndHeavyMech);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.diamondCrossbowBase), EnumAttachmentType.torch, EnumCrossbowMaterial.diamond, EnumCrossbowFireRate.heavy);
 				}
 				
 				// If there is a semi-auto mechanism and an explosive attachment
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID ==Items.mechanismSemiAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentPoison.shiftedIndex)
 				{
-					return new ItemStack(Items.diamondCrossbowWithPoisonAttachment);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.diamondCrossbowBase), EnumAttachmentType.poison, EnumCrossbowMaterial.diamond, EnumCrossbowFireRate.none);
 				}
 				
 				// If there is a light auto mechanism and an explosive attachment
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismLightAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentPoison.shiftedIndex)
 				{
-					return new ItemStack(Items.diamondCrossbowWithPoisonAttachmentAndLightMech);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.diamondCrossbowBase), EnumAttachmentType.poison, EnumCrossbowMaterial.diamond, EnumCrossbowFireRate.light);
 				}
 				
 				// If there is a medium auto mechanism and an explosive attachment
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismMediumAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentPoison.shiftedIndex)
 				{
-					return new ItemStack(Items.diamondCrossbowWithPoisonAttachmentAndMediumMech);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.diamondCrossbowBase), EnumAttachmentType.poison, EnumCrossbowMaterial.diamond, EnumCrossbowFireRate.medium);
 				}
 				
 				// If there is a heavy auto mechanism and an explosive attachment
 				else
 				if (inventoryBlockCrossbowBench.getStackInSlot(1) != null && inventoryBlockCrossbowBench.getStackInSlot(1).itemID == Items.mechanismHeavyAuto.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(10) != null && inventoryBlockCrossbowBench.getStackInSlot(10).itemID == Items.attachmentPoison.shiftedIndex)
 				{
-					return new ItemStack(Items.diamondCrossbowWithPoisonAttachmentAndHeavyMech);
+					return ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.diamondCrossbowBase), EnumAttachmentType.poison, EnumCrossbowMaterial.diamond, EnumCrossbowFireRate.heavy);
 				}
 			}
 		}
 		return null;
 	}
 	
-	public static boolean isWooden(ItemStack Itemstack)
+	public static boolean isWooden(ItemStack stack)
 	{
-		if (Itemstack != null
-				&& (Itemstack.itemID == Items.woodenCrossbowBase.shiftedIndex
-				|| Itemstack.itemID == Items.woodenCrossbowWithBasicScope.shiftedIndex
-				|| Itemstack.itemID == Items.woodenCrossbowWithLongScope.shiftedIndex
-				|| Itemstack.itemID == Items.woodenCrossbowWithBasicScopeAndLightMech.shiftedIndex
-				|| Itemstack.itemID == Items.woodenCrossbowWithLongScopeAndLightMech.shiftedIndex
-				|| Itemstack.itemID == Items.woodenCrossbowWithBasicScopeAndMediumMech.shiftedIndex
-				|| Itemstack.itemID == Items.woodenCrossbowWithLongScopeAndMediumMech.shiftedIndex
-				|| Itemstack.itemID == Items.woodenCrossbowWithBasicScopeAndHeavyMech.shiftedIndex
-				|| Itemstack.itemID == Items.woodenCrossbowWithLongScopeAndHeavyMech.shiftedIndex
-				|| Itemstack.itemID == Items.woodenCrossbowWithLightMech.shiftedIndex
-				|| Itemstack.itemID == Items.woodenCrossbowWithMediumMech.shiftedIndex
-				|| Itemstack.itemID == Items.woodenCrossbowWithHeavyMech.shiftedIndex
-				|| Itemstack.itemID == Items.woodenCrossbowWithExplosiveAttachment.shiftedIndex
-				|| Itemstack.itemID == Items.woodenCrossbowWithFlameAttachment.shiftedIndex
-				|| Itemstack.itemID == Items.woodenCrossbowWithLavaAttachment.shiftedIndex
-				|| Itemstack.itemID == Items.woodenCrossbowWithIceAttachment.shiftedIndex
-				|| Itemstack.itemID == Items.woodenCrossbowWithLightningAttachment.shiftedIndex
-				|| Itemstack.itemID == Items.woodenCrossbowWithExplosiveAttachmentAndLightMech.shiftedIndex
-				|| Itemstack.itemID == Items.woodenCrossbowWithFlameAttachmentAndLightMech.shiftedIndex
-				|| Itemstack.itemID == Items.woodenCrossbowWithLavaAttachmentAndLightMech.shiftedIndex
-				|| Itemstack.itemID == Items.woodenCrossbowWithIceAttachmentAndLightMech.shiftedIndex
-				|| Itemstack.itemID == Items.woodenCrossbowWithLightningAttachmentAndLightMech.shiftedIndex
-				|| Itemstack.itemID == Items.woodenCrossbowWithExplosiveAttachmentAndMediumMech.shiftedIndex
-				|| Itemstack.itemID == Items.woodenCrossbowWithFlameAttachmentAndMediumMech.shiftedIndex
-				|| Itemstack.itemID == Items.woodenCrossbowWithLavaAttachmentAndMediumMech.shiftedIndex
-				|| Itemstack.itemID == Items.woodenCrossbowWithIceAttachmentAndMediumMech.shiftedIndex
-				|| Itemstack.itemID == Items.woodenCrossbowWithLightningAttachmentAndMediumMech.shiftedIndex
-				|| Itemstack.itemID == Items.woodenCrossbowWithExplosiveAttachmentAndHeavyMech.shiftedIndex
-				|| Itemstack.itemID == Items.woodenCrossbowWithFlameAttachmentAndHeavyMech.shiftedIndex
-				|| Itemstack.itemID == Items.woodenCrossbowWithLavaAttachmentAndHeavyMech.shiftedIndex
-				|| Itemstack.itemID == Items.woodenCrossbowWithIceAttachmentAndHeavyMech.shiftedIndex
-				|| Itemstack.itemID == Items.woodenCrossbowWithLightningAttachmentAndHeavyMech.shiftedIndex
-				|| Itemstack.itemID == Items.woodenCrossbowWithTorchAttachment.shiftedIndex
-				|| Itemstack.itemID == Items.woodenCrossbowWithTorchAttachmentAndLightMech.shiftedIndex
-				|| Itemstack.itemID == Items.woodenCrossbowWithTorchAttachmentAndMediumMech.shiftedIndex
-				|| Itemstack.itemID == Items.woodenCrossbowWithTorchAttachmentAndHeavyMech.shiftedIndex
-				|| Itemstack.itemID == Items.woodenCrossbowWithPoisonAttachment.shiftedIndex
-				|| Itemstack.itemID == Items.woodenCrossbowWithPoisonAttachmentAndLightMech.shiftedIndex
-				|| Itemstack.itemID == Items.woodenCrossbowWithPoisonAttachmentAndMediumMech.shiftedIndex
-				|| Itemstack.itemID == Items.woodenCrossbowWithPoisonAttachmentAndHeavyMech.shiftedIndex))
+		if (stack != null && stack.getTagCompound() != null)
 		{
-			return true;
+			NBTTagCompound comp = stack.getTagCompound();
+			
+			if (comp.getInteger("material") == 0)
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
 		}
 		else
 		{
 			return false;
 		}
+		
+//		if (Itemstack != null
+//				&& (Itemstack.itemID == Items.woodenCrossbowBase.shiftedIndex
+//				|| Itemstack.itemID == Items.woodenCrossbowWithBasicScope.shiftedIndex
+//				|| Itemstack.itemID == Items.woodenCrossbowWithLongScope.shiftedIndex
+//				|| Itemstack.itemID == Items.woodenCrossbowWithBasicScopeAndLightMech.shiftedIndex
+//				|| Itemstack.itemID == Items.woodenCrossbowWithLongScopeAndLightMech.shiftedIndex
+//				|| Itemstack.itemID == Items.woodenCrossbowWithBasicScopeAndMediumMech.shiftedIndex
+//				|| Itemstack.itemID == Items.woodenCrossbowWithLongScopeAndMediumMech.shiftedIndex
+//				|| Itemstack.itemID == Items.woodenCrossbowWithBasicScopeAndHeavyMech.shiftedIndex
+//				|| Itemstack.itemID == Items.woodenCrossbowWithLongScopeAndHeavyMech.shiftedIndex
+//				|| Itemstack.itemID == Items.woodenCrossbowWithLightMech.shiftedIndex
+//				|| Itemstack.itemID == Items.woodenCrossbowWithMediumMech.shiftedIndex
+//				|| Itemstack.itemID == Items.woodenCrossbowWithHeavyMech.shiftedIndex
+//				|| Itemstack.itemID == Items.woodenCrossbowWithExplosiveAttachment.shiftedIndex
+//				|| Itemstack.itemID == Items.woodenCrossbowWithFlameAttachment.shiftedIndex
+//				|| Itemstack.itemID == Items.woodenCrossbowWithLavaAttachment.shiftedIndex
+//				|| Itemstack.itemID == Items.woodenCrossbowWithIceAttachment.shiftedIndex
+//				|| Itemstack.itemID == Items.woodenCrossbowWithLightningAttachment.shiftedIndex
+//				|| Itemstack.itemID == Items.woodenCrossbowWithExplosiveAttachmentAndLightMech.shiftedIndex
+//				|| Itemstack.itemID == Items.woodenCrossbowWithFlameAttachmentAndLightMech.shiftedIndex
+//				|| Itemstack.itemID == Items.woodenCrossbowWithLavaAttachmentAndLightMech.shiftedIndex
+//				|| Itemstack.itemID == Items.woodenCrossbowWithIceAttachmentAndLightMech.shiftedIndex
+//				|| Itemstack.itemID == Items.woodenCrossbowWithLightningAttachmentAndLightMech.shiftedIndex
+//				|| Itemstack.itemID == Items.woodenCrossbowWithExplosiveAttachmentAndMediumMech.shiftedIndex
+//				|| Itemstack.itemID == Items.woodenCrossbowWithFlameAttachmentAndMediumMech.shiftedIndex
+//				|| Itemstack.itemID == Items.woodenCrossbowWithLavaAttachmentAndMediumMech.shiftedIndex
+//				|| Itemstack.itemID == Items.woodenCrossbowWithIceAttachmentAndMediumMech.shiftedIndex
+//				|| Itemstack.itemID == Items.woodenCrossbowWithLightningAttachmentAndMediumMech.shiftedIndex
+//				|| Itemstack.itemID == Items.woodenCrossbowWithExplosiveAttachmentAndHeavyMech.shiftedIndex
+//				|| Itemstack.itemID == Items.woodenCrossbowWithFlameAttachmentAndHeavyMech.shiftedIndex
+//				|| Itemstack.itemID == Items.woodenCrossbowWithLavaAttachmentAndHeavyMech.shiftedIndex
+//				|| Itemstack.itemID == Items.woodenCrossbowWithIceAttachmentAndHeavyMech.shiftedIndex
+//				|| Itemstack.itemID == Items.woodenCrossbowWithLightningAttachmentAndHeavyMech.shiftedIndex
+//				|| Itemstack.itemID == Items.woodenCrossbowWithTorchAttachment.shiftedIndex
+//				|| Itemstack.itemID == Items.woodenCrossbowWithTorchAttachmentAndLightMech.shiftedIndex
+//				|| Itemstack.itemID == Items.woodenCrossbowWithTorchAttachmentAndMediumMech.shiftedIndex
+//				|| Itemstack.itemID == Items.woodenCrossbowWithTorchAttachmentAndHeavyMech.shiftedIndex
+//				|| Itemstack.itemID == Items.woodenCrossbowWithPoisonAttachment.shiftedIndex
+//				|| Itemstack.itemID == Items.woodenCrossbowWithPoisonAttachmentAndLightMech.shiftedIndex
+//				|| Itemstack.itemID == Items.woodenCrossbowWithPoisonAttachmentAndMediumMech.shiftedIndex
+//				|| Itemstack.itemID == Items.woodenCrossbowWithPoisonAttachmentAndHeavyMech.shiftedIndex))
+//		{
+//			return true;
+//		}
+//		else
+//		{
+//			return false;
+//		}
 	}
 	
 	/**
@@ -1781,56 +1800,74 @@ public class Util
 	 * @param Itemstack The item to check
 	 * @return True if the provided Itemstack is any stone crossbow
 	 */
-	public static boolean isStone(ItemStack Itemstack)
+	public static boolean isStone(ItemStack stack)
 	{
-		if (Itemstack != null
-				&& (Itemstack.itemID == Items.stoneCrossbowBase.shiftedIndex
-				|| Itemstack.itemID == Items.stoneCrossbowWithBasicScope.shiftedIndex
-				|| Itemstack.itemID == Items.stoneCrossbowWithLongScope.shiftedIndex
-				|| Itemstack.itemID == Items.stoneCrossbowWithBasicScopeAndLightMech.shiftedIndex
-				|| Itemstack.itemID == Items.stoneCrossbowWithLongScopeAndLightMech.shiftedIndex
-				|| Itemstack.itemID == Items.stoneCrossbowWithBasicScopeAndMediumMech.shiftedIndex
-				|| Itemstack.itemID == Items.stoneCrossbowWithLongScopeAndMediumMech.shiftedIndex
-				|| Itemstack.itemID == Items.stoneCrossbowWithBasicScopeAndHeavyMech.shiftedIndex
-				|| Itemstack.itemID == Items.stoneCrossbowWithLongScopeAndHeavyMech.shiftedIndex
-				|| Itemstack.itemID == Items.stoneCrossbowWithLightMech.shiftedIndex
-				|| Itemstack.itemID == Items.stoneCrossbowWithMediumMech.shiftedIndex
-				|| Itemstack.itemID == Items.stoneCrossbowWithHeavyMech.shiftedIndex
-				|| Itemstack.itemID == Items.stoneCrossbowWithExplosiveAttachment.shiftedIndex
-				|| Itemstack.itemID == Items.stoneCrossbowWithFlameAttachment.shiftedIndex
-				|| Itemstack.itemID == Items.stoneCrossbowWithLavaAttachment.shiftedIndex
-				|| Itemstack.itemID == Items.stoneCrossbowWithIceAttachment.shiftedIndex
-				|| Itemstack.itemID == Items.stoneCrossbowWithLightningAttachment.shiftedIndex
-				|| Itemstack.itemID == Items.stoneCrossbowWithExplosiveAttachmentAndLightMech.shiftedIndex
-				|| Itemstack.itemID == Items.stoneCrossbowWithFlameAttachmentAndLightMech.shiftedIndex
-				|| Itemstack.itemID == Items.stoneCrossbowWithLavaAttachmentAndLightMech.shiftedIndex
-				|| Itemstack.itemID == Items.stoneCrossbowWithIceAttachmentAndLightMech.shiftedIndex
-				|| Itemstack.itemID == Items.stoneCrossbowWithLightningAttachmentAndLightMech.shiftedIndex
-				|| Itemstack.itemID == Items.stoneCrossbowWithExplosiveAttachmentAndMediumMech.shiftedIndex
-				|| Itemstack.itemID == Items.stoneCrossbowWithFlameAttachmentAndMediumMech.shiftedIndex
-				|| Itemstack.itemID == Items.stoneCrossbowWithLavaAttachmentAndMediumMech.shiftedIndex
-				|| Itemstack.itemID == Items.stoneCrossbowWithIceAttachmentAndMediumMech.shiftedIndex
-				|| Itemstack.itemID == Items.stoneCrossbowWithLightningAttachmentAndMediumMech.shiftedIndex
-				|| Itemstack.itemID == Items.stoneCrossbowWithExplosiveAttachmentAndHeavyMech.shiftedIndex
-				|| Itemstack.itemID == Items.stoneCrossbowWithFlameAttachmentAndHeavyMech.shiftedIndex
-				|| Itemstack.itemID == Items.stoneCrossbowWithLavaAttachmentAndHeavyMech.shiftedIndex
-				|| Itemstack.itemID == Items.stoneCrossbowWithIceAttachmentAndHeavyMech.shiftedIndex
-				|| Itemstack.itemID == Items.stoneCrossbowWithLightningAttachmentAndHeavyMech.shiftedIndex
-				|| Itemstack.itemID == Items.stoneCrossbowWithTorchAttachment.shiftedIndex
-				|| Itemstack.itemID == Items.stoneCrossbowWithTorchAttachmentAndLightMech.shiftedIndex
-				|| Itemstack.itemID == Items.stoneCrossbowWithTorchAttachmentAndMediumMech.shiftedIndex
-				|| Itemstack.itemID == Items.stoneCrossbowWithTorchAttachmentAndHeavyMech.shiftedIndex
-				|| Itemstack.itemID == Items.stoneCrossbowWithPoisonAttachment.shiftedIndex
-				|| Itemstack.itemID == Items.stoneCrossbowWithPoisonAttachmentAndLightMech.shiftedIndex
-				|| Itemstack.itemID == Items.stoneCrossbowWithPoisonAttachmentAndMediumMech.shiftedIndex
-				|| Itemstack.itemID == Items.stoneCrossbowWithPoisonAttachmentAndHeavyMech.shiftedIndex))
+		if (stack != null && stack.getTagCompound() != null)
 		{
-			return true;
+			NBTTagCompound comp = stack.getTagCompound();
+			
+			if (comp.getInteger("material") == 1)
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
 		}
 		else
 		{
 			return false;
 		}
+		
+//		if (Itemstack != null
+//				&& (Itemstack.itemID == Items.stoneCrossbowBase.shiftedIndex
+//				|| Itemstack.itemID == Items.stoneCrossbowWithBasicScope.shiftedIndex
+//				|| Itemstack.itemID == Items.stoneCrossbowWithLongScope.shiftedIndex
+//				|| Itemstack.itemID == Items.stoneCrossbowWithBasicScopeAndLightMech.shiftedIndex
+//				|| Itemstack.itemID == Items.stoneCrossbowWithLongScopeAndLightMech.shiftedIndex
+//				|| Itemstack.itemID == Items.stoneCrossbowWithBasicScopeAndMediumMech.shiftedIndex
+//				|| Itemstack.itemID == Items.stoneCrossbowWithLongScopeAndMediumMech.shiftedIndex
+//				|| Itemstack.itemID == Items.stoneCrossbowWithBasicScopeAndHeavyMech.shiftedIndex
+//				|| Itemstack.itemID == Items.stoneCrossbowWithLongScopeAndHeavyMech.shiftedIndex
+//				|| Itemstack.itemID == Items.stoneCrossbowWithLightMech.shiftedIndex
+//				|| Itemstack.itemID == Items.stoneCrossbowWithMediumMech.shiftedIndex
+//				|| Itemstack.itemID == Items.stoneCrossbowWithHeavyMech.shiftedIndex
+//				|| Itemstack.itemID == Items.stoneCrossbowWithExplosiveAttachment.shiftedIndex
+//				|| Itemstack.itemID == Items.stoneCrossbowWithFlameAttachment.shiftedIndex
+//				|| Itemstack.itemID == Items.stoneCrossbowWithLavaAttachment.shiftedIndex
+//				|| Itemstack.itemID == Items.stoneCrossbowWithIceAttachment.shiftedIndex
+//				|| Itemstack.itemID == Items.stoneCrossbowWithLightningAttachment.shiftedIndex
+//				|| Itemstack.itemID == Items.stoneCrossbowWithExplosiveAttachmentAndLightMech.shiftedIndex
+//				|| Itemstack.itemID == Items.stoneCrossbowWithFlameAttachmentAndLightMech.shiftedIndex
+//				|| Itemstack.itemID == Items.stoneCrossbowWithLavaAttachmentAndLightMech.shiftedIndex
+//				|| Itemstack.itemID == Items.stoneCrossbowWithIceAttachmentAndLightMech.shiftedIndex
+//				|| Itemstack.itemID == Items.stoneCrossbowWithLightningAttachmentAndLightMech.shiftedIndex
+//				|| Itemstack.itemID == Items.stoneCrossbowWithExplosiveAttachmentAndMediumMech.shiftedIndex
+//				|| Itemstack.itemID == Items.stoneCrossbowWithFlameAttachmentAndMediumMech.shiftedIndex
+//				|| Itemstack.itemID == Items.stoneCrossbowWithLavaAttachmentAndMediumMech.shiftedIndex
+//				|| Itemstack.itemID == Items.stoneCrossbowWithIceAttachmentAndMediumMech.shiftedIndex
+//				|| Itemstack.itemID == Items.stoneCrossbowWithLightningAttachmentAndMediumMech.shiftedIndex
+//				|| Itemstack.itemID == Items.stoneCrossbowWithExplosiveAttachmentAndHeavyMech.shiftedIndex
+//				|| Itemstack.itemID == Items.stoneCrossbowWithFlameAttachmentAndHeavyMech.shiftedIndex
+//				|| Itemstack.itemID == Items.stoneCrossbowWithLavaAttachmentAndHeavyMech.shiftedIndex
+//				|| Itemstack.itemID == Items.stoneCrossbowWithIceAttachmentAndHeavyMech.shiftedIndex
+//				|| Itemstack.itemID == Items.stoneCrossbowWithLightningAttachmentAndHeavyMech.shiftedIndex
+//				|| Itemstack.itemID == Items.stoneCrossbowWithTorchAttachment.shiftedIndex
+//				|| Itemstack.itemID == Items.stoneCrossbowWithTorchAttachmentAndLightMech.shiftedIndex
+//				|| Itemstack.itemID == Items.stoneCrossbowWithTorchAttachmentAndMediumMech.shiftedIndex
+//				|| Itemstack.itemID == Items.stoneCrossbowWithTorchAttachmentAndHeavyMech.shiftedIndex
+//				|| Itemstack.itemID == Items.stoneCrossbowWithPoisonAttachment.shiftedIndex
+//				|| Itemstack.itemID == Items.stoneCrossbowWithPoisonAttachmentAndLightMech.shiftedIndex
+//				|| Itemstack.itemID == Items.stoneCrossbowWithPoisonAttachmentAndMediumMech.shiftedIndex
+//				|| Itemstack.itemID == Items.stoneCrossbowWithPoisonAttachmentAndHeavyMech.shiftedIndex))
+//		{
+//			return true;
+//		}
+//		else
+//		{
+//			return false;
+//		}
 	}
 	
 	/**
@@ -1838,56 +1875,74 @@ public class Util
 	 * @param Itemstack The item to check
 	 * @return True if the provided Itemstack is any iron crossbow
 	 */
-	public static boolean isIron(ItemStack Itemstack)
+	public static boolean isIron(ItemStack stack)
 	{
-		if (Itemstack != null
-				&& (Itemstack.itemID == Items.ironCrossbowBase.shiftedIndex
-				|| Itemstack.itemID == Items.ironCrossbowWithBasicScope.shiftedIndex
-				|| Itemstack.itemID == Items.ironCrossbowWithLongScope.shiftedIndex
-				|| Itemstack.itemID == Items.ironCrossbowWithBasicScopeAndLightMech.shiftedIndex
-				|| Itemstack.itemID == Items.ironCrossbowWithLongScopeAndLightMech.shiftedIndex
-				|| Itemstack.itemID == Items.ironCrossbowWithBasicScopeAndMediumMech.shiftedIndex
-				|| Itemstack.itemID == Items.ironCrossbowWithLongScopeAndMediumMech.shiftedIndex
-				|| Itemstack.itemID == Items.ironCrossbowWithBasicScopeAndHeavyMech.shiftedIndex
-				|| Itemstack.itemID == Items.ironCrossbowWithLongScopeAndHeavyMech.shiftedIndex
-				|| Itemstack.itemID == Items.ironCrossbowWithLightMech.shiftedIndex
-				|| Itemstack.itemID == Items.ironCrossbowWithMediumMech.shiftedIndex
-				|| Itemstack.itemID == Items.ironCrossbowWithHeavyMech.shiftedIndex
-				|| Itemstack.itemID == Items.ironCrossbowWithExplosiveAttachment.shiftedIndex
-				|| Itemstack.itemID == Items.ironCrossbowWithFlameAttachment.shiftedIndex
-				|| Itemstack.itemID == Items.ironCrossbowWithLavaAttachment.shiftedIndex
-				|| Itemstack.itemID == Items.ironCrossbowWithIceAttachment.shiftedIndex
-				|| Itemstack.itemID == Items.ironCrossbowWithLightningAttachment.shiftedIndex
-				|| Itemstack.itemID == Items.ironCrossbowWithExplosiveAttachmentAndLightMech.shiftedIndex
-				|| Itemstack.itemID == Items.ironCrossbowWithFlameAttachmentAndLightMech.shiftedIndex
-				|| Itemstack.itemID == Items.ironCrossbowWithLavaAttachmentAndLightMech.shiftedIndex
-				|| Itemstack.itemID == Items.ironCrossbowWithIceAttachmentAndLightMech.shiftedIndex
-				|| Itemstack.itemID == Items.ironCrossbowWithLightningAttachmentAndLightMech.shiftedIndex
-				|| Itemstack.itemID == Items.ironCrossbowWithExplosiveAttachmentAndMediumMech.shiftedIndex
-				|| Itemstack.itemID == Items.ironCrossbowWithFlameAttachmentAndMediumMech.shiftedIndex
-				|| Itemstack.itemID == Items.ironCrossbowWithLavaAttachmentAndMediumMech.shiftedIndex
-				|| Itemstack.itemID == Items.ironCrossbowWithIceAttachmentAndMediumMech.shiftedIndex
-				|| Itemstack.itemID == Items.ironCrossbowWithLightningAttachmentAndMediumMech.shiftedIndex
-				|| Itemstack.itemID == Items.ironCrossbowWithExplosiveAttachmentAndHeavyMech.shiftedIndex
-				|| Itemstack.itemID == Items.ironCrossbowWithFlameAttachmentAndHeavyMech.shiftedIndex
-				|| Itemstack.itemID == Items.ironCrossbowWithLavaAttachmentAndHeavyMech.shiftedIndex
-				|| Itemstack.itemID == Items.ironCrossbowWithIceAttachmentAndHeavyMech.shiftedIndex
-				|| Itemstack.itemID == Items.ironCrossbowWithLightningAttachmentAndHeavyMech.shiftedIndex
-				|| Itemstack.itemID == Items.ironCrossbowWithTorchAttachment.shiftedIndex
-				|| Itemstack.itemID == Items.ironCrossbowWithTorchAttachmentAndLightMech.shiftedIndex
-				|| Itemstack.itemID == Items.ironCrossbowWithTorchAttachmentAndMediumMech.shiftedIndex
-				|| Itemstack.itemID == Items.ironCrossbowWithTorchAttachmentAndHeavyMech.shiftedIndex
-				|| Itemstack.itemID == Items.ironCrossbowWithPoisonAttachment.shiftedIndex
-				|| Itemstack.itemID == Items.ironCrossbowWithPoisonAttachmentAndLightMech.shiftedIndex
-				|| Itemstack.itemID == Items.ironCrossbowWithPoisonAttachmentAndMediumMech.shiftedIndex
-				|| Itemstack.itemID == Items.ironCrossbowWithPoisonAttachmentAndHeavyMech.shiftedIndex))
+		if (stack != null && stack.getTagCompound() != null)
 		{
-			return true;
+			NBTTagCompound comp = stack.getTagCompound();
+			
+			if (comp.getInteger("material") == 2)
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
 		}
 		else
 		{
 			return false;
 		}
+		
+//		if (Itemstack != null
+//				&& (Itemstack.itemID == Items.ironCrossbowBase.shiftedIndex
+//				|| Itemstack.itemID == Items.ironCrossbowWithBasicScope.shiftedIndex
+//				|| Itemstack.itemID == Items.ironCrossbowWithLongScope.shiftedIndex
+//				|| Itemstack.itemID == Items.ironCrossbowWithBasicScopeAndLightMech.shiftedIndex
+//				|| Itemstack.itemID == Items.ironCrossbowWithLongScopeAndLightMech.shiftedIndex
+//				|| Itemstack.itemID == Items.ironCrossbowWithBasicScopeAndMediumMech.shiftedIndex
+//				|| Itemstack.itemID == Items.ironCrossbowWithLongScopeAndMediumMech.shiftedIndex
+//				|| Itemstack.itemID == Items.ironCrossbowWithBasicScopeAndHeavyMech.shiftedIndex
+//				|| Itemstack.itemID == Items.ironCrossbowWithLongScopeAndHeavyMech.shiftedIndex
+//				|| Itemstack.itemID == Items.ironCrossbowWithLightMech.shiftedIndex
+//				|| Itemstack.itemID == Items.ironCrossbowWithMediumMech.shiftedIndex
+//				|| Itemstack.itemID == Items.ironCrossbowWithHeavyMech.shiftedIndex
+//				|| Itemstack.itemID == Items.ironCrossbowWithExplosiveAttachment.shiftedIndex
+//				|| Itemstack.itemID == Items.ironCrossbowWithFlameAttachment.shiftedIndex
+//				|| Itemstack.itemID == Items.ironCrossbowWithLavaAttachment.shiftedIndex
+//				|| Itemstack.itemID == Items.ironCrossbowWithIceAttachment.shiftedIndex
+//				|| Itemstack.itemID == Items.ironCrossbowWithLightningAttachment.shiftedIndex
+//				|| Itemstack.itemID == Items.ironCrossbowWithExplosiveAttachmentAndLightMech.shiftedIndex
+//				|| Itemstack.itemID == Items.ironCrossbowWithFlameAttachmentAndLightMech.shiftedIndex
+//				|| Itemstack.itemID == Items.ironCrossbowWithLavaAttachmentAndLightMech.shiftedIndex
+//				|| Itemstack.itemID == Items.ironCrossbowWithIceAttachmentAndLightMech.shiftedIndex
+//				|| Itemstack.itemID == Items.ironCrossbowWithLightningAttachmentAndLightMech.shiftedIndex
+//				|| Itemstack.itemID == Items.ironCrossbowWithExplosiveAttachmentAndMediumMech.shiftedIndex
+//				|| Itemstack.itemID == Items.ironCrossbowWithFlameAttachmentAndMediumMech.shiftedIndex
+//				|| Itemstack.itemID == Items.ironCrossbowWithLavaAttachmentAndMediumMech.shiftedIndex
+//				|| Itemstack.itemID == Items.ironCrossbowWithIceAttachmentAndMediumMech.shiftedIndex
+//				|| Itemstack.itemID == Items.ironCrossbowWithLightningAttachmentAndMediumMech.shiftedIndex
+//				|| Itemstack.itemID == Items.ironCrossbowWithExplosiveAttachmentAndHeavyMech.shiftedIndex
+//				|| Itemstack.itemID == Items.ironCrossbowWithFlameAttachmentAndHeavyMech.shiftedIndex
+//				|| Itemstack.itemID == Items.ironCrossbowWithLavaAttachmentAndHeavyMech.shiftedIndex
+//				|| Itemstack.itemID == Items.ironCrossbowWithIceAttachmentAndHeavyMech.shiftedIndex
+//				|| Itemstack.itemID == Items.ironCrossbowWithLightningAttachmentAndHeavyMech.shiftedIndex
+//				|| Itemstack.itemID == Items.ironCrossbowWithTorchAttachment.shiftedIndex
+//				|| Itemstack.itemID == Items.ironCrossbowWithTorchAttachmentAndLightMech.shiftedIndex
+//				|| Itemstack.itemID == Items.ironCrossbowWithTorchAttachmentAndMediumMech.shiftedIndex
+//				|| Itemstack.itemID == Items.ironCrossbowWithTorchAttachmentAndHeavyMech.shiftedIndex
+//				|| Itemstack.itemID == Items.ironCrossbowWithPoisonAttachment.shiftedIndex
+//				|| Itemstack.itemID == Items.ironCrossbowWithPoisonAttachmentAndLightMech.shiftedIndex
+//				|| Itemstack.itemID == Items.ironCrossbowWithPoisonAttachmentAndMediumMech.shiftedIndex
+//				|| Itemstack.itemID == Items.ironCrossbowWithPoisonAttachmentAndHeavyMech.shiftedIndex))
+//		{
+//			return true;
+//		}
+//		else
+//		{
+//			return false;
+//		}
 	}
 	
 	/**
@@ -1895,56 +1950,74 @@ public class Util
 	 * @param Itemstack The item to check
 	 * @return True if the provided Itemstack is any gold crossbow
 	 */
-	public static boolean isGold(ItemStack Itemstack)
+	public static boolean isGold(ItemStack stack)
 	{
-		if (Itemstack != null
-				&& (Itemstack.itemID == Items.goldCrossbowBase.shiftedIndex
-				|| Itemstack.itemID == Items.goldCrossbowWithBasicScope.shiftedIndex
-				|| Itemstack.itemID == Items.goldCrossbowWithLongScope.shiftedIndex
-				|| Itemstack.itemID == Items.goldCrossbowWithBasicScopeAndLightMech.shiftedIndex
-				|| Itemstack.itemID == Items.goldCrossbowWithLongScopeAndLightMech.shiftedIndex
-				|| Itemstack.itemID == Items.goldCrossbowWithBasicScopeAndMediumMech.shiftedIndex
-				|| Itemstack.itemID == Items.goldCrossbowWithLongScopeAndMediumMech.shiftedIndex
-				|| Itemstack.itemID == Items.goldCrossbowWithBasicScopeAndHeavyMech.shiftedIndex
-				|| Itemstack.itemID == Items.goldCrossbowWithLongScopeAndHeavyMech.shiftedIndex
-				|| Itemstack.itemID == Items.goldCrossbowWithLightMech.shiftedIndex
-				|| Itemstack.itemID == Items.goldCrossbowWithMediumMech.shiftedIndex
-				|| Itemstack.itemID == Items.goldCrossbowWithHeavyMech.shiftedIndex
-				|| Itemstack.itemID == Items.goldCrossbowWithExplosiveAttachment.shiftedIndex
-				|| Itemstack.itemID == Items.goldCrossbowWithFlameAttachment.shiftedIndex
-				|| Itemstack.itemID == Items.goldCrossbowWithLavaAttachment.shiftedIndex
-				|| Itemstack.itemID == Items.goldCrossbowWithIceAttachment.shiftedIndex
-				|| Itemstack.itemID == Items.goldCrossbowWithLightningAttachment.shiftedIndex
-				|| Itemstack.itemID == Items.goldCrossbowWithExplosiveAttachmentAndLightMech.shiftedIndex
-				|| Itemstack.itemID == Items.goldCrossbowWithFlameAttachmentAndLightMech.shiftedIndex
-				|| Itemstack.itemID == Items.goldCrossbowWithLavaAttachmentAndLightMech.shiftedIndex
-				|| Itemstack.itemID == Items.goldCrossbowWithIceAttachmentAndLightMech.shiftedIndex
-				|| Itemstack.itemID == Items.goldCrossbowWithLightningAttachmentAndLightMech.shiftedIndex
-				|| Itemstack.itemID == Items.goldCrossbowWithExplosiveAttachmentAndMediumMech.shiftedIndex
-				|| Itemstack.itemID == Items.goldCrossbowWithFlameAttachmentAndMediumMech.shiftedIndex
-				|| Itemstack.itemID == Items.goldCrossbowWithLavaAttachmentAndMediumMech.shiftedIndex
-				|| Itemstack.itemID == Items.goldCrossbowWithIceAttachmentAndMediumMech.shiftedIndex
-				|| Itemstack.itemID == Items.goldCrossbowWithLightningAttachmentAndMediumMech.shiftedIndex
-				|| Itemstack.itemID == Items.goldCrossbowWithExplosiveAttachmentAndHeavyMech.shiftedIndex
-				|| Itemstack.itemID == Items.goldCrossbowWithFlameAttachmentAndHeavyMech.shiftedIndex
-				|| Itemstack.itemID == Items.goldCrossbowWithLavaAttachmentAndHeavyMech.shiftedIndex
-				|| Itemstack.itemID == Items.goldCrossbowWithIceAttachmentAndHeavyMech.shiftedIndex
-				|| Itemstack.itemID == Items.goldCrossbowWithLightningAttachmentAndHeavyMech.shiftedIndex
-				|| Itemstack.itemID == Items.goldCrossbowWithTorchAttachment.shiftedIndex
-				|| Itemstack.itemID == Items.goldCrossbowWithTorchAttachmentAndLightMech.shiftedIndex
-				|| Itemstack.itemID == Items.goldCrossbowWithTorchAttachmentAndMediumMech.shiftedIndex
-				|| Itemstack.itemID == Items.goldCrossbowWithTorchAttachmentAndHeavyMech.shiftedIndex
-				|| Itemstack.itemID == Items.goldCrossbowWithPoisonAttachment.shiftedIndex
-				|| Itemstack.itemID == Items.goldCrossbowWithPoisonAttachmentAndLightMech.shiftedIndex
-				|| Itemstack.itemID == Items.goldCrossbowWithPoisonAttachmentAndMediumMech.shiftedIndex
-				|| Itemstack.itemID == Items.goldCrossbowWithPoisonAttachmentAndHeavyMech.shiftedIndex))
+		if (stack != null && stack.getTagCompound() != null)
 		{
-			return true;
+			NBTTagCompound comp = stack.getTagCompound();
+			
+			if (comp.getInteger("material") == 3)
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
 		}
 		else
 		{
 			return false;
 		}
+		
+//		if (Itemstack != null
+//				&& (Itemstack.itemID == Items.goldCrossbowBase.shiftedIndex
+//				|| Itemstack.itemID == Items.goldCrossbowWithBasicScope.shiftedIndex
+//				|| Itemstack.itemID == Items.goldCrossbowWithLongScope.shiftedIndex
+//				|| Itemstack.itemID == Items.goldCrossbowWithBasicScopeAndLightMech.shiftedIndex
+//				|| Itemstack.itemID == Items.goldCrossbowWithLongScopeAndLightMech.shiftedIndex
+//				|| Itemstack.itemID == Items.goldCrossbowWithBasicScopeAndMediumMech.shiftedIndex
+//				|| Itemstack.itemID == Items.goldCrossbowWithLongScopeAndMediumMech.shiftedIndex
+//				|| Itemstack.itemID == Items.goldCrossbowWithBasicScopeAndHeavyMech.shiftedIndex
+//				|| Itemstack.itemID == Items.goldCrossbowWithLongScopeAndHeavyMech.shiftedIndex
+//				|| Itemstack.itemID == Items.goldCrossbowWithLightMech.shiftedIndex
+//				|| Itemstack.itemID == Items.goldCrossbowWithMediumMech.shiftedIndex
+//				|| Itemstack.itemID == Items.goldCrossbowWithHeavyMech.shiftedIndex
+//				|| Itemstack.itemID == Items.goldCrossbowWithExplosiveAttachment.shiftedIndex
+//				|| Itemstack.itemID == Items.goldCrossbowWithFlameAttachment.shiftedIndex
+//				|| Itemstack.itemID == Items.goldCrossbowWithLavaAttachment.shiftedIndex
+//				|| Itemstack.itemID == Items.goldCrossbowWithIceAttachment.shiftedIndex
+//				|| Itemstack.itemID == Items.goldCrossbowWithLightningAttachment.shiftedIndex
+//				|| Itemstack.itemID == Items.goldCrossbowWithExplosiveAttachmentAndLightMech.shiftedIndex
+//				|| Itemstack.itemID == Items.goldCrossbowWithFlameAttachmentAndLightMech.shiftedIndex
+//				|| Itemstack.itemID == Items.goldCrossbowWithLavaAttachmentAndLightMech.shiftedIndex
+//				|| Itemstack.itemID == Items.goldCrossbowWithIceAttachmentAndLightMech.shiftedIndex
+//				|| Itemstack.itemID == Items.goldCrossbowWithLightningAttachmentAndLightMech.shiftedIndex
+//				|| Itemstack.itemID == Items.goldCrossbowWithExplosiveAttachmentAndMediumMech.shiftedIndex
+//				|| Itemstack.itemID == Items.goldCrossbowWithFlameAttachmentAndMediumMech.shiftedIndex
+//				|| Itemstack.itemID == Items.goldCrossbowWithLavaAttachmentAndMediumMech.shiftedIndex
+//				|| Itemstack.itemID == Items.goldCrossbowWithIceAttachmentAndMediumMech.shiftedIndex
+//				|| Itemstack.itemID == Items.goldCrossbowWithLightningAttachmentAndMediumMech.shiftedIndex
+//				|| Itemstack.itemID == Items.goldCrossbowWithExplosiveAttachmentAndHeavyMech.shiftedIndex
+//				|| Itemstack.itemID == Items.goldCrossbowWithFlameAttachmentAndHeavyMech.shiftedIndex
+//				|| Itemstack.itemID == Items.goldCrossbowWithLavaAttachmentAndHeavyMech.shiftedIndex
+//				|| Itemstack.itemID == Items.goldCrossbowWithIceAttachmentAndHeavyMech.shiftedIndex
+//				|| Itemstack.itemID == Items.goldCrossbowWithLightningAttachmentAndHeavyMech.shiftedIndex
+//				|| Itemstack.itemID == Items.goldCrossbowWithTorchAttachment.shiftedIndex
+//				|| Itemstack.itemID == Items.goldCrossbowWithTorchAttachmentAndLightMech.shiftedIndex
+//				|| Itemstack.itemID == Items.goldCrossbowWithTorchAttachmentAndMediumMech.shiftedIndex
+//				|| Itemstack.itemID == Items.goldCrossbowWithTorchAttachmentAndHeavyMech.shiftedIndex
+//				|| Itemstack.itemID == Items.goldCrossbowWithPoisonAttachment.shiftedIndex
+//				|| Itemstack.itemID == Items.goldCrossbowWithPoisonAttachmentAndLightMech.shiftedIndex
+//				|| Itemstack.itemID == Items.goldCrossbowWithPoisonAttachmentAndMediumMech.shiftedIndex
+//				|| Itemstack.itemID == Items.goldCrossbowWithPoisonAttachmentAndHeavyMech.shiftedIndex))
+//		{
+//			return true;
+//		}
+//		else
+//		{
+//			return false;
+//		}
 	}
 	
 	/**
@@ -1952,56 +2025,74 @@ public class Util
 	 * @param Itemstack The item to check
 	 * @return True if the provided Itemstack is any diamond crossbow
 	 */
-	public static boolean isDiamond(ItemStack Itemstack)
+	public static boolean isDiamond(ItemStack stack)
 	{
-		if (Itemstack != null
-				&& (Itemstack.itemID == Items.diamondCrossbowBase.shiftedIndex
-				|| Itemstack.itemID == Items.diamondCrossbowWithBasicScope.shiftedIndex
-				|| Itemstack.itemID == Items.diamondCrossbowWithLongScope.shiftedIndex
-				|| Itemstack.itemID == Items.diamondCrossbowWithBasicScopeAndLightMech.shiftedIndex
-				|| Itemstack.itemID == Items.diamondCrossbowWithLongScopeAndLightMech.shiftedIndex
-				|| Itemstack.itemID == Items.diamondCrossbowWithBasicScopeAndMediumMech.shiftedIndex
-				|| Itemstack.itemID == Items.diamondCrossbowWithLongScopeAndMediumMech.shiftedIndex
-				|| Itemstack.itemID == Items.diamondCrossbowWithBasicScopeAndHeavyMech.shiftedIndex
-				|| Itemstack.itemID == Items.diamondCrossbowWithLongScopeAndHeavyMech.shiftedIndex
-				|| Itemstack.itemID == Items.diamondCrossbowWithLightMech.shiftedIndex
-				|| Itemstack.itemID == Items.diamondCrossbowWithMediumMech.shiftedIndex
-				|| Itemstack.itemID == Items.diamondCrossbowWithHeavyMech.shiftedIndex
-				|| Itemstack.itemID == Items.diamondCrossbowWithExplosiveAttachment.shiftedIndex
-				|| Itemstack.itemID == Items.diamondCrossbowWithFlameAttachment.shiftedIndex
-				|| Itemstack.itemID == Items.diamondCrossbowWithLavaAttachment.shiftedIndex
-				|| Itemstack.itemID == Items.diamondCrossbowWithIceAttachment.shiftedIndex
-				|| Itemstack.itemID == Items.diamondCrossbowWithLightningAttachment.shiftedIndex
-				|| Itemstack.itemID == Items.diamondCrossbowWithExplosiveAttachmentAndLightMech.shiftedIndex
-				|| Itemstack.itemID == Items.diamondCrossbowWithFlameAttachmentAndLightMech.shiftedIndex
-				|| Itemstack.itemID == Items.diamondCrossbowWithLavaAttachmentAndLightMech.shiftedIndex
-				|| Itemstack.itemID == Items.diamondCrossbowWithIceAttachmentAndLightMech.shiftedIndex
-				|| Itemstack.itemID == Items.diamondCrossbowWithLightningAttachmentAndLightMech.shiftedIndex
-				|| Itemstack.itemID == Items.diamondCrossbowWithExplosiveAttachmentAndMediumMech.shiftedIndex
-				|| Itemstack.itemID == Items.diamondCrossbowWithFlameAttachmentAndMediumMech.shiftedIndex
-				|| Itemstack.itemID == Items.diamondCrossbowWithLavaAttachmentAndMediumMech.shiftedIndex
-				|| Itemstack.itemID == Items.diamondCrossbowWithIceAttachmentAndMediumMech.shiftedIndex
-				|| Itemstack.itemID == Items.diamondCrossbowWithLightningAttachmentAndMediumMech.shiftedIndex
-				|| Itemstack.itemID == Items.diamondCrossbowWithExplosiveAttachmentAndHeavyMech.shiftedIndex
-				|| Itemstack.itemID == Items.diamondCrossbowWithFlameAttachmentAndHeavyMech.shiftedIndex
-				|| Itemstack.itemID == Items.diamondCrossbowWithLavaAttachmentAndHeavyMech.shiftedIndex
-				|| Itemstack.itemID == Items.diamondCrossbowWithIceAttachmentAndHeavyMech.shiftedIndex
-				|| Itemstack.itemID == Items.diamondCrossbowWithLightningAttachmentAndHeavyMech.shiftedIndex
-				|| Itemstack.itemID == Items.diamondCrossbowWithTorchAttachment.shiftedIndex
-				|| Itemstack.itemID == Items.diamondCrossbowWithTorchAttachmentAndLightMech.shiftedIndex
-				|| Itemstack.itemID == Items.diamondCrossbowWithTorchAttachmentAndMediumMech.shiftedIndex
-				|| Itemstack.itemID == Items.diamondCrossbowWithTorchAttachmentAndHeavyMech.shiftedIndex
-				|| Itemstack.itemID == Items.diamondCrossbowWithPoisonAttachment.shiftedIndex
-				|| Itemstack.itemID == Items.diamondCrossbowWithPoisonAttachmentAndLightMech.shiftedIndex
-				|| Itemstack.itemID == Items.diamondCrossbowWithPoisonAttachmentAndMediumMech.shiftedIndex
-				|| Itemstack.itemID == Items.diamondCrossbowWithPoisonAttachmentAndHeavyMech.shiftedIndex))
+		if (stack != null && stack.getTagCompound() != null)
 		{
-			return true;
+			NBTTagCompound comp = stack.getTagCompound();
+			
+			if (comp.getInteger("material") == 4)
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
 		}
 		else
 		{
 			return false;
 		}
+		
+//		if (Itemstack != null
+//				&& (Itemstack.itemID == Items.diamondCrossbowBase.shiftedIndex
+//				|| Itemstack.itemID == Items.diamondCrossbowWithBasicScope.shiftedIndex
+//				|| Itemstack.itemID == Items.diamondCrossbowWithLongScope.shiftedIndex
+//				|| Itemstack.itemID == Items.diamondCrossbowWithBasicScopeAndLightMech.shiftedIndex
+//				|| Itemstack.itemID == Items.diamondCrossbowWithLongScopeAndLightMech.shiftedIndex
+//				|| Itemstack.itemID == Items.diamondCrossbowWithBasicScopeAndMediumMech.shiftedIndex
+//				|| Itemstack.itemID == Items.diamondCrossbowWithLongScopeAndMediumMech.shiftedIndex
+//				|| Itemstack.itemID == Items.diamondCrossbowWithBasicScopeAndHeavyMech.shiftedIndex
+//				|| Itemstack.itemID == Items.diamondCrossbowWithLongScopeAndHeavyMech.shiftedIndex
+//				|| Itemstack.itemID == Items.diamondCrossbowWithLightMech.shiftedIndex
+//				|| Itemstack.itemID == Items.diamondCrossbowWithMediumMech.shiftedIndex
+//				|| Itemstack.itemID == Items.diamondCrossbowWithHeavyMech.shiftedIndex
+//				|| Itemstack.itemID == Items.diamondCrossbowWithExplosiveAttachment.shiftedIndex
+//				|| Itemstack.itemID == Items.diamondCrossbowWithFlameAttachment.shiftedIndex
+//				|| Itemstack.itemID == Items.diamondCrossbowWithLavaAttachment.shiftedIndex
+//				|| Itemstack.itemID == Items.diamondCrossbowWithIceAttachment.shiftedIndex
+//				|| Itemstack.itemID == Items.diamondCrossbowWithLightningAttachment.shiftedIndex
+//				|| Itemstack.itemID == Items.diamondCrossbowWithExplosiveAttachmentAndLightMech.shiftedIndex
+//				|| Itemstack.itemID == Items.diamondCrossbowWithFlameAttachmentAndLightMech.shiftedIndex
+//				|| Itemstack.itemID == Items.diamondCrossbowWithLavaAttachmentAndLightMech.shiftedIndex
+//				|| Itemstack.itemID == Items.diamondCrossbowWithIceAttachmentAndLightMech.shiftedIndex
+//				|| Itemstack.itemID == Items.diamondCrossbowWithLightningAttachmentAndLightMech.shiftedIndex
+//				|| Itemstack.itemID == Items.diamondCrossbowWithExplosiveAttachmentAndMediumMech.shiftedIndex
+//				|| Itemstack.itemID == Items.diamondCrossbowWithFlameAttachmentAndMediumMech.shiftedIndex
+//				|| Itemstack.itemID == Items.diamondCrossbowWithLavaAttachmentAndMediumMech.shiftedIndex
+//				|| Itemstack.itemID == Items.diamondCrossbowWithIceAttachmentAndMediumMech.shiftedIndex
+//				|| Itemstack.itemID == Items.diamondCrossbowWithLightningAttachmentAndMediumMech.shiftedIndex
+//				|| Itemstack.itemID == Items.diamondCrossbowWithExplosiveAttachmentAndHeavyMech.shiftedIndex
+//				|| Itemstack.itemID == Items.diamondCrossbowWithFlameAttachmentAndHeavyMech.shiftedIndex
+//				|| Itemstack.itemID == Items.diamondCrossbowWithLavaAttachmentAndHeavyMech.shiftedIndex
+//				|| Itemstack.itemID == Items.diamondCrossbowWithIceAttachmentAndHeavyMech.shiftedIndex
+//				|| Itemstack.itemID == Items.diamondCrossbowWithLightningAttachmentAndHeavyMech.shiftedIndex
+//				|| Itemstack.itemID == Items.diamondCrossbowWithTorchAttachment.shiftedIndex
+//				|| Itemstack.itemID == Items.diamondCrossbowWithTorchAttachmentAndLightMech.shiftedIndex
+//				|| Itemstack.itemID == Items.diamondCrossbowWithTorchAttachmentAndMediumMech.shiftedIndex
+//				|| Itemstack.itemID == Items.diamondCrossbowWithTorchAttachmentAndHeavyMech.shiftedIndex
+//				|| Itemstack.itemID == Items.diamondCrossbowWithPoisonAttachment.shiftedIndex
+//				|| Itemstack.itemID == Items.diamondCrossbowWithPoisonAttachmentAndLightMech.shiftedIndex
+//				|| Itemstack.itemID == Items.diamondCrossbowWithPoisonAttachmentAndMediumMech.shiftedIndex
+//				|| Itemstack.itemID == Items.diamondCrossbowWithPoisonAttachmentAndHeavyMech.shiftedIndex))
+//		{
+//			return true;
+//		}
+//		else
+//		{
+//			return false;
+//		}
 	}
 	
 	/**
@@ -2009,36 +2100,54 @@ public class Util
 	 * @param Itemstack The item to check
 	 * @return True if the provided Itemstack has a basic scope
 	 */
-	public static boolean hasBasicScope(ItemStack Itemstack)
+	public static boolean hasBasicScope(ItemStack stack)
 	{
-		if (Itemstack != null 
-				&& (Itemstack.itemID == Items.woodenCrossbowWithBasicScope.shiftedIndex 
-				|| Itemstack.itemID == Items.woodenCrossbowWithBasicScopeAndHeavyMech.shiftedIndex 
-				|| Itemstack.itemID == Items.woodenCrossbowWithBasicScopeAndLightMech.shiftedIndex  
-				|| Itemstack.itemID == Items.woodenCrossbowWithBasicScopeAndMediumMech.shiftedIndex
-				|| Itemstack.itemID == Items.stoneCrossbowWithBasicScope.shiftedIndex 
-				|| Itemstack.itemID == Items.stoneCrossbowWithBasicScopeAndHeavyMech.shiftedIndex 
-				|| Itemstack.itemID == Items.stoneCrossbowWithBasicScopeAndLightMech.shiftedIndex  
-				|| Itemstack.itemID == Items.stoneCrossbowWithBasicScopeAndMediumMech.shiftedIndex
-				|| Itemstack.itemID == Items.ironCrossbowWithBasicScope.shiftedIndex 
-				|| Itemstack.itemID == Items.ironCrossbowWithBasicScopeAndHeavyMech.shiftedIndex 
-				|| Itemstack.itemID == Items.ironCrossbowWithBasicScopeAndLightMech.shiftedIndex  
-				|| Itemstack.itemID == Items.ironCrossbowWithBasicScopeAndMediumMech.shiftedIndex
-				|| Itemstack.itemID == Items.goldCrossbowWithBasicScope.shiftedIndex 
-				|| Itemstack.itemID == Items.goldCrossbowWithBasicScopeAndHeavyMech.shiftedIndex 
-				|| Itemstack.itemID == Items.goldCrossbowWithBasicScopeAndLightMech.shiftedIndex  
-				|| Itemstack.itemID == Items.goldCrossbowWithBasicScopeAndMediumMech.shiftedIndex
-				|| Itemstack.itemID == Items.diamondCrossbowWithBasicScope.shiftedIndex 
-				|| Itemstack.itemID == Items.diamondCrossbowWithBasicScopeAndHeavyMech.shiftedIndex 
-				|| Itemstack.itemID == Items.diamondCrossbowWithBasicScopeAndLightMech.shiftedIndex  
-				|| Itemstack.itemID == Items.diamondCrossbowWithBasicScopeAndMediumMech.shiftedIndex))
+		if (stack != null && stack.getTagCompound() != null)
 		{
-			return true;
+			NBTTagCompound comp = stack.getTagCompound();
+			
+			if (comp.getInteger("attachment") == 2)
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
 		}
 		else
 		{
 			return false;
 		}
+		
+//		if (Itemstack != null 
+//				&& (Itemstack.itemID == Items.woodenCrossbowWithBasicScope.shiftedIndex 
+//				|| Itemstack.itemID == Items.woodenCrossbowWithBasicScopeAndHeavyMech.shiftedIndex 
+//				|| Itemstack.itemID == Items.woodenCrossbowWithBasicScopeAndLightMech.shiftedIndex  
+//				|| Itemstack.itemID == Items.woodenCrossbowWithBasicScopeAndMediumMech.shiftedIndex
+//				|| Itemstack.itemID == Items.stoneCrossbowWithBasicScope.shiftedIndex 
+//				|| Itemstack.itemID == Items.stoneCrossbowWithBasicScopeAndHeavyMech.shiftedIndex 
+//				|| Itemstack.itemID == Items.stoneCrossbowWithBasicScopeAndLightMech.shiftedIndex  
+//				|| Itemstack.itemID == Items.stoneCrossbowWithBasicScopeAndMediumMech.shiftedIndex
+//				|| Itemstack.itemID == Items.ironCrossbowWithBasicScope.shiftedIndex 
+//				|| Itemstack.itemID == Items.ironCrossbowWithBasicScopeAndHeavyMech.shiftedIndex 
+//				|| Itemstack.itemID == Items.ironCrossbowWithBasicScopeAndLightMech.shiftedIndex  
+//				|| Itemstack.itemID == Items.ironCrossbowWithBasicScopeAndMediumMech.shiftedIndex
+//				|| Itemstack.itemID == Items.goldCrossbowWithBasicScope.shiftedIndex 
+//				|| Itemstack.itemID == Items.goldCrossbowWithBasicScopeAndHeavyMech.shiftedIndex 
+//				|| Itemstack.itemID == Items.goldCrossbowWithBasicScopeAndLightMech.shiftedIndex  
+//				|| Itemstack.itemID == Items.goldCrossbowWithBasicScopeAndMediumMech.shiftedIndex
+//				|| Itemstack.itemID == Items.diamondCrossbowWithBasicScope.shiftedIndex 
+//				|| Itemstack.itemID == Items.diamondCrossbowWithBasicScopeAndHeavyMech.shiftedIndex 
+//				|| Itemstack.itemID == Items.diamondCrossbowWithBasicScopeAndLightMech.shiftedIndex  
+//				|| Itemstack.itemID == Items.diamondCrossbowWithBasicScopeAndMediumMech.shiftedIndex))
+//		{
+//			return true;
+//		}
+//		else
+//		{
+//			return false;
+//		}
 	}
 	
 	/**
@@ -2046,36 +2155,54 @@ public class Util
 	 * @param Itemstack The item to check
 	 * @return True if the provided Itemstack has a long range scope
 	 */
-	public static boolean hasLongRangeScope(ItemStack Itemstack)
+	public static boolean hasLongRangeScope(ItemStack stack)
 	{
-		if (Itemstack != null 
-				&& (Itemstack.itemID == Items.woodenCrossbowWithLongScope.shiftedIndex 
-				|| Itemstack.itemID == Items.woodenCrossbowWithLongScopeAndHeavyMech.shiftedIndex 
-				|| Itemstack.itemID == Items.woodenCrossbowWithLongScopeAndLightMech.shiftedIndex  
-				|| Itemstack.itemID == Items.woodenCrossbowWithLongScopeAndMediumMech.shiftedIndex
-				|| Itemstack.itemID == Items.stoneCrossbowWithLongScope.shiftedIndex 
-				|| Itemstack.itemID == Items.stoneCrossbowWithLongScopeAndHeavyMech.shiftedIndex 
-				|| Itemstack.itemID == Items.stoneCrossbowWithLongScopeAndLightMech.shiftedIndex  
-				|| Itemstack.itemID == Items.stoneCrossbowWithLongScopeAndMediumMech.shiftedIndex
-				|| Itemstack.itemID == Items.ironCrossbowWithLongScope.shiftedIndex 
-				|| Itemstack.itemID == Items.ironCrossbowWithLongScopeAndHeavyMech.shiftedIndex 
-				|| Itemstack.itemID == Items.ironCrossbowWithLongScopeAndLightMech.shiftedIndex  
-				|| Itemstack.itemID == Items.ironCrossbowWithLongScopeAndMediumMech.shiftedIndex
-				|| Itemstack.itemID == Items.goldCrossbowWithLongScope.shiftedIndex 
-				|| Itemstack.itemID == Items.goldCrossbowWithLongScopeAndHeavyMech.shiftedIndex 
-				|| Itemstack.itemID == Items.goldCrossbowWithLongScopeAndLightMech.shiftedIndex  
-				|| Itemstack.itemID == Items.goldCrossbowWithLongScopeAndMediumMech.shiftedIndex
-				|| Itemstack.itemID == Items.diamondCrossbowWithLongScope.shiftedIndex 
-				|| Itemstack.itemID == Items.diamondCrossbowWithLongScopeAndHeavyMech.shiftedIndex 
-				|| Itemstack.itemID == Items.diamondCrossbowWithLongScopeAndLightMech.shiftedIndex  
-				|| Itemstack.itemID == Items.diamondCrossbowWithLongScopeAndMediumMech.shiftedIndex))
+		if (stack != null && stack.getTagCompound() != null)
 		{
-			return true;
+			NBTTagCompound comp = stack.getTagCompound();
+			
+			if (comp.getInteger("attachment") == 1)
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
 		}
 		else
 		{
 			return false;
 		}
+		
+//		if (Itemstack != null 
+//				&& (Itemstack.itemID == Items.woodenCrossbowWithLongScope.shiftedIndex 
+//				|| Itemstack.itemID == Items.woodenCrossbowWithLongScopeAndHeavyMech.shiftedIndex 
+//				|| Itemstack.itemID == Items.woodenCrossbowWithLongScopeAndLightMech.shiftedIndex  
+//				|| Itemstack.itemID == Items.woodenCrossbowWithLongScopeAndMediumMech.shiftedIndex
+//				|| Itemstack.itemID == Items.stoneCrossbowWithLongScope.shiftedIndex 
+//				|| Itemstack.itemID == Items.stoneCrossbowWithLongScopeAndHeavyMech.shiftedIndex 
+//				|| Itemstack.itemID == Items.stoneCrossbowWithLongScopeAndLightMech.shiftedIndex  
+//				|| Itemstack.itemID == Items.stoneCrossbowWithLongScopeAndMediumMech.shiftedIndex
+//				|| Itemstack.itemID == Items.ironCrossbowWithLongScope.shiftedIndex 
+//				|| Itemstack.itemID == Items.ironCrossbowWithLongScopeAndHeavyMech.shiftedIndex 
+//				|| Itemstack.itemID == Items.ironCrossbowWithLongScopeAndLightMech.shiftedIndex  
+//				|| Itemstack.itemID == Items.ironCrossbowWithLongScopeAndMediumMech.shiftedIndex
+//				|| Itemstack.itemID == Items.goldCrossbowWithLongScope.shiftedIndex 
+//				|| Itemstack.itemID == Items.goldCrossbowWithLongScopeAndHeavyMech.shiftedIndex 
+//				|| Itemstack.itemID == Items.goldCrossbowWithLongScopeAndLightMech.shiftedIndex  
+//				|| Itemstack.itemID == Items.goldCrossbowWithLongScopeAndMediumMech.shiftedIndex
+//				|| Itemstack.itemID == Items.diamondCrossbowWithLongScope.shiftedIndex 
+//				|| Itemstack.itemID == Items.diamondCrossbowWithLongScopeAndHeavyMech.shiftedIndex 
+//				|| Itemstack.itemID == Items.diamondCrossbowWithLongScopeAndLightMech.shiftedIndex  
+//				|| Itemstack.itemID == Items.diamondCrossbowWithLongScopeAndMediumMech.shiftedIndex))
+//		{
+//			return true;
+//		}
+//		else
+//		{
+//			return false;
+//		}
 	}
 	
 	/**
@@ -2083,66 +2210,84 @@ public class Util
 	 * @param Itemstack The item to check
 	 * @return True if the provided Itemstack has a light mechanism attachment
 	 */
-	public static boolean hasLightMech(ItemStack Itemstack)
+	public static boolean hasLightMech(ItemStack stack)
 	{
-		if (Itemstack != null 
-				&& (Itemstack.itemID == Items.woodenCrossbowWithBasicScopeAndLightMech.shiftedIndex
-				|| Itemstack.itemID == Items.woodenCrossbowWithLightMech.shiftedIndex
-				|| Itemstack.itemID == Items.woodenCrossbowWithLongScopeAndLightMech.shiftedIndex
-				|| Itemstack.itemID == Items.woodenCrossbowWithExplosiveAttachmentAndLightMech.shiftedIndex
-				|| Itemstack.itemID == Items.woodenCrossbowWithFlameAttachmentAndLightMech.shiftedIndex
-				|| Itemstack.itemID == Items.woodenCrossbowWithLavaAttachmentAndLightMech.shiftedIndex
-				|| Itemstack.itemID == Items.woodenCrossbowWithIceAttachmentAndLightMech.shiftedIndex
-				|| Itemstack.itemID == Items.woodenCrossbowWithLightningAttachmentAndLightMech.shiftedIndex
-				|| Itemstack.itemID == Items.stoneCrossbowWithBasicScopeAndLightMech.shiftedIndex
-				|| Itemstack.itemID == Items.stoneCrossbowWithLightMech.shiftedIndex
-				|| Itemstack.itemID == Items.stoneCrossbowWithLongScopeAndLightMech.shiftedIndex
-				|| Itemstack.itemID == Items.stoneCrossbowWithExplosiveAttachmentAndLightMech.shiftedIndex
-				|| Itemstack.itemID == Items.stoneCrossbowWithFlameAttachmentAndLightMech.shiftedIndex
-				|| Itemstack.itemID == Items.stoneCrossbowWithLavaAttachmentAndLightMech.shiftedIndex
-				|| Itemstack.itemID == Items.stoneCrossbowWithIceAttachmentAndLightMech.shiftedIndex
-				|| Itemstack.itemID == Items.stoneCrossbowWithLightningAttachmentAndLightMech.shiftedIndex
-				|| Itemstack.itemID == Items.ironCrossbowWithBasicScopeAndLightMech.shiftedIndex
-				|| Itemstack.itemID == Items.ironCrossbowWithLightMech.shiftedIndex
-				|| Itemstack.itemID == Items.ironCrossbowWithLongScopeAndLightMech.shiftedIndex
-				|| Itemstack.itemID == Items.ironCrossbowWithExplosiveAttachmentAndLightMech.shiftedIndex
-				|| Itemstack.itemID == Items.ironCrossbowWithFlameAttachmentAndLightMech.shiftedIndex
-				|| Itemstack.itemID == Items.ironCrossbowWithLavaAttachmentAndLightMech.shiftedIndex
-				|| Itemstack.itemID == Items.ironCrossbowWithIceAttachmentAndLightMech.shiftedIndex
-				|| Itemstack.itemID == Items.ironCrossbowWithLightningAttachmentAndLightMech.shiftedIndex
-				|| Itemstack.itemID == Items.goldCrossbowWithBasicScopeAndLightMech.shiftedIndex
-				|| Itemstack.itemID == Items.goldCrossbowWithLightMech.shiftedIndex
-				|| Itemstack.itemID == Items.goldCrossbowWithLongScopeAndLightMech.shiftedIndex
-				|| Itemstack.itemID == Items.goldCrossbowWithExplosiveAttachmentAndLightMech.shiftedIndex
-				|| Itemstack.itemID == Items.goldCrossbowWithFlameAttachmentAndLightMech.shiftedIndex
-				|| Itemstack.itemID == Items.goldCrossbowWithLavaAttachmentAndLightMech.shiftedIndex
-				|| Itemstack.itemID == Items.goldCrossbowWithIceAttachmentAndLightMech.shiftedIndex
-				|| Itemstack.itemID == Items.goldCrossbowWithLightningAttachmentAndLightMech.shiftedIndex
-				|| Itemstack.itemID == Items.diamondCrossbowWithBasicScopeAndLightMech.shiftedIndex
-				|| Itemstack.itemID == Items.diamondCrossbowWithLightMech.shiftedIndex
-				|| Itemstack.itemID == Items.diamondCrossbowWithLongScopeAndLightMech.shiftedIndex
-				|| Itemstack.itemID == Items.diamondCrossbowWithExplosiveAttachmentAndLightMech.shiftedIndex
-				|| Itemstack.itemID == Items.diamondCrossbowWithFlameAttachmentAndLightMech.shiftedIndex
-				|| Itemstack.itemID == Items.diamondCrossbowWithLavaAttachmentAndLightMech.shiftedIndex
-				|| Itemstack.itemID == Items.diamondCrossbowWithIceAttachmentAndLightMech.shiftedIndex
-				|| Itemstack.itemID == Items.diamondCrossbowWithLightningAttachmentAndLightMech.shiftedIndex
-				|| Itemstack.itemID == Items.woodenCrossbowWithTorchAttachmentAndLightMech.shiftedIndex
-				|| Itemstack.itemID == Items.woodenCrossbowWithPoisonAttachmentAndLightMech.shiftedIndex
-				|| Itemstack.itemID == Items.stoneCrossbowWithTorchAttachmentAndLightMech.shiftedIndex
-				|| Itemstack.itemID == Items.stoneCrossbowWithPoisonAttachmentAndLightMech.shiftedIndex
-				|| Itemstack.itemID == Items.ironCrossbowWithTorchAttachmentAndLightMech.shiftedIndex
-				|| Itemstack.itemID == Items.ironCrossbowWithPoisonAttachmentAndLightMech.shiftedIndex
-				|| Itemstack.itemID == Items.goldCrossbowWithTorchAttachmentAndLightMech.shiftedIndex
-				|| Itemstack.itemID == Items.goldCrossbowWithPoisonAttachmentAndLightMech.shiftedIndex
-				|| Itemstack.itemID == Items.diamondCrossbowWithTorchAttachmentAndLightMech.shiftedIndex
-				|| Itemstack.itemID == Items.diamondCrossbowWithPoisonAttachmentAndLightMech.shiftedIndex))
+		if (stack != null && stack.getTagCompound() != null)
 		{
-			return true;
+			NBTTagCompound comp = stack.getTagCompound();
+			
+			if (comp.getInteger("firerate") == 1)
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
 		}
 		else
 		{
 			return false;
 		}
+		
+//		if (Itemstack != null 
+//				&& (Itemstack.itemID == Items.woodenCrossbowWithBasicScopeAndLightMech.shiftedIndex
+//				|| Itemstack.itemID == Items.woodenCrossbowWithLightMech.shiftedIndex
+//				|| Itemstack.itemID == Items.woodenCrossbowWithLongScopeAndLightMech.shiftedIndex
+//				|| Itemstack.itemID == Items.woodenCrossbowWithExplosiveAttachmentAndLightMech.shiftedIndex
+//				|| Itemstack.itemID == Items.woodenCrossbowWithFlameAttachmentAndLightMech.shiftedIndex
+//				|| Itemstack.itemID == Items.woodenCrossbowWithLavaAttachmentAndLightMech.shiftedIndex
+//				|| Itemstack.itemID == Items.woodenCrossbowWithIceAttachmentAndLightMech.shiftedIndex
+//				|| Itemstack.itemID == Items.woodenCrossbowWithLightningAttachmentAndLightMech.shiftedIndex
+//				|| Itemstack.itemID == Items.stoneCrossbowWithBasicScopeAndLightMech.shiftedIndex
+//				|| Itemstack.itemID == Items.stoneCrossbowWithLightMech.shiftedIndex
+//				|| Itemstack.itemID == Items.stoneCrossbowWithLongScopeAndLightMech.shiftedIndex
+//				|| Itemstack.itemID == Items.stoneCrossbowWithExplosiveAttachmentAndLightMech.shiftedIndex
+//				|| Itemstack.itemID == Items.stoneCrossbowWithFlameAttachmentAndLightMech.shiftedIndex
+//				|| Itemstack.itemID == Items.stoneCrossbowWithLavaAttachmentAndLightMech.shiftedIndex
+//				|| Itemstack.itemID == Items.stoneCrossbowWithIceAttachmentAndLightMech.shiftedIndex
+//				|| Itemstack.itemID == Items.stoneCrossbowWithLightningAttachmentAndLightMech.shiftedIndex
+//				|| Itemstack.itemID == Items.ironCrossbowWithBasicScopeAndLightMech.shiftedIndex
+//				|| Itemstack.itemID == Items.ironCrossbowWithLightMech.shiftedIndex
+//				|| Itemstack.itemID == Items.ironCrossbowWithLongScopeAndLightMech.shiftedIndex
+//				|| Itemstack.itemID == Items.ironCrossbowWithExplosiveAttachmentAndLightMech.shiftedIndex
+//				|| Itemstack.itemID == Items.ironCrossbowWithFlameAttachmentAndLightMech.shiftedIndex
+//				|| Itemstack.itemID == Items.ironCrossbowWithLavaAttachmentAndLightMech.shiftedIndex
+//				|| Itemstack.itemID == Items.ironCrossbowWithIceAttachmentAndLightMech.shiftedIndex
+//				|| Itemstack.itemID == Items.ironCrossbowWithLightningAttachmentAndLightMech.shiftedIndex
+//				|| Itemstack.itemID == Items.goldCrossbowWithBasicScopeAndLightMech.shiftedIndex
+//				|| Itemstack.itemID == Items.goldCrossbowWithLightMech.shiftedIndex
+//				|| Itemstack.itemID == Items.goldCrossbowWithLongScopeAndLightMech.shiftedIndex
+//				|| Itemstack.itemID == Items.goldCrossbowWithExplosiveAttachmentAndLightMech.shiftedIndex
+//				|| Itemstack.itemID == Items.goldCrossbowWithFlameAttachmentAndLightMech.shiftedIndex
+//				|| Itemstack.itemID == Items.goldCrossbowWithLavaAttachmentAndLightMech.shiftedIndex
+//				|| Itemstack.itemID == Items.goldCrossbowWithIceAttachmentAndLightMech.shiftedIndex
+//				|| Itemstack.itemID == Items.goldCrossbowWithLightningAttachmentAndLightMech.shiftedIndex
+//				|| Itemstack.itemID == Items.diamondCrossbowWithBasicScopeAndLightMech.shiftedIndex
+//				|| Itemstack.itemID == Items.diamondCrossbowWithLightMech.shiftedIndex
+//				|| Itemstack.itemID == Items.diamondCrossbowWithLongScopeAndLightMech.shiftedIndex
+//				|| Itemstack.itemID == Items.diamondCrossbowWithExplosiveAttachmentAndLightMech.shiftedIndex
+//				|| Itemstack.itemID == Items.diamondCrossbowWithFlameAttachmentAndLightMech.shiftedIndex
+//				|| Itemstack.itemID == Items.diamondCrossbowWithLavaAttachmentAndLightMech.shiftedIndex
+//				|| Itemstack.itemID == Items.diamondCrossbowWithIceAttachmentAndLightMech.shiftedIndex
+//				|| Itemstack.itemID == Items.diamondCrossbowWithLightningAttachmentAndLightMech.shiftedIndex
+//				|| Itemstack.itemID == Items.woodenCrossbowWithTorchAttachmentAndLightMech.shiftedIndex
+//				|| Itemstack.itemID == Items.woodenCrossbowWithPoisonAttachmentAndLightMech.shiftedIndex
+//				|| Itemstack.itemID == Items.stoneCrossbowWithTorchAttachmentAndLightMech.shiftedIndex
+//				|| Itemstack.itemID == Items.stoneCrossbowWithPoisonAttachmentAndLightMech.shiftedIndex
+//				|| Itemstack.itemID == Items.ironCrossbowWithTorchAttachmentAndLightMech.shiftedIndex
+//				|| Itemstack.itemID == Items.ironCrossbowWithPoisonAttachmentAndLightMech.shiftedIndex
+//				|| Itemstack.itemID == Items.goldCrossbowWithTorchAttachmentAndLightMech.shiftedIndex
+//				|| Itemstack.itemID == Items.goldCrossbowWithPoisonAttachmentAndLightMech.shiftedIndex
+//				|| Itemstack.itemID == Items.diamondCrossbowWithTorchAttachmentAndLightMech.shiftedIndex
+//				|| Itemstack.itemID == Items.diamondCrossbowWithPoisonAttachmentAndLightMech.shiftedIndex))
+//		{
+//			return true;
+//		}
+//		else
+//		{
+//			return false;
+//		}
 	}
 	
 	/**
@@ -2150,66 +2295,84 @@ public class Util
 	 * @param Itemstack The item to check
 	 * @return True if the provided Itemstack has a medium mechanism attachment
 	 */
-	public static boolean hasMediumMech(ItemStack Itemstack)
+	public static boolean hasMediumMech(ItemStack stack)
 	{
-		if (Itemstack != null 
-				&& (Itemstack.itemID == Items.woodenCrossbowWithBasicScopeAndMediumMech.shiftedIndex
-				|| Itemstack.itemID == Items.woodenCrossbowWithMediumMech.shiftedIndex
-				|| Itemstack.itemID == Items.woodenCrossbowWithLongScopeAndMediumMech.shiftedIndex
-				|| Itemstack.itemID == Items.woodenCrossbowWithExplosiveAttachmentAndMediumMech.shiftedIndex
-				|| Itemstack.itemID == Items.woodenCrossbowWithFlameAttachmentAndMediumMech.shiftedIndex
-				|| Itemstack.itemID == Items.woodenCrossbowWithLavaAttachmentAndMediumMech.shiftedIndex
-				|| Itemstack.itemID == Items.woodenCrossbowWithIceAttachmentAndMediumMech.shiftedIndex
-				|| Itemstack.itemID == Items.woodenCrossbowWithLightningAttachmentAndMediumMech.shiftedIndex
-				|| Itemstack.itemID == Items.stoneCrossbowWithBasicScopeAndMediumMech.shiftedIndex
-				|| Itemstack.itemID == Items.stoneCrossbowWithMediumMech.shiftedIndex
-				|| Itemstack.itemID == Items.stoneCrossbowWithLongScopeAndMediumMech.shiftedIndex
-				|| Itemstack.itemID == Items.stoneCrossbowWithExplosiveAttachmentAndMediumMech.shiftedIndex
-				|| Itemstack.itemID == Items.stoneCrossbowWithFlameAttachmentAndMediumMech.shiftedIndex
-				|| Itemstack.itemID == Items.stoneCrossbowWithLavaAttachmentAndMediumMech.shiftedIndex
-				|| Itemstack.itemID == Items.stoneCrossbowWithIceAttachmentAndMediumMech.shiftedIndex
-				|| Itemstack.itemID == Items.stoneCrossbowWithLightningAttachmentAndMediumMech.shiftedIndex
-				|| Itemstack.itemID == Items.ironCrossbowWithBasicScopeAndMediumMech.shiftedIndex
-				|| Itemstack.itemID == Items.ironCrossbowWithMediumMech.shiftedIndex
-				|| Itemstack.itemID == Items.ironCrossbowWithLongScopeAndMediumMech.shiftedIndex
-				|| Itemstack.itemID == Items.ironCrossbowWithExplosiveAttachmentAndMediumMech.shiftedIndex
-				|| Itemstack.itemID == Items.ironCrossbowWithFlameAttachmentAndMediumMech.shiftedIndex
-				|| Itemstack.itemID == Items.ironCrossbowWithLavaAttachmentAndMediumMech.shiftedIndex
-				|| Itemstack.itemID == Items.ironCrossbowWithIceAttachmentAndMediumMech.shiftedIndex
-				|| Itemstack.itemID == Items.ironCrossbowWithLightningAttachmentAndMediumMech.shiftedIndex
-				|| Itemstack.itemID == Items.goldCrossbowWithBasicScopeAndMediumMech.shiftedIndex
-				|| Itemstack.itemID == Items.goldCrossbowWithMediumMech.shiftedIndex
-				|| Itemstack.itemID == Items.goldCrossbowWithLongScopeAndMediumMech.shiftedIndex
-				|| Itemstack.itemID == Items.goldCrossbowWithExplosiveAttachmentAndMediumMech.shiftedIndex
-				|| Itemstack.itemID == Items.goldCrossbowWithFlameAttachmentAndMediumMech.shiftedIndex
-				|| Itemstack.itemID == Items.goldCrossbowWithLavaAttachmentAndMediumMech.shiftedIndex
-				|| Itemstack.itemID == Items.goldCrossbowWithIceAttachmentAndMediumMech.shiftedIndex
-				|| Itemstack.itemID == Items.goldCrossbowWithLightningAttachmentAndMediumMech.shiftedIndex
-				|| Itemstack.itemID == Items.diamondCrossbowWithBasicScopeAndMediumMech.shiftedIndex
-				|| Itemstack.itemID == Items.diamondCrossbowWithMediumMech.shiftedIndex
-				|| Itemstack.itemID == Items.diamondCrossbowWithLongScopeAndMediumMech.shiftedIndex
-				|| Itemstack.itemID == Items.diamondCrossbowWithExplosiveAttachmentAndMediumMech.shiftedIndex
-				|| Itemstack.itemID == Items.diamondCrossbowWithFlameAttachmentAndMediumMech.shiftedIndex
-				|| Itemstack.itemID == Items.diamondCrossbowWithLavaAttachmentAndMediumMech.shiftedIndex
-				|| Itemstack.itemID == Items.diamondCrossbowWithIceAttachmentAndMediumMech.shiftedIndex
-				|| Itemstack.itemID == Items.diamondCrossbowWithLightningAttachmentAndMediumMech.shiftedIndex
-				|| Itemstack.itemID == Items.woodenCrossbowWithTorchAttachmentAndMediumMech.shiftedIndex
-				|| Itemstack.itemID == Items.woodenCrossbowWithPoisonAttachmentAndMediumMech.shiftedIndex
-				|| Itemstack.itemID == Items.stoneCrossbowWithTorchAttachmentAndMediumMech.shiftedIndex
-				|| Itemstack.itemID == Items.stoneCrossbowWithPoisonAttachmentAndMediumMech.shiftedIndex
-				|| Itemstack.itemID == Items.ironCrossbowWithTorchAttachmentAndMediumMech.shiftedIndex
-				|| Itemstack.itemID == Items.ironCrossbowWithPoisonAttachmentAndMediumMech.shiftedIndex
-				|| Itemstack.itemID == Items.goldCrossbowWithTorchAttachmentAndMediumMech.shiftedIndex
-				|| Itemstack.itemID == Items.goldCrossbowWithPoisonAttachmentAndMediumMech.shiftedIndex
-				|| Itemstack.itemID == Items.diamondCrossbowWithTorchAttachmentAndMediumMech.shiftedIndex
-				|| Itemstack.itemID == Items.diamondCrossbowWithPoisonAttachmentAndMediumMech.shiftedIndex))
+		if (stack != null && stack.getTagCompound() != null)
 		{
-			return true;
+			NBTTagCompound comp = stack.getTagCompound();
+			
+			if (comp.getInteger("firerate") == 2)
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
 		}
 		else
 		{
 			return false;
 		}
+		
+//		if (Itemstack != null 
+//				&& (Itemstack.itemID == Items.woodenCrossbowWithBasicScopeAndMediumMech.shiftedIndex
+//				|| Itemstack.itemID == Items.woodenCrossbowWithMediumMech.shiftedIndex
+//				|| Itemstack.itemID == Items.woodenCrossbowWithLongScopeAndMediumMech.shiftedIndex
+//				|| Itemstack.itemID == Items.woodenCrossbowWithExplosiveAttachmentAndMediumMech.shiftedIndex
+//				|| Itemstack.itemID == Items.woodenCrossbowWithFlameAttachmentAndMediumMech.shiftedIndex
+//				|| Itemstack.itemID == Items.woodenCrossbowWithLavaAttachmentAndMediumMech.shiftedIndex
+//				|| Itemstack.itemID == Items.woodenCrossbowWithIceAttachmentAndMediumMech.shiftedIndex
+//				|| Itemstack.itemID == Items.woodenCrossbowWithLightningAttachmentAndMediumMech.shiftedIndex
+//				|| Itemstack.itemID == Items.stoneCrossbowWithBasicScopeAndMediumMech.shiftedIndex
+//				|| Itemstack.itemID == Items.stoneCrossbowWithMediumMech.shiftedIndex
+//				|| Itemstack.itemID == Items.stoneCrossbowWithLongScopeAndMediumMech.shiftedIndex
+//				|| Itemstack.itemID == Items.stoneCrossbowWithExplosiveAttachmentAndMediumMech.shiftedIndex
+//				|| Itemstack.itemID == Items.stoneCrossbowWithFlameAttachmentAndMediumMech.shiftedIndex
+//				|| Itemstack.itemID == Items.stoneCrossbowWithLavaAttachmentAndMediumMech.shiftedIndex
+//				|| Itemstack.itemID == Items.stoneCrossbowWithIceAttachmentAndMediumMech.shiftedIndex
+//				|| Itemstack.itemID == Items.stoneCrossbowWithLightningAttachmentAndMediumMech.shiftedIndex
+//				|| Itemstack.itemID == Items.ironCrossbowWithBasicScopeAndMediumMech.shiftedIndex
+//				|| Itemstack.itemID == Items.ironCrossbowWithMediumMech.shiftedIndex
+//				|| Itemstack.itemID == Items.ironCrossbowWithLongScopeAndMediumMech.shiftedIndex
+//				|| Itemstack.itemID == Items.ironCrossbowWithExplosiveAttachmentAndMediumMech.shiftedIndex
+//				|| Itemstack.itemID == Items.ironCrossbowWithFlameAttachmentAndMediumMech.shiftedIndex
+//				|| Itemstack.itemID == Items.ironCrossbowWithLavaAttachmentAndMediumMech.shiftedIndex
+//				|| Itemstack.itemID == Items.ironCrossbowWithIceAttachmentAndMediumMech.shiftedIndex
+//				|| Itemstack.itemID == Items.ironCrossbowWithLightningAttachmentAndMediumMech.shiftedIndex
+//				|| Itemstack.itemID == Items.goldCrossbowWithBasicScopeAndMediumMech.shiftedIndex
+//				|| Itemstack.itemID == Items.goldCrossbowWithMediumMech.shiftedIndex
+//				|| Itemstack.itemID == Items.goldCrossbowWithLongScopeAndMediumMech.shiftedIndex
+//				|| Itemstack.itemID == Items.goldCrossbowWithExplosiveAttachmentAndMediumMech.shiftedIndex
+//				|| Itemstack.itemID == Items.goldCrossbowWithFlameAttachmentAndMediumMech.shiftedIndex
+//				|| Itemstack.itemID == Items.goldCrossbowWithLavaAttachmentAndMediumMech.shiftedIndex
+//				|| Itemstack.itemID == Items.goldCrossbowWithIceAttachmentAndMediumMech.shiftedIndex
+//				|| Itemstack.itemID == Items.goldCrossbowWithLightningAttachmentAndMediumMech.shiftedIndex
+//				|| Itemstack.itemID == Items.diamondCrossbowWithBasicScopeAndMediumMech.shiftedIndex
+//				|| Itemstack.itemID == Items.diamondCrossbowWithMediumMech.shiftedIndex
+//				|| Itemstack.itemID == Items.diamondCrossbowWithLongScopeAndMediumMech.shiftedIndex
+//				|| Itemstack.itemID == Items.diamondCrossbowWithExplosiveAttachmentAndMediumMech.shiftedIndex
+//				|| Itemstack.itemID == Items.diamondCrossbowWithFlameAttachmentAndMediumMech.shiftedIndex
+//				|| Itemstack.itemID == Items.diamondCrossbowWithLavaAttachmentAndMediumMech.shiftedIndex
+//				|| Itemstack.itemID == Items.diamondCrossbowWithIceAttachmentAndMediumMech.shiftedIndex
+//				|| Itemstack.itemID == Items.diamondCrossbowWithLightningAttachmentAndMediumMech.shiftedIndex
+//				|| Itemstack.itemID == Items.woodenCrossbowWithTorchAttachmentAndMediumMech.shiftedIndex
+//				|| Itemstack.itemID == Items.woodenCrossbowWithPoisonAttachmentAndMediumMech.shiftedIndex
+//				|| Itemstack.itemID == Items.stoneCrossbowWithTorchAttachmentAndMediumMech.shiftedIndex
+//				|| Itemstack.itemID == Items.stoneCrossbowWithPoisonAttachmentAndMediumMech.shiftedIndex
+//				|| Itemstack.itemID == Items.ironCrossbowWithTorchAttachmentAndMediumMech.shiftedIndex
+//				|| Itemstack.itemID == Items.ironCrossbowWithPoisonAttachmentAndMediumMech.shiftedIndex
+//				|| Itemstack.itemID == Items.goldCrossbowWithTorchAttachmentAndMediumMech.shiftedIndex
+//				|| Itemstack.itemID == Items.goldCrossbowWithPoisonAttachmentAndMediumMech.shiftedIndex
+//				|| Itemstack.itemID == Items.diamondCrossbowWithTorchAttachmentAndMediumMech.shiftedIndex
+//				|| Itemstack.itemID == Items.diamondCrossbowWithPoisonAttachmentAndMediumMech.shiftedIndex))
+//		{
+//			return true;
+//		}
+//		else
+//		{
+//			return false;
+//		}
 	}
 	
 	/**
@@ -2217,66 +2380,84 @@ public class Util
 	 * @param Itemstack The item to check
 	 * @return True if the provided Itemstack has a heavy mechanism attachment
 	 */
-	public static boolean hasHeavyMech(ItemStack Itemstack)
+	public static boolean hasHeavyMech(ItemStack stack)
 	{
-		if (Itemstack != null 
-				&& (Itemstack.itemID == Items.woodenCrossbowWithBasicScopeAndHeavyMech.shiftedIndex
-				|| Itemstack.itemID == Items.woodenCrossbowWithHeavyMech.shiftedIndex
-				|| Itemstack.itemID == Items.woodenCrossbowWithLongScopeAndHeavyMech.shiftedIndex
-				|| Itemstack.itemID == Items.woodenCrossbowWithExplosiveAttachmentAndHeavyMech.shiftedIndex
-				|| Itemstack.itemID == Items.woodenCrossbowWithFlameAttachmentAndHeavyMech.shiftedIndex
-				|| Itemstack.itemID == Items.woodenCrossbowWithLavaAttachmentAndHeavyMech.shiftedIndex
-				|| Itemstack.itemID == Items.woodenCrossbowWithIceAttachmentAndHeavyMech.shiftedIndex
-				|| Itemstack.itemID == Items.woodenCrossbowWithLightningAttachmentAndHeavyMech.shiftedIndex
-				|| Itemstack.itemID == Items.stoneCrossbowWithBasicScopeAndHeavyMech.shiftedIndex
-				|| Itemstack.itemID == Items.stoneCrossbowWithHeavyMech.shiftedIndex
-				|| Itemstack.itemID == Items.stoneCrossbowWithLongScopeAndHeavyMech.shiftedIndex
-				|| Itemstack.itemID == Items.stoneCrossbowWithExplosiveAttachmentAndHeavyMech.shiftedIndex
-				|| Itemstack.itemID == Items.stoneCrossbowWithFlameAttachmentAndHeavyMech.shiftedIndex
-				|| Itemstack.itemID == Items.stoneCrossbowWithLavaAttachmentAndHeavyMech.shiftedIndex
-				|| Itemstack.itemID == Items.stoneCrossbowWithIceAttachmentAndHeavyMech.shiftedIndex
-				|| Itemstack.itemID == Items.stoneCrossbowWithLightningAttachmentAndHeavyMech.shiftedIndex
-				|| Itemstack.itemID == Items.ironCrossbowWithBasicScopeAndHeavyMech.shiftedIndex
-				|| Itemstack.itemID == Items.ironCrossbowWithHeavyMech.shiftedIndex
-				|| Itemstack.itemID == Items.ironCrossbowWithLongScopeAndHeavyMech.shiftedIndex
-				|| Itemstack.itemID == Items.ironCrossbowWithExplosiveAttachmentAndHeavyMech.shiftedIndex
-				|| Itemstack.itemID == Items.ironCrossbowWithFlameAttachmentAndHeavyMech.shiftedIndex
-				|| Itemstack.itemID == Items.ironCrossbowWithLavaAttachmentAndHeavyMech.shiftedIndex
-				|| Itemstack.itemID == Items.ironCrossbowWithIceAttachmentAndHeavyMech.shiftedIndex
-				|| Itemstack.itemID == Items.ironCrossbowWithLightningAttachmentAndHeavyMech.shiftedIndex
-				|| Itemstack.itemID == Items.goldCrossbowWithBasicScopeAndHeavyMech.shiftedIndex
-				|| Itemstack.itemID == Items.goldCrossbowWithHeavyMech.shiftedIndex
-				|| Itemstack.itemID == Items.goldCrossbowWithLongScopeAndHeavyMech.shiftedIndex
-				|| Itemstack.itemID == Items.goldCrossbowWithExplosiveAttachmentAndHeavyMech.shiftedIndex
-				|| Itemstack.itemID == Items.goldCrossbowWithFlameAttachmentAndHeavyMech.shiftedIndex
-				|| Itemstack.itemID == Items.goldCrossbowWithLavaAttachmentAndHeavyMech.shiftedIndex
-				|| Itemstack.itemID == Items.goldCrossbowWithIceAttachmentAndHeavyMech.shiftedIndex
-				|| Itemstack.itemID == Items.goldCrossbowWithLightningAttachmentAndHeavyMech.shiftedIndex
-				|| Itemstack.itemID == Items.diamondCrossbowWithBasicScopeAndHeavyMech.shiftedIndex
-				|| Itemstack.itemID == Items.diamondCrossbowWithHeavyMech.shiftedIndex
-				|| Itemstack.itemID == Items.diamondCrossbowWithLongScopeAndHeavyMech.shiftedIndex
-				|| Itemstack.itemID == Items.diamondCrossbowWithExplosiveAttachmentAndHeavyMech.shiftedIndex
-				|| Itemstack.itemID == Items.diamondCrossbowWithFlameAttachmentAndHeavyMech.shiftedIndex
-				|| Itemstack.itemID == Items.diamondCrossbowWithLavaAttachmentAndHeavyMech.shiftedIndex
-				|| Itemstack.itemID == Items.diamondCrossbowWithIceAttachmentAndHeavyMech.shiftedIndex
-				|| Itemstack.itemID == Items.diamondCrossbowWithLightningAttachmentAndHeavyMech.shiftedIndex
-				|| Itemstack.itemID == Items.woodenCrossbowWithTorchAttachmentAndHeavyMech.shiftedIndex
-				|| Itemstack.itemID == Items.woodenCrossbowWithPoisonAttachmentAndHeavyMech.shiftedIndex
-				|| Itemstack.itemID == Items.stoneCrossbowWithTorchAttachmentAndHeavyMech.shiftedIndex
-				|| Itemstack.itemID == Items.stoneCrossbowWithPoisonAttachmentAndHeavyMech.shiftedIndex
-				|| Itemstack.itemID == Items.ironCrossbowWithTorchAttachmentAndHeavyMech.shiftedIndex
-				|| Itemstack.itemID == Items.ironCrossbowWithPoisonAttachmentAndHeavyMech.shiftedIndex
-				|| Itemstack.itemID == Items.goldCrossbowWithTorchAttachmentAndHeavyMech.shiftedIndex
-				|| Itemstack.itemID == Items.goldCrossbowWithPoisonAttachmentAndHeavyMech.shiftedIndex
-				|| Itemstack.itemID == Items.diamondCrossbowWithTorchAttachmentAndHeavyMech.shiftedIndex
-				|| Itemstack.itemID == Items.diamondCrossbowWithPoisonAttachmentAndHeavyMech.shiftedIndex))
+		if (stack != null && stack.getTagCompound() != null)
 		{
-			return true;
+			NBTTagCompound comp = stack.getTagCompound();
+			
+			if (comp.getInteger("firerate") == 3)
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
 		}
 		else
 		{
 			return false;
 		}
+		
+//		if (Itemstack != null 
+//				&& (Itemstack.itemID == Items.woodenCrossbowWithBasicScopeAndHeavyMech.shiftedIndex
+//				|| Itemstack.itemID == Items.woodenCrossbowWithHeavyMech.shiftedIndex
+//				|| Itemstack.itemID == Items.woodenCrossbowWithLongScopeAndHeavyMech.shiftedIndex
+//				|| Itemstack.itemID == Items.woodenCrossbowWithExplosiveAttachmentAndHeavyMech.shiftedIndex
+//				|| Itemstack.itemID == Items.woodenCrossbowWithFlameAttachmentAndHeavyMech.shiftedIndex
+//				|| Itemstack.itemID == Items.woodenCrossbowWithLavaAttachmentAndHeavyMech.shiftedIndex
+//				|| Itemstack.itemID == Items.woodenCrossbowWithIceAttachmentAndHeavyMech.shiftedIndex
+//				|| Itemstack.itemID == Items.woodenCrossbowWithLightningAttachmentAndHeavyMech.shiftedIndex
+//				|| Itemstack.itemID == Items.stoneCrossbowWithBasicScopeAndHeavyMech.shiftedIndex
+//				|| Itemstack.itemID == Items.stoneCrossbowWithHeavyMech.shiftedIndex
+//				|| Itemstack.itemID == Items.stoneCrossbowWithLongScopeAndHeavyMech.shiftedIndex
+//				|| Itemstack.itemID == Items.stoneCrossbowWithExplosiveAttachmentAndHeavyMech.shiftedIndex
+//				|| Itemstack.itemID == Items.stoneCrossbowWithFlameAttachmentAndHeavyMech.shiftedIndex
+//				|| Itemstack.itemID == Items.stoneCrossbowWithLavaAttachmentAndHeavyMech.shiftedIndex
+//				|| Itemstack.itemID == Items.stoneCrossbowWithIceAttachmentAndHeavyMech.shiftedIndex
+//				|| Itemstack.itemID == Items.stoneCrossbowWithLightningAttachmentAndHeavyMech.shiftedIndex
+//				|| Itemstack.itemID == Items.ironCrossbowWithBasicScopeAndHeavyMech.shiftedIndex
+//				|| Itemstack.itemID == Items.ironCrossbowWithHeavyMech.shiftedIndex
+//				|| Itemstack.itemID == Items.ironCrossbowWithLongScopeAndHeavyMech.shiftedIndex
+//				|| Itemstack.itemID == Items.ironCrossbowWithExplosiveAttachmentAndHeavyMech.shiftedIndex
+//				|| Itemstack.itemID == Items.ironCrossbowWithFlameAttachmentAndHeavyMech.shiftedIndex
+//				|| Itemstack.itemID == Items.ironCrossbowWithLavaAttachmentAndHeavyMech.shiftedIndex
+//				|| Itemstack.itemID == Items.ironCrossbowWithIceAttachmentAndHeavyMech.shiftedIndex
+//				|| Itemstack.itemID == Items.ironCrossbowWithLightningAttachmentAndHeavyMech.shiftedIndex
+//				|| Itemstack.itemID == Items.goldCrossbowWithBasicScopeAndHeavyMech.shiftedIndex
+//				|| Itemstack.itemID == Items.goldCrossbowWithHeavyMech.shiftedIndex
+//				|| Itemstack.itemID == Items.goldCrossbowWithLongScopeAndHeavyMech.shiftedIndex
+//				|| Itemstack.itemID == Items.goldCrossbowWithExplosiveAttachmentAndHeavyMech.shiftedIndex
+//				|| Itemstack.itemID == Items.goldCrossbowWithFlameAttachmentAndHeavyMech.shiftedIndex
+//				|| Itemstack.itemID == Items.goldCrossbowWithLavaAttachmentAndHeavyMech.shiftedIndex
+//				|| Itemstack.itemID == Items.goldCrossbowWithIceAttachmentAndHeavyMech.shiftedIndex
+//				|| Itemstack.itemID == Items.goldCrossbowWithLightningAttachmentAndHeavyMech.shiftedIndex
+//				|| Itemstack.itemID == Items.diamondCrossbowWithBasicScopeAndHeavyMech.shiftedIndex
+//				|| Itemstack.itemID == Items.diamondCrossbowWithHeavyMech.shiftedIndex
+//				|| Itemstack.itemID == Items.diamondCrossbowWithLongScopeAndHeavyMech.shiftedIndex
+//				|| Itemstack.itemID == Items.diamondCrossbowWithExplosiveAttachmentAndHeavyMech.shiftedIndex
+//				|| Itemstack.itemID == Items.diamondCrossbowWithFlameAttachmentAndHeavyMech.shiftedIndex
+//				|| Itemstack.itemID == Items.diamondCrossbowWithLavaAttachmentAndHeavyMech.shiftedIndex
+//				|| Itemstack.itemID == Items.diamondCrossbowWithIceAttachmentAndHeavyMech.shiftedIndex
+//				|| Itemstack.itemID == Items.diamondCrossbowWithLightningAttachmentAndHeavyMech.shiftedIndex
+//				|| Itemstack.itemID == Items.woodenCrossbowWithTorchAttachmentAndHeavyMech.shiftedIndex
+//				|| Itemstack.itemID == Items.woodenCrossbowWithPoisonAttachmentAndHeavyMech.shiftedIndex
+//				|| Itemstack.itemID == Items.stoneCrossbowWithTorchAttachmentAndHeavyMech.shiftedIndex
+//				|| Itemstack.itemID == Items.stoneCrossbowWithPoisonAttachmentAndHeavyMech.shiftedIndex
+//				|| Itemstack.itemID == Items.ironCrossbowWithTorchAttachmentAndHeavyMech.shiftedIndex
+//				|| Itemstack.itemID == Items.ironCrossbowWithPoisonAttachmentAndHeavyMech.shiftedIndex
+//				|| Itemstack.itemID == Items.goldCrossbowWithTorchAttachmentAndHeavyMech.shiftedIndex
+//				|| Itemstack.itemID == Items.goldCrossbowWithPoisonAttachmentAndHeavyMech.shiftedIndex
+//				|| Itemstack.itemID == Items.diamondCrossbowWithTorchAttachmentAndHeavyMech.shiftedIndex
+//				|| Itemstack.itemID == Items.diamondCrossbowWithPoisonAttachmentAndHeavyMech.shiftedIndex))
+//		{
+//			return true;
+//		}
+//		else
+//		{
+//			return false;
+//		}
 	}
 	
 	/**
@@ -2284,36 +2465,54 @@ public class Util
 	 * @param Itemstack The item to check
 	 * @return True if the provided Itemstack has a Flame attachment
 	 */
-	public static boolean hasFlameAttachment(ItemStack Itemstack)
+	public static boolean hasFlameAttachment(ItemStack stack)
 	{
-		if (Itemstack != null 
-				&& (Itemstack.itemID == Items.woodenCrossbowWithFlameAttachment.shiftedIndex
-				|| Itemstack.itemID == Items.woodenCrossbowWithFlameAttachmentAndHeavyMech.shiftedIndex
-				|| Itemstack.itemID == Items.woodenCrossbowWithFlameAttachmentAndMediumMech.shiftedIndex
-				|| Itemstack.itemID == Items.woodenCrossbowWithFlameAttachmentAndLightMech.shiftedIndex
-				|| Itemstack.itemID == Items.stoneCrossbowWithFlameAttachment.shiftedIndex
-				|| Itemstack.itemID == Items.stoneCrossbowWithFlameAttachmentAndHeavyMech.shiftedIndex
-				|| Itemstack.itemID == Items.stoneCrossbowWithFlameAttachmentAndMediumMech.shiftedIndex
-				|| Itemstack.itemID == Items.stoneCrossbowWithFlameAttachmentAndLightMech.shiftedIndex
-				|| Itemstack.itemID == Items.ironCrossbowWithFlameAttachment.shiftedIndex
-				|| Itemstack.itemID == Items.ironCrossbowWithFlameAttachmentAndHeavyMech.shiftedIndex
-				|| Itemstack.itemID == Items.ironCrossbowWithFlameAttachmentAndMediumMech.shiftedIndex
-				|| Itemstack.itemID == Items.ironCrossbowWithFlameAttachmentAndLightMech.shiftedIndex
-				|| Itemstack.itemID == Items.goldCrossbowWithFlameAttachment.shiftedIndex
-				|| Itemstack.itemID == Items.goldCrossbowWithFlameAttachmentAndHeavyMech.shiftedIndex
-				|| Itemstack.itemID == Items.goldCrossbowWithFlameAttachmentAndMediumMech.shiftedIndex
-				|| Itemstack.itemID == Items.goldCrossbowWithFlameAttachmentAndLightMech.shiftedIndex
-				|| Itemstack.itemID == Items.diamondCrossbowWithFlameAttachment.shiftedIndex
-				|| Itemstack.itemID == Items.diamondCrossbowWithFlameAttachmentAndHeavyMech.shiftedIndex
-				|| Itemstack.itemID == Items.diamondCrossbowWithFlameAttachmentAndMediumMech.shiftedIndex
-				|| Itemstack.itemID == Items.diamondCrossbowWithFlameAttachmentAndLightMech.shiftedIndex))
+		if (stack != null && stack.getTagCompound() != null)
 		{
-			return true;
+			NBTTagCompound comp = stack.getTagCompound();
+			
+			if (comp.getInteger("attachment") == 9)
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
 		}
 		else
 		{
 			return false;
 		}
+		
+//		if (Itemstack != null 
+//				&& (Itemstack.itemID == Items.woodenCrossbowWithFlameAttachment.shiftedIndex
+//				|| Itemstack.itemID == Items.woodenCrossbowWithFlameAttachmentAndHeavyMech.shiftedIndex
+//				|| Itemstack.itemID == Items.woodenCrossbowWithFlameAttachmentAndMediumMech.shiftedIndex
+//				|| Itemstack.itemID == Items.woodenCrossbowWithFlameAttachmentAndLightMech.shiftedIndex
+//				|| Itemstack.itemID == Items.stoneCrossbowWithFlameAttachment.shiftedIndex
+//				|| Itemstack.itemID == Items.stoneCrossbowWithFlameAttachmentAndHeavyMech.shiftedIndex
+//				|| Itemstack.itemID == Items.stoneCrossbowWithFlameAttachmentAndMediumMech.shiftedIndex
+//				|| Itemstack.itemID == Items.stoneCrossbowWithFlameAttachmentAndLightMech.shiftedIndex
+//				|| Itemstack.itemID == Items.ironCrossbowWithFlameAttachment.shiftedIndex
+//				|| Itemstack.itemID == Items.ironCrossbowWithFlameAttachmentAndHeavyMech.shiftedIndex
+//				|| Itemstack.itemID == Items.ironCrossbowWithFlameAttachmentAndMediumMech.shiftedIndex
+//				|| Itemstack.itemID == Items.ironCrossbowWithFlameAttachmentAndLightMech.shiftedIndex
+//				|| Itemstack.itemID == Items.goldCrossbowWithFlameAttachment.shiftedIndex
+//				|| Itemstack.itemID == Items.goldCrossbowWithFlameAttachmentAndHeavyMech.shiftedIndex
+//				|| Itemstack.itemID == Items.goldCrossbowWithFlameAttachmentAndMediumMech.shiftedIndex
+//				|| Itemstack.itemID == Items.goldCrossbowWithFlameAttachmentAndLightMech.shiftedIndex
+//				|| Itemstack.itemID == Items.diamondCrossbowWithFlameAttachment.shiftedIndex
+//				|| Itemstack.itemID == Items.diamondCrossbowWithFlameAttachmentAndHeavyMech.shiftedIndex
+//				|| Itemstack.itemID == Items.diamondCrossbowWithFlameAttachmentAndMediumMech.shiftedIndex
+//				|| Itemstack.itemID == Items.diamondCrossbowWithFlameAttachmentAndLightMech.shiftedIndex))
+//		{
+//			return true;
+//		}
+//		else
+//		{
+//			return false;
+//		}
 	}
 	
 	/**
@@ -2321,36 +2520,54 @@ public class Util
 	 * @param Itemstack The item to check
 	 * @return True if the provided Itemstack has an explosive attachment
 	 */
-	public static boolean hasExplosiveAttachment(ItemStack Itemstack)
+	public static boolean hasExplosiveAttachment(ItemStack stack)
 	{
-		if (Itemstack != null 
-				&& (Itemstack.itemID == Items.woodenCrossbowWithExplosiveAttachment.shiftedIndex
-				|| Itemstack.itemID == Items.woodenCrossbowWithExplosiveAttachmentAndHeavyMech.shiftedIndex
-				|| Itemstack.itemID == Items.woodenCrossbowWithExplosiveAttachmentAndMediumMech.shiftedIndex
-				|| Itemstack.itemID == Items.woodenCrossbowWithExplosiveAttachmentAndLightMech.shiftedIndex
-				|| Itemstack.itemID == Items.stoneCrossbowWithExplosiveAttachment.shiftedIndex
-				|| Itemstack.itemID == Items.stoneCrossbowWithExplosiveAttachmentAndHeavyMech.shiftedIndex
-				|| Itemstack.itemID == Items.stoneCrossbowWithExplosiveAttachmentAndMediumMech.shiftedIndex
-				|| Itemstack.itemID == Items.stoneCrossbowWithExplosiveAttachmentAndLightMech.shiftedIndex
-				|| Itemstack.itemID == Items.ironCrossbowWithExplosiveAttachment.shiftedIndex
-				|| Itemstack.itemID == Items.ironCrossbowWithExplosiveAttachmentAndHeavyMech.shiftedIndex
-				|| Itemstack.itemID == Items.ironCrossbowWithExplosiveAttachmentAndMediumMech.shiftedIndex
-				|| Itemstack.itemID == Items.ironCrossbowWithExplosiveAttachmentAndLightMech.shiftedIndex
-				|| Itemstack.itemID == Items.goldCrossbowWithExplosiveAttachment.shiftedIndex
-				|| Itemstack.itemID == Items.goldCrossbowWithExplosiveAttachmentAndHeavyMech.shiftedIndex
-				|| Itemstack.itemID == Items.goldCrossbowWithExplosiveAttachmentAndMediumMech.shiftedIndex
-				|| Itemstack.itemID == Items.goldCrossbowWithExplosiveAttachmentAndLightMech.shiftedIndex
-				|| Itemstack.itemID == Items.diamondCrossbowWithExplosiveAttachment.shiftedIndex
-				|| Itemstack.itemID == Items.diamondCrossbowWithExplosiveAttachmentAndHeavyMech.shiftedIndex
-				|| Itemstack.itemID == Items.diamondCrossbowWithExplosiveAttachmentAndMediumMech.shiftedIndex
-				|| Itemstack.itemID == Items.diamondCrossbowWithExplosiveAttachmentAndLightMech.shiftedIndex))
+		if (stack != null && stack.getTagCompound() != null)
 		{
-			return true;
+			NBTTagCompound comp = stack.getTagCompound();
+			
+			if (comp.getInteger("attachment") == 8)
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
 		}
 		else
 		{
 			return false;
 		}
+		
+//		if (Itemstack != null 
+//				&& (Itemstack.itemID == Items.woodenCrossbowWithExplosiveAttachment.shiftedIndex
+//				|| Itemstack.itemID == Items.woodenCrossbowWithExplosiveAttachmentAndHeavyMech.shiftedIndex
+//				|| Itemstack.itemID == Items.woodenCrossbowWithExplosiveAttachmentAndMediumMech.shiftedIndex
+//				|| Itemstack.itemID == Items.woodenCrossbowWithExplosiveAttachmentAndLightMech.shiftedIndex
+//				|| Itemstack.itemID == Items.stoneCrossbowWithExplosiveAttachment.shiftedIndex
+//				|| Itemstack.itemID == Items.stoneCrossbowWithExplosiveAttachmentAndHeavyMech.shiftedIndex
+//				|| Itemstack.itemID == Items.stoneCrossbowWithExplosiveAttachmentAndMediumMech.shiftedIndex
+//				|| Itemstack.itemID == Items.stoneCrossbowWithExplosiveAttachmentAndLightMech.shiftedIndex
+//				|| Itemstack.itemID == Items.ironCrossbowWithExplosiveAttachment.shiftedIndex
+//				|| Itemstack.itemID == Items.ironCrossbowWithExplosiveAttachmentAndHeavyMech.shiftedIndex
+//				|| Itemstack.itemID == Items.ironCrossbowWithExplosiveAttachmentAndMediumMech.shiftedIndex
+//				|| Itemstack.itemID == Items.ironCrossbowWithExplosiveAttachmentAndLightMech.shiftedIndex
+//				|| Itemstack.itemID == Items.goldCrossbowWithExplosiveAttachment.shiftedIndex
+//				|| Itemstack.itemID == Items.goldCrossbowWithExplosiveAttachmentAndHeavyMech.shiftedIndex
+//				|| Itemstack.itemID == Items.goldCrossbowWithExplosiveAttachmentAndMediumMech.shiftedIndex
+//				|| Itemstack.itemID == Items.goldCrossbowWithExplosiveAttachmentAndLightMech.shiftedIndex
+//				|| Itemstack.itemID == Items.diamondCrossbowWithExplosiveAttachment.shiftedIndex
+//				|| Itemstack.itemID == Items.diamondCrossbowWithExplosiveAttachmentAndHeavyMech.shiftedIndex
+//				|| Itemstack.itemID == Items.diamondCrossbowWithExplosiveAttachmentAndMediumMech.shiftedIndex
+//				|| Itemstack.itemID == Items.diamondCrossbowWithExplosiveAttachmentAndLightMech.shiftedIndex))
+//		{
+//			return true;
+//		}
+//		else
+//		{
+//			return false;
+//		}
 	}
 	
 	/**
@@ -2358,36 +2575,54 @@ public class Util
 	 * @param Itemstack The item to check
 	 * @return True if the provided Itemstack has a lava attachment
 	 */
-	public static boolean hasLavaAttachment(ItemStack Itemstack)
+	public static boolean hasLavaAttachment(ItemStack stack)
 	{
-		if (Itemstack != null 
-				&& (Itemstack.itemID == Items.woodenCrossbowWithLavaAttachment.shiftedIndex
-				|| Itemstack.itemID == Items.woodenCrossbowWithLavaAttachmentAndHeavyMech.shiftedIndex
-				|| Itemstack.itemID == Items.woodenCrossbowWithLavaAttachmentAndMediumMech.shiftedIndex
-				|| Itemstack.itemID == Items.woodenCrossbowWithLavaAttachmentAndLightMech.shiftedIndex
-				|| Itemstack.itemID == Items.stoneCrossbowWithLavaAttachment.shiftedIndex
-				|| Itemstack.itemID == Items.stoneCrossbowWithLavaAttachmentAndHeavyMech.shiftedIndex
-				|| Itemstack.itemID == Items.stoneCrossbowWithLavaAttachmentAndMediumMech.shiftedIndex
-				|| Itemstack.itemID == Items.stoneCrossbowWithLavaAttachmentAndLightMech.shiftedIndex
-				|| Itemstack.itemID == Items.ironCrossbowWithLavaAttachment.shiftedIndex
-				|| Itemstack.itemID == Items.ironCrossbowWithLavaAttachmentAndHeavyMech.shiftedIndex
-				|| Itemstack.itemID == Items.ironCrossbowWithLavaAttachmentAndMediumMech.shiftedIndex
-				|| Itemstack.itemID == Items.ironCrossbowWithLavaAttachmentAndLightMech.shiftedIndex
-				|| Itemstack.itemID == Items.goldCrossbowWithLavaAttachment.shiftedIndex
-				|| Itemstack.itemID == Items.goldCrossbowWithLavaAttachmentAndHeavyMech.shiftedIndex
-				|| Itemstack.itemID == Items.goldCrossbowWithLavaAttachmentAndMediumMech.shiftedIndex
-				|| Itemstack.itemID == Items.goldCrossbowWithLavaAttachmentAndLightMech.shiftedIndex
-				|| Itemstack.itemID == Items.diamondCrossbowWithLavaAttachment.shiftedIndex
-				|| Itemstack.itemID == Items.diamondCrossbowWithLavaAttachmentAndHeavyMech.shiftedIndex
-				|| Itemstack.itemID == Items.diamondCrossbowWithLavaAttachmentAndMediumMech.shiftedIndex
-				|| Itemstack.itemID == Items.diamondCrossbowWithLavaAttachmentAndLightMech.shiftedIndex))
+		if (stack != null && stack.getTagCompound() != null)
 		{
-			return true;
+			NBTTagCompound comp = stack.getTagCompound();
+			
+			if (comp.getInteger("attachment") == 3)
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
 		}
 		else
 		{
 			return false;
 		}
+		
+//		if (Itemstack != null 
+//				&& (Itemstack.itemID == Items.woodenCrossbowWithLavaAttachment.shiftedIndex
+//				|| Itemstack.itemID == Items.woodenCrossbowWithLavaAttachmentAndHeavyMech.shiftedIndex
+//				|| Itemstack.itemID == Items.woodenCrossbowWithLavaAttachmentAndMediumMech.shiftedIndex
+//				|| Itemstack.itemID == Items.woodenCrossbowWithLavaAttachmentAndLightMech.shiftedIndex
+//				|| Itemstack.itemID == Items.stoneCrossbowWithLavaAttachment.shiftedIndex
+//				|| Itemstack.itemID == Items.stoneCrossbowWithLavaAttachmentAndHeavyMech.shiftedIndex
+//				|| Itemstack.itemID == Items.stoneCrossbowWithLavaAttachmentAndMediumMech.shiftedIndex
+//				|| Itemstack.itemID == Items.stoneCrossbowWithLavaAttachmentAndLightMech.shiftedIndex
+//				|| Itemstack.itemID == Items.ironCrossbowWithLavaAttachment.shiftedIndex
+//				|| Itemstack.itemID == Items.ironCrossbowWithLavaAttachmentAndHeavyMech.shiftedIndex
+//				|| Itemstack.itemID == Items.ironCrossbowWithLavaAttachmentAndMediumMech.shiftedIndex
+//				|| Itemstack.itemID == Items.ironCrossbowWithLavaAttachmentAndLightMech.shiftedIndex
+//				|| Itemstack.itemID == Items.goldCrossbowWithLavaAttachment.shiftedIndex
+//				|| Itemstack.itemID == Items.goldCrossbowWithLavaAttachmentAndHeavyMech.shiftedIndex
+//				|| Itemstack.itemID == Items.goldCrossbowWithLavaAttachmentAndMediumMech.shiftedIndex
+//				|| Itemstack.itemID == Items.goldCrossbowWithLavaAttachmentAndLightMech.shiftedIndex
+//				|| Itemstack.itemID == Items.diamondCrossbowWithLavaAttachment.shiftedIndex
+//				|| Itemstack.itemID == Items.diamondCrossbowWithLavaAttachmentAndHeavyMech.shiftedIndex
+//				|| Itemstack.itemID == Items.diamondCrossbowWithLavaAttachmentAndMediumMech.shiftedIndex
+//				|| Itemstack.itemID == Items.diamondCrossbowWithLavaAttachmentAndLightMech.shiftedIndex))
+//		{
+//			return true;
+//		}
+//		else
+//		{
+//			return false;
+//		}
 	}
 	
 	/**
@@ -2395,36 +2630,54 @@ public class Util
 	 * @param Itemstack The item to check
 	 * @return True if the provided Itemstack has a lava attachment
 	 */
-	public static boolean hasIceAttachment(ItemStack Itemstack)
+	public static boolean hasIceAttachment(ItemStack stack)
 	{
-		if (Itemstack != null 
-				&& (Itemstack.itemID == Items.woodenCrossbowWithIceAttachment.shiftedIndex
-				|| Itemstack.itemID == Items.woodenCrossbowWithIceAttachmentAndHeavyMech.shiftedIndex
-				|| Itemstack.itemID == Items.woodenCrossbowWithIceAttachmentAndMediumMech.shiftedIndex
-				|| Itemstack.itemID == Items.woodenCrossbowWithIceAttachmentAndLightMech.shiftedIndex
-				|| Itemstack.itemID == Items.stoneCrossbowWithIceAttachment.shiftedIndex
-				|| Itemstack.itemID == Items.stoneCrossbowWithIceAttachmentAndHeavyMech.shiftedIndex
-				|| Itemstack.itemID == Items.stoneCrossbowWithIceAttachmentAndMediumMech.shiftedIndex
-				|| Itemstack.itemID == Items.stoneCrossbowWithIceAttachmentAndLightMech.shiftedIndex
-				|| Itemstack.itemID == Items.ironCrossbowWithIceAttachment.shiftedIndex
-				|| Itemstack.itemID == Items.ironCrossbowWithIceAttachmentAndHeavyMech.shiftedIndex
-				|| Itemstack.itemID == Items.ironCrossbowWithIceAttachmentAndMediumMech.shiftedIndex
-				|| Itemstack.itemID == Items.ironCrossbowWithIceAttachmentAndLightMech.shiftedIndex
-				|| Itemstack.itemID == Items.goldCrossbowWithIceAttachment.shiftedIndex
-				|| Itemstack.itemID == Items.goldCrossbowWithIceAttachmentAndHeavyMech.shiftedIndex
-				|| Itemstack.itemID == Items.goldCrossbowWithIceAttachmentAndMediumMech.shiftedIndex
-				|| Itemstack.itemID == Items.goldCrossbowWithIceAttachmentAndLightMech.shiftedIndex
-				|| Itemstack.itemID == Items.diamondCrossbowWithIceAttachment.shiftedIndex
-				|| Itemstack.itemID == Items.diamondCrossbowWithIceAttachmentAndHeavyMech.shiftedIndex
-				|| Itemstack.itemID == Items.diamondCrossbowWithIceAttachmentAndMediumMech.shiftedIndex
-				|| Itemstack.itemID == Items.diamondCrossbowWithIceAttachmentAndLightMech.shiftedIndex))
+		if (stack != null && stack.getTagCompound() != null)
 		{
-			return true;
+			NBTTagCompound comp = stack.getTagCompound();
+			
+			if (comp.getInteger("attachment") == 4)
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
 		}
 		else
 		{
 			return false;
 		}
+		
+//		if (Itemstack != null 
+//				&& (Itemstack.itemID == Items.woodenCrossbowWithIceAttachment.shiftedIndex
+//				|| Itemstack.itemID == Items.woodenCrossbowWithIceAttachmentAndHeavyMech.shiftedIndex
+//				|| Itemstack.itemID == Items.woodenCrossbowWithIceAttachmentAndMediumMech.shiftedIndex
+//				|| Itemstack.itemID == Items.woodenCrossbowWithIceAttachmentAndLightMech.shiftedIndex
+//				|| Itemstack.itemID == Items.stoneCrossbowWithIceAttachment.shiftedIndex
+//				|| Itemstack.itemID == Items.stoneCrossbowWithIceAttachmentAndHeavyMech.shiftedIndex
+//				|| Itemstack.itemID == Items.stoneCrossbowWithIceAttachmentAndMediumMech.shiftedIndex
+//				|| Itemstack.itemID == Items.stoneCrossbowWithIceAttachmentAndLightMech.shiftedIndex
+//				|| Itemstack.itemID == Items.ironCrossbowWithIceAttachment.shiftedIndex
+//				|| Itemstack.itemID == Items.ironCrossbowWithIceAttachmentAndHeavyMech.shiftedIndex
+//				|| Itemstack.itemID == Items.ironCrossbowWithIceAttachmentAndMediumMech.shiftedIndex
+//				|| Itemstack.itemID == Items.ironCrossbowWithIceAttachmentAndLightMech.shiftedIndex
+//				|| Itemstack.itemID == Items.goldCrossbowWithIceAttachment.shiftedIndex
+//				|| Itemstack.itemID == Items.goldCrossbowWithIceAttachmentAndHeavyMech.shiftedIndex
+//				|| Itemstack.itemID == Items.goldCrossbowWithIceAttachmentAndMediumMech.shiftedIndex
+//				|| Itemstack.itemID == Items.goldCrossbowWithIceAttachmentAndLightMech.shiftedIndex
+//				|| Itemstack.itemID == Items.diamondCrossbowWithIceAttachment.shiftedIndex
+//				|| Itemstack.itemID == Items.diamondCrossbowWithIceAttachmentAndHeavyMech.shiftedIndex
+//				|| Itemstack.itemID == Items.diamondCrossbowWithIceAttachmentAndMediumMech.shiftedIndex
+//				|| Itemstack.itemID == Items.diamondCrossbowWithIceAttachmentAndLightMech.shiftedIndex))
+//		{
+//			return true;
+//		}
+//		else
+//		{
+//			return false;
+//		}
 	}
 	
 	/**
@@ -2432,99 +2685,153 @@ public class Util
 	 * @param Itemstack The item to check
 	 * @return True if the provided Itemstack has a lava attachment
 	 */
-	public static boolean hasLightningAttachment(ItemStack Itemstack)
+	public static boolean hasLightningAttachment(ItemStack stack)
 	{
-		if (Itemstack != null 
-				&& (Itemstack.itemID == Items.woodenCrossbowWithLightningAttachment.shiftedIndex
-				|| Itemstack.itemID == Items.woodenCrossbowWithLightningAttachmentAndHeavyMech.shiftedIndex
-				|| Itemstack.itemID == Items.woodenCrossbowWithLightningAttachmentAndMediumMech.shiftedIndex
-				|| Itemstack.itemID == Items.woodenCrossbowWithLightningAttachmentAndLightMech.shiftedIndex
-				|| Itemstack.itemID == Items.stoneCrossbowWithLightningAttachment.shiftedIndex
-				|| Itemstack.itemID == Items.stoneCrossbowWithLightningAttachmentAndHeavyMech.shiftedIndex
-				|| Itemstack.itemID == Items.stoneCrossbowWithLightningAttachmentAndMediumMech.shiftedIndex
-				|| Itemstack.itemID == Items.stoneCrossbowWithLightningAttachmentAndLightMech.shiftedIndex
-				|| Itemstack.itemID == Items.ironCrossbowWithLightningAttachment.shiftedIndex
-				|| Itemstack.itemID == Items.ironCrossbowWithLightningAttachmentAndHeavyMech.shiftedIndex
-				|| Itemstack.itemID == Items.ironCrossbowWithLightningAttachmentAndMediumMech.shiftedIndex
-				|| Itemstack.itemID == Items.ironCrossbowWithLightningAttachmentAndLightMech.shiftedIndex
-				|| Itemstack.itemID == Items.goldCrossbowWithLightningAttachment.shiftedIndex
-				|| Itemstack.itemID == Items.goldCrossbowWithLightningAttachmentAndHeavyMech.shiftedIndex
-				|| Itemstack.itemID == Items.goldCrossbowWithLightningAttachmentAndMediumMech.shiftedIndex
-				|| Itemstack.itemID == Items.goldCrossbowWithLightningAttachmentAndLightMech.shiftedIndex
-				|| Itemstack.itemID == Items.diamondCrossbowWithLightningAttachment.shiftedIndex
-				|| Itemstack.itemID == Items.diamondCrossbowWithLightningAttachmentAndHeavyMech.shiftedIndex
-				|| Itemstack.itemID == Items.diamondCrossbowWithLightningAttachmentAndMediumMech.shiftedIndex
-				|| Itemstack.itemID == Items.diamondCrossbowWithLightningAttachmentAndLightMech.shiftedIndex))
+		if (stack != null && stack.getTagCompound() != null)
 		{
-			return true;
+			NBTTagCompound comp = stack.getTagCompound();
+			
+			if (comp.getInteger("attachment") == 7)
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
 		}
 		else
 		{
 			return false;
 		}
+		
+//		if (Itemstack != null 
+//				&& (Itemstack.itemID == Items.woodenCrossbowWithLightningAttachment.shiftedIndex
+//				|| Itemstack.itemID == Items.woodenCrossbowWithLightningAttachmentAndHeavyMech.shiftedIndex
+//				|| Itemstack.itemID == Items.woodenCrossbowWithLightningAttachmentAndMediumMech.shiftedIndex
+//				|| Itemstack.itemID == Items.woodenCrossbowWithLightningAttachmentAndLightMech.shiftedIndex
+//				|| Itemstack.itemID == Items.stoneCrossbowWithLightningAttachment.shiftedIndex
+//				|| Itemstack.itemID == Items.stoneCrossbowWithLightningAttachmentAndHeavyMech.shiftedIndex
+//				|| Itemstack.itemID == Items.stoneCrossbowWithLightningAttachmentAndMediumMech.shiftedIndex
+//				|| Itemstack.itemID == Items.stoneCrossbowWithLightningAttachmentAndLightMech.shiftedIndex
+//				|| Itemstack.itemID == Items.ironCrossbowWithLightningAttachment.shiftedIndex
+//				|| Itemstack.itemID == Items.ironCrossbowWithLightningAttachmentAndHeavyMech.shiftedIndex
+//				|| Itemstack.itemID == Items.ironCrossbowWithLightningAttachmentAndMediumMech.shiftedIndex
+//				|| Itemstack.itemID == Items.ironCrossbowWithLightningAttachmentAndLightMech.shiftedIndex
+//				|| Itemstack.itemID == Items.goldCrossbowWithLightningAttachment.shiftedIndex
+//				|| Itemstack.itemID == Items.goldCrossbowWithLightningAttachmentAndHeavyMech.shiftedIndex
+//				|| Itemstack.itemID == Items.goldCrossbowWithLightningAttachmentAndMediumMech.shiftedIndex
+//				|| Itemstack.itemID == Items.goldCrossbowWithLightningAttachmentAndLightMech.shiftedIndex
+//				|| Itemstack.itemID == Items.diamondCrossbowWithLightningAttachment.shiftedIndex
+//				|| Itemstack.itemID == Items.diamondCrossbowWithLightningAttachmentAndHeavyMech.shiftedIndex
+//				|| Itemstack.itemID == Items.diamondCrossbowWithLightningAttachmentAndMediumMech.shiftedIndex
+//				|| Itemstack.itemID == Items.diamondCrossbowWithLightningAttachmentAndLightMech.shiftedIndex))
+//		{
+//			return true;
+//		}
+//		else
+//		{
+//			return false;
+//		}
 	}
 	
-	public static boolean hasTorchAttachment(ItemStack Itemstack)
+	public static boolean hasTorchAttachment(ItemStack stack)
 	{
-		if (Itemstack != null 
-				&& (Itemstack.itemID == Items.woodenCrossbowWithTorchAttachment.shiftedIndex
-				|| Itemstack.itemID == Items.woodenCrossbowWithTorchAttachmentAndHeavyMech.shiftedIndex
-				|| Itemstack.itemID == Items.woodenCrossbowWithTorchAttachmentAndMediumMech.shiftedIndex
-				|| Itemstack.itemID == Items.woodenCrossbowWithTorchAttachmentAndLightMech.shiftedIndex
-				|| Itemstack.itemID == Items.stoneCrossbowWithTorchAttachment.shiftedIndex
-				|| Itemstack.itemID == Items.stoneCrossbowWithTorchAttachmentAndHeavyMech.shiftedIndex
-				|| Itemstack.itemID == Items.stoneCrossbowWithTorchAttachmentAndMediumMech.shiftedIndex
-				|| Itemstack.itemID == Items.stoneCrossbowWithTorchAttachmentAndLightMech.shiftedIndex
-				|| Itemstack.itemID == Items.ironCrossbowWithTorchAttachment.shiftedIndex
-				|| Itemstack.itemID == Items.ironCrossbowWithTorchAttachmentAndHeavyMech.shiftedIndex
-				|| Itemstack.itemID == Items.ironCrossbowWithTorchAttachmentAndMediumMech.shiftedIndex
-				|| Itemstack.itemID == Items.ironCrossbowWithTorchAttachmentAndLightMech.shiftedIndex
-				|| Itemstack.itemID == Items.goldCrossbowWithTorchAttachment.shiftedIndex
-				|| Itemstack.itemID == Items.goldCrossbowWithTorchAttachmentAndHeavyMech.shiftedIndex
-				|| Itemstack.itemID == Items.goldCrossbowWithTorchAttachmentAndMediumMech.shiftedIndex
-				|| Itemstack.itemID == Items.goldCrossbowWithTorchAttachmentAndLightMech.shiftedIndex
-				|| Itemstack.itemID == Items.diamondCrossbowWithTorchAttachment.shiftedIndex
-				|| Itemstack.itemID == Items.diamondCrossbowWithTorchAttachmentAndHeavyMech.shiftedIndex
-				|| Itemstack.itemID == Items.diamondCrossbowWithTorchAttachmentAndMediumMech.shiftedIndex
-				|| Itemstack.itemID == Items.diamondCrossbowWithTorchAttachmentAndLightMech.shiftedIndex))
+		if (stack != null && stack.getTagCompound() != null)
 		{
-			return true;
+			NBTTagCompound comp = stack.getTagCompound();
+			
+			if (comp.getInteger("attachment") == 6)
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
 		}
 		else
 		{
 			return false;
 		}
+		
+//		if (Itemstack != null 
+//				&& (Itemstack.itemID == Items.woodenCrossbowWithTorchAttachment.shiftedIndex
+//				|| Itemstack.itemID == Items.woodenCrossbowWithTorchAttachmentAndHeavyMech.shiftedIndex
+//				|| Itemstack.itemID == Items.woodenCrossbowWithTorchAttachmentAndMediumMech.shiftedIndex
+//				|| Itemstack.itemID == Items.woodenCrossbowWithTorchAttachmentAndLightMech.shiftedIndex
+//				|| Itemstack.itemID == Items.stoneCrossbowWithTorchAttachment.shiftedIndex
+//				|| Itemstack.itemID == Items.stoneCrossbowWithTorchAttachmentAndHeavyMech.shiftedIndex
+//				|| Itemstack.itemID == Items.stoneCrossbowWithTorchAttachmentAndMediumMech.shiftedIndex
+//				|| Itemstack.itemID == Items.stoneCrossbowWithTorchAttachmentAndLightMech.shiftedIndex
+//				|| Itemstack.itemID == Items.ironCrossbowWithTorchAttachment.shiftedIndex
+//				|| Itemstack.itemID == Items.ironCrossbowWithTorchAttachmentAndHeavyMech.shiftedIndex
+//				|| Itemstack.itemID == Items.ironCrossbowWithTorchAttachmentAndMediumMech.shiftedIndex
+//				|| Itemstack.itemID == Items.ironCrossbowWithTorchAttachmentAndLightMech.shiftedIndex
+//				|| Itemstack.itemID == Items.goldCrossbowWithTorchAttachment.shiftedIndex
+//				|| Itemstack.itemID == Items.goldCrossbowWithTorchAttachmentAndHeavyMech.shiftedIndex
+//				|| Itemstack.itemID == Items.goldCrossbowWithTorchAttachmentAndMediumMech.shiftedIndex
+//				|| Itemstack.itemID == Items.goldCrossbowWithTorchAttachmentAndLightMech.shiftedIndex
+//				|| Itemstack.itemID == Items.diamondCrossbowWithTorchAttachment.shiftedIndex
+//				|| Itemstack.itemID == Items.diamondCrossbowWithTorchAttachmentAndHeavyMech.shiftedIndex
+//				|| Itemstack.itemID == Items.diamondCrossbowWithTorchAttachmentAndMediumMech.shiftedIndex
+//				|| Itemstack.itemID == Items.diamondCrossbowWithTorchAttachmentAndLightMech.shiftedIndex))
+//		{
+//			return true;
+//		}
+//		else
+//		{
+//			return false;
+//		}
 	}
 	
-	public static boolean hasPoisonAttachment(ItemStack Itemstack)
+	public static boolean hasPoisonAttachment(ItemStack stack)
 	{
-		if (Itemstack != null 
-				&& (Itemstack.itemID == Items.woodenCrossbowWithPoisonAttachment.shiftedIndex
-				|| Itemstack.itemID == Items.woodenCrossbowWithPoisonAttachmentAndHeavyMech.shiftedIndex
-				|| Itemstack.itemID == Items.woodenCrossbowWithPoisonAttachmentAndMediumMech.shiftedIndex
-				|| Itemstack.itemID == Items.woodenCrossbowWithPoisonAttachmentAndLightMech.shiftedIndex
-				|| Itemstack.itemID == Items.stoneCrossbowWithPoisonAttachment.shiftedIndex
-				|| Itemstack.itemID == Items.stoneCrossbowWithPoisonAttachmentAndHeavyMech.shiftedIndex
-				|| Itemstack.itemID == Items.stoneCrossbowWithPoisonAttachmentAndMediumMech.shiftedIndex
-				|| Itemstack.itemID == Items.stoneCrossbowWithPoisonAttachmentAndLightMech.shiftedIndex
-				|| Itemstack.itemID == Items.ironCrossbowWithPoisonAttachment.shiftedIndex
-				|| Itemstack.itemID == Items.ironCrossbowWithPoisonAttachmentAndHeavyMech.shiftedIndex
-				|| Itemstack.itemID == Items.ironCrossbowWithPoisonAttachmentAndMediumMech.shiftedIndex
-				|| Itemstack.itemID == Items.ironCrossbowWithPoisonAttachmentAndLightMech.shiftedIndex
-				|| Itemstack.itemID == Items.goldCrossbowWithPoisonAttachment.shiftedIndex
-				|| Itemstack.itemID == Items.goldCrossbowWithPoisonAttachmentAndHeavyMech.shiftedIndex
-				|| Itemstack.itemID == Items.goldCrossbowWithPoisonAttachmentAndMediumMech.shiftedIndex
-				|| Itemstack.itemID == Items.goldCrossbowWithPoisonAttachmentAndLightMech.shiftedIndex
-				|| Itemstack.itemID == Items.diamondCrossbowWithPoisonAttachment.shiftedIndex
-				|| Itemstack.itemID == Items.diamondCrossbowWithPoisonAttachmentAndHeavyMech.shiftedIndex
-				|| Itemstack.itemID == Items.diamondCrossbowWithPoisonAttachmentAndMediumMech.shiftedIndex
-				|| Itemstack.itemID == Items.diamondCrossbowWithPoisonAttachmentAndLightMech.shiftedIndex))
+		if (stack != null && stack.getTagCompound() != null)
 		{
-			return true;
+			NBTTagCompound comp = stack.getTagCompound();
+			
+			if (comp.getInteger("attachment") == 5)
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
 		}
 		else
 		{
 			return false;
 		}
+		
+//		if (Itemstack != null 
+//				&& (Itemstack.itemID == Items.woodenCrossbowWithPoisonAttachment.shiftedIndex
+//				|| Itemstack.itemID == Items.woodenCrossbowWithPoisonAttachmentAndHeavyMech.shiftedIndex
+//				|| Itemstack.itemID == Items.woodenCrossbowWithPoisonAttachmentAndMediumMech.shiftedIndex
+//				|| Itemstack.itemID == Items.woodenCrossbowWithPoisonAttachmentAndLightMech.shiftedIndex
+//				|| Itemstack.itemID == Items.stoneCrossbowWithPoisonAttachment.shiftedIndex
+//				|| Itemstack.itemID == Items.stoneCrossbowWithPoisonAttachmentAndHeavyMech.shiftedIndex
+//				|| Itemstack.itemID == Items.stoneCrossbowWithPoisonAttachmentAndMediumMech.shiftedIndex
+//				|| Itemstack.itemID == Items.stoneCrossbowWithPoisonAttachmentAndLightMech.shiftedIndex
+//				|| Itemstack.itemID == Items.ironCrossbowWithPoisonAttachment.shiftedIndex
+//				|| Itemstack.itemID == Items.ironCrossbowWithPoisonAttachmentAndHeavyMech.shiftedIndex
+//				|| Itemstack.itemID == Items.ironCrossbowWithPoisonAttachmentAndMediumMech.shiftedIndex
+//				|| Itemstack.itemID == Items.ironCrossbowWithPoisonAttachmentAndLightMech.shiftedIndex
+//				|| Itemstack.itemID == Items.goldCrossbowWithPoisonAttachment.shiftedIndex
+//				|| Itemstack.itemID == Items.goldCrossbowWithPoisonAttachmentAndHeavyMech.shiftedIndex
+//				|| Itemstack.itemID == Items.goldCrossbowWithPoisonAttachmentAndMediumMech.shiftedIndex
+//				|| Itemstack.itemID == Items.goldCrossbowWithPoisonAttachmentAndLightMech.shiftedIndex
+//				|| Itemstack.itemID == Items.diamondCrossbowWithPoisonAttachment.shiftedIndex
+//				|| Itemstack.itemID == Items.diamondCrossbowWithPoisonAttachmentAndHeavyMech.shiftedIndex
+//				|| Itemstack.itemID == Items.diamondCrossbowWithPoisonAttachmentAndMediumMech.shiftedIndex
+//				|| Itemstack.itemID == Items.diamondCrossbowWithPoisonAttachmentAndLightMech.shiftedIndex))
+//		{
+//			return true;
+//		}
+//		else
+//		{
+//			return false;
+//		}
 	}
 }

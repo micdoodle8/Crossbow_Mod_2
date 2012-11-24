@@ -17,6 +17,7 @@ import org.lwjgl.input.Keyboard;
 import org.lwjgl.input.Mouse;
 
 import cpw.mods.fml.client.FMLClientHandler;
+import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.Side;
 import cpw.mods.fml.common.asm.SideOnly;
 import cpw.mods.fml.common.network.PacketDispatcher;
@@ -234,6 +235,8 @@ public abstract class ItemCrossbow extends Item
     @Override
     public void addInformation(ItemStack stack, EntityPlayer player, List var2, boolean b)
     {
+//    	stack.getItem().setIconIndex(getUpdatedCrossbowIndex(stack));
+    	
     	if (stack.getTagCompound() != null)
     	{
         	NBTTagCompound comp = stack.getTagCompound();
@@ -362,17 +365,7 @@ public abstract class ItemCrossbow extends Item
     	return getSpriteSheetLoc();
     }
     
-    @Override
-    public void getSubItems(int par1, CreativeTabs par2CreativeTabs, List par3List)
-    {
-    	if (par1 == 11003)
-    	{
-            par3List.add(setAttachmentAndMaterial(new ItemStack(par1, 1, 0), EnumAttachmentType.longscope, EnumCrossbowMaterial.wooden, EnumCrossbowFireRate.heavy));
-            par3List.add(setAttachmentAndMaterial(new ItemStack(par1, 1, 0), EnumAttachmentType.shortscope, EnumCrossbowMaterial.wooden, EnumCrossbowFireRate.none));
-    	}
-    }
-    
-    public ItemStack setAttachmentAndMaterial(ItemStack stack, EnumAttachmentType type, EnumCrossbowMaterial material, EnumCrossbowFireRate fireRate)
+    public static ItemStack setAttachmentAndMaterial(ItemStack stack, EnumAttachmentType type, EnumCrossbowMaterial material, EnumCrossbowFireRate fireRate)
     {
         if (stack.stackTagCompound == null)
         {
@@ -389,6 +382,147 @@ public abstract class ItemCrossbow extends Item
         return stack;
     }
     
+    public int getUpdatedCrossbowIndex(ItemStack stack)
+    {
+    	if (stack.getTagCompound() != null)
+    	{
+        	NBTTagCompound comp = stack.getTagCompound();
+        	switch (comp.getInteger("material"))
+        	{
+//        	case 0:
+//        	case 1:
+//        	case 2:
+//        	case 3:
+//        	case 4:
+        	default:
+        		switch (comp.getInteger("attachment"))
+        		{
+        		case 0:
+        			switch (comp.getInteger("firerate"))
+        			{
+        			case 0:
+        				return 0;
+        			case 1:
+        				return 9;
+        			case 2:
+        				return 10;
+        			case 3:
+        				return 11;
+        			}
+        		case 1:
+        			switch (comp.getInteger("firerate"))
+        			{
+        			case 0:
+        				return 2;
+        			case 1:
+        				return 4;
+        			case 2:
+        				return 6;
+        			case 3:
+        				return 8;
+        			}
+        		case 2:
+        			switch (comp.getInteger("firerate"))
+        			{
+        			case 0:
+        				return 1;
+        			case 1:
+        				return 3;
+        			case 2:
+        				return 4;
+        			case 3:
+        				return 7;
+        			}
+        		case 3:
+        			switch (comp.getInteger("firerate"))
+        			{
+        			case 0:
+        				return 52;
+        			case 1:
+        				return 53;
+        			case 2:
+        				return 54;
+        			case 3:
+        				return 55;
+        			}
+        		case 4:
+        			switch (comp.getInteger("firerate"))
+        			{
+        			case 0:
+        				return 56;
+        			case 1:
+        				return 57;
+        			case 2:
+        				return 58;
+        			case 3:
+        				return 59;
+        			}
+        		case 5:
+        			switch (comp.getInteger("firerate"))
+        			{
+        			case 0:
+        				return 100;
+        			case 1:
+        				return 101;
+        			case 2:
+        				return 102;
+        			case 3:
+        				return 103;
+        			}
+        		case 6:
+        			switch (comp.getInteger("firerate"))
+        			{
+        			case 0:
+        				return 96;
+        			case 1:
+        				return 97;
+        			case 2:
+        				return 98;
+        			case 3:
+        				return 99;
+        			}
+        		case 7:
+        			switch (comp.getInteger("firerate"))
+        			{
+        			case 0:
+        				return 60;
+        			case 1:
+        				return 61;
+        			case 2:
+        				return 62;
+        			case 3:
+        				return 63;
+        			}
+        		case 8:
+        			switch (comp.getInteger("firerate"))
+        			{
+        			case 0:
+    					return 12;
+        			case 1:
+    					return 13;
+        			case 2:
+    					return 14;
+        			case 3:
+    					return 15;
+        			}
+        		case 9:
+        			switch (comp.getInteger("firerate"))
+        			{
+        			case 0:
+    					return 48;
+        			case 1:
+    					return 49;
+        			case 2:
+    					return 50;
+        			case 3:
+    					return 51;
+        			}
+        		}
+        	}
+    	}
+    	
+    	return 0;
+    }
 
 //	if (stack.getTagCompound() != null)
 //	{
@@ -467,82 +601,6 @@ public abstract class ItemCrossbow extends Item
     @SideOnly(Side.CLIENT)
     public int getIconIndex(ItemStack stack, int renderPass, EntityPlayer player, ItemStack usingItem, int useRemaining)
     {
-    	if (stack.getTagCompound() != null)
-    	{
-        	NBTTagCompound comp = stack.getTagCompound();
-        	switch (comp.getInteger("material"))
-        	{
-        	case 0:
-        		switch (comp.getInteger("attachment"))
-        		{
-        		case 0:
-        			return 0;
-        		case 1:
-        			return 2;
-        		case 2:
-        			return 1;
-        		case 3:
-        		case 4:
-        		case 5:
-        		case 6:
-        		case 7:
-        		case 8:
-        		}
-        	case 1:
-        		switch (comp.getInteger("attachment"))
-        		{
-        		case 0:
-        		case 1:
-        		case 2:
-        		case 3:
-        		case 4:
-        		case 5:
-        		case 6:
-        		case 7:
-        		case 8:
-        		}
-        	case 2:
-        		switch (comp.getInteger("attachment"))
-        		{
-        		case 0:
-        		case 1:
-        		case 2:
-        		case 3:
-        		case 4:
-        		case 5:
-        		case 6:
-        		case 7:
-        		case 8:
-        		}
-        	case 3:
-        		switch (comp.getInteger("attachment"))
-        		{
-        		case 0:
-        		case 1:
-        		case 2:
-        		case 3:
-        		case 4:
-        		case 5:
-        		case 6:
-        		case 7:
-        		case 8:
-        		}
-        	case 4:
-        		switch (comp.getInteger("attachment"))
-        		{
-        		case 0:
-        		case 1:
-        		case 2:
-        		case 3:
-        		case 4:
-        		case 5:
-        		case 6:
-        		case 7:
-        		case 8:
-        		}
-        	}
-    	}
-    	
     	if (!(ModLoader.getMinecraftInstance().currentScreen != null && ModLoader.getMinecraftInstance().currentScreen.allowUserInput) && (Mouse.getEventDWheel() != 0 || (Keyboard.isKeyDown(Keyboard.KEY_0) || Keyboard.isKeyDown(Keyboard.KEY_1) || Keyboard.isKeyDown(Keyboard.KEY_2) || Keyboard.isKeyDown(Keyboard.KEY_3) || Keyboard.isKeyDown(Keyboard.KEY_4) || Keyboard.isKeyDown(Keyboard.KEY_5) || Keyboard.isKeyDown(Keyboard.KEY_6) || Keyboard.isKeyDown(Keyboard.KEY_7) || Keyboard.isKeyDown(Keyboard.KEY_8) || Keyboard.isKeyDown(Keyboard.KEY_9))))
 		{
         	return this.iconIndex;
@@ -560,5 +618,17 @@ public abstract class ItemCrossbow extends Item
         	return this.iconIndex + 32;
         }
         else return 0;
+    }
+    
+    @SideOnly(Side.CLIENT)
+    public boolean requiresMultipleRenderPasses()
+    {
+        return true;
+    }
+
+    @Override
+    public int getIconFromItemStackForMultiplePasses(ItemStack stack, int pass)
+    {
+    	return getUpdatedCrossbowIndex(stack);
     }
 }
