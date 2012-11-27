@@ -204,7 +204,7 @@ public abstract class ItemCrossbow extends Item
 		            {
 		            	ItemStack stack = player.inventory.getStackInSlot(j);
 		            	
-		            	if (stack.getItem().shiftedIndex == Items.attachmentLimbBolt.shiftedIndex && stack.getItemDamage() == this.requiredMetadata(player))
+		            	if (stack != null && stack.getItem().shiftedIndex == Items.attachmentLimbBolt.shiftedIndex && stack.getItemDamage() == this.requiredMetadata(player))
 		            	{
 		            		stack.stackSize--;
 		            		break;

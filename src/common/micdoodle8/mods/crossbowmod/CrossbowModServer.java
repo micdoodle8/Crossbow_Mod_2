@@ -121,7 +121,7 @@ public class CrossbowModServer
         {
         	ItemStack stack = entityplayer.inventory.getStackInSlot(j);
         	
-        	if (stack.getItem().shiftedIndex == Items.attachmentLimbBolt.shiftedIndex && stack.getItemDamage() == crossbow.requiredMetadata(entityplayer))
+        	if (stack != null && stack.getItem().shiftedIndex == Items.attachmentLimbBolt.shiftedIndex && stack.getItemDamage() == crossbow.requiredMetadata(entityplayer))
         	{
         		stack.stackSize--;
         		break;
