@@ -159,13 +159,13 @@ public class Util
     
 	public static void addRecipes() 
 	{
-		GameRegistry.addRecipe(new ItemStack(Items.attachmentLimbBolt, 3, 4), new Object[] {
+		GameRegistry.addRecipe(new ItemStack(Items.attachmentLimbBolt, 3, 5), new Object[] {
 			"XY", 
 			"XY",
 			"XY",
 			Character.valueOf('X'), Item.stick, Character.valueOf('Y'), Block.planks
 		});
-		GameRegistry.addRecipe(new ItemStack(Items.attachmentLimbBolt, 3, 5), new Object[] {
+		GameRegistry.addRecipe(new ItemStack(Items.attachmentLimbBolt, 3, 6), new Object[] {
 			"XY", 
 			"XY",
 			"XY",
