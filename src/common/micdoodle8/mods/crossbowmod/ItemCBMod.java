@@ -38,7 +38,7 @@ public class ItemCBMod extends Item
     public ItemCBMod(int i) 
     {
 		super(i);
-        this.setCreativeTab(CreativeTabs.tabCombat);
+        this.setCreativeTab(CrossbowModCore.crossbowTab);
         this.setMaxDamage(0);
         this.setHasSubtypes(true);
 	}

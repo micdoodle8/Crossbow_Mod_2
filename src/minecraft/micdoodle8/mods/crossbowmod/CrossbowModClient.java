@@ -29,6 +29,7 @@ import cpw.mods.fml.client.registry.RenderingRegistry;
 import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import cpw.mods.fml.common.registry.LanguageRegistry;
 
 public class CrossbowModClient 
 {
@@ -38,7 +39,7 @@ public class CrossbowModClient
     
     public static int shootTime = 0;
     
-    public static boolean checkVersion = true;
+    public static boolean checkVersion;
     
     public static boolean badConfig = false;
     
@@ -51,6 +52,14 @@ public class CrossbowModClient
 	
 	public static void init(FMLInitializationEvent event)
 	{
+		LanguageRegistry.instance().addStringLocalization(CrossbowModCore.createBench.getName(), "First Step");
+		LanguageRegistry.instance().addStringLocalization(CrossbowModCore.createBench.getName() + ".desc", "Create a Crossbow Bench");
+		LanguageRegistry.instance().addStringLocalization(CrossbowModCore.createCrossbow.getName(), "Well-Prepared!");
+		LanguageRegistry.instance().addStringLocalization(CrossbowModCore.createCrossbow.getName() + ".desc", "Create any crossbow on a Crossbow Crafting Bench");
+		LanguageRegistry.instance().addStringLocalization(CrossbowModCore.sniper.getName(), "Sniper King");
+		LanguageRegistry.instance().addStringLocalization(CrossbowModCore.sniper.getName() + ".desc", "Kill a chicken with any crossbow bolt from more than 75 meters away using a long range scope");
+	
+		checkVersion = ConfigManager.shouldCheckVersion;
 	}
 	
 	public static void onRenderTick()
@@ -181,6 +190,7 @@ public class CrossbowModClient
 		}
 		else
 		{
+			zoom(-1D);
 			try 
 			{
 		        ModLoader.setPrivateValue(EntityRenderer.class, ModLoader.getMinecraftInstance().entityRenderer, 34, 1);
@@ -255,7 +265,7 @@ public class CrossbowModClient
     }
     
     public static int remoteVer;
-    public static int localVer = 44;
+    public static int localVer = 49;
     
     private static void checkVersion()
     {
@@ -356,7 +366,7 @@ public class CrossbowModClient
 		{
 			try 
 			{
-		        ModLoader.setPrivateValue(EntityRenderer.class, ModLoader.getMinecraftInstance().entityRenderer, 34, getZoom() + d);
+		        ModLoader.setPrivateValue(EntityRenderer.class, ModLoader.getMinecraftInstance().entityRenderer, 36, getZoom() + d);
 			} 
 			catch (Exception ex) 
 			{
@@ -367,7 +377,7 @@ public class CrossbowModClient
 		{
 			try 
 			{
-		        ModLoader.setPrivateValue(EntityRenderer.class, ModLoader.getMinecraftInstance().entityRenderer, 34, getZoom() + d);
+		        ModLoader.setPrivateValue(EntityRenderer.class, ModLoader.getMinecraftInstance().entityRenderer, 36, getZoom() + d);
 			} 
 			catch (Exception ex) 
 			{
@@ -378,7 +388,7 @@ public class CrossbowModClient
 		{
 			try 
 			{
-		        ModLoader.setPrivateValue(EntityRenderer.class, ModLoader.getMinecraftInstance().entityRenderer, 34, getZoom() + d);
+		        ModLoader.setPrivateValue(EntityRenderer.class, ModLoader.getMinecraftInstance().entityRenderer, 36, getZoom() + d);
 			} 
 			catch (Exception ex) 
 			{
@@ -387,7 +397,7 @@ public class CrossbowModClient
 		}
 		if (getZoom() < 1)
 		{
-	        ModLoader.setPrivateValue(EntityRenderer.class, ModLoader.getMinecraftInstance().entityRenderer, 34, 1);
+	        ModLoader.setPrivateValue(EntityRenderer.class, ModLoader.getMinecraftInstance().entityRenderer, 36, 1);
 		}
 	}
 
@@ -397,7 +407,7 @@ public class CrossbowModClient
 		
 		try 
 		{
-			zoom = (Double) ModLoader.getPrivateValue(EntityRenderer.class, ModLoader.getMinecraftInstance().entityRenderer, 34);
+			zoom = (Double) ModLoader.getPrivateValue(EntityRenderer.class, ModLoader.getMinecraftInstance().entityRenderer, 36);
 		} 
 		catch (Exception ex) 
 		{

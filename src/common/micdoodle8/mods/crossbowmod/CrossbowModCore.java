@@ -69,8 +69,6 @@ public class CrossbowModCore
 	@Init
 	public void load(FMLInitializationEvent event)
 	{
-		proxy.load(event);
-		
 		new Items();
 		
 		EntityRegistry.registerModEntity(EntityWoodBolt.class, "CB_WoodBolt", ConfigManager.idEntityWoodCrossbow, this, 64, 4, true);
@@ -94,14 +92,10 @@ public class CrossbowModCore
 		createCrossbow = new Achievement(492, "CreateCrossbow", 0, 2, Items.woodenCrossbowBase, createBench).registerAchievement();
 		ItemStack stack = ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.diamondCrossbowBase), EnumAttachmentType.longscope, EnumCrossbowMaterial.diamond, EnumCrossbowFireRate.none);
 		sniper = new Achievement(493, "Sniper", 2, 3, stack, createCrossbow).setSpecial().registerAchievement();
-		LanguageRegistry.instance().addStringLocalization(createBench.getName(), "First Step");
-		LanguageRegistry.instance().addStringLocalization(createBench.getName() + ".desc", "Create a Crossbow Bench");
-		LanguageRegistry.instance().addStringLocalization(createCrossbow.getName(), "Well-Prepared!");
-		LanguageRegistry.instance().addStringLocalization(createCrossbow.getName() + ".desc", "Create any crossbow on a Crossbow Crafting Bench");
-		LanguageRegistry.instance().addStringLocalization(sniper.getName(), "Sniper King");
-		LanguageRegistry.instance().addStringLocalization(sniper.getName() + ".desc", "Kill a chicken with any crossbow bolt from more than 75 meters away using a long range scope");
-		AchievementPage.registerAchievementPage(new AchievementPage("Crossbow Mod", createBench, createCrossbow, sniper));
 		
+		AchievementPage.registerAchievementPage(new AchievementPage("Crossbow Mod", createBench, createCrossbow, sniper));
+
+		proxy.load(event);
 		
 		proxy.registerRenderInformation();
 	}

@@ -302,7 +302,7 @@ public class Util
 			"NZZ",
 			"ZSZ",
 			"ZZN",
-			Character.valueOf('N'), Block.netherStalk, Character.valueOf('Z'), Item.ingotIron, Character.valueOf('S'), Item.spiderEye
+			Character.valueOf('N'), Item.netherStalkSeeds, Character.valueOf('Z'), Item.ingotIron, Character.valueOf('S'), Item.spiderEye
 		});
 	}
 	

@@ -21,6 +21,8 @@ public class ConfigManager
 		}
 	}
 	
+	public static boolean shouldCheckVersion;
+	
 	public static int idItemWoodCrossbow;
 	public static int idItemStoneCrossbow;
 	public static int idItemIronCrossbow;
@@ -58,6 +60,8 @@ public class ConfigManager
 	        idEntityIronCrossbow = 									configuration.get(Configuration.CATEGORY_ITEM,	 				"IronBoltEntityID", 								195).getInt(195);
 	        idEntityGoldCrossbow = 									configuration.get(Configuration.CATEGORY_ITEM,	 				"GoldBoltEntityID", 								196).getInt(196);
 	        idEntityDiamondCrossbow = 								configuration.get(Configuration.CATEGORY_ITEM,	 				"DiamondBoltEntityID", 								197).getInt(197);
+		
+	        shouldCheckVersion = 									configuration.get(Configuration.CATEGORY_GENERAL,               "ShouldCheckVersion",                               true).getBoolean(true);
 		}
 		catch (Exception e)
 		{
