@@ -1,12 +1,12 @@
 package micdoodle8.mods.crossbowmod;
 
 import net.minecraft.client.Minecraft;
-import net.minecraft.src.EntityLiving;
-import net.minecraft.src.EntityPlayer;
-import net.minecraft.src.ItemStack;
+import net.minecraft.client.renderer.RenderBlocks;
+import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemStack;
 import net.minecraft.src.ModLoader;
-import net.minecraft.src.RenderBlocks;
-import net.minecraft.src.Tessellator;
 import net.minecraftforge.client.IItemRenderer;
 import net.minecraftforge.client.MinecraftForgeClient;
 

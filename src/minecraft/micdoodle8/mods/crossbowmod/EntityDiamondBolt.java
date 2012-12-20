@@ -1,21 +1,21 @@
 package micdoodle8.mods.crossbowmod;
 
-import net.minecraft.src.EntityLiving;
-import net.minecraft.src.World;
+import net.minecraft.entity.EntityLiving;
+import net.minecraft.world.World;
 
-public class EntityWoodBolt extends EntityBolt
+public class EntityDiamondBolt extends EntityBolt
 {
-    public EntityWoodBolt(World world)
+    public EntityDiamondBolt(World world)
     {
         super(world);
     }
     
-    public EntityWoodBolt(World world, double d, double d1, double d2)
+    public EntityDiamondBolt(World world, double d, double d1, double d2)
     {
         super(world, d, d1, d2);
     }
     
-    public EntityWoodBolt(World world, EntityLiving entityliving, Float f)
+    public EntityDiamondBolt(World world, EntityLiving entityliving, Float f)
     {
         super(world, entityliving, f);
     }
@@ -29,12 +29,12 @@ public class EntityWoodBolt extends EntityBolt
     @Override
     public float getSpeed()
     {
-    	return 1.0F;
+    	return 4F;
     }
 
     @Override
     public int getDamage()
     {
-    	return 3;
+    	return 10;
     }
 }

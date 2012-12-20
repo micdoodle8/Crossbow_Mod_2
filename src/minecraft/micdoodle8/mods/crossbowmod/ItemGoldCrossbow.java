@@ -2,12 +2,11 @@ package micdoodle8.mods.crossbowmod;
 
 import java.util.List;
 
-import net.minecraft.src.CreativeTabs;
-import net.minecraft.src.EntityLiving;
-import net.minecraft.src.EntityPlayer;
-import net.minecraft.src.Item;
-import net.minecraft.src.ItemStack;
-import net.minecraft.src.World;
+import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemStack;
+import net.minecraft.world.World;
 
 public class ItemGoldCrossbow extends ItemCrossbow
 {

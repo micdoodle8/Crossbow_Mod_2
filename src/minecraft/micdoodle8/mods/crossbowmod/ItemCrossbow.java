@@ -2,25 +2,23 @@ package micdoodle8.mods.crossbowmod;
 
 import java.util.List;
 
-import net.minecraft.src.CreativeTabs;
-import net.minecraft.src.Entity;
-import net.minecraft.src.EntityLiving;
-import net.minecraft.src.EntityPlayer;
-import net.minecraft.src.EnumRarity;
-import net.minecraft.src.Item;
-import net.minecraft.src.ItemStack;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.EnumRarity;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.src.ModLoader;
-import net.minecraft.src.NBTTagCompound;
-import net.minecraft.src.World;
+import net.minecraft.world.World;
 
 import org.lwjgl.input.Keyboard;
 import org.lwjgl.input.Mouse;
 
 import cpw.mods.fml.client.FMLClientHandler;
-import cpw.mods.fml.common.FMLLog;
-import cpw.mods.fml.common.Side;
-import cpw.mods.fml.common.asm.SideOnly;
 import cpw.mods.fml.common.network.PacketDispatcher;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 public abstract class ItemCrossbow extends Item
 {
@@ -635,7 +633,7 @@ public abstract class ItemCrossbow extends Item
     }
 
     @Override
-    public int getIconFromItemStackForMultiplePasses(ItemStack stack, int pass)
+    public int getIconIndex(ItemStack stack, int pass)
     {
     	return getUpdatedCrossbowIndex(stack);
     }

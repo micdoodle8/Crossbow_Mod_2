@@ -5,8 +5,7 @@ import java.io.InputStreamReader;
 import java.security.InvalidParameterException;
 import java.util.Properties;
 
-import net.minecraft.src.StringTranslate;
-import cpw.mods.fml.common.FMLLog;
+import net.minecraft.util.StringTranslate;
 
 /**
 * Simple mod localization class.
@@ -57,9 +56,9 @@ public class CrossbowModLocalization {
         defaultMappings.clear();
         mappings.clear();
         try {
-            BufferedReader langStream = new BufferedReader(new InputStreamReader((net.minecraft.src.Enchantment.class).getResourceAsStream(
+            BufferedReader langStream = new BufferedReader(new InputStreamReader((net.minecraft.enchantment.Enchantment.class).getResourceAsStream(
                             "/" + modName + "/lang/" + newLanguage + ".properties"), "UTF-8"));
-            BufferedReader defaultLangStream = new BufferedReader(new InputStreamReader((net.minecraft.src.Enchantment.class).getResourceAsStream(
+            BufferedReader defaultLangStream = new BufferedReader(new InputStreamReader((net.minecraft.enchantment.Enchantment.class).getResourceAsStream(
                             "/" + modName + "/lang/" + DEFAULT_LANGUAGE + ".properties"), "UTF-8"));
             loadMappings((langStream == null) ? defaultLangStream : langStream, mappings);
             loadMappings(defaultLangStream, defaultMappings);

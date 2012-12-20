@@ -1,8 +1,7 @@
 package micdoodle8.mods.crossbowmod;
 
-import net.minecraft.src.Block;
-import net.minecraft.src.Item;
-import net.minecraft.src.ItemSkull;
+import net.minecraft.block.Block;
+import net.minecraft.item.Item;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 
 public class Items 

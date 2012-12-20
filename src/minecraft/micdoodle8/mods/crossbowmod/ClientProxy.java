@@ -3,22 +3,15 @@ package micdoodle8.mods.crossbowmod;
 import java.util.EnumSet;
 
 import net.minecraft.client.Minecraft;
-import net.minecraft.src.EntityPlayer;
-import net.minecraft.src.GuiScreen;
-import net.minecraft.src.ItemStack;
-import net.minecraft.src.World;
-import net.minecraftforge.client.event.sound.SoundLoadEvent;
-import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.ForgeSubscribe;
+import net.minecraft.client.gui.GuiScreen;
 import cpw.mods.fml.client.FMLClientHandler;
-import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.IScheduledTickHandler;
 import cpw.mods.fml.common.ITickHandler;
-import cpw.mods.fml.common.Side;
 import cpw.mods.fml.common.TickType;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.registry.TickRegistry;
+import cpw.mods.fml.relauncher.Side;
 
 public class ClientProxy extends CommonProxy
 {

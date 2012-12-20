@@ -2,7 +2,6 @@ package micdoodle8.mods.crossbowmod;
 
 import net.minecraftforge.client.event.sound.SoundLoadEvent;
 import net.minecraftforge.event.ForgeSubscribe;
-import cpw.mods.fml.common.FMLLog;
 
 public class ClientEvents 
 {
