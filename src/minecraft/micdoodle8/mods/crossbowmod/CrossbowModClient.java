@@ -31,25 +31,25 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 
-public class CrossbowModClient 
+public class CrossbowModClient
 {
 	private Minecraft mcinstance = ModLoader.getMinecraftInstance();
 
     private static DecimalFormat oneDigit = new DecimalFormat("#,##0.0");
-    
+
     public static int shootTime = 0;
-    
+
     public static boolean checkVersion;
-    
+
     public static boolean badConfig = false;
-    
+
     public static boolean checkedConfig = false;
-	
+
 	public static void preInit(FMLPreInitializationEvent event)
 	{
 		MinecraftForge.EVENT_BUS.register(new CrossbowEvents());
 	}
-	
+
 	public static void init(FMLInitializationEvent event)
 	{
 		LanguageRegistry.instance().addStringLocalization(CrossbowModCore.createBench.getName(), "First Step");
@@ -58,10 +58,10 @@ public class CrossbowModClient
 		LanguageRegistry.instance().addStringLocalization(CrossbowModCore.createCrossbow.getName() + ".desc", "Create any crossbow on a Crossbow Crafting Bench");
 		LanguageRegistry.instance().addStringLocalization(CrossbowModCore.sniper.getName(), "Sniper King");
 		LanguageRegistry.instance().addStringLocalization(CrossbowModCore.sniper.getName() + ".desc", "Kill a chicken with any crossbow bolt from more than 75 meters away using a long range scope");
-	
+
 		checkVersion = ConfigManager.shouldCheckVersion;
 	}
-	
+
 	public static void onRenderTick()
 	{
 		Minecraft mc = ModLoader.getMinecraftInstance();
@@ -70,7 +70,7 @@ public class CrossbowModClient
 		{
 			return;
 		}
-		
+
 		if (mc.thePlayer.isUsingItem() && Util.hasLongRangeScope(mc.thePlayer.getCurrentEquippedItem()) && mc.gameSettings.thirdPersonView == 0 && !mc.renderViewEntity.isPlayerSleeping())
 		{
 			mc.gameSettings.hideGUI = true;
@@ -191,11 +191,11 @@ public class CrossbowModClient
 		else
 		{
 			zoom(-1D);
-			try 
+			try
 			{
 		        ModLoader.setPrivateValue(EntityRenderer.class, ModLoader.getMinecraftInstance().entityRenderer, 34, 1);
-			} 
-			catch (Exception ex) 
+			}
+			catch (Exception ex)
 			{
 		        ex.printStackTrace();
 			}
@@ -203,7 +203,7 @@ public class CrossbowModClient
 			mc.gameSettings.noclip = false;
 		}
 	}
-	
+
 	public static void onTickInGUI(GuiScreen guiscreen)
     {
 
@@ -219,29 +219,29 @@ public class CrossbowModClient
     		}
     		checkedConfig = true;
     	}
-    	
+
     	if (badConfig)
     	{
     		resetConfig();
     		badConfig = false;
     	}
-    	
+
     	if (!badConfig && checkVersion)
     	{
     		checkVersion();
     		checkVersion = false;
     	}
-    	
+
 		if (shootTime > 0)
 		{
 			shootTime--;
 		}
     }
-    
+
     private static void resetConfig()
     {
     	File file = new File(Minecraft.getMinecraftDir() + "/config/CrossbowMod2.cfg");
-    	
+
     	if (file.exists())
     	{
     		try
@@ -263,13 +263,13 @@ public class CrossbowModClient
     		FMLClientHandler.instance().getClient().thePlayer.addChatMessage("%appdata%/.minecraft/config/CrossbowMod2.cfg");
     	}
     }
-    
+
     public static int remoteVer;
-    public static int localVer = 49;
-    
+    public static int localVer = 51;
+
     private static void checkVersion()
     {
-    	try 
+    	try
     	{
     		URL url = new URL("http://micdoodle8.com/version.html");
 
@@ -278,10 +278,10 @@ public class CrossbowModClient
     		Pattern pat2 = Pattern.compile("Desc=\\S+");
     		Matcher matcher;
     		String str;
-    		
-    		while ((str = in.readLine()) != null) 
+
+    		while ((str = in.readLine()) != null)
     		{
-	    		if (str.contains("Version")) 
+	    		if (str.contains("Version"))
 	    		{
 		    		matcher = pat.matcher(str);
 		    		if (matcher.find())
@@ -294,15 +294,15 @@ public class CrossbowModClient
 		    			FMLClientHandler.instance().getClient().thePlayer.addChatMessage("\u00a77New \u00a73Crossbow Mod 2 \u00a77version available! v" + String.valueOf(remoteVer).substring(String.valueOf(remoteVer).length() - 1) + " \u00a71http://bit.ly/U0WYXP");
 		    		}
 	    		}
-	    		
+
 	    		if (str.contains("Desc="))
 	    		{
 		    		if (remoteVer > localVer)
 		    		{
 		    			str = str.replace("Desc=", "");
-		    			
+
 		    			String[] strs = str.split("#");
-		    			
+
 		    			for (String string : strs)
 		    			{
 			    			FMLClientHandler.instance().getClient().thePlayer.addChatMessage("\u00a78 - " + string);
@@ -310,14 +310,14 @@ public class CrossbowModClient
 		    		}
 	    		}
     		}
-    	} 
-    	catch (MalformedURLException e) 
+    	}
+    	catch (MalformedURLException e)
     	{
     		e.printStackTrace();
     		FMLClientHandler.instance().getClient().thePlayer.addChatMessage("[Crossbow Mod] Update Check Failed!");
     		FMLLog.info("Crossbow Mod Update Check Failure - MalformedURLException");
-    	} 
-    	catch (IOException e) 
+    	}
+    	catch (IOException e)
     	{
     		e.printStackTrace();
     		FMLClientHandler.instance().getClient().thePlayer.addChatMessage("[Crossbow Mod] Update Check Failed!");
@@ -338,18 +338,18 @@ public class CrossbowModClient
 		RenderingRegistry.registerEntityRenderingHandler(EntityIronBolt.class, new RenderIronBolt());
 		RenderingRegistry.registerEntityRenderingHandler(EntityGoldBolt.class, new RenderGoldBolt());
 		RenderingRegistry.registerEntityRenderingHandler(EntityDiamondBolt.class, new RenderDiamondBolt());
-		
+
 		IItemRenderer itemRenderer = new ItemRendererCrossbowMod();
-		
+
 		int i;
-		
+
 		for (i = 0; i < CrossbowModCore.crossbowsList.size(); i++)
 		{
 			ItemCrossbow crossbow = (ItemCrossbow) CrossbowModCore.crossbowsList.get(i);
-			
+
 			MinecraftForgeClient.registerItemRenderer(crossbow.shiftedIndex, itemRenderer);
 		}
-		
+
 		MinecraftForgeClient.preloadTexture("/Mic'sMods/CrossbowMod/gui/wood.png");
 		MinecraftForgeClient.preloadTexture("/Mic'sMods/CrossbowMod/gui/stone.png");
 		MinecraftForgeClient.preloadTexture("/Mic'sMods/CrossbowMod/gui/iron.png");
@@ -357,40 +357,40 @@ public class CrossbowModClient
 		MinecraftForgeClient.preloadTexture("/Mic'sMods/CrossbowMod/gui/diamond.png");
 		MinecraftForgeClient.preloadTexture("/Mic'sMods/CrossbowMod/gui/other.png");
 		MinecraftForgeClient.preloadTexture("/Mic'sMods/CrossbowMod/gui/Crossbow.png");
-		
+
 	}
-	
+
 	public static void zoom(double d)
 	{
 		if (getZoom() < 10 && getZoom() > 1)
 		{
-			try 
+			try
 			{
 		        ModLoader.setPrivateValue(EntityRenderer.class, ModLoader.getMinecraftInstance().entityRenderer, 36, getZoom() + d);
-			} 
-			catch (Exception ex) 
+			}
+			catch (Exception ex)
 			{
 		        ex.printStackTrace();
 			}
 		}
 		if (getZoom() >= 10 && d < 0)
 		{
-			try 
+			try
 			{
 		        ModLoader.setPrivateValue(EntityRenderer.class, ModLoader.getMinecraftInstance().entityRenderer, 36, getZoom() + d);
-			} 
-			catch (Exception ex) 
+			}
+			catch (Exception ex)
 			{
 		        ex.printStackTrace();
 			}
 		}
 		if (getZoom() <= 1 && d > 0)
 		{
-			try 
+			try
 			{
 		        ModLoader.setPrivateValue(EntityRenderer.class, ModLoader.getMinecraftInstance().entityRenderer, 36, getZoom() + d);
-			} 
-			catch (Exception ex) 
+			}
+			catch (Exception ex)
 			{
 		        ex.printStackTrace();
 			}
@@ -402,32 +402,32 @@ public class CrossbowModClient
 	}
 
 	public static double getZoom()
-	{  
+	{
 		double zoom = 0;
-		
-		try 
+
+		try
 		{
 			zoom = (Double) ModLoader.getPrivateValue(EntityRenderer.class, ModLoader.getMinecraftInstance().entityRenderer, 36);
-		} 
-		catch (Exception ex) 
+		}
+		catch (Exception ex)
 		{
 	        ex.printStackTrace();
 		}
-		
+
 		return zoom;
 	}
-	
+
 //	public static void onPacketData(NetworkManager manager, Packet250CustomPayload packet, Player player)
 //    {
 //        Minecraft mcinstance = FMLClientHandler.instance().getClient();
-//        
+//
 //		DataInputStream data = new DataInputStream(new ByteArrayInputStream(packet.data));
-//        
+//
 //        int packetID = Util.readPacketID(data);
-//        
+//
 //        if (packetID == 0)
 //        {
-//        	
+//
 //        }
 //    }
 }

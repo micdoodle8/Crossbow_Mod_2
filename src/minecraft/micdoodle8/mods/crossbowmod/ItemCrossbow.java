@@ -28,7 +28,7 @@ public abstract class ItemCrossbow extends Item
 	protected boolean isBoltLoaded;
 	public int reloadingTime;
 	public int prevReloadingTime;
-	
+
 	public ItemCrossbow(int i)
 	{
 		super(i);
@@ -46,22 +46,22 @@ public abstract class ItemCrossbow extends Item
 		if (entity instanceof EntityPlayer && ((EntityPlayer) entity).inventory.getCurrentItem() == itemstack)
 		{
 			EntityPlayer entityplayer = (EntityPlayer) entity;
-			lastMouseHeld = mouseHeld;
-        	mouseHeld = FMLClientHandler.instance().getClient().gameSettings.keyBindUseItem.pressed;
-				
+			this.lastMouseHeld = this.mouseHeld;
+        	this.mouseHeld = FMLClientHandler.instance().getClient().gameSettings.keyBindUseItem.pressed;
+
 			this.prevReloadingTime = this.reloadingTime;
-				
+
 			if (this.reloadingTime > 0)
 			{
 				this.reloadingTime -= 5;
 			}
-			
+
 			if (this.reloadingTime < 0)
 			{
 				this.reloadingTime = 0;
 			}
-			
-			if (this.reloadingTime <= getReloadTime() / 2 && this.reloadingTime != 0)
+
+			if (this.reloadingTime <= this.getReloadTime() / 2 && this.reloadingTime != 0)
 	    	{
 	    		this.reloadStage = 1;
 	    	}
@@ -69,29 +69,29 @@ public abstract class ItemCrossbow extends Item
 	    	{
 	    		this.reloadStage = 2;
 	    	}
-	    	else if (this.reloadingTime > getReloadTime() / 2)
+	    	else if (this.reloadingTime > this.getReloadTime() / 2)
 	    	{
 	    		this.reloadStage = 0;
 	    	}
-			
-        	if (!isBoltLoaded)
+
+        	if (!this.isBoltLoaded)
         	{
-        		reloadStage = 0;
-        		isBoltLoaded = true;
-        		this.reloadingTime = getReloadTime() * 2;
+        		this.reloadStage = 0;
+        		this.isBoltLoaded = true;
+        		this.reloadingTime = this.getReloadTime() * 2;
         	}
-        	
-        	if ((Util.hasHeavyMech(itemstack) || Util.hasMediumMech(itemstack) || Util.hasLightMech(itemstack)) && mouseHeld)
+
+        	if ((Util.hasHeavyMech(itemstack) || Util.hasMediumMech(itemstack) || Util.hasLightMech(itemstack)) && this.mouseHeld)
         	{
-        		itemstack = shoot(itemstack, world, entityplayer);
+        		itemstack = this.shoot(itemstack, world, entityplayer);
         	}
-        	else if (mouseHeld && !lastMouseHeld && !Util.hasBasicScope(itemstack) && !Util.hasLongRangeScope(itemstack))
+        	else if (this.mouseHeld && !this.lastMouseHeld && !Util.hasBasicScope(itemstack) && !Util.hasLongRangeScope(itemstack))
         	{
-        		itemstack = shoot(itemstack, world, entityplayer);
+        		itemstack = this.shoot(itemstack, world, entityplayer);
         	}
-        	else if ((Util.hasBasicScope(itemstack) || Util.hasLongRangeScope(itemstack)) && lastMouseHeld && !mouseHeld)
+        	else if ((Util.hasBasicScope(itemstack) || Util.hasLongRangeScope(itemstack)) && this.lastMouseHeld && !this.mouseHeld)
         	{
-        		itemstack = shoot(itemstack, world, entityplayer);
+        		itemstack = this.shoot(itemstack, world, entityplayer);
         	}
 		}
 	}
@@ -101,12 +101,12 @@ public abstract class ItemCrossbow extends Item
 	{
 		if (CrossbowModClient.shootTime <= 0)
 		{
-	    	if (player.capabilities.isCreativeMode || player.inventory.hasItemStack(new ItemStack(Items.attachmentLimbBolt, 1, requiredMetadata(player))))
+	    	if (player.capabilities.isCreativeMode || player.inventory.hasItemStack(new ItemStack(Items.attachmentLimbBolt, 1, this.requiredMetadata(player))))
 	    	{
-		        EntityBolt entityarrow = getEntity(world, player);
+		        EntityBolt entityarrow = this.getEntity(world, player);
 
 		        entityarrow.item = this.requiredMetadata(player);
-		        
+
 	    		if (Util.hasLightMech(itemstack))
 		    	{
 		    		CrossbowModClient.shootTime = 24;
@@ -123,7 +123,7 @@ public abstract class ItemCrossbow extends Item
 		    	{
 		    		CrossbowModClient.shootTime = 18;
 		    	}
-		    	
+
 		    	if (Util.hasFlameAttachment(itemstack))
 		        {
 		        	entityarrow.setFire(100);
@@ -133,7 +133,7 @@ public abstract class ItemCrossbow extends Item
 		        {
 		        	entityarrow.hasFireAttachment = false;
 		        }
-		        
+
 		        if (Util.hasExplosiveAttachment(itemstack))
 		        {
 		        	entityarrow.hasExplosiveAttachment = true;
@@ -142,7 +142,7 @@ public abstract class ItemCrossbow extends Item
 		        {
 		        	entityarrow.hasExplosiveAttachment = false;
 		        }
-		        
+
 		        if (Util.hasLavaAttachment(itemstack))
 		        {
 		        	entityarrow.hasLavaAttachment = true;
@@ -151,7 +151,7 @@ public abstract class ItemCrossbow extends Item
 		        {
 		        	entityarrow.hasLavaAttachment = false;
 		        }
-		        
+
 		        if (Util.hasIceAttachment(itemstack))
 		        {
 		        	entityarrow.hasIceAttachment = true;
@@ -160,7 +160,7 @@ public abstract class ItemCrossbow extends Item
 		        {
 		        	entityarrow.hasIceAttachment = false;
 		        }
-		        
+
 		        if (Util.hasLightningAttachment(itemstack))
 		        {
 		        	entityarrow.hasLightningAttachment = true;
@@ -169,7 +169,7 @@ public abstract class ItemCrossbow extends Item
 		        {
 		        	entityarrow.hasLightningAttachment = false;
 		        }
-		        
+
 		        if (Util.hasTorchAttachment(itemstack))
 		        {
 		        	entityarrow.hasTorchAttachment = true;
@@ -178,7 +178,7 @@ public abstract class ItemCrossbow extends Item
 		        {
 		        	entityarrow.hasTorchAttachment = false;
 		        }
-		        
+
 		        if (Util.hasPoisonAttachment(itemstack))
 		        {
 		        	entityarrow.hasPoisonAttachment = true;
@@ -189,7 +189,7 @@ public abstract class ItemCrossbow extends Item
 		        }
 
 	            world.playSoundAtEntity(player, "cbowfire", 1.0F, 0.92F);
-	            
+
 		        if (world.isRemote)
 		        {
 					Object[] toSend = {itemstack};
@@ -201,31 +201,37 @@ public abstract class ItemCrossbow extends Item
 		            for (int j = 0; j < player.inventory.getSizeInventory(); j++)
 		            {
 		            	ItemStack stack = player.inventory.getStackInSlot(j);
-		            	
+
 		            	if (stack != null && stack.getItem().shiftedIndex == Items.attachmentLimbBolt.shiftedIndex && stack.getItemDamage() == this.requiredMetadata(player))
 		            	{
 		            		stack.stackSize--;
+
+		            		if (stack.stackSize <= 0)
+		            		{
+		            			player.inventory.setInventorySlotContents(j, null);
+		            		}
+
 		            		break;
 		            	}
 		            }
 		        	world.spawnEntityInWorld(entityarrow);
 		        }
-		        
+
             	this.isBoltLoaded = false;
 	    	}
 		}
-		
+
 		return itemstack;
 	}
-    
+
     public abstract EntityBolt getEntity(World world, EntityLiving entityliving);
-    
+
     public abstract int getCrossbowMaxDamage();
-    
+
     public abstract int getReloadTime();
-    
+
     public abstract int requiredMetadata(EntityLiving entityliving);
-    
+
     public abstract String getSpriteSheetLoc();
 
     @Override
@@ -239,7 +245,7 @@ public abstract class ItemCrossbow extends Item
     public void addInformation(ItemStack stack, EntityPlayer player, List var2, boolean b)
     {
 //    	stack.getItem().setIconIndex(getUpdatedCrossbowIndex(stack));
-    	
+
     	if (stack.getTagCompound() != null)
     	{
         	NBTTagCompound comp = stack.getTagCompound();
@@ -275,7 +281,7 @@ public abstract class ItemCrossbow extends Item
                 var2.add(CrossbowModCore.lang.get(Items.attachmentLimbBolt.getItemNameIS(new ItemStack(Items.attachmentLimbBolt, 1, 16)) + ".name"));
                 break;
     		}
-    		
+
     		switch (comp.getInteger("firerate"))
     		{
     		case 0:
@@ -291,7 +297,7 @@ public abstract class ItemCrossbow extends Item
                 break;
     		}
     	}
-    	
+
 //    	if (Util.hasBasicScope(var1))
 //    	{
 //            var2.add(CrossbowModCore.lang.get(Items.attachmentShortScope.getItemName() + ".name"));
@@ -336,17 +342,17 @@ public abstract class ItemCrossbow extends Item
 //    	{
 //            var2.add(CrossbowModCore.lang.get(Items.attachmentIce.getItemName() + ".name"));
 //    	}
-//    	
+//
 //    	if (Util.hasLightningAttachment(var1))
 //    	{
 //            var2.add(CrossbowModCore.lang.get(Items.attachmentLightning.getItemName() + ".name"));
 //    	}
-//    	
+//
 //    	if (Util.hasTorchAttachment(var1))
 //    	{
 //            var2.add(CrossbowModCore.lang.get(Items.attachmentTorch.getItemName() + ".name"));
 //    	}
-//    	
+//
 //    	if (Util.hasPoisonAttachment(var1))
 //    	{
 //            var2.add(CrossbowModCore.lang.get(Items.attachmentPoison.getItemName() + ".name"));
@@ -356,7 +362,7 @@ public abstract class ItemCrossbow extends Item
     @Override
     public ItemStack onItemRightClick(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer)
     {
-        if (par3EntityPlayer.capabilities.isCreativeMode || par3EntityPlayer.inventory.hasItemStack(new ItemStack(Items.attachmentLimbBolt, 1, requiredMetadata(par3EntityPlayer))))
+        if (par3EntityPlayer.capabilities.isCreativeMode || par3EntityPlayer.inventory.hasItemStack(new ItemStack(Items.attachmentLimbBolt, 1, this.requiredMetadata(par3EntityPlayer))))
         {
             par3EntityPlayer.setItemInUse(par1ItemStack, this.getMaxItemUseDuration(par1ItemStack));
         }
@@ -368,26 +374,26 @@ public abstract class ItemCrossbow extends Item
     @SideOnly(Side.CLIENT)
     public String getTextureFile()
     {
-    	return getSpriteSheetLoc();
+    	return this.getSpriteSheetLoc();
     }
-    
+
     public static ItemStack setAttachmentAndMaterial(ItemStack stack, EnumAttachmentType type, EnumCrossbowMaterial material, EnumCrossbowFireRate fireRate)
     {
         if (stack.stackTagCompound == null)
         {
         	stack.setTagCompound(new NBTTagCompound());
         }
-        
+
         if (type != null && material != null && fireRate != null)
         {
         	stack.getTagCompound().setInteger("attachment", type.getIndex());
         	stack.getTagCompound().setInteger("material", material.getIndex());
         	stack.getTagCompound().setInteger("firerate", fireRate.getIndex());
         }
-        
+
         return stack;
     }
-    
+
     public int getUpdatedCrossbowIndex(ItemStack stack)
     {
     	if (stack.getTagCompound() != null)
@@ -526,7 +532,7 @@ public abstract class ItemCrossbow extends Item
         		}
         	}
     	}
-    	
+
     	return 0;
     }
 
@@ -625,8 +631,9 @@ public abstract class ItemCrossbow extends Item
         }
         else return 0;
     }
-    
-    @SideOnly(Side.CLIENT)
+
+    @Override
+	@SideOnly(Side.CLIENT)
     public boolean requiresMultipleRenderPasses()
     {
         return true;
@@ -635,6 +642,6 @@ public abstract class ItemCrossbow extends Item
     @Override
     public int getIconIndex(ItemStack stack, int pass)
     {
-    	return getUpdatedCrossbowIndex(stack);
+    	return this.getUpdatedCrossbowIndex(stack);
     }
 }

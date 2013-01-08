@@ -13,16 +13,16 @@
 //
 //public class RenderPlayerCrossbowMod extends RenderPlayerBase
 //{
-//	public RenderPlayerCrossbowMod(RenderPlayerAPI renderplayerapi) 
+//	public RenderPlayerCrossbowMod(RenderPlayerAPI renderplayerapi)
 //	{
 //		super(renderplayerapi);
 //	}
-//	
+//
 //	@Override
 //	public void renderPlayer(EntityPlayer par1EntityPlayer, double par2, double par4, double par6, float par8, float par9)
 //    {
 //        ItemStack var10 = par1EntityPlayer.inventory.getCurrentItem();
-//        
+//
 //        if (var10 != null && par1EntityPlayer.getItemInUseCount() > 0)
 //        {
 //        	if (var10.getItem() instanceof ItemCrossbow)
@@ -40,7 +40,7 @@
 //        }
 //		super.renderPlayer(par1EntityPlayer, par2, par4, par6, par8, par9);
 //    }
-//	
+//
 //	@Override
 //	public void drawFirstPersonHand()
 //    {
@@ -49,13 +49,13 @@
 //			super.drawFirstPersonHand();
 //			return;
 //		}
-//		
+//
 //        ItemStack var10 = ModLoader.getMinecraftInstance().thePlayer.inventory.getCurrentItem();
 //        if (var10.getItem() instanceof ItemCrossbow)
 //        {
 //            Render var24 = RenderManager.instance.getEntityRenderObject(ModLoader.getMinecraftInstance().thePlayer);
 //            RenderPlayer var26 = (RenderPlayer)var24;
-//            
+//
 //            var26.getModelBipedMainField().onGround = 0.0F;
 //            var26.getModelBipedMainField().setRotationAngles(0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0625F);
 //            var26.getModelBipedMainField().bipedRightArm.render(0.0625F);
@@ -65,7 +65,7 @@
 //            super.drawFirstPersonHand();
 //    	}
 //    }
-//	
+//
 //	@Override
 //	public void positionSpecialItemInHand(EntityPlayer var1, float var2, EnumAction var3, ItemStack var4)
 //    {
@@ -74,9 +74,9 @@
 //			super.positionSpecialItemInHand(var1, var2, var3, var4);
 //			return;
 //		}
-//		
+//
 //		ItemCrossbow crossbow = (ItemCrossbow) var4.getItem();
-//		
+//
 //		if ((Util.isDiamond(var4) || Util.isGold(var4) || Util.isIron(var4) || Util.isStone(var4) || Util.isWooden(var4)))
 //		{
 //            GL11.glTranslatef(0.7F, 0.825F, 0.6125F);

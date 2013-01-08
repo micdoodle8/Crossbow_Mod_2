@@ -1,18 +1,18 @@
 package micdoodle8.mods.crossbowmod;
 
-public enum EnumAttachmentType 
+public enum EnumAttachmentType
 {
 	none("none", 0),
-	longscope("longscope", 1), 
-	shortscope("shortscope", 2), 
-	lava("lava", 3), 
-	ice("ice", 4), 
-	poison("poison", 5), 
-	torch("torch", 6), 
-	lightning("lightning", 7), 
+	longscope("longscope", 1),
+	shortscope("shortscope", 2),
+	lava("lava", 3),
+	ice("ice", 4),
+	poison("poison", 5),
+	torch("torch", 6),
+	lightning("lightning", 7),
 	explosive("explosive", 8),
 	flame("flame", 9);
-	
+
 	private final String name;
 	private final int index;
 

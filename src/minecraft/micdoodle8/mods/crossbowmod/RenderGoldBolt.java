@@ -21,7 +21,7 @@ public class RenderGoldBolt extends Render
             return;
         }
 
-        loadTexture("/Mic'sMods/CrossbowMod/items/goldbolt.png");
+        this.loadTexture("/Mic'sMods/CrossbowMod/items/goldbolt.png");
         GL11.glPushMatrix();
         GL11.glTranslatef((float)d, (float)d1, (float)d2);
         GL11.glRotatef(entitygoldbolt.prevRotationYaw + (entitygoldbolt.rotationYaw - entitygoldbolt.prevRotationYaw) * f1 - 90.0F, 0.0F, 1.0F, 0.0F);
@@ -83,6 +83,6 @@ public class RenderGoldBolt extends Render
     @Override
 	public void doRender(Entity entity, double d, double d1, double d2, float f, float f1)
     {
-        renderArrow((EntityGoldBolt)entity, d, d1, d2, f, f1);
+        this.renderArrow((EntityGoldBolt)entity, d, d1, d2, f, f1);
     }
 }

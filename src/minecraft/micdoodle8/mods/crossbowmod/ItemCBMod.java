@@ -21,7 +21,7 @@ public class ItemCBMod extends Item
     	"ironLimb", // 7
     	"goldLimb", // 8
     	"diamondLimb", // 9
-    	"mechanismSemiAuto", // 10 
+    	"mechanismSemiAuto", // 10
     	"mechanismLightAuto", // 11
     	"mechanismMediumAuto", // 12
     	"mechanismHeavyAuto", // 13
@@ -31,11 +31,11 @@ public class ItemCBMod extends Item
     	"attachmentExplosive", // 17
     	"attachmentLava", // 18
     	"attachmentIce", // 19
-    	"attachmentLightning", // 20 
+    	"attachmentLightning", // 20
     	"attachmentTorch", // 21
     	"attachmentPoison"}; // 22
-    
-    public ItemCBMod(int i) 
+
+    public ItemCBMod(int i)
     {
 		super(i);
         this.setCreativeTab(CrossbowModCore.crossbowTab);

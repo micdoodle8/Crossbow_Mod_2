@@ -59,7 +59,7 @@ public class ItemWoodCrossbow extends ItemCrossbow
         par3List.add(setAttachmentAndMaterial(new ItemStack(par1, 1, 0), EnumAttachmentType.flame, EnumCrossbowMaterial.wooden, EnumCrossbowFireRate.medium));
         par3List.add(setAttachmentAndMaterial(new ItemStack(par1, 1, 0), EnumAttachmentType.flame, EnumCrossbowMaterial.wooden, EnumCrossbowFireRate.heavy));
     }
-    
+
     @Override
     public EntityBolt getEntity(World world, EntityLiving entityliving)
     {

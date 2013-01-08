@@ -20,14 +20,14 @@ public class ClientProxy extends CommonProxy
 	{
 		CrossbowModClient.preInit(event);
 	}
-	
+
 	@Override
 	public void load(FMLInitializationEvent event)
 	{
 		TickRegistry.registerTickHandler(new ClientTickHandler(), Side.CLIENT);
 		TickRegistry.registerScheduledTickHandler(new ClientScheduledTickHandler(), Side.CLIENT);
 		CrossbowModClient.init(event);
-    	FMLClientHandler.instance().getClient().sndManager.soundPoolSounds.addSound("cbowfire.ogg", CrossbowModCore.instance.getClass().getResource("/Mic'sMods/CrossbowMod/sounds/cbowfire.ogg")); 
+    	FMLClientHandler.instance().getClient().sndManager.soundPoolSounds.addSound("cbowfire.ogg", CrossbowModCore.instance.getClass().getResource("/Mic'sMods/CrossbowMod/sounds/cbowfire.ogg"));
 	}
 
 	@Override
@@ -35,7 +35,7 @@ public class ClientProxy extends CommonProxy
 	{
 		CrossbowModClient.registerRenderInformation();
 	}
-	
+
 	public class ClientTickHandler implements ITickHandler
 	{
 	    @Override
@@ -46,19 +46,19 @@ public class ClientProxy extends CommonProxy
 	    {
 	        if (type.equals(EnumSet.of(TickType.RENDER)))
 	        {
-	            onRenderTick();
+	            this.onRenderTick();
 	        }
 	        else if (type.equals(EnumSet.of(TickType.CLIENT)))
 	        {
 	            GuiScreen guiscreen = Minecraft.getMinecraft().currentScreen;
-	            
+
 	            if (guiscreen != null)
 	            {
-	                onTickInGUI(guiscreen);
-	            } 
-	            else 
+	                this.onTickInGUI(guiscreen);
+	            }
+	            else
 	            {
-	                onTickInGame();
+	                this.onTickInGame();
 	            }
 	        }
 	    }
@@ -88,41 +88,41 @@ public class ClientProxy extends CommonProxy
 	    	CrossbowModClient.onTickInGame();
 	    }
 	}
-	
+
 	public class ClientScheduledTickHandler implements IScheduledTickHandler
 	{
 		@Override
-		public void tickStart(EnumSet<TickType> type, Object... tickData) 
+		public void tickStart(EnumSet<TickType> type, Object... tickData)
 		{
-			
+
 		}
 
 		@Override
 		public void tickEnd(EnumSet<TickType> type, Object... tickData) { }
 
 		@Override
-		public EnumSet<TickType> ticks() 
+		public EnumSet<TickType> ticks()
 		{
 			return EnumSet.of(TickType.CLIENT);
 		}
 
 		@Override
-		public String getLabel() 
+		public String getLabel()
 		{
 			return "Crossbow Mod 2 Scheduled";
 		}
 
 		@Override
-		public int nextTickSpacing() 
+		public int nextTickSpacing()
 		{
 			return 4;
 		}
 	}
-	
+
 //	public class ClientPacketHandler implements IPacketHandler
 //	{
 //		@Override
-//		public void onPacketData(NetworkManager manager, Packet250CustomPayload packet, Player player) 
+//		public void onPacketData(NetworkManager manager, Packet250CustomPayload packet, Player player)
 //		{
 //			CrossbowModClient.onPacketData(manager, packet, player);
 //		}

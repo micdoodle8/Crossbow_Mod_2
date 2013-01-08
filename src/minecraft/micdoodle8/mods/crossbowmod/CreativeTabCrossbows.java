@@ -6,18 +6,19 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class CreativeTabCrossbows extends CreativeTabs
 {
-	public CreativeTabCrossbows(String label) 
+	public CreativeTabCrossbows(String label)
 	{
 		super(label);
 	}
-	
+
 	@Override
     public int getTabIconItemIndex()
     {
         return Items.diamondCrossbowBase.shiftedIndex;
     }
-	
-    @SideOnly(Side.CLIENT)
+
+    @Override
+	@SideOnly(Side.CLIENT)
     public String getTranslatedTabLabel()
     {
     	return CrossbowModCore.lang.get("itemGroup." + this.getTabLabel());

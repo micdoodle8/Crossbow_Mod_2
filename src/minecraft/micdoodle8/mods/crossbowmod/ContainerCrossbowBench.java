@@ -54,7 +54,8 @@ public class ContainerCrossbowBench extends Container
         this.onCraftMatrixChanged(this.craftMatrix);
     }
 
-    public void onCraftGuiClosed(EntityPlayer par1EntityPlayer)
+    @Override
+	public void onCraftGuiClosed(EntityPlayer par1EntityPlayer)
     {
         super.onCraftGuiClosed(par1EntityPlayer);
 
@@ -71,13 +72,15 @@ public class ContainerCrossbowBench extends Container
             }
         }
     }
-    
-    public void onCraftMatrixChanged(IInventory par1IInventory)
+
+    @Override
+	public void onCraftMatrixChanged(IInventory par1IInventory)
     {
-        this.craftResult.setInventorySlotContents(0, Util.findMatchingCrossbowRecipe(craftMatrix));
+        this.craftResult.setInventorySlotContents(0, Util.findMatchingCrossbowRecipe(this.craftMatrix));
     }
 
-    public boolean canInteractWith(EntityPlayer par1EntityPlayer)
+    @Override
+	public boolean canInteractWith(EntityPlayer par1EntityPlayer)
     {
         return true;
     }

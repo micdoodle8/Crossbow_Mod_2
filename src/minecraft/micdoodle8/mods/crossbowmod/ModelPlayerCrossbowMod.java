@@ -8,34 +8,34 @@
 //public class ModelPlayerCrossbowMod extends ModelPlayerBase
 //{
 //    public static boolean aimedCrossbow;
-//    
-//	public ModelPlayerCrossbowMod(ModelPlayerAPI modelplayerapi) 
+//
+//	public ModelPlayerCrossbowMod(ModelPlayerAPI modelplayerapi)
 //	{
 //		super(modelplayerapi);
 //		this.aimedCrossbow = false;
 //	}
-//	
+//
 //	@Override
 //	public void setRotationAngles(float var1, float var2, float var3, float var4, float var5, float var6, Entity entity)
 //    {
 //		super.setRotationAngles(var1, var2, var3, var4, var5, var6);
-//		
+//
 //		if ( ModLoader.getMinecraftInstance().thePlayer.getCurrentEquippedItem() == null)
 //		{
 //			return;
 //		}
-//		
+//
 //		ItemStack item = ModLoader.getMinecraftInstance().thePlayer.getCurrentEquippedItem();
 //
 //		if (!(item.getItem() instanceof ItemCrossbow))
 //		{
 //			return;
 //		}
-//		
+//
 //		ItemCrossbow crossbow = (ItemCrossbow) item.getItem();
 //
 //		float i = (float) crossbow.reloadingTime + (crossbow.reloadingTime - crossbow.prevReloadingTime);
-//		
+//
 //		if (this.aimedCrossbow)
 //		{
 //			float var7 = 0.0F;
@@ -55,9 +55,9 @@
 //		}
 //
 //        modelPlayer.bipedRightArm.rotateAngleX += MathHelper.sin(i * 0.067F) * 0.05F;
-//        
+//
 //        float i2 = 0F;
-//        
+//
 //        if (item.getItem() instanceof ItemWoodCrossbow)
 //        {
 //        	i2 = 0.05F;
@@ -78,13 +78,13 @@
 //        {
 //        	i2 = 0.016F;
 //        }
-//        
+//
 //        if ((MathHelper.sin(i * i2) * 1.2F) > 0 && !ModLoader.getMinecraftInstance().thePlayer.isUsingItem())
 //        	modelPlayer.bipedLeftArm.rotateAngleZ += MathHelper.sin(i * i2) * 1.2F;
-//        
+//
 //        if ((MathHelper.sin(i * i2) * 1.2F) > 0 && !ModLoader.getMinecraftInstance().thePlayer.isUsingItem())
 //        	modelPlayer.bipedRightArm.rotateAngleZ -= MathHelper.sin(i * i2) * 0.2F;
-//        
+//
 //        if (i > 0 && !ModLoader.getMinecraftInstance().thePlayer.isUsingItem())
 //        {
 //            modelPlayer.bipedLeftArm.rotateAngleX += -(0.5);

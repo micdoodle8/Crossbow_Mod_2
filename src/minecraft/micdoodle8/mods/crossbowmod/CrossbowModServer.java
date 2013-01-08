@@ -18,39 +18,39 @@ public class CrossbowModServer
 		DataInputStream data = new DataInputStream(new ByteArrayInputStream(packet.data));
         int packetID = Util.readPacketID(data);
         EntityPlayerMP player = (EntityPlayerMP)p;
-        
+
         if (packetID == 0)
         {
         	Class[] decodeAs = {ItemStack.class};
         	Object[] packetReadout = Util.readPacketData(data, decodeAs);
-        	
+
         	if (player.worldObj != null)
         	{
             	ItemStack item = (ItemStack) packetReadout[0];
             	World world = player.worldObj;
-            	
+
             	shootServer(player);
         	}
         }
     }
-	
+
 	public static void shootServer(EntityPlayer entityplayer)
 	{
 		ItemStack itemstack = entityplayer.inventory.getCurrentItem();
-		
+
 		World world = entityplayer.worldObj;
-		
+
 		if (itemstack == null || !(itemstack.getItem() instanceof ItemCrossbow))
 		{
 			return;
 		}
-		
+
 		ItemCrossbow crossbow = (ItemCrossbow) itemstack.getItem();
-		
+
 		EntityBolt entityarrow = crossbow.getEntity(world, entityplayer);
 
         entityarrow.item = crossbow.requiredMetadata(entityplayer);
-        
+
         if (Util.hasFlameAttachment(itemstack))
         {
         	entityarrow.setFire(100);
@@ -60,7 +60,7 @@ public class CrossbowModServer
         {
         	entityarrow.hasFireAttachment = false;
         }
-        
+
         if (Util.hasExplosiveAttachment(itemstack))
         {
         	entityarrow.hasExplosiveAttachment = true;
@@ -69,7 +69,7 @@ public class CrossbowModServer
         {
         	entityarrow.hasExplosiveAttachment = false;
         }
-        
+
         if (Util.hasLavaAttachment(itemstack))
         {
         	entityarrow.hasLavaAttachment = true;
@@ -78,7 +78,7 @@ public class CrossbowModServer
         {
         	entityarrow.hasLavaAttachment = false;
         }
-        
+
         if (Util.hasIceAttachment(itemstack))
         {
         	entityarrow.hasIceAttachment = true;
@@ -87,7 +87,7 @@ public class CrossbowModServer
         {
         	entityarrow.hasIceAttachment = false;
         }
-        
+
         if (Util.hasLightningAttachment(itemstack))
         {
         	entityarrow.hasLightningAttachment = true;
@@ -96,7 +96,7 @@ public class CrossbowModServer
         {
         	entityarrow.hasLightningAttachment = false;
         }
-        
+
         if (Util.hasTorchAttachment(itemstack))
         {
         	entityarrow.hasTorchAttachment = true;
@@ -105,7 +105,7 @@ public class CrossbowModServer
         {
         	entityarrow.hasTorchAttachment = false;
         }
-        
+
         if (Util.hasPoisonAttachment(itemstack))
         {
         	entityarrow.hasPoisonAttachment = true;
@@ -120,7 +120,7 @@ public class CrossbowModServer
         for (int j = 0; j < entityplayer.inventory.getSizeInventory(); j++)
         {
         	ItemStack stack = entityplayer.inventory.getStackInSlot(j);
-        	
+
         	if (stack != null && stack.getItem().shiftedIndex == Items.attachmentLimbBolt.shiftedIndex && stack.getItemDamage() == crossbow.requiredMetadata(entityplayer))
         	{
         		stack.stackSize--;

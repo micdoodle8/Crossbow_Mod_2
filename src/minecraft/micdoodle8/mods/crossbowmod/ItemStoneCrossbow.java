@@ -15,12 +15,12 @@ public class ItemStoneCrossbow extends ItemCrossbow
         super(par1);
         CrossbowModCore.stoneCrossbowsList.add(this);
     }
-    
+
     @Override
     public EntityBolt getEntity(World world, EntityLiving entityliving)
     {
     	EntityPlayer player = (EntityPlayer) entityliving;
-    	
+
     	if (player.inventory.hasItemStack(new ItemStack(Items.attachmentLimbBolt, 1, 1)) || (player.capabilities.isCreativeMode))
     	{
     		return new EntityStoneBolt(world, entityliving, 1.0F);
@@ -93,7 +93,7 @@ public class ItemStoneCrossbow extends ItemCrossbow
     public int requiredMetadata(EntityLiving entityliving)
     {
     	EntityPlayer player = (EntityPlayer) entityliving;
-    	
+
     	if (player.inventory.hasItemStack(new ItemStack(Items.attachmentLimbBolt, 1, 1)) || (player.capabilities.isCreativeMode))
     	{
         	return 1;

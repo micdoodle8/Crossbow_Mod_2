@@ -21,7 +21,7 @@ public class RenderIronBolt extends Render
             return;
         }
 
-        loadTexture("/Mic'sMods/CrossbowMod/items/ironbolt.png");
+        this.loadTexture("/Mic'sMods/CrossbowMod/items/ironbolt.png");
         GL11.glPushMatrix();
         GL11.glTranslatef((float)d, (float)d1, (float)d2);
         GL11.glRotatef(entityironbolt.prevRotationYaw + (entityironbolt.rotationYaw - entityironbolt.prevRotationYaw) * f1 - 90.0F, 0.0F, 1.0F, 0.0F);
@@ -83,6 +83,6 @@ public class RenderIronBolt extends Render
     @Override
 	public void doRender(Entity entity, double d, double d1, double d2, float f, float f1)
     {
-        renderArrow((EntityIronBolt)entity, d, d1, d2, f, f1);
+        this.renderArrow((EntityIronBolt)entity, d, d1, d2, f, f1);
     }
 }

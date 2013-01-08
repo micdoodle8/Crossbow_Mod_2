@@ -35,7 +35,7 @@ public class CrossbowModLocalization {
             throw new InvalidParameterException("Mod name can't be null");
         }
         this.modName = modName;
-        load(getCurrentLanguage(), true);
+        this.load(getCurrentLanguage(), true);
     }
 
     /**
@@ -46,22 +46,22 @@ public class CrossbowModLocalization {
      */
     public synchronized String get(String key) {
         String currentLanguage = getCurrentLanguage();
-        if (!currentLanguage.equals(loadedLanguage)) {
-            load(currentLanguage, true);
+        if (!currentLanguage.equals(this.loadedLanguage)) {
+            this.load(currentLanguage, true);
         }
-        return mappings.getProperty(key, defaultMappings.getProperty(key, key));
+        return this.mappings.getProperty(key, this.defaultMappings.getProperty(key, key));
     }
 
     private void load(String newLanguage, boolean force) {
-        defaultMappings.clear();
-        mappings.clear();
+        this.defaultMappings.clear();
+        this.mappings.clear();
         try {
             BufferedReader langStream = new BufferedReader(new InputStreamReader((net.minecraft.enchantment.Enchantment.class).getResourceAsStream(
-                            "/" + modName + "/lang/" + newLanguage + ".properties"), "UTF-8"));
+                            "/" + this.modName + "/lang/" + newLanguage + ".properties"), "UTF-8"));
             BufferedReader defaultLangStream = new BufferedReader(new InputStreamReader((net.minecraft.enchantment.Enchantment.class).getResourceAsStream(
-                            "/" + modName + "/lang/" + DEFAULT_LANGUAGE + ".properties"), "UTF-8"));
-            loadMappings((langStream == null) ? defaultLangStream : langStream, mappings);
-            loadMappings(defaultLangStream, defaultMappings);
+                            "/" + this.modName + "/lang/" + DEFAULT_LANGUAGE + ".properties"), "UTF-8"));
+            this.loadMappings((langStream == null) ? defaultLangStream : langStream, this.mappings);
+            this.loadMappings(defaultLangStream, this.defaultMappings);
             if (langStream != null) {
                 langStream.close();
             }
@@ -69,17 +69,17 @@ public class CrossbowModLocalization {
         } catch (Exception e) {
         	e.printStackTrace();
             if (force){
-                load(DEFAULT_LANGUAGE, false);
+                this.load(DEFAULT_LANGUAGE, false);
             }
             return;
         }
-        loadedLanguage = newLanguage;
+        this.loadedLanguage = newLanguage;
     }
 
     private static String getCurrentLanguage() {
         return StringTranslate.getInstance().getCurrentLanguage();
     }
-    
+
     private void loadMappings(BufferedReader var3, Properties par1Properties)
     {
     	try
@@ -87,7 +87,7 @@ public class CrossbowModLocalization {
         	for (String var4 = var3.readLine(); var4 != null; var4 = var3.readLine())
             {
                 var4 = var4.trim();
-                
+
                 var4 = var4.replace("?", "");
 
                 if (!var4.startsWith("#"))

@@ -1,7 +1,7 @@
 package micdoodle8.mods.crossbowmod;
 
 
-public class CrossbowEvents 
+public class CrossbowEvents
 {
 //	@ForgeSubscribe
 //	public void rotatePlayerModel(PlayerModelRotationEvent event)

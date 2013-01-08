@@ -23,7 +23,7 @@ public class BlockCrossbowBench extends Block
     {
         return par1 == 1 ? this.blockIndexInTexture + 1 : (par1 == 0 ? this.blockIndexInTexture - 1 : this.blockIndexInTexture);
     }
-	
+
 	@Override
 	public boolean onBlockActivated(World par1World, int par2, int par3, int par4, EntityPlayer par5EntityPlayer, int par6, float par7, float par8, float par9)
     {
@@ -32,15 +32,15 @@ public class BlockCrossbowBench extends Block
     }
 
 	@Override
-	public String getTextureFile() 
+	public String getTextureFile()
 	{
 		return "/Mic'sMods/CrossbowMod/gui/other.png";
 	}
-	
+
 	@Override
 	public void addCreativeItems(ArrayList itemList)
     {
-        if(blockID == Items.crossbowBench.blockID)
+        if(this.blockID == Items.crossbowBench.blockID)
         {
             itemList.add(new ItemStack(this));
         }

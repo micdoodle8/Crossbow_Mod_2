@@ -20,11 +20,11 @@ import cpw.mods.fml.client.FMLClientHandler;
 public class ItemRendererCrossbowMod implements IItemRenderer
 {
 	private Minecraft mcinstance = ModLoader.getMinecraftInstance();
-	
+
 	@Override
-	public boolean handleRenderType(ItemStack item, ItemRenderType type) 
+	public boolean handleRenderType(ItemStack item, ItemRenderType type)
 	{
-		switch (type) 
+		switch (type)
 		{
 		case ENTITY:
 			return true;
@@ -39,11 +39,11 @@ public class ItemRendererCrossbowMod implements IItemRenderer
 	}
 
 	@Override
-	public boolean shouldUseRenderHelper(ItemRenderType type, ItemStack item, ItemRendererHelper helper) 
+	public boolean shouldUseRenderHelper(ItemRenderType type, ItemStack item, ItemRendererHelper helper)
 	{
 		return true;
 	}
-	
+
 	@Override
 	public void renderItem(ItemRenderType type, ItemStack item, Object... data)
 	{
@@ -55,19 +55,19 @@ public class ItemRendererCrossbowMod implements IItemRenderer
 				{
 					return;
 				}
-				
+
 				ItemCrossbow crossbow = (ItemCrossbow) item.getItem();
-				
+
 				EntityPlayer par1EntityLiving = (EntityPlayer) data[1];
 				GL11.glPushMatrix();
 				float i = (float) crossbow.reloadingTime + (crossbow.reloadingTime - crossbow.prevReloadingTime);
 				float i2 = 0f;
-				
+
 				if (par1EntityLiving.inventory.getCurrentItem() == null || !(par1EntityLiving.inventory.getCurrentItem().getItem() instanceof ItemCrossbow))
 				{
 					return;
 				}
-				
+
 				if (par1EntityLiving.inventory.getCurrentItem().getItem() instanceof ItemWoodCrossbow)
 				{
 					i2 = (float) Math.sin((double)i / 20);
@@ -88,22 +88,22 @@ public class ItemRendererCrossbowMod implements IItemRenderer
 				{
 					i2 = (float) Math.sin((double)i / 60);
 				}
-				
+
 				if (i2 < 0)
 				{
 					i2 = 0f;
 				}
-				
-				if (!(mcinstance.currentScreen != null && mcinstance.currentScreen.allowUserInput) && (Mouse.getEventDWheel() != 0 || (Keyboard.isKeyDown(Keyboard.KEY_0) || Keyboard.isKeyDown(Keyboard.KEY_1) || Keyboard.isKeyDown(Keyboard.KEY_2) || Keyboard.isKeyDown(Keyboard.KEY_3) || Keyboard.isKeyDown(Keyboard.KEY_4) || Keyboard.isKeyDown(Keyboard.KEY_5) || Keyboard.isKeyDown(Keyboard.KEY_6) || Keyboard.isKeyDown(Keyboard.KEY_7) || Keyboard.isKeyDown(Keyboard.KEY_8) || Keyboard.isKeyDown(Keyboard.KEY_9))))
+
+				if (!(this.mcinstance.currentScreen != null && this.mcinstance.currentScreen.allowUserInput) && (Mouse.getEventDWheel() != 0 || (Keyboard.isKeyDown(Keyboard.KEY_0) || Keyboard.isKeyDown(Keyboard.KEY_1) || Keyboard.isKeyDown(Keyboard.KEY_2) || Keyboard.isKeyDown(Keyboard.KEY_3) || Keyboard.isKeyDown(Keyboard.KEY_4) || Keyboard.isKeyDown(Keyboard.KEY_5) || Keyboard.isKeyDown(Keyboard.KEY_6) || Keyboard.isKeyDown(Keyboard.KEY_7) || Keyboard.isKeyDown(Keyboard.KEY_8) || Keyboard.isKeyDown(Keyboard.KEY_9))))
 				{
 					i2 = 0;
 				}
-					
-				if (mcinstance.gameSettings.thirdPersonView == 0)
+
+				if (this.mcinstance.gameSettings.thirdPersonView == 0)
 				{
 			        GL11.glTranslatef(0.0F, -(Math.abs(i2) / 2), 0.0F);
 				}
-				
+
 				if (par1EntityLiving.getItemInUseCount() > 0)
 				{
 			        GL11.glRotatef(-335F, 0.0F, 0.0F, 1.0F);
@@ -113,7 +113,7 @@ public class ItemRendererCrossbowMod implements IItemRenderer
 			        GL11.glRotatef(50F, 0.0F, 1.0F, 0.0F);
 			        GL11.glRotatef(335F, 0.0F, 0.0F, 1.0F);
 				}
-		        
+
 		        if (Util.isDiamond(item) || Util.isGold(item) || Util.isIron(item) || Util.isStone(item) || Util.isWooden(item))
 		        {
 		            GL11.glRotatef(80F, 1.0F, 0.0F, 0.0F);
@@ -121,20 +121,20 @@ public class ItemRendererCrossbowMod implements IItemRenderer
 		            GL11.glRotatef(-39F, 0.0F, 1.0F, 0.0F);
 		            GL11.glTranslatef(-1.5F, -1.4F, -0.7F);
 		        }
-		        
+
 		        if (FMLClientHandler.instance().getClient().gameSettings.thirdPersonView != 0)
 		        {
 		        	GL11.glTranslatef(-0.6F, 1.225F, 0.6125F);
 		            GL11.glRotatef(-45.0F, 0.0F, 1.0F, 0.0F);
 		            GL11.glScalef(1.625F, -1.625F, 1.625F);
 		            GL11.glRotatef(-97.0F, 1.0F, 0.0F, 0.0F);
-		            GL11.glRotatef(50.0F, 0.0F, 1.0F, 0.0F);	
+		            GL11.glRotatef(50.0F, 0.0F, 1.0F, 0.0F);
 		        }
-		        
-				renderItemCustom(type, item, data);
+
+				this.renderItemCustom(type, item, data);
 				GL11.glPopMatrix();
 				GL11.glPushMatrix();
-				
+
 				float f28 = item.getMaxItemUseDuration() - (((float)par1EntityLiving.getItemInUseCount() - 1) + 1.0F);
 	            float f32 = f28 / 50F;
 	            f32 = (f32 * f32 + f32 * 2.0F) / 3F;
@@ -154,7 +154,7 @@ public class ItemRendererCrossbowMod implements IItemRenderer
 	            GL11.glRotatef(331F, 0.0F, 0.0F, 1.0F);
 	            GL11.glRotatef(2F, 1.0F, 0.0F, 1.0F);
 	            GL11.glScalef(0.7F, 0.7F, 0.7F);
-	            
+
 	            if (Util.isDiamond(item) || Util.isGold(item) || Util.isIron(item) || Util.isStone(item) || Util.isWooden(item))
 	            {
 	                GL11.glRotatef(83F, 1.0F, 0.0F, 0.0F);
@@ -162,7 +162,7 @@ public class ItemRendererCrossbowMod implements IItemRenderer
 	                GL11.glRotatef(-45F, 0.0F, 1.0F, 0.0F);
 	                GL11.glTranslatef(-1.5F, -1.22F, -0.7F);
 	            }
-	            
+
 	            if (crossbow.reloadingTime <= 0 && (par1EntityLiving.inventory.hasItemStack(new ItemStack(Items.attachmentLimbBolt, 1, crossbow.requiredMetadata(par1EntityLiving))) || par1EntityLiving.capabilities.isCreativeMode))
 	        	{
 	        		if (crossbow.requiredMetadata(par1EntityLiving) == 4)
@@ -186,12 +186,12 @@ public class ItemRendererCrossbowMod implements IItemRenderer
 	                	this.renderItemCustom(type, new ItemStack(Items.attachmentLimbBolt, 1, 0), data);
 	        		}
 	        	}
-			
+
 	            GL11.glPopMatrix();
 			}
 		}
 	}
-	
+
 	private void renderItemCustom(ItemRenderType type, ItemStack item, Object... data)
 	{
 		int par3 = 0;
@@ -199,14 +199,14 @@ public class ItemRendererCrossbowMod implements IItemRenderer
 		RenderBlocks renderBlocks = (RenderBlocks) data[0];
 		GL11.glPushMatrix();
         IItemRenderer customRenderer = MinecraftForgeClient.getItemRenderer(item, type.EQUIPPED);
-        
+
         if (item.itemID < 256)
         {
-            GL11.glBindTexture(GL11.GL_TEXTURE_2D, mcinstance.renderEngine.getTexture(item.getItem().getTextureFile()));
+            GL11.glBindTexture(GL11.GL_TEXTURE_2D, this.mcinstance.renderEngine.getTexture(item.getItem().getTextureFile()));
         }
         else
         {
-            GL11.glBindTexture(GL11.GL_TEXTURE_2D, mcinstance.renderEngine.getTexture(item.getItem().getTextureFile()));
+            GL11.glBindTexture(GL11.GL_TEXTURE_2D, this.mcinstance.renderEngine.getTexture(item.getItem().getTextureFile()));
         }
 
         Tessellator var4 = Tessellator.instance;
@@ -241,7 +241,7 @@ public class ItemRendererCrossbowMod implements IItemRenderer
         {
             GL11.glDepthFunc(GL11.GL_EQUAL);
             GL11.glDisable(GL11.GL_LIGHTING);
-            mcinstance.renderEngine.bindTexture(mcinstance.renderEngine.getTexture("%blur%/misc/glint.png"));
+            this.mcinstance.renderEngine.bindTexture(this.mcinstance.renderEngine.getTexture("%blur%/misc/glint.png"));
             GL11.glEnable(GL11.GL_BLEND);
             GL11.glBlendFunc(GL11.GL_SRC_COLOR, GL11.GL_ONE);
             float var13 = 0.76F;
@@ -272,7 +272,7 @@ public class ItemRendererCrossbowMod implements IItemRenderer
 
         GL11.glPopMatrix();
 	}
-	
+
 	private void renderItemIn2D(Tessellator par1Tessellator, float par2, float par3, float par4, float par5)
     {
         float var6 = 1.0F;
