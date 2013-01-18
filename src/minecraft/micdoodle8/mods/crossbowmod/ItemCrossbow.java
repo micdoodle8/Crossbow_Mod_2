@@ -16,6 +16,7 @@ import org.lwjgl.input.Keyboard;
 import org.lwjgl.input.Mouse;
 
 import cpw.mods.fml.client.FMLClientHandler;
+import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.network.PacketDispatcher;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -190,20 +191,20 @@ public abstract class ItemCrossbow extends Item
 
 	            world.playSoundAtEntity(player, "cbowfire", 1.0F, 0.92F);
 
-		        if (world.isRemote)
-		        {
-					Object[] toSend = {itemstack};
-					PacketDispatcher.sendPacketToServer(Util.createPacket("CrossbowMod", 0, toSend));
-		        }
-		        else
 		        {
 		            itemstack.damageItem(1, player);
 		            for (int j = 0; j < player.inventory.getSizeInventory(); j++)
 		            {
 		            	ItemStack stack = player.inventory.getStackInSlot(j);
 
-		            	if (stack != null && stack.getItem().shiftedIndex == Items.attachmentLimbBolt.shiftedIndex && stack.getItemDamage() == this.requiredMetadata(player))
+		            	if (stack != null && stack.getItem().itemID == Items.attachmentLimbBolt.itemID && stack.getItemDamage() == this.requiredMetadata(player))
 		            	{
+		            		if (world.isRemote)
+		            		{
+		    					Object[] toSend = {itemstack};
+		    					PacketDispatcher.sendPacketToServer(Util.createPacket("CrossbowMod", 0, toSend));
+		            		}
+		            		
 		            		stack.stackSize--;
 
 		            		if (stack.stackSize <= 0)
@@ -214,7 +215,11 @@ public abstract class ItemCrossbow extends Item
 		            		break;
 		            	}
 		            }
-		        	world.spawnEntityInWorld(entityarrow);
+		            
+		            if (!world.isRemote)
+		            {
+			        	world.spawnEntityInWorld(entityarrow);
+		            }
 		        }
 
             	this.isBoltLoaded = false;
