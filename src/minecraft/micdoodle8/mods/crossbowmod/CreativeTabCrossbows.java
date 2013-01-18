@@ -14,7 +14,7 @@ public class CreativeTabCrossbows extends CreativeTabs
 	@Override
     public int getTabIconItemIndex()
     {
-        return Items.diamondCrossbowBase.shiftedIndex;
+        return Items.diamondCrossbowBase.itemID;
     }
 
     @Override

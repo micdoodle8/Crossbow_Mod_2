@@ -9,6 +9,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.network.INetworkManager;
 import net.minecraft.network.packet.Packet250CustomPayload;
 import net.minecraft.world.World;
+import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.network.Player;
 
 public class CrossbowModServer
@@ -121,9 +122,15 @@ public class CrossbowModServer
         {
         	ItemStack stack = entityplayer.inventory.getStackInSlot(j);
 
-        	if (stack != null && stack.getItem().shiftedIndex == Items.attachmentLimbBolt.shiftedIndex && stack.getItemDamage() == crossbow.requiredMetadata(entityplayer))
+        	if (stack != null && stack.getItem().itemID == Items.attachmentLimbBolt.itemID && stack.getItemDamage() == crossbow.requiredMetadata(entityplayer))
         	{
         		stack.stackSize--;
+
+        		if (stack.stackSize <= 0)
+        		{
+        			entityplayer.inventory.setInventorySlotContents(j, null);
+        		}
+
         		break;
         	}
         }

@@ -27,7 +27,7 @@ public class ItemRendererCrossbowMod implements IItemRenderer
 		switch (type)
 		{
 		case ENTITY:
-			return true;
+			return false;
 		case EQUIPPED:
 			return true;
 		case INVENTORY:

@@ -265,7 +265,7 @@ public class CrossbowModClient
     }
 
     public static int remoteVer;
-    public static int localVer = 51;
+    public static int localVer = 54;
 
     private static void checkVersion()
     {
@@ -347,7 +347,7 @@ public class CrossbowModClient
 		{
 			ItemCrossbow crossbow = (ItemCrossbow) CrossbowModCore.crossbowsList.get(i);
 
-			MinecraftForgeClient.registerItemRenderer(crossbow.shiftedIndex, itemRenderer);
+			MinecraftForgeClient.registerItemRenderer(crossbow.itemID, itemRenderer);
 		}
 
 		MinecraftForgeClient.preloadTexture("/Mic'sMods/CrossbowMod/gui/wood.png");

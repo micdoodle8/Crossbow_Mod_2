@@ -18,6 +18,7 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.util.Vec3;
 import net.minecraft.world.World;
+import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -370,8 +371,9 @@ public abstract class EntityBolt extends Entity
     @Override
     public void onCollideWithPlayer(EntityPlayer entityplayer)
     {
-        if(this.item != -1 || this.worldObj.isRemote || entityplayer.capabilities.isCreativeMode)
+        if(this.worldObj.isRemote || entityplayer.capabilities.isCreativeMode)
         {
+        	FMLLog.info("daonsfpansfpansf");
             return;
         }
 

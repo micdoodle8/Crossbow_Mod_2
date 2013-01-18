@@ -309,7 +309,7 @@ public class Util
 	public static ItemStack findMatchingCrossbowRecipe(InventoryCrossbowBench inventoryBlockCrossbowBench)
 	{
 		// If sticks are in the right spots
-		if (inventoryBlockCrossbowBench.getStackInSlot(3) != null && inventoryBlockCrossbowBench.getStackInSlot(3).itemID == Item.stick.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(4) != null && inventoryBlockCrossbowBench.getStackInSlot(4).itemID == Item.stick.shiftedIndex && inventoryBlockCrossbowBench.getStackInSlot(5) != null && inventoryBlockCrossbowBench.getStackInSlot(5).itemID == Item.stick.shiftedIndex)
+		if (inventoryBlockCrossbowBench.getStackInSlot(3) != null && inventoryBlockCrossbowBench.getStackInSlot(3).itemID == Item.stick.itemID && inventoryBlockCrossbowBench.getStackInSlot(4) != null && inventoryBlockCrossbowBench.getStackInSlot(4).itemID == Item.stick.itemID && inventoryBlockCrossbowBench.getStackInSlot(5) != null && inventoryBlockCrossbowBench.getStackInSlot(5).itemID == Item.stick.itemID)
 		{
 			// If the limbs are the right material and in the correct position
 			if (inventoryBlockCrossbowBench.getStackInSlot(2) != null && inventoryBlockCrossbowBench.getStackInSlot(2).getItemDamage() == 5 && inventoryBlockCrossbowBench.getStackInSlot(6) != null && inventoryBlockCrossbowBench.getStackInSlot(6).getItemDamage() == 5 && inventoryBlockCrossbowBench.getStackInSlot(7) != null && inventoryBlockCrossbowBench.getStackInSlot(7).getItemDamage() == 5 && inventoryBlockCrossbowBench.getStackInSlot(8) != null && inventoryBlockCrossbowBench.getStackInSlot(8).getItemDamage() == 5 && inventoryBlockCrossbowBench.getStackInSlot(9) != null && inventoryBlockCrossbowBench.getStackInSlot(9).getItemDamage() == 5)

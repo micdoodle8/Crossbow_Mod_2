@@ -67,7 +67,6 @@ public class CrossbowModLocalization {
             }
             defaultLangStream.close();
         } catch (Exception e) {
-        	e.printStackTrace();
             if (force){
                 this.load(DEFAULT_LANGUAGE, false);
             }
