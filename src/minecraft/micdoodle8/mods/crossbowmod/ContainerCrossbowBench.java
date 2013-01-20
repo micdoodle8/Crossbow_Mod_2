@@ -14,6 +14,7 @@ public class ContainerCrossbowBench extends Container
     public InventoryCrossbowBench craftMatrix = new InventoryCrossbowBench(this);
     public IInventory craftResult = new InventoryCraftResult();
     private World worldObj;
+    private EntityPlayer player;
 
     public ContainerCrossbowBench(InventoryPlayer par1InventoryPlayer)
     {
@@ -21,6 +22,7 @@ public class ContainerCrossbowBench extends Container
         this.addSlotToContainer(new SlotCrossbowBenchResult(par1InventoryPlayer.player, this.craftMatrix, this.craftResult, 0, 142, 36));
         int var6;
         int var7;
+        this.player = par1InventoryPlayer.player;
 
         //Mech, Limb, Stick, Stick, Stick
         for (var6 = 1; var6 < 6; ++var6)
@@ -76,7 +78,12 @@ public class ContainerCrossbowBench extends Container
     @Override
 	public void onCraftMatrixChanged(IInventory par1IInventory)
     {
-        this.craftResult.setInventorySlotContents(0, Util.findMatchingCrossbowRecipe(this.craftMatrix));
+    	if (Util.findMatchingCrossbowRecipe(this.craftMatrix) != null)
+    	{
+            this.craftResult.setInventorySlotContents(0, Util.findMatchingCrossbowRecipe(this.craftMatrix));
+            
+            player.addStat(CrossbowModCore.createCrossbow, 1);
+    	}
     }
 
     @Override

@@ -18,6 +18,7 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.util.Vec3;
 import net.minecraft.world.World;
+import net.minecraftforge.common.ForgeDirection;
 import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -51,6 +52,8 @@ public abstract class EntityBolt extends Entity
     public boolean hasLightningAttachment = false;
     public boolean hasTorchAttachment = false;
     public boolean hasPoisonAttachment = false;
+    public boolean shootLeft = false;
+    public boolean shootRight = false;
 
     public EntityBolt(World world)
     {
@@ -63,7 +66,7 @@ public abstract class EntityBolt extends Entity
         this.setPosition(d, d1, d2);
     }
 
-    public EntityBolt(World world, EntityLiving entityliving, float f)
+    public EntityBolt(World world, EntityLiving entityliving, float f, float f2)
     {
         this(world);
         this.shooter = entityliving;
@@ -75,10 +78,15 @@ public abstract class EntityBolt extends Entity
         this.posZ -= (MathHelper.sin(this.rotationYaw / 180.0F * (float)Math.PI) * 0.16F);
         this.setPosition(this.posX, this.posY, this.posZ);
         this.yOffset = 0.0F;
-        this.motionX = (-MathHelper.sin(this.rotationYaw / 180.0F * (float)Math.PI) * MathHelper.cos(this.rotationPitch / 180.0F * (float)Math.PI));
-        this.motionZ = (MathHelper.cos(this.rotationYaw / 180.0F * (float)Math.PI) * MathHelper.cos(this.rotationPitch / 180.0F * (float)Math.PI));
+        this.motionX = (-MathHelper.sin((this.rotationYaw + f2) / 180.0F * (float)Math.PI) * MathHelper.cos(this.rotationPitch / 180.0F * (float)Math.PI));
+        this.motionZ = (MathHelper.cos((this.rotationYaw + f2) / 180.0F * (float)Math.PI) * MathHelper.cos(this.rotationPitch / 180.0F * (float)Math.PI));
         this.motionY = (-MathHelper.sin(this.rotationPitch / 180.0F * (float)Math.PI));
         this.setArrowHeading(this.motionX, this.motionY, this.motionZ, f * 1.5F);
+    }
+    
+    public float getLeftRightOffset()
+    {
+    	return this.shootLeft ? -10.0F : (this.shootRight ? 10.0F : 0.0F);
     }
 
     @Override
@@ -373,7 +381,6 @@ public abstract class EntityBolt extends Entity
     {
         if(this.worldObj.isRemote || entityplayer.capabilities.isCreativeMode)
         {
-        	FMLLog.info("daonsfpansfpansf");
             return;
         }
 
@@ -436,6 +443,23 @@ public abstract class EntityBolt extends Entity
             	this.worldObj.createExplosion(this, (int)Math.floor(this.posX), (int)this.posY, (int)Math.floor(this.posZ), 4, true);
                 this.setDead();
         	}
+        }
+        
+        if (this.hasIceAttachment)
+        {
+        	for (int i = -1; i <= 1; i++)
+        	{
+            	for (int j = -1; j <= 1; j++)
+            	{
+            		if (this.worldObj.getBlockId((int)Math.floor(this.posX + i), (int)this.posY, (int)Math.floor(this.posZ + j)) == 0
+            				&& this.worldObj.isBlockSolidOnSide((int)Math.floor(this.posX + i), (int)this.posY - 1, (int)Math.floor(this.posZ + j), ForgeDirection.DOWN))
+            		{
+                    	this.worldObj.setBlockWithNotify((int)Math.floor(this.posX + i), (int)this.posY, (int)Math.floor(this.posZ + j), Block.snow.blockID);
+            		}
+            	}
+        	}
+        	
+            this.setDead();
         }
 
     	if (this.hasFireAttachment)

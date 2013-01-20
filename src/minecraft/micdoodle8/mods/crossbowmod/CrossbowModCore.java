@@ -3,14 +3,19 @@ package micdoodle8.mods.crossbowmod;
 import java.util.ArrayList;
 import java.util.List;
 
+import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.network.INetworkManager;
 import net.minecraft.network.packet.Packet250CustomPayload;
 import net.minecraft.stats.Achievement;
+import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 import net.minecraftforge.common.AchievementPage;
+import net.minecraftforge.common.MinecraftForge;
+import cpw.mods.fml.common.ICraftingHandler;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.Init;
 import cpw.mods.fml.common.Mod.Instance;
@@ -55,10 +60,13 @@ public class CrossbowModCore
 	public static Achievement createBench;
 	public static Achievement createCrossbow;
 	public static Achievement sniper;
+//	public static Achievement payback;
 
 	@PreInit
 	public void preInit(FMLPreInitializationEvent event)
 	{
+		MinecraftForge.EVENT_BUS.register(new CrossbowEvents());
+		
 		new ConfigManager(event);
 
 		proxy.preInit(event);
@@ -77,6 +85,8 @@ public class CrossbowModCore
 
 		NetworkRegistry.instance().registerGuiHandler(this, new GuiHandler());
 		NetworkRegistry.instance().registerChannel(new ServerPacketHandler(), "CrossbowMod", Side.SERVER);
+		
+		GameRegistry.registerCraftingHandler(new CraftingHandler());
 
 		GameRegistry.registerBlock(Items.crossbowBench);
 
@@ -90,12 +100,30 @@ public class CrossbowModCore
 		createCrossbow = new Achievement(492, "CreateCrossbow", 0, 2, Items.woodenCrossbowBase, createBench).registerAchievement();
 		ItemStack stack = ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.diamondCrossbowBase), EnumAttachmentType.longscope, EnumCrossbowMaterial.diamond, EnumCrossbowFireRate.none);
 		sniper = new Achievement(493, "Sniper", 2, 3, stack, createCrossbow).setSpecial().registerAchievement();
+//		payback = new Achievement(494, "Payback!", -2, 2, new ItemStack(Block.tnt), createCrossbow).registerAchievement();
 
 		AchievementPage.registerAchievementPage(new AchievementPage("Crossbow Mod", createBench, createCrossbow, sniper));
 
 		proxy.load(event);
 
 		proxy.registerRenderInformation();
+	}
+	
+	public class CraftingHandler implements ICraftingHandler
+	{
+		@Override
+		public void onCrafting(EntityPlayer player, ItemStack item, IInventory craftMatrix) 
+		{
+			if (item.getItem().itemID == Items.crossbowBench.blockID)
+			{
+				player.addStat(createBench, 1);
+			}
+		}
+
+		@Override
+		public void onSmelting(EntityPlayer player, ItemStack item) 
+		{
+		}
 	}
 
 	public class GuiHandler implements IGuiHandler

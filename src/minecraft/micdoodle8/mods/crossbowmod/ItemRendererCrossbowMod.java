@@ -122,15 +122,6 @@ public class ItemRendererCrossbowMod implements IItemRenderer
 		            GL11.glTranslatef(-1.5F, -1.4F, -0.7F);
 		        }
 
-		        if (FMLClientHandler.instance().getClient().gameSettings.thirdPersonView != 0)
-		        {
-		        	GL11.glTranslatef(-0.6F, 1.225F, 0.6125F);
-		            GL11.glRotatef(-45.0F, 0.0F, 1.0F, 0.0F);
-		            GL11.glScalef(1.625F, -1.625F, 1.625F);
-		            GL11.glRotatef(-97.0F, 1.0F, 0.0F, 0.0F);
-		            GL11.glRotatef(50.0F, 0.0F, 1.0F, 0.0F);
-		        }
-
 				this.renderItemCustom(type, item, data);
 				GL11.glPopMatrix();
 				GL11.glPushMatrix();

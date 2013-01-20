@@ -105,6 +105,8 @@ public abstract class ItemCrossbow extends Item
 	    	if (player.capabilities.isCreativeMode || player.inventory.hasItemStack(new ItemStack(Items.attachmentLimbBolt, 1, this.requiredMetadata(player))))
 	    	{
 		        EntityBolt entityarrow = this.getEntity(world, player);
+		        EntityBolt entityarrow2 = this.getEntity(world, player);
+		        EntityBolt entityarrow3 = this.getEntity(world, player);
 
 		        entityarrow.item = this.requiredMetadata(player);
 
@@ -129,96 +131,140 @@ public abstract class ItemCrossbow extends Item
 		        {
 		        	entityarrow.setFire(100);
 		        	entityarrow.hasFireAttachment = true;
+		        	entityarrow2.setFire(100);
+		        	entityarrow2.hasFireAttachment = true;
+		        	entityarrow3.setFire(100);
+		        	entityarrow3.hasFireAttachment = true;
 		        }
 		        else
 		        {
 		        	entityarrow.hasFireAttachment = false;
+		        	entityarrow2.hasFireAttachment = false;
+		        	entityarrow3.hasFireAttachment = false;
 		        }
 
 		        if (Util.hasExplosiveAttachment(itemstack))
 		        {
 		        	entityarrow.hasExplosiveAttachment = true;
+		        	entityarrow2.hasExplosiveAttachment = true;
+		        	entityarrow3.hasExplosiveAttachment = true;
 		        }
 		        else
 		        {
 		        	entityarrow.hasExplosiveAttachment = false;
+		        	entityarrow2.hasExplosiveAttachment = false;
+		        	entityarrow3.hasExplosiveAttachment = false;
 		        }
 
 		        if (Util.hasLavaAttachment(itemstack))
 		        {
 		        	entityarrow.hasLavaAttachment = true;
+		        	entityarrow2.hasLavaAttachment = true;
+		        	entityarrow3.hasLavaAttachment = true;
 		        }
 		        else
 		        {
 		        	entityarrow.hasLavaAttachment = false;
+		        	entityarrow2.hasLavaAttachment = false;
+		        	entityarrow3.hasLavaAttachment = false;
 		        }
 
 		        if (Util.hasIceAttachment(itemstack))
 		        {
 		        	entityarrow.hasIceAttachment = true;
+		        	entityarrow2.hasIceAttachment = true;
+		        	entityarrow3.hasIceAttachment = true;
 		        }
 		        else
 		        {
 		        	entityarrow.hasIceAttachment = false;
+		        	entityarrow2.hasIceAttachment = false;
+		        	entityarrow3.hasIceAttachment = false;
 		        }
 
 		        if (Util.hasLightningAttachment(itemstack))
 		        {
 		        	entityarrow.hasLightningAttachment = true;
+		        	entityarrow2.hasLightningAttachment = true;
+		        	entityarrow3.hasLightningAttachment = true;
 		        }
 		        else
 		        {
 		        	entityarrow.hasLightningAttachment = false;
+		        	entityarrow2.hasLightningAttachment = false;
+		        	entityarrow3.hasLightningAttachment = false;
 		        }
 
 		        if (Util.hasTorchAttachment(itemstack))
 		        {
 		        	entityarrow.hasTorchAttachment = true;
+		        	entityarrow2.hasTorchAttachment = true;
+		        	entityarrow3.hasTorchAttachment = true;
 		        }
 		        else
 		        {
 		        	entityarrow.hasTorchAttachment = false;
+		        	entityarrow2.hasTorchAttachment = false;
+		        	entityarrow3.hasTorchAttachment = false;
 		        }
 
 		        if (Util.hasPoisonAttachment(itemstack))
 		        {
 		        	entityarrow.hasPoisonAttachment = true;
+		        	entityarrow2.hasPoisonAttachment = true;
+		        	entityarrow3.hasPoisonAttachment = true;
 		        }
 		        else
 		        {
 		        	entityarrow.hasPoisonAttachment = false;
+		        	entityarrow2.hasPoisonAttachment = false;
+		        	entityarrow3.hasPoisonAttachment = false;
 		        }
 
 	            world.playSoundAtEntity(player, "cbowfire", 1.0F, 0.92F);
 
-		        {
-		            itemstack.damageItem(1, player);
-		            for (int j = 0; j < player.inventory.getSizeInventory(); j++)
-		            {
-		            	ItemStack stack = player.inventory.getStackInSlot(j);
+	            itemstack.damageItem(1, player);
+	            for (int j = 0; j < player.inventory.getSizeInventory(); j++)
+	            {
+	            	ItemStack stack = player.inventory.getStackInSlot(j);
 
-		            	if (stack != null && stack.getItem().itemID == Items.attachmentLimbBolt.itemID && stack.getItemDamage() == this.requiredMetadata(player))
-		            	{
-		            		if (world.isRemote)
-		            		{
-		    					Object[] toSend = {itemstack};
-		    					PacketDispatcher.sendPacketToServer(Util.createPacket("CrossbowMod", 0, toSend));
-		            		}
-		            		
+	            	if (player.capabilities.isCreativeMode || (stack != null && stack.getItem().itemID == Items.attachmentLimbBolt.itemID && stack.getItemDamage() == this.requiredMetadata(player)))
+	            	{
+	            		if (world.isRemote)
+	            		{
+	    					Object[] toSend = {itemstack, Util.hasTriShotMech(itemstack)};
+	    					PacketDispatcher.sendPacketToServer(Util.createPacket("CrossbowMod", 0, toSend));
+	            		}
+	            		
+	            		if (!player.capabilities.isCreativeMode && stack != null)
+	            		{
 		            		stack.stackSize--;
+		            		
+		            		if (Util.hasTriShotMech(itemstack))
+		            		{
+		            			stack.stackSize -= 2;
+		            		}
 
 		            		if (stack.stackSize <= 0)
 		            		{
 		            			player.inventory.setInventorySlotContents(j, null);
 		            		}
+	            		}
 
-		            		break;
-		            	}
-		            }
+	            		break;
+	            	}
 		            
 		            if (!world.isRemote)
 		            {
 			        	world.spawnEntityInWorld(entityarrow);
+			        	
+			        	if (Util.hasTriShotMech(itemstack))
+			        	{
+			        		entityarrow2.shootLeft = true;
+			        		entityarrow3.shootLeft = true;
+				        	world.spawnEntityInWorld(entityarrow2);
+				        	world.spawnEntityInWorld(entityarrow3);
+			        	}
 		            }
 		        }
 
@@ -230,6 +276,8 @@ public abstract class ItemCrossbow extends Item
 	}
 
     public abstract EntityBolt getEntity(World world, EntityLiving entityliving);
+
+    public abstract EntityBolt getEntity(World world, EntityLiving entityliving, float f);
 
     public abstract int getCrossbowMaxDamage();
 
@@ -299,6 +347,9 @@ public abstract class ItemCrossbow extends Item
                 break;
     		case 3:
                 var2.add(CrossbowModCore.lang.get(Items.attachmentLimbBolt.getItemNameIS(new ItemStack(Items.attachmentLimbBolt, 1, 13)) + ".name"));
+                break;
+    		case 4:
+                var2.add(CrossbowModCore.lang.get(Items.attachmentLimbBolt.getItemNameIS(new ItemStack(Items.attachmentLimbBolt, 1, 23)) + ".name"));
                 break;
     		}
     	}
@@ -425,6 +476,8 @@ public abstract class ItemCrossbow extends Item
         				return 10;
         			case 3:
         				return 11;
+        			case 4:
+        				return 104;
         			}
         		case 1:
         			switch (comp.getInteger("firerate"))
@@ -437,6 +490,8 @@ public abstract class ItemCrossbow extends Item
         				return 6;
         			case 3:
         				return 8;
+        			case 4:
+        				return 106;
         			}
         		case 2:
         			switch (comp.getInteger("firerate"))
@@ -449,6 +504,8 @@ public abstract class ItemCrossbow extends Item
         				return 4;
         			case 3:
         				return 7;
+        			case 4:
+        				return 105;
         			}
         		case 3:
         			switch (comp.getInteger("firerate"))
@@ -461,6 +518,8 @@ public abstract class ItemCrossbow extends Item
         				return 54;
         			case 3:
         				return 55;
+        			case 4:
+        				return 108;
         			}
         		case 4:
         			switch (comp.getInteger("firerate"))
@@ -473,6 +532,8 @@ public abstract class ItemCrossbow extends Item
         				return 58;
         			case 3:
         				return 59;
+        			case 4:
+        				return 110;
         			}
         		case 5:
         			switch (comp.getInteger("firerate"))
@@ -485,6 +546,8 @@ public abstract class ItemCrossbow extends Item
         				return 102;
         			case 3:
         				return 103;
+        			case 4:
+        				return 145;
         			}
         		case 6:
         			switch (comp.getInteger("firerate"))
@@ -497,6 +560,8 @@ public abstract class ItemCrossbow extends Item
         				return 98;
         			case 3:
         				return 99;
+        			case 4:
+        				return 144;
         			}
         		case 7:
         			switch (comp.getInteger("firerate"))
@@ -509,6 +574,8 @@ public abstract class ItemCrossbow extends Item
         				return 62;
         			case 3:
         				return 63;
+        			case 4:
+        				return 111;
         			}
         		case 8:
         			switch (comp.getInteger("firerate"))
@@ -521,6 +588,8 @@ public abstract class ItemCrossbow extends Item
     					return 14;
         			case 3:
     					return 15;
+        			case 4:
+        				return 107;
         			}
         		case 9:
         			switch (comp.getInteger("firerate"))
@@ -533,6 +602,8 @@ public abstract class ItemCrossbow extends Item
     					return 50;
         			case 3:
     					return 51;
+        			case 4:
+        				return 109;
         			}
         		}
         	}

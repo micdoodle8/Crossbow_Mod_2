@@ -15,9 +15,9 @@ public class EntityGoldBolt extends EntityBolt
         super(world, d, d1, d2);
     }
 
-    public EntityGoldBolt(World world, EntityLiving entityliving, Float f)
+    public EntityGoldBolt(World world, EntityLiving entityliving, Float f, Float f2)
     {
-        super(world, entityliving, f);
+        super(world, entityliving, f, f2);
     }
 
     @Override

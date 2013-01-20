@@ -52,6 +52,7 @@ public class Items
         addNameWithMetadata("item.attachLimbBolt.mechanismLightAuto.name");
         addNameWithMetadata("item.attachLimbBolt.mechanismMediumAuto.name");
         addNameWithMetadata("item.attachLimbBolt.mechanismHeavyAuto.name");
+        addNameWithMetadata("item.attachLimbBolt.mechanismTriShot.name");
 
         addNameWithMetadata("item.attachLimbBolt.attachmentShortScope.name");
         addNameWithMetadata("item.attachLimbBolt.attachmentLongScope.name");

@@ -5,7 +5,8 @@ public enum EnumCrossbowFireRate
 	none("none", 0),
 	light("light", 1),
 	medium("medium", 2),
-	heavy("heavy", 3);
+	heavy("heavy", 3),
+	tri("trishot", 4);
 
 	private final String name;
 	private final int index;

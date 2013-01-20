@@ -33,7 +33,8 @@ public class ItemCBMod extends Item
     	"attachmentIce", // 19
     	"attachmentLightning", // 20
     	"attachmentTorch", // 21
-    	"attachmentPoison"}; // 22
+    	"attachmentPoison", // 22
+    	"mechanismTriShot"}; // 23
 
     public ItemCBMod(int i)
     {
@@ -116,6 +117,8 @@ public class ItemCBMod extends Item
     		return 24;
     	case 22:
     		return 25;
+    	case 23:
+    		return 26;
     	default:
     		return 0;
     	}

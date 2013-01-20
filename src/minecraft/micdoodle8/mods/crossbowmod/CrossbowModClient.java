@@ -17,6 +17,8 @@ import net.minecraft.client.renderer.EntityRenderer;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.settings.KeyBinding;
 import net.minecraft.src.ModLoader;
+import net.minecraft.src.ModelPlayerAPI;
+import net.minecraft.src.RenderPlayerAPI;
 import net.minecraftforge.client.IItemRenderer;
 import net.minecraftforge.client.MinecraftForgeClient;
 import net.minecraftforge.common.MinecraftForge;
@@ -41,13 +43,17 @@ public class CrossbowModClient
 
     public static boolean checkVersion;
 
-    public static boolean badConfig = false;
-
-    public static boolean checkedConfig = false;
-
 	public static void preInit(FMLPreInitializationEvent event)
 	{
-		MinecraftForge.EVENT_BUS.register(new CrossbowEvents());
+		try
+		{
+			RenderPlayerAPI.register("CrossbowMod2", RenderPlayerCrossbowMod.class);
+			ModelPlayerAPI.register("CrossbowMod2", ModelPlayerCrossbowMod.class);
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
 	}
 
 	public static void init(FMLInitializationEvent event)
@@ -58,6 +64,8 @@ public class CrossbowModClient
 		LanguageRegistry.instance().addStringLocalization(CrossbowModCore.createCrossbow.getName() + ".desc", "Create any crossbow on a Crossbow Crafting Bench");
 		LanguageRegistry.instance().addStringLocalization(CrossbowModCore.sniper.getName(), "Sniper King");
 		LanguageRegistry.instance().addStringLocalization(CrossbowModCore.sniper.getName() + ".desc", "Kill a chicken with any crossbow bolt from more than 75 meters away using a long range scope");
+//		LanguageRegistry.instance().addStringLocalization(CrossbowModCore.payback.getName(), "Payback!");
+//		LanguageRegistry.instance().addStringLocalization(CrossbowModCore.payback.getName() + ".desc", "Kill a creeper with any explosive crossbow");
 
 		checkVersion = ConfigManager.shouldCheckVersion;
 	}
@@ -207,26 +215,11 @@ public class CrossbowModClient
 	public static void onTickInGUI(GuiScreen guiscreen)
     {
 
-    }
+    } // brb..
 
     public static void onTickInGame()
     {
-    	if (!checkedConfig)
-    	{
-    		if (ConfigManager.idItemStoneCrossbow == 11044)
-    		{
-    			badConfig = true;
-    		}
-    		checkedConfig = true;
-    	}
-
-    	if (badConfig)
-    	{
-    		resetConfig();
-    		badConfig = false;
-    	}
-
-    	if (!badConfig && checkVersion)
+    	if (checkVersion)
     	{
     		checkVersion();
     		checkVersion = false;
@@ -238,34 +231,8 @@ public class CrossbowModClient
 		}
     }
 
-    private static void resetConfig()
-    {
-    	File file = new File(Minecraft.getMinecraftDir() + "/config/CrossbowMod2.cfg");
-
-    	if (file.exists())
-    	{
-    		try
-    		{
-    			file.renameTo(new File(Minecraft.getMinecraftDir() + "/config/CrossbowMod2OLD.cfg"));
-        		FMLClientHandler.instance().getClient().thePlayer.addChatMessage("Crossbow Mod 2 config deleted successfully.");
-        		FMLClientHandler.instance().getClient().thePlayer.addChatMessage("Please restart Minecraft for changes to take effect.");
-        		FMLClientHandler.instance().getClient().thePlayer.addChatMessage("This change will most likely remove any crossbows you already have.");
-    		}
-    		catch (Exception e)
-    		{
-        		FMLClientHandler.instance().getClient().thePlayer.addChatMessage("COULD NOT DELETE CONFIG! Please manually delete Crossbow Mod 2 config.");
-        		FMLClientHandler.instance().getClient().thePlayer.addChatMessage("%appdata%/.minecraft/config/CrossbowMod2.cfg");
-    		}
-    	}
-    	else
-    	{
-    		FMLClientHandler.instance().getClient().thePlayer.addChatMessage("COULD NOT DELETE CONFIG! Please manually delete Crossbow Mod 2 config.");
-    		FMLClientHandler.instance().getClient().thePlayer.addChatMessage("%appdata%/.minecraft/config/CrossbowMod2.cfg");
-    	}
-    }
-
     public static int remoteVer;
-    public static int localVer = 54;
+    public static int localVer = 57;
 
     private static void checkVersion()
     {
