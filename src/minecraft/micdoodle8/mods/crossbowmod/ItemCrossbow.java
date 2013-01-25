@@ -230,7 +230,9 @@ public abstract class ItemCrossbow extends Item
 
 	            	if (player.capabilities.isCreativeMode || (stack != null && stack.getItem().itemID == Items.attachmentLimbBolt.itemID && stack.getItemDamage() == this.requiredMetadata(player)))
 	            	{
-	            		if (world.isRemote)
+	            		FMLLog.info("" + world.isRemote);
+	            		
+//	            		if (world.isRemote)
 	            		{
 	    					Object[] toSend = {itemstack, Util.hasTriShotMech(itemstack)};
 	    					PacketDispatcher.sendPacketToServer(Util.createPacket("CrossbowMod", 0, toSend));
