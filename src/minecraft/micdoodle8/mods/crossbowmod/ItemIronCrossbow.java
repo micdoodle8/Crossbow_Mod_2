@@ -132,6 +132,6 @@ public class ItemIronCrossbow extends ItemCrossbow
     @Override
     public String getSpriteSheetLoc()
     {
-    	return "/Mic'sMods/CrossbowMod/gui/iron.png";
+    	return "/micdoodle8/mods/crossbowmod/resources/gui/iron.png";
     }
 }

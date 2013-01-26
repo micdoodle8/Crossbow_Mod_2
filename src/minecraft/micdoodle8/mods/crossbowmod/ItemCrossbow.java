@@ -230,13 +230,8 @@ public abstract class ItemCrossbow extends Item
 
 	            	if (player.capabilities.isCreativeMode || (stack != null && stack.getItem().itemID == Items.attachmentLimbBolt.itemID && stack.getItemDamage() == this.requiredMetadata(player)))
 	            	{
-	            		FMLLog.info("" + world.isRemote);
-	            		
-//	            		if (world.isRemote)
-	            		{
-	    					Object[] toSend = {itemstack, Util.hasTriShotMech(itemstack)};
-	    					PacketDispatcher.sendPacketToServer(Util.createPacket("CrossbowMod", 0, toSend));
-	            		}
+    					Object[] toSend = {itemstack, Util.hasTriShotMech(itemstack)};
+    					PacketDispatcher.sendPacketToServer(Util.createPacket("CrossbowMod", 0, toSend));
 	            		
 	            		if (!player.capabilities.isCreativeMode && stack != null)
 	            		{
@@ -263,7 +258,7 @@ public abstract class ItemCrossbow extends Item
 			        	if (Util.hasTriShotMech(itemstack))
 			        	{
 			        		entityarrow2.shootLeft = true;
-			        		entityarrow3.shootLeft = true;
+			        		entityarrow3.shootRight = true;
 				        	world.spawnEntityInWorld(entityarrow2);
 				        	world.spawnEntityInWorld(entityarrow3);
 			        	}

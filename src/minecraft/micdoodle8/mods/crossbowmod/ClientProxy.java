@@ -27,7 +27,7 @@ public class ClientProxy extends CommonProxy
 		TickRegistry.registerTickHandler(new ClientTickHandler(), Side.CLIENT);
 		TickRegistry.registerScheduledTickHandler(new ClientScheduledTickHandler(), Side.CLIENT);
 		CrossbowModClient.init(event);
-    	FMLClientHandler.instance().getClient().sndManager.soundPoolSounds.addSound("cbowfire.ogg", CrossbowModCore.instance.getClass().getResource("/Mic'sMods/CrossbowMod/sounds/cbowfire.ogg"));
+    	FMLClientHandler.instance().getClient().sndManager.soundPoolSounds.addSound("cbowfire.ogg", CrossbowModCore.instance.getClass().getResource("/micdoodle8/mods/crossbowmod/resources/sounds/cbowfire.ogg"));
 	}
 
 	@Override

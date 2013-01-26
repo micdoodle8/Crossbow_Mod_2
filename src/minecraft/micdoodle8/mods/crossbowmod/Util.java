@@ -308,7 +308,7 @@ public class Util
 			"ZZN",
 			Character.valueOf('N'), Item.netherStalkSeeds, Character.valueOf('Z'), Item.ingotIron, Character.valueOf('S'), Item.spiderEye
 		});
-		GameRegistry.addRecipe(new ItemStack(Items.attachmentLimbBolt, 1, 22), new Object[] {
+		GameRegistry.addRecipe(new ItemStack(Items.attachmentLimbBolt, 1, 23), new Object[] {
 			"XXZ",
 			"XZX",
 			"ZXC",

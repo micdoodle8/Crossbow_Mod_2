@@ -21,7 +21,7 @@ public class RenderGoldBolt extends Render
             return;
         }
 
-        this.loadTexture("/Mic'sMods/CrossbowMod/items/goldbolt.png");
+        this.loadTexture("/micdoodle8/mods/crossbowmod/resources/items/goldbolt.png");
         GL11.glPushMatrix();
         GL11.glTranslatef((float)d, (float)d1, (float)d2);
         GL11.glRotatef(entitygoldbolt.prevRotationYaw + (entitygoldbolt.rotationYaw - entitygoldbolt.prevRotationYaw) * f1 - 90.0F, 0.0F, 1.0F, 0.0F);

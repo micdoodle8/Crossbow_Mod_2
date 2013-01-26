@@ -21,7 +21,7 @@ public class RenderIronBolt extends Render
             return;
         }
 
-        this.loadTexture("/Mic'sMods/CrossbowMod/items/ironbolt.png");
+        this.loadTexture("/micdoodle8/mods/crossbowmod/resources/items/ironbolt.png");
         GL11.glPushMatrix();
         GL11.glTranslatef((float)d, (float)d1, (float)d2);
         GL11.glRotatef(entityironbolt.prevRotationYaw + (entityironbolt.rotationYaw - entityironbolt.prevRotationYaw) * f1 - 90.0F, 0.0F, 1.0F, 0.0F);

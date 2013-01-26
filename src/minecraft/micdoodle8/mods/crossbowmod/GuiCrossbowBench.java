@@ -23,7 +23,7 @@ public class GuiCrossbowBench extends GuiContainer
     @Override
     protected void drawGuiContainerBackgroundLayer(float par1, int par2, int par3)
     {
-        int var4 = this.mc.renderEngine.getTexture("/Mic'sMods/CrossbowMod/gui/crossbowTable.png");
+        int var4 = this.mc.renderEngine.getTexture("/micdoodle8/mods/crossbowmod/resources/gui/crossbowTable.png");
         GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
         this.mc.renderEngine.bindTexture(var4);
         int var5 = (this.width - this.xSize) / 2;

@@ -34,7 +34,7 @@ public class BlockCrossbowBench extends Block
 	@Override
 	public String getTextureFile()
 	{
-		return "/Mic'sMods/CrossbowMod/gui/other.png";
+		return "/micdoodle8/mods/crossbowmod/resources/gui/other.png";
 	}
 
 	@Override

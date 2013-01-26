@@ -10,7 +10,7 @@ public class ClientEvents
     {
         try
         {
-            event.manager.soundPoolSounds.addSound("cbowfire.ogg", CrossbowModCore.instance.getClass().getResource("/Mic'sMods/CrossbowMod/sounds/cbowfire.ogg"));
+            event.manager.soundPoolSounds.addSound("cbowfire.ogg", CrossbowModCore.instance.getClass().getResource("/micdoodle8/mods/crossbowmod/resources/sounds/cbowfire.ogg"));
         }
         catch (Exception e)
         {

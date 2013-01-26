@@ -21,7 +21,7 @@ public class RenderDiamondBolt extends Render
             return;
         }
 
-        this.loadTexture("/Mic'sMods/CrossbowMod/items/diamondbolt.png");
+        this.loadTexture("/micdoodle8/mods/crossbowmod/resources/items/diamondbolt.png");
         GL11.glPushMatrix();
         GL11.glTranslatef((float)d, (float)d1, (float)d2);
         GL11.glRotatef(entitydiamondbolt.prevRotationYaw + (entitydiamondbolt.rotationYaw - entitydiamondbolt.prevRotationYaw) * f1 - 90.0F, 0.0F, 1.0F, 0.0F);

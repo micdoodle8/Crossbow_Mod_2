@@ -93,7 +93,7 @@ public class CrossbowModClient
 			GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);
 			GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
 			GL11.glDisable(GL11.GL_ALPHA_TEST);
-			GL11.glBindTexture(GL11.GL_TEXTURE_2D, mc.renderEngine.getTexture("/Mic'sMods/CrossbowMod/gui/attachmentLongScope.png"));
+			GL11.glBindTexture(GL11.GL_TEXTURE_2D, mc.renderEngine.getTexture("/micdoodle8/mods/crossbowmod/resources/gui/attachmentLongScope.png"));
 			Tessellator tessellator = Tessellator.instance;
 			tessellator.startDrawingQuads();
 			tessellator.addVertexWithUV(i / 2 - 2 * k, k, -90D, 0.0D, 1.0D);
@@ -183,7 +183,7 @@ public class CrossbowModClient
 			GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);
 			GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
 			GL11.glDisable(GL11.GL_ALPHA_TEST);
-			GL11.glBindTexture(GL11.GL_TEXTURE_2D, mc.renderEngine.getTexture("/Mic'sMods/CrossbowMod/gui/attachmentShortScope.png"));
+			GL11.glBindTexture(GL11.GL_TEXTURE_2D, mc.renderEngine.getTexture("/micdoodle8/mods/crossbowmod/resources/gui/attachmentShortScope.png"));
 			Tessellator tessellator = Tessellator.instance;
 			tessellator.startDrawingQuads();
 			tessellator.addVertexWithUV(i / 2 - 2 * k, k, -90D, 0.0D, 1.0D);
@@ -232,7 +232,7 @@ public class CrossbowModClient
     }
 
     public static int remoteVer;
-    public static int localVer = 57;
+    public static int localVer = 58;
 
     private static void checkVersion()
     {
@@ -317,13 +317,13 @@ public class CrossbowModClient
 			MinecraftForgeClient.registerItemRenderer(crossbow.itemID, itemRenderer);
 		}
 
-		MinecraftForgeClient.preloadTexture("/Mic'sMods/CrossbowMod/gui/wood.png");
-		MinecraftForgeClient.preloadTexture("/Mic'sMods/CrossbowMod/gui/stone.png");
-		MinecraftForgeClient.preloadTexture("/Mic'sMods/CrossbowMod/gui/iron.png");
-		MinecraftForgeClient.preloadTexture("/Mic'sMods/CrossbowMod/gui/gold.png");
-		MinecraftForgeClient.preloadTexture("/Mic'sMods/CrossbowMod/gui/diamond.png");
-		MinecraftForgeClient.preloadTexture("/Mic'sMods/CrossbowMod/gui/other.png");
-		MinecraftForgeClient.preloadTexture("/Mic'sMods/CrossbowMod/gui/Crossbow.png");
+		MinecraftForgeClient.preloadTexture("/micdoodle8/mods/crossbowmod/resources/gui/wood.png");
+		MinecraftForgeClient.preloadTexture("/micdoodle8/mods/crossbowmod/resources/gui/stone.png");
+		MinecraftForgeClient.preloadTexture("/micdoodle8/mods/crossbowmod/resources/gui/iron.png");
+		MinecraftForgeClient.preloadTexture("/micdoodle8/mods/crossbowmod/resources/gui/gold.png");
+		MinecraftForgeClient.preloadTexture("/micdoodle8/mods/crossbowmod/resources/gui/diamond.png");
+		MinecraftForgeClient.preloadTexture("/micdoodle8/mods/crossbowmod/resources/gui/other.png");
+		MinecraftForgeClient.preloadTexture("/micdoodle8/mods/crossbowmod/resources/gui/Crossbow.png");
 
 	}
 

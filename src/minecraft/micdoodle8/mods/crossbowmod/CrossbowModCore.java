@@ -90,7 +90,7 @@ public class CrossbowModCore
 
 		GameRegistry.registerBlock(Items.crossbowBench);
 
-		this.lang = new CrossbowModLocalization("Mic'sMods/CrossbowMod");
+		this.lang = new CrossbowModLocalization("micdoodle8/mods/crossbowmod/resources");
 
 		Items.addNames();
 
