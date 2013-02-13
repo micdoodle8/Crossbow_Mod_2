@@ -53,6 +53,8 @@ public class CrossbowModServer
 		EntityBolt entityarrow3 = crossbow.getEntity(world, entityplayer, 10.0F);
 
         entityarrow.item = crossbow.requiredMetadata(entityplayer);
+        entityarrow2.item = crossbow.requiredMetadata(entityplayer);
+        entityarrow3.item = crossbow.requiredMetadata(entityplayer);
 
         if (Util.hasFlameAttachment(itemstack))
         {

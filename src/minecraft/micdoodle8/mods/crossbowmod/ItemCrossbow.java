@@ -251,18 +251,18 @@ public abstract class ItemCrossbow extends Item
 	            		break;
 	            	}
 		            
-		            if (!world.isRemote)
-		            {
-			        	world.spawnEntityInWorld(entityarrow);
-			        	
-			        	if (Util.hasTriShotMech(itemstack))
-			        	{
-			        		entityarrow2.shootLeft = true;
-			        		entityarrow3.shootRight = true;
-				        	world.spawnEntityInWorld(entityarrow2);
-				        	world.spawnEntityInWorld(entityarrow3);
-			        	}
-		            }
+//		            if (!world.isRemote)
+//		            {
+//			        	world.spawnEntityInWorld(entityarrow);
+//			        	
+//			        	if (Util.hasTriShotMech(itemstack))
+//			        	{
+//			        		entityarrow2.shootLeft = true;
+//			        		entityarrow3.shootRight = true;
+//				        	world.spawnEntityInWorld(entityarrow2);
+//				        	world.spawnEntityInWorld(entityarrow3);
+//			        	}
+//		            }
 		        }
 
             	this.isBoltLoaded = false;

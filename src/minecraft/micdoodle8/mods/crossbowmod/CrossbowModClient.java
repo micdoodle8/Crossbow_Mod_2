@@ -232,7 +232,7 @@ public class CrossbowModClient
     }
 
     public static int remoteVer;
-    public static int localVer = 58;
+    public static int localVer = 59;
 
     private static void checkVersion()
     {
