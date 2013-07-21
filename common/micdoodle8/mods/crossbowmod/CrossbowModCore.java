@@ -29,7 +29,7 @@ import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 
-@Mod(modid = "CrossbowMod2", name = "Crossbow Mod 2 1.3.2", version = "v1")
+@Mod(modid = "CrossbowMod2", name = "Crossbow Mod 2 1.6.2", version = "a0.1.5")
 @NetworkMod(clientSideRequired = true, serverSideRequired = false, connectionHandler = ConnectionHandler.class)
 public class CrossbowModCore
 {
