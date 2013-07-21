@@ -13,6 +13,7 @@ public class GuiCrossbowBench extends GuiContainer
     public GuiCrossbowBench(InventoryPlayer par1InventoryPlayer)
     {
         super(new ContainerCrossbowBench(par1InventoryPlayer));
+        this.ySize = 202;
     }
 
     @Override
@@ -28,7 +29,7 @@ public class GuiCrossbowBench extends GuiContainer
         GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
         this.mc.renderEngine.func_110577_a(GuiCrossbowBench.crossbowTableTexture);
         int var5 = (this.width - this.xSize) / 2;
-        int var6 = (this.height - 202) / 2;
+        int var6 = (this.height - this.ySize) / 2;
         this.drawTexturedModalRect(var5, var6, 0, 0, this.xSize, 202);
     }
 }
