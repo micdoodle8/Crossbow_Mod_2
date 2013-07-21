@@ -9,7 +9,7 @@ import org.lwjgl.opengl.GL11;
 public class GuiCrossbowBench extends GuiContainer
 {
     private static final ResourceLocation crossbowTableTexture = new ResourceLocation(CrossbowModCore.TEXTURE_DOMAIN, "textures/gui/crossbowTable.png");
-    
+
     public GuiCrossbowBench(InventoryPlayer par1InventoryPlayer)
     {
         super(new ContainerCrossbowBench(par1InventoryPlayer));
@@ -26,7 +26,7 @@ public class GuiCrossbowBench extends GuiContainer
     protected void drawGuiContainerBackgroundLayer(float par1, int par2, int par3)
     {
         GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
-        this.mc.renderEngine.func_110577_a(crossbowTableTexture);
+        this.mc.renderEngine.func_110577_a(GuiCrossbowBench.crossbowTableTexture);
         int var5 = (this.width - this.xSize) / 2;
         int var6 = (this.height - 202) / 2;
         this.drawTexturedModalRect(var5, var6, 0, 0, this.xSize, 202);

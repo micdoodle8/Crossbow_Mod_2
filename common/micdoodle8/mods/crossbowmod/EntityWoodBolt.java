@@ -23,18 +23,18 @@ public class EntityWoodBolt extends EntityBolt
     @Override
     protected void entityInit()
     {
-    	super.entityInit();
+        super.entityInit();
     }
 
     @Override
     public float getSpeed()
     {
-    	return 1.0F;
+        return 1.0F;
     }
 
     @Override
     public int getDamage()
     {
-    	return 3;
+        return 3;
     }
 }

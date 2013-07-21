@@ -11,7 +11,7 @@ import org.lwjgl.opengl.GL12;
 public class RenderStoneBolt extends Render
 {
     private static final ResourceLocation stoneBoltTexture = new ResourceLocation(CrossbowModCore.TEXTURE_DOMAIN, "textures/model/stoneBolt.png");
-    
+
     public void renderArrow(EntityStoneBolt entitystonebolt, double d, double d1, double d2, float f, float f1)
     {
         if (entitystonebolt.prevRotationYaw == 0.0F && entitystonebolt.prevRotationPitch == 0.0F)
@@ -19,9 +19,9 @@ public class RenderStoneBolt extends Render
             return;
         }
 
-        this.func_110776_a(stoneBoltTexture);
+        this.func_110776_a(RenderStoneBolt.stoneBoltTexture);
         GL11.glPushMatrix();
-        GL11.glTranslatef((float)d, (float)d1, (float)d2);
+        GL11.glTranslatef((float) d, (float) d1, (float) d2);
         GL11.glRotatef(entitystonebolt.prevRotationYaw + (entitystonebolt.rotationYaw - entitystonebolt.prevRotationYaw) * f1 - 90.0F, 0.0F, 1.0F, 0.0F);
         GL11.glRotatef(entitystonebolt.prevRotationPitch + (entitystonebolt.rotationPitch - entitystonebolt.prevRotationPitch) * f1, 0.0F, 0.0F, 1.0F);
         Tessellator tessellator = Tessellator.instance;
@@ -80,17 +80,18 @@ public class RenderStoneBolt extends Render
 
     protected ResourceLocation func_110779_a(EntityStoneBolt par1EntityArrow)
     {
-        return stoneBoltTexture;
-    }
-
-    protected ResourceLocation func_110775_a(Entity par1Entity)
-    {
-        return this.func_110779_a((EntityStoneBolt)par1Entity);
+        return RenderStoneBolt.stoneBoltTexture;
     }
 
     @Override
-	public void doRender(Entity entity, double d, double d1, double d2, float f, float f1)
+    protected ResourceLocation func_110775_a(Entity par1Entity)
     {
-        this.renderArrow((EntityStoneBolt)entity, d, d1, d2, f, f1);
+        return this.func_110779_a((EntityStoneBolt) par1Entity);
+    }
+
+    @Override
+    public void doRender(Entity entity, double d, double d1, double d2, float f, float f1)
+    {
+        this.renderArrow((EntityStoneBolt) entity, d, d1, d2, f, f1);
     }
 }

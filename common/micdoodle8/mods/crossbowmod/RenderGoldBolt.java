@@ -11,7 +11,7 @@ import org.lwjgl.opengl.GL12;
 public class RenderGoldBolt extends Render
 {
     private static final ResourceLocation goldBoltTexture = new ResourceLocation(CrossbowModCore.TEXTURE_DOMAIN, "textures/model/goldBolt.png");
-    
+
     public void renderArrow(EntityGoldBolt entitygoldbolt, double d, double d1, double d2, float f, float f1)
     {
         if (entitygoldbolt.prevRotationYaw == 0.0F && entitygoldbolt.prevRotationPitch == 0.0F)
@@ -19,9 +19,9 @@ public class RenderGoldBolt extends Render
             return;
         }
 
-        this.func_110776_a(goldBoltTexture);
+        this.func_110776_a(RenderGoldBolt.goldBoltTexture);
         GL11.glPushMatrix();
-        GL11.glTranslatef((float)d, (float)d1, (float)d2);
+        GL11.glTranslatef((float) d, (float) d1, (float) d2);
         GL11.glRotatef(entitygoldbolt.prevRotationYaw + (entitygoldbolt.rotationYaw - entitygoldbolt.prevRotationYaw) * f1 - 90.0F, 0.0F, 1.0F, 0.0F);
         GL11.glRotatef(entitygoldbolt.prevRotationPitch + (entitygoldbolt.rotationPitch - entitygoldbolt.prevRotationPitch) * f1, 0.0F, 0.0F, 1.0F);
         Tessellator tessellator = Tessellator.instance;
@@ -80,17 +80,18 @@ public class RenderGoldBolt extends Render
 
     protected ResourceLocation func_110779_a(EntityGoldBolt par1EntityArrow)
     {
-        return goldBoltTexture;
-    }
-
-    protected ResourceLocation func_110775_a(Entity par1Entity)
-    {
-        return this.func_110779_a((EntityGoldBolt)par1Entity);
+        return RenderGoldBolt.goldBoltTexture;
     }
 
     @Override
-	public void doRender(Entity entity, double d, double d1, double d2, float f, float f1)
+    protected ResourceLocation func_110775_a(Entity par1Entity)
     {
-        this.renderArrow((EntityGoldBolt)entity, d, d1, d2, f, f1);
+        return this.func_110779_a((EntityGoldBolt) par1Entity);
+    }
+
+    @Override
+    public void doRender(Entity entity, double d, double d1, double d2, float f, float f1)
+    {
+        this.renderArrow((EntityGoldBolt) entity, d, d1, d2, f, f1);
     }
 }

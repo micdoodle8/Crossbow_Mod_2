@@ -14,7 +14,8 @@ public class InventoryCrossbowBench implements IInventory
     private int inventoryWidth;
 
     /**
-     * Class containing the callbacks for the events on_GUIClosed and on_CraftMaxtrixChanged.
+     * Class containing the callbacks for the events on_GUIClosed and
+     * on_CraftMaxtrixChanged.
      */
     private Container eventHandler;
 
@@ -30,7 +31,7 @@ public class InventoryCrossbowBench implements IInventory
      * Returns the number of slots in the inventory.
      */
     @Override
-	public int getSizeInventory()
+    public int getSizeInventory()
     {
         return this.stackList.length;
     }
@@ -39,13 +40,14 @@ public class InventoryCrossbowBench implements IInventory
      * Returns the stack in slot i
      */
     @Override
-	public ItemStack getStackInSlot(int par1)
+    public ItemStack getStackInSlot(int par1)
     {
         return par1 >= this.getSizeInventory() ? null : this.stackList[par1];
     }
 
     /**
-     * Returns the itemstack in the slot specified (Top left is 0, 0). Args: row, column
+     * Returns the itemstack in the slot specified (Top left is 0, 0). Args:
+     * row, column
      */
     public ItemStack getStackInRowAndColumn(int par1, int par2)
     {
@@ -64,17 +66,18 @@ public class InventoryCrossbowBench implements IInventory
      * Returns the name of the inventory.
      */
     @Override
-	public String getInvName()
+    public String getInvName()
     {
         return "container.crafting";
     }
 
     /**
-     * When some containers are closed they call this on each slot, then drop whatever it returns as an EntityItem -
-     * like when you close a workbench GUI.
+     * When some containers are closed they call this on each slot, then drop
+     * whatever it returns as an EntityItem - like when you close a workbench
+     * GUI.
      */
     @Override
-	public ItemStack getStackInSlotOnClosing(int par1)
+    public ItemStack getStackInSlotOnClosing(int par1)
     {
         if (this.stackList[par1] != null)
         {
@@ -89,11 +92,11 @@ public class InventoryCrossbowBench implements IInventory
     }
 
     /**
-     * Decrease the size of the stack in slot (first int arg) by the amount of the second int arg. Returns the new
-     * stack.
+     * Decrease the size of the stack in slot (first int arg) by the amount of
+     * the second int arg. Returns the new stack.
      */
     @Override
-	public ItemStack decrStackSize(int par1, int par2)
+    public ItemStack decrStackSize(int par1, int par2)
     {
         if (this.stackList[par1] != null)
         {
@@ -126,21 +129,22 @@ public class InventoryCrossbowBench implements IInventory
     }
 
     /**
-     * Sets the given item stack to the specified slot in the inventory (can be crafting or armor sections).
+     * Sets the given item stack to the specified slot in the inventory (can be
+     * crafting or armor sections).
      */
     @Override
-	public void setInventorySlotContents(int par1, ItemStack par2ItemStack)
+    public void setInventorySlotContents(int par1, ItemStack par2ItemStack)
     {
         this.stackList[par1] = par2ItemStack;
         this.eventHandler.onCraftMatrixChanged(this);
     }
 
     /**
-     * Returns the maximum stack size for a inventory slot. Seems to always be 64, possibly will be extended. *Isn't
-     * this more of a set than a get?*
+     * Returns the maximum stack size for a inventory slot. Seems to always be
+     * 64, possibly will be extended. *Isn't this more of a set than a get?*
      */
     @Override
-	public int getInventoryStackLimit()
+    public int getInventoryStackLimit()
     {
         return 64;
     }
@@ -149,22 +153,29 @@ public class InventoryCrossbowBench implements IInventory
      * Called when an the contents of an Inventory change, usually
      */
     @Override
-	public void onInventoryChanged() {}
+    public void onInventoryChanged()
+    {
+    }
 
     /**
-     * Do not make give this method the name canInteractWith because it clashes with Container
+     * Do not make give this method the name canInteractWith because it clashes
+     * with Container
      */
     @Override
-	public boolean isUseableByPlayer(EntityPlayer par1EntityPlayer)
+    public boolean isUseableByPlayer(EntityPlayer par1EntityPlayer)
     {
         return true;
     }
 
     @Override
-	public void openChest() {}
+    public void openChest()
+    {
+    }
 
     @Override
-	public void closeChest() {}
+    public void closeChest()
+    {
+    }
 
     @Override
     public boolean isInvNameLocalized()

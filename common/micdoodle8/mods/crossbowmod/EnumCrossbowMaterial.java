@@ -2,14 +2,10 @@ package micdoodle8.mods.crossbowmod;
 
 public enum EnumCrossbowMaterial
 {
-	wooden("wooden", 0),
-	stone("stone", 1),
-	iron("iron", 2),
-	gold("gold", 3),
-	diamond("diamond", 4);
+    wooden("wooden", 0), stone("stone", 1), iron("iron", 2), gold("gold", 3), diamond("diamond", 4);
 
-	private final String name;
-	private final int index;
+    private final String name;
+    private final int index;
 
     private EnumCrossbowMaterial(String string, int index)
     {

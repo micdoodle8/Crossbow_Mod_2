@@ -18,27 +18,27 @@ public class ContainerCrossbowBench extends Container
 
     public ContainerCrossbowBench(InventoryPlayer par1InventoryPlayer)
     {
-    	this.worldObj = par1InventoryPlayer.player.worldObj;
+        this.worldObj = par1InventoryPlayer.player.worldObj;
         this.addSlotToContainer(new SlotCrossbowBenchResult(par1InventoryPlayer.player, this.craftMatrix, this.craftResult, 0, 142, 36));
         int var6;
         int var7;
         this.player = par1InventoryPlayer.player;
 
-        //Mech, Limb, Stick, Stick, Stick
+        // Mech, Limb, Stick, Stick, Stick
         for (var6 = 1; var6 < 6; ++var6)
         {
-            this.addSlotToContainer(new Slot(this.craftMatrix, var6, (16 + var6 * 18) - 18, 36));
+            this.addSlotToContainer(new Slot(this.craftMatrix, var6, 16 + var6 * 18 - 18, 36));
         }
-        //Middle-Top Limb
+        // Middle-Top Limb
         this.addSlotToContainer(new Slot(this.craftMatrix, 6, 16 + 18, 36 - 18));
-        //Middle-Bottom Limb
+        // Middle-Bottom Limb
         this.addSlotToContainer(new Slot(this.craftMatrix, 7, 16 + 18, 36 + 18));
-        //Top Limb
-        this.addSlotToContainer(new Slot(this.craftMatrix, 8, 16 + (18 * 2), 36 + (18 * 2)));
-        //Bottom Limb
-        this.addSlotToContainer(new Slot(this.craftMatrix, 9, 16 + (18 * 2), 36 - (18 * 2)));
-        //Scope
-        this.addSlotToContainer(new Slot(this.craftMatrix, 10, 15 + (18 * 4), 36 - (18 * 2)));
+        // Top Limb
+        this.addSlotToContainer(new Slot(this.craftMatrix, 8, 16 + 18 * 2, 36 + 18 * 2));
+        // Bottom Limb
+        this.addSlotToContainer(new Slot(this.craftMatrix, 9, 16 + 18 * 2, 36 - 18 * 2));
+        // Scope
+        this.addSlotToContainer(new Slot(this.craftMatrix, 10, 15 + 18 * 4, 36 - 18 * 2));
 
         for (var6 = 0; var6 < 3; ++var6)
         {
@@ -57,7 +57,7 @@ public class ContainerCrossbowBench extends Container
     }
 
     @Override
-	public void onContainerClosed(EntityPlayer par1EntityPlayer)
+    public void onContainerClosed(EntityPlayer par1EntityPlayer)
     {
         super.onContainerClosed(par1EntityPlayer);
 
@@ -76,30 +76,31 @@ public class ContainerCrossbowBench extends Container
     }
 
     @Override
-	public void onCraftMatrixChanged(IInventory par1IInventory)
+    public void onCraftMatrixChanged(IInventory par1IInventory)
     {
-    	if (Util.findMatchingCrossbowRecipe(this.craftMatrix) != null)
-    	{
+        if (Util.findMatchingCrossbowRecipe(this.craftMatrix) != null)
+        {
             this.craftResult.setInventorySlotContents(0, Util.findMatchingCrossbowRecipe(this.craftMatrix));
-            
-            player.addStat(CrossbowModCore.createCrossbow, 1);
-    	}
+
+            this.player.addStat(CrossbowModCore.createCrossbow, 1);
+        }
     }
 
     @Override
-	public boolean canInteractWith(EntityPlayer par1EntityPlayer)
+    public boolean canInteractWith(EntityPlayer par1EntityPlayer)
     {
         return true;
     }
 
     /**
-     * Called to transfer a stack from one inventory to the other eg. when shift clicking.
+     * Called to transfer a stack from one inventory to the other eg. when shift
+     * clicking.
      */
     @Override
     public ItemStack transferStackInSlot(EntityPlayer par1EntityPlayer, int par1)
     {
         ItemStack var2 = null;
-        Slot var3 = (Slot)this.inventorySlots.get(par1);
+        Slot var3 = (Slot) this.inventorySlots.get(par1);
 
         if (var3 != null && var3.getHasStack())
         {
@@ -136,7 +137,7 @@ public class ContainerCrossbowBench extends Container
 
             if (var4.stackSize == 0)
             {
-                var3.putStack((ItemStack)null);
+                var3.putStack((ItemStack) null);
             }
             else
             {

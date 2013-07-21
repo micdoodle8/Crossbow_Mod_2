@@ -23,18 +23,18 @@ public class EntityDiamondBolt extends EntityBolt
     @Override
     protected void entityInit()
     {
-    	super.entityInit();
+        super.entityInit();
     }
 
     @Override
     public float getSpeed()
     {
-    	return 4F;
+        return 4F;
     }
 
     @Override
     public int getDamage()
     {
-    	return 10;
+        return 10;
     }
 }

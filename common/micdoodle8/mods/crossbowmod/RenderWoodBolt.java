@@ -11,7 +11,7 @@ import org.lwjgl.opengl.GL12;
 public class RenderWoodBolt extends Render
 {
     private static final ResourceLocation woodBoltTexture = new ResourceLocation(CrossbowModCore.TEXTURE_DOMAIN, "textures/model/woodBolt.png");
-    
+
     public void renderArrow(EntityWoodBolt entitywoodbolt, double d, double d1, double d2, float f, float f1)
     {
         if (entitywoodbolt.prevRotationYaw == 0.0F && entitywoodbolt.prevRotationPitch == 0.0F)
@@ -19,9 +19,9 @@ public class RenderWoodBolt extends Render
             return;
         }
 
-        this.func_110776_a(woodBoltTexture);
+        this.func_110776_a(RenderWoodBolt.woodBoltTexture);
         GL11.glPushMatrix();
-        GL11.glTranslatef((float)d, (float)d1, (float)d2);
+        GL11.glTranslatef((float) d, (float) d1, (float) d2);
         GL11.glRotatef(entitywoodbolt.prevRotationYaw + (entitywoodbolt.rotationYaw - entitywoodbolt.prevRotationYaw) * f1 - 90.0F, 0.0F, 1.0F, 0.0F);
         GL11.glRotatef(entitywoodbolt.prevRotationPitch + (entitywoodbolt.rotationPitch - entitywoodbolt.prevRotationPitch) * f1, 0.0F, 0.0F, 1.0F);
         Tessellator var10 = Tessellator.instance;
@@ -80,17 +80,18 @@ public class RenderWoodBolt extends Render
 
     protected ResourceLocation func_110779_a(EntityWoodBolt par1EntityArrow)
     {
-        return woodBoltTexture;
-    }
-
-    protected ResourceLocation func_110775_a(Entity par1Entity)
-    {
-        return this.func_110779_a((EntityWoodBolt)par1Entity);
+        return RenderWoodBolt.woodBoltTexture;
     }
 
     @Override
-	public void doRender(Entity entity, double d, double d1, double d2, float f, float f1)
+    protected ResourceLocation func_110775_a(Entity par1Entity)
     {
-        this.renderArrow((EntityWoodBolt)entity, d, d1, d2, f, f1);
+        return this.func_110779_a((EntityWoodBolt) par1Entity);
+    }
+
+    @Override
+    public void doRender(Entity entity, double d, double d1, double d2, float f, float f1)
+    {
+        this.renderArrow((EntityWoodBolt) entity, d, d1, d2, f, f1);
     }
 }

@@ -22,7 +22,8 @@ public class SlotCrossbowBenchResult extends Slot
     }
 
     /**
-     * Check if the stack is a valid item for this slot. Always true beside for the armor slots.
+     * Check if the stack is a valid item for this slot. Always true beside for
+     * the armor slots.
      */
     @Override
     public boolean isItemValid(ItemStack par1ItemStack)
@@ -31,8 +32,8 @@ public class SlotCrossbowBenchResult extends Slot
     }
 
     /**
-     * Decrease the size of the stack in slot (first int arg) by the amount of the second int arg. Returns the new
-     * stack.
+     * Decrease the size of the stack in slot (first int arg) by the amount of
+     * the second int arg. Returns the new stack.
      */
     @Override
     public ItemStack decrStackSize(int par1)
@@ -60,7 +61,7 @@ public class SlotCrossbowBenchResult extends Slot
 
         if (Util.isWooden(par1ItemStack) || Util.isStone(par1ItemStack) || Util.isIron(par1ItemStack) || Util.isGold(par1ItemStack) || Util.isDiamond(par1ItemStack))
         {
-        	ItemCrossbow item = (ItemCrossbow) par1ItemStack.getItem();
+            par1ItemStack.getItem();
             this.thePlayer.addStat(CrossbowModCore.createCrossbow, 1);
         }
     }
