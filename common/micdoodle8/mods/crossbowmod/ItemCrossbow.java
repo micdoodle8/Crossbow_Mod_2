@@ -220,7 +220,7 @@ public abstract class ItemCrossbow extends Item
                     entityarrow3.hasPoisonAttachment = false;
                 }
 
-                world.playSoundAtEntity(player, "cbowfire", 1.0F, 0.92F);
+                world.playSoundAtEntity(player, "crossbow.cbowfire", 1.0F, 0.92F);
 
                 itemstack.damageItem(1, player);
                 for (int j = 0; j < player.inventory.getSizeInventory(); j++)

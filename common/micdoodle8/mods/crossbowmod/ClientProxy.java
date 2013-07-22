@@ -3,6 +3,7 @@ package micdoodle8.mods.crossbowmod;
 import java.util.EnumSet;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiScreen;
+import net.minecraftforge.common.MinecraftForge;
 import cpw.mods.fml.common.IScheduledTickHandler;
 import cpw.mods.fml.common.ITickHandler;
 import cpw.mods.fml.common.TickType;
@@ -17,6 +18,7 @@ public class ClientProxy extends CommonProxy
     public void preInit(FMLPreInitializationEvent event)
     {
         CrossbowModClient.preInit(event);
+        MinecraftForge.EVENT_BUS.register(new ClientEvents());
     }
 
     @Override

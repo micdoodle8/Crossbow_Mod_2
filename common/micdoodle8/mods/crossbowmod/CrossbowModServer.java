@@ -146,7 +146,7 @@ public class CrossbowModServer
         }
 
         itemstack.damageItem(1, entityplayer);
-        world.playSoundAtEntity(entityplayer, "cbowfire", 1.0F, 0.92F);
+        world.playSoundAtEntity(entityplayer, "crossbow.cbowfire", 1.0F, 0.92F);
 
         int totalBolts = 0;
 
