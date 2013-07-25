@@ -1,0 +1,39 @@
+#
+
+item.woodenCrossbow.name=Деревянный арбалет
+item.stoneCrossbow.name=Каменный арбалет
+item.ironCrossbow.name=Железный арбалет
+item.goldCrossbow.name=Золотой арбалет
+item.diamondCrossbow.name=Алмазный арбалет
+
+item.attachLimbBolt.woodBolt.name=Деревянный болт
+item.attachLimbBolt.stoneBolt.name=Каменный болт
+item.attachLimbBolt.ironBolt.name=Железный болт
+item.attachLimbBolt.goldBolt.name=Золотой болт
+item.attachLimbBolt.diamondBolt.name=Алмазный болт
+
+item.attachLimbBolt.woodLimb.name=Деревянный лимб
+item.attachLimbBolt.stoneLimb.name=Каменный лимб
+item.attachLimbBolt.ironLimb.name=Железный лимб
+item.attachLimbBolt.goldLimb.name=Золотой лимб
+item.attachLimbBolt.diamondLimb.name=Алмазный лимб
+
+item.attachLimbBolt.mechanismSemiAuto.name=Основной арбалетный механизм
+item.attachLimbBolt.mechanismLightAuto.name=Лёгкоавтоматический арбалетный механизм
+item.attachLimbBolt.mechanismMediumAuto.name=Среднеавтоматический арбалетный механизм
+item.attachLimbBolt.mechanismHeavyAuto.name=Высокоавтоматический арбалетный механизм
+item.attachLimbBolt.mechanismTriShot.name=Механизм трёх-выстрелов
+
+item.attachLimbBolt.attachmentShortScope.name=Основной арбалетный прицел
+item.attachLimbBolt.attachmentLongScope.name=Дальнобойный арбалетный прицел
+item.attachLimbBolt.attachmentExplosive.name=Взрывной арбалетный аттачмент
+item.attachLimbBolt.attachmentFire.name=Пламенный арбалетный аттачмент
+item.attachLimbBolt.attachmentLava.name=Лавовый арбалетный аттачмент
+item.attachLimbBolt.attachmentIce.name=Морозный арбалетный аттачмент
+item.attachLimbBolt.attachmentLightning.name=Арбалетный аттачмент молний
+item.attachLimbBolt.attachmentTorch.name=Фонарный арбалетный аттачмент
+item.attachLimbBolt.attachmentPoison.name=Ядовитый арбалетный аттачмент
+
+tile.crossbowBench.name=Арбалетный верстак
+
+itemGroup.crossbows=Арбалеты
