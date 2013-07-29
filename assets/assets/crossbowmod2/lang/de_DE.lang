@@ -19,9 +19,9 @@ item.attachLimbBolt.goldLimb.name=Goldwurfarm
 item.attachLimbBolt.diamondLimb.name=Diamantwurfarm
 
 item.attachLimbBolt.mechanismSemiAuto.name=Halbautomatischer Armbrustemechanismus
-item.attachLimbBolt.mechanismLightAuto.name=Vollautomatisierter Armbrustmechanismus (Langsam)
-item.attachLimbBolt.mechanismMediumAuto.name=Vollautomatisierter Armbrustmechanismus (Mittel)
-item.attachLimbBolt.mechanismHeavyAuto.name=Vollautomatisierter Armbrustmechanismus (Schnell)
+item.attachLimbBolt.mechanismLightAuto.name=Vollautomatischer Armbrustmechanismus (Langsam)
+item.attachLimbBolt.mechanismMediumAuto.name=Vollautomatischer Armbrustmechanismus (Mittel)
+item.attachLimbBolt.mechanismHeavyAuto.name=Vollautomatischer Armbrustmechanismus (Schnell)
 item.attachLimbBolt.mechanismTriShot.name=Drei-Schuss-Mechanismus
 
 item.attachLimbBolt.attachmentShortScope.name=Kurzstrecken-Armbrust-Zielfernrohr
