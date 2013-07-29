@@ -2,6 +2,10 @@ package micdoodle8.mods.crossbowmod;
 
 import java.io.ByteArrayInputStream;
 import java.io.DataInputStream;
+import micdoodle8.mods.crossbowmod.entity.EntityBolt;
+import micdoodle8.mods.crossbowmod.item.ItemCrossbow;
+import micdoodle8.mods.crossbowmod.item.Items;
+import micdoodle8.mods.crossbowmod.util.Util;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemStack;

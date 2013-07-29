@@ -1,5 +1,11 @@
 package micdoodle8.mods.crossbowmod;
 
+import micdoodle8.mods.crossbowmod.entity.EntityDiamondBolt;
+import micdoodle8.mods.crossbowmod.entity.EntityGoldBolt;
+import micdoodle8.mods.crossbowmod.entity.EntityIronBolt;
+import micdoodle8.mods.crossbowmod.entity.EntityStoneBolt;
+import micdoodle8.mods.crossbowmod.entity.EntityWoodBolt;
+import micdoodle8.mods.crossbowmod.util.Util;
 import net.minecraft.entity.passive.EntityChicken;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraftforge.event.ForgeSubscribe;

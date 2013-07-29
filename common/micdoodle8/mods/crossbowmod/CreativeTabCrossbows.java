@@ -1,5 +1,6 @@
 package micdoodle8.mods.crossbowmod;
 
+import micdoodle8.mods.crossbowmod.item.Items;
 import net.minecraft.creativetab.CreativeTabs;
 
 public class CreativeTabCrossbows extends CreativeTabs

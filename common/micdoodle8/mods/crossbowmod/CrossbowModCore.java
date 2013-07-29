@@ -2,6 +2,22 @@ package micdoodle8.mods.crossbowmod;
 
 import java.util.ArrayList;
 import java.util.List;
+import micdoodle8.mods.crossbowmod.entity.EntityDiamondBolt;
+import micdoodle8.mods.crossbowmod.entity.EntityGoldBolt;
+import micdoodle8.mods.crossbowmod.entity.EntityIronBolt;
+import micdoodle8.mods.crossbowmod.entity.EntityStoneBolt;
+import micdoodle8.mods.crossbowmod.entity.EntityWoodBolt;
+import micdoodle8.mods.crossbowmod.item.EnumAttachmentType;
+import micdoodle8.mods.crossbowmod.item.EnumCrossbowFireRate;
+import micdoodle8.mods.crossbowmod.item.EnumCrossbowMaterial;
+import micdoodle8.mods.crossbowmod.item.ItemCrossbow;
+import micdoodle8.mods.crossbowmod.item.ItemDiamondCrossbow;
+import micdoodle8.mods.crossbowmod.item.ItemGoldCrossbow;
+import micdoodle8.mods.crossbowmod.item.ItemIronCrossbow;
+import micdoodle8.mods.crossbowmod.item.ItemStoneCrossbow;
+import micdoodle8.mods.crossbowmod.item.ItemWoodCrossbow;
+import micdoodle8.mods.crossbowmod.item.Items;
+import micdoodle8.mods.crossbowmod.util.Util;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
@@ -10,7 +26,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.network.INetworkManager;
 import net.minecraft.network.packet.Packet250CustomPayload;
 import net.minecraft.stats.Achievement;
-import net.minecraft.world.World;
 import net.minecraftforge.common.AchievementPage;
 import net.minecraftforge.common.MinecraftForge;
 import cpw.mods.fml.common.ICraftingHandler;
@@ -20,7 +35,6 @@ import cpw.mods.fml.common.Mod.Instance;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
-import cpw.mods.fml.common.network.IGuiHandler;
 import cpw.mods.fml.common.network.IPacketHandler;
 import cpw.mods.fml.common.network.NetworkMod;
 import cpw.mods.fml.common.network.NetworkRegistry;
@@ -30,15 +44,17 @@ import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 
 @Mod(modid = "CrossbowMod2", name = "Crossbow Mod 2 1.6.2", version = "a0.1.5")
-@NetworkMod(clientSideRequired = true, serverSideRequired = false, connectionHandler = ConnectionHandler.class)
+@NetworkMod(clientSideRequired = true, serverSideRequired = false)
 public class CrossbowModCore
 {
-    @SidedProxy(clientSide = "micdoodle8.mods.crossbowmod.ClientProxy", serverSide = "micdoodle8.mods.crossbowmod.CommonProxy")
+    @SidedProxy(clientSide = "micdoodle8.mods.crossbowmod.client.ClientProxy", serverSide = "micdoodle8.mods.crossbowmod.CommonProxy")
     public static CommonProxy proxy;
     @Instance
     public static CrossbowModCore instance;
+    
+    public static final String MOD_ID = "CrossbowMod2";
 
-    public static final String TEXTURE_DOMAIN = "crossbowmod2";
+    public static final String TEXTURE_DOMAIN = CrossbowModCore.MOD_ID.toLowerCase();
     public static final String TEXTURE_PREFIX = CrossbowModCore.TEXTURE_DOMAIN + ":";
 
     public static long firstBootTime = System.currentTimeMillis();
@@ -55,9 +71,7 @@ public class CrossbowModCore
     public static Achievement createBench;
     public static Achievement createCrossbow;
     public static Achievement sniper;
-
-    // public static Achievement payback;
-
+    
     @EventHandler
     public void preInit(FMLPreInitializationEvent event)
     {
@@ -79,12 +93,12 @@ public class CrossbowModCore
         EntityRegistry.registerModEntity(EntityGoldBolt.class, "CB_GoldBolt", ConfigManager.idEntityGoldCrossbow, this, 64, 4, true);
         EntityRegistry.registerModEntity(EntityDiamondBolt.class, "CB_DiamondBolt", ConfigManager.idEntityDiamondCrossbow, this, 64, 4, true);
 
-        NetworkRegistry.instance().registerGuiHandler(this, new GuiHandler());
-        NetworkRegistry.instance().registerChannel(new ServerPacketHandler(), "CrossbowMod", Side.SERVER);
+        NetworkRegistry.instance().registerGuiHandler(this, CrossbowModCore.proxy);
+        NetworkRegistry.instance().registerChannel(new ServerPacketHandler(), CrossbowModCore.MOD_ID, Side.SERVER);
 
         GameRegistry.registerCraftingHandler(new CraftingHandler());
 
-        GameRegistry.registerBlock(Items.crossbowBench, ItemBlock.class, null, "CrossbowMod");
+        GameRegistry.registerBlock(Items.crossbowBench, ItemBlock.class, null, CrossbowModCore.MOD_ID);
 
         Util.addRecipes();
 
@@ -92,8 +106,6 @@ public class CrossbowModCore
         CrossbowModCore.createCrossbow = new Achievement(492, "CreateCrossbow", 0, 2, Items.woodenCrossbowBase, CrossbowModCore.createBench).registerAchievement();
         ItemStack stack = ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.diamondCrossbowBase), EnumAttachmentType.longscope, EnumCrossbowMaterial.diamond, EnumCrossbowFireRate.none);
         CrossbowModCore.sniper = new Achievement(493, "Sniper", 2, 3, stack, CrossbowModCore.createCrossbow).setSpecial().registerAchievement();
-        // payback = new Achievement(494, "Payback!", -2, 2, new
-        // ItemStack(Block.tnt), createCrossbow).registerAchievement();
 
         AchievementPage.registerAchievementPage(new AchievementPage("Crossbow Mod", CrossbowModCore.createBench, CrossbowModCore.createCrossbow, CrossbowModCore.sniper));
 
@@ -116,63 +128,6 @@ public class CrossbowModCore
         @Override
         public void onSmelting(EntityPlayer player, ItemStack item)
         {
-        }
-    }
-
-    public class GuiHandler implements IGuiHandler
-    {
-        @Override
-        public Object getServerGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z)
-        {
-            if (!world.blockExists(x, y, z))
-            {
-                return null;
-            }
-
-            int blockID = world.getBlockId(x, y, z);
-
-            if (ID == ConfigManager.GUIID_BlockCrossbowBench)
-            {
-                if (!(blockID == Items.crossbowBench.blockID))
-                {
-                    return null;
-                }
-                else
-                {
-                    return new ContainerCrossbowBench(player.inventory);
-                }
-            }
-            else
-            {
-                return null;
-            }
-        }
-
-        @Override
-        public Object getClientGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z)
-        {
-            if (!world.blockExists(x, y, z))
-            {
-                return null;
-            }
-
-            int blockID = world.getBlockId(x, y, z);
-
-            if (ID == ConfigManager.GUIID_BlockCrossbowBench)
-            {
-                if (!(blockID == Items.crossbowBench.blockID))
-                {
-                    return null;
-                }
-                else
-                {
-                    return new GuiCrossbowBench(player.inventory);
-                }
-            }
-            else
-            {
-                return null;
-            }
         }
     }
 
