@@ -18,7 +18,7 @@ item.attachLimbBolt.ironLimb.name=Eisenwurfarm
 item.attachLimbBolt.goldLimb.name=Goldwurfarm
 item.attachLimbBolt.diamondLimb.name=Diamantwurfarm
 
-item.attachLimbBolt.mechanismSemiAuto.name=Halbautomatischer Armbrustemechanismus
+item.attachLimbBolt.mechanismSemiAuto.name=Halbautomatischer Armbrustmechanismus
 item.attachLimbBolt.mechanismLightAuto.name=Vollautomatischer Armbrustmechanismus (Langsam)
 item.attachLimbBolt.mechanismMediumAuto.name=Vollautomatischer Armbrustmechanismus (Mittel)
 item.attachLimbBolt.mechanismHeavyAuto.name=Vollautomatischer Armbrustmechanismus (Schnell)
