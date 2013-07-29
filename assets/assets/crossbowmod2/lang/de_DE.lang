@@ -1,10 +1,10 @@
 ﻿# Translation by Shantalya, Flipper Dan, Jameno and Shantalya
 
 item.woodenCrossbow.name=Holzarmbrust
-item.stoneCrossbow.name=Steinarmbrst
-item.ironCrossbow.name=Eisenarmbrst
-item.goldCrossbow.name=Goldarmbrst
-item.diamondCrossbow.name=Diamantarmbrst
+item.stoneCrossbow.name=Steinarmbrust
+item.ironCrossbow.name=Eisenarmbrust
+item.goldCrossbow.name=Goldarmbrust
+item.diamondCrossbow.name=Diamantarmbrust
 
 item.attachLimbBolt.woodBolt.name=Holzbolzen
 item.attachLimbBolt.stoneBolt.name=Steinbolzen
