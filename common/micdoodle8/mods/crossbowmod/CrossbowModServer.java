@@ -24,7 +24,7 @@ public class CrossbowModServer
 
         if (packetID == 0)
         {
-            Class[] decodeAs = { ItemStack.class, Boolean.class };
+            Class<?>[] decodeAs = { ItemStack.class, Boolean.class };
             Object[] packetReadout = Util.readPacketData(data, decodeAs);
 
             if (player.worldObj != null)

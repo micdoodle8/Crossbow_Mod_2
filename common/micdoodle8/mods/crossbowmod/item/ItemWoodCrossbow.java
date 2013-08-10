@@ -17,6 +17,7 @@ public class ItemWoodCrossbow extends ItemCrossbow
         CrossbowModCore.woodenCrossbowsList.add(this);
     }
 
+    @SuppressWarnings({ "unchecked", "rawtypes" })
     @Override
     public void getSubItems(int par1, CreativeTabs par2CreativeTabs, List par3List)
     {

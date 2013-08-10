@@ -107,7 +107,7 @@ public class ItemRendererCrossbowMod implements IItemRenderer
             if (type == ItemRenderType.EQUIPPED_FIRST_PERSON)
             {
                 GL11.glTranslatef(0.0F, -(Math.abs(i2) / 2), 0.0F);
-                
+
                 if (par1EntityLiving.getItemInUseCount() > 0)
                 {
                     GL11.glRotatef(-335F, 0.0F, 0.0F, 1.0F);

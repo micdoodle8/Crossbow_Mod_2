@@ -35,7 +35,7 @@ public class ConfigManager
     public static int idEntityWoodCrossbow, idEntityStoneCrossbow,
             idEntityIronCrossbow, idEntityGoldCrossbow,
             idEntityDiamondCrossbow;
-    
+
     public static int idAchievementBase;
 
     public static int GUIID_BlockCrossbowBench;
@@ -57,7 +57,7 @@ public class ConfigManager
             ConfigManager.idBlockCrossbowBench = ConfigManager.configuration.get(Configuration.CATEGORY_BLOCK, "BlockCrossbowBench", 1999).getInt(1999);
 
             ConfigManager.idAchievementBase = ConfigManager.configuration.get("Achievements", "Achievement Base", 984).getInt(984);
-            
+
             ConfigManager.GUIID_BlockCrossbowBench = ConfigManager.configuration.get("GUI", "BlockCrossbowBenchGuiID", 193).getInt(193);
 
             ConfigManager.idEntityWoodCrossbow = ConfigManager.configuration.get(Configuration.CATEGORY_ITEM, "WoodBoltEntityID", 193).getInt(193);

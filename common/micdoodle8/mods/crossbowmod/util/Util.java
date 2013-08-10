@@ -6,6 +6,7 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import micdoodle8.mods.crossbowmod.block.Blocks;
 import micdoodle8.mods.crossbowmod.inventory.InventoryCrossbowBench;
 import micdoodle8.mods.crossbowmod.item.EnumAttachmentType;
 import micdoodle8.mods.crossbowmod.item.EnumCrossbowFireRate;
@@ -51,7 +52,7 @@ public class Util
         return packet;
     }
 
-    public static Object[] readPacketData(DataInputStream data, Class[] packetDataTypes)
+    public static Object[] readPacketData(DataInputStream data, Class<?>[] packetDataTypes)
     {
         List<Object> result = new ArrayList<Object>();
 
@@ -108,7 +109,7 @@ public class Util
         }
     }
 
-    private static Object readObjectFromStream(DataInputStream data, Class curClass) throws IOException
+    private static Object readObjectFromStream(DataInputStream data, Class<?> curClass) throws IOException
     {
         if (curClass.equals(Boolean.class))
         {
@@ -181,7 +182,7 @@ public class Util
         GameRegistry.addRecipe(new ItemStack(Items.attachmentLimbBolt, 8, 2), new Object[] { "X", "#", Character.valueOf('X'), Item.ingotIron, Character.valueOf('#'), Item.stick });
         GameRegistry.addRecipe(new ItemStack(Items.attachmentLimbBolt, 8, 3), new Object[] { "X", "#", Character.valueOf('X'), Item.ingotGold, Character.valueOf('#'), Item.stick });
         GameRegistry.addRecipe(new ItemStack(Items.attachmentLimbBolt, 8, 4), new Object[] { "X", "#", Character.valueOf('X'), Item.diamond, Character.valueOf('#'), Item.stick });
-        GameRegistry.addRecipe(new ItemStack(Items.crossbowBench, 1), new Object[] { "YYY", "ZXZ", "ZZZ", Character.valueOf('X'), Block.workbench, Character.valueOf('Y'), Item.ingotIron, Character.valueOf('Z'), Block.planks });
+        GameRegistry.addRecipe(new ItemStack(Blocks.crossbowBench, 1), new Object[] { "YYY", "ZXZ", "ZZZ", Character.valueOf('X'), Block.workbench, Character.valueOf('Y'), Item.ingotIron, Character.valueOf('Z'), Block.planks });
         GameRegistry.addRecipe(new ItemStack(Items.attachmentLimbBolt, 1, 16), new Object[] { "XZZ", "ZXZ", "ZZX", Character.valueOf('X'), Item.flintAndSteel, Character.valueOf('Z'), Item.ingotIron });
         GameRegistry.addRecipe(new ItemStack(Items.attachmentLimbBolt, 1, 18), new Object[] { "XZZ", "ZXZ", "ZZX", Character.valueOf('X'), Item.bucketLava, Character.valueOf('Z'), Item.ingotIron });
         GameRegistry.addRecipe(new ItemStack(Items.attachmentLimbBolt, 1, 17), new Object[] { "XZZ", "ZXZ", "ZZX", Character.valueOf('X'), Block.tnt, Character.valueOf('Z'), Item.ingotIron });

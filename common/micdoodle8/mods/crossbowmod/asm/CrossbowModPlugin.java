@@ -100,7 +100,7 @@ public class CrossbowModPlugin implements IFMLLoadingPlugin, IFMLCallHook
 
         return asmStrings;
     }
-    
+
     @Override
     public String getModContainerClass()
     {
@@ -116,8 +116,10 @@ public class CrossbowModPlugin implements IFMLLoadingPlugin, IFMLCallHook
     @Override
     public void injectData(Map<String, Object> data)
     {
-        if(data.containsKey("mcLocation"))
-            mcDir = (File) data.get("mcLocation");
+        if (data.containsKey("mcLocation"))
+        {
+            CrossbowModPlugin.mcDir = (File) data.get("mcLocation");
+        }
         System.out.println("[CrossbowModPlugin]: " + "Patching game...");
     }
 

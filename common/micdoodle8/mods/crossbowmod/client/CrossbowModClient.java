@@ -195,7 +195,7 @@ public class CrossbowModClient
         else
         {
             CrossbowModClient.zoom(-1D);
-            
+
             try
             {
                 ModLoader.setPrivateValue(EntityRenderer.class, ModLoader.getMinecraftInstance().entityRenderer, 39, 1);
@@ -307,7 +307,7 @@ public class CrossbowModClient
 
         for (i = 0; i < CrossbowModCore.crossbowsList.size(); i++)
         {
-            ItemCrossbow crossbow = (ItemCrossbow) CrossbowModCore.crossbowsList.get(i);
+            ItemCrossbow crossbow = CrossbowModCore.crossbowsList.get(i);
 
             MinecraftForgeClient.registerItemRenderer(crossbow.itemID, itemRenderer);
         }

@@ -51,6 +51,7 @@ public class ItemGoldCrossbow extends ItemCrossbow
         return this.getEntity(world, entityliving, 0.0F);
     }
 
+    @SuppressWarnings({ "unchecked", "rawtypes" })
     @Override
     public void getSubItems(int par1, CreativeTabs par2CreativeTabs, List par3List)
     {

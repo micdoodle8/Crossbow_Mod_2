@@ -2,6 +2,7 @@ package micdoodle8.mods.crossbowmod;
 
 import java.util.ArrayList;
 import java.util.List;
+import micdoodle8.mods.crossbowmod.block.Blocks;
 import micdoodle8.mods.crossbowmod.entity.EntityDiamondBolt;
 import micdoodle8.mods.crossbowmod.entity.EntityGoldBolt;
 import micdoodle8.mods.crossbowmod.entity.EntityIronBolt;
@@ -21,7 +22,6 @@ import micdoodle8.mods.crossbowmod.util.Util;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
-import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.network.INetworkManager;
 import net.minecraft.network.packet.Packet250CustomPayload;
@@ -51,7 +51,7 @@ public class CrossbowModCore
     public static CommonProxy proxy;
     @Instance
     public static CrossbowModCore instance;
-    
+
     public static final String MOD_ID = "CrossbowMod2";
 
     public static final String TEXTURE_DOMAIN = CrossbowModCore.MOD_ID.toLowerCase();
@@ -71,7 +71,7 @@ public class CrossbowModCore
     public static Achievement createBench;
     public static Achievement createCrossbow;
     public static Achievement sniper;
-    
+
     @EventHandler
     public void preInit(FMLPreInitializationEvent event)
     {
@@ -85,7 +85,7 @@ public class CrossbowModCore
     @EventHandler
     public void load(FMLInitializationEvent event)
     {
-        new Items();
+        Items.initItems();
 
         EntityRegistry.registerModEntity(EntityWoodBolt.class, "CB_WoodBolt", ConfigManager.idEntityWoodCrossbow, this, 64, 4, true);
         EntityRegistry.registerModEntity(EntityStoneBolt.class, "CB_StoneBolt", ConfigManager.idEntityStoneCrossbow, this, 64, 4, true);
@@ -98,11 +98,9 @@ public class CrossbowModCore
 
         GameRegistry.registerCraftingHandler(new CraftingHandler());
 
-        GameRegistry.registerBlock(Items.crossbowBench, ItemBlock.class, null, CrossbowModCore.MOD_ID);
-
         Util.addRecipes();
 
-        CrossbowModCore.createBench = new Achievement(ConfigManager.idAchievementBase, "CreateBench", 0, 0, Items.crossbowBench, (Achievement) null).registerAchievement();
+        CrossbowModCore.createBench = new Achievement(ConfigManager.idAchievementBase, "CreateBench", 0, 0, Blocks.crossbowBench, (Achievement) null).registerAchievement();
         CrossbowModCore.createCrossbow = new Achievement(ConfigManager.idAchievementBase + 1, "CreateCrossbow", 0, 2, Items.woodenCrossbowBase, CrossbowModCore.createBench).registerAchievement();
         CrossbowModCore.sniper = new Achievement(ConfigManager.idAchievementBase + 2, "Sniper", 2, 3, ItemCrossbow.setAttachmentAndMaterial(new ItemStack(Items.diamondCrossbowBase), EnumAttachmentType.longscope, EnumCrossbowMaterial.diamond, EnumCrossbowFireRate.none), CrossbowModCore.createCrossbow).setSpecial().registerAchievement();
 
@@ -118,7 +116,7 @@ public class CrossbowModCore
         @Override
         public void onCrafting(EntityPlayer player, ItemStack item, IInventory craftMatrix)
         {
-            if (item.getItem().itemID == Items.crossbowBench.blockID)
+            if (item.getItem().itemID == Blocks.crossbowBench.blockID)
             {
                 player.addStat(CrossbowModCore.createBench, 1);
             }

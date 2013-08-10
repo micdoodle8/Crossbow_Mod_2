@@ -1,14 +1,10 @@
 package micdoodle8.mods.crossbowmod.item;
 
 import micdoodle8.mods.crossbowmod.ConfigManager;
-import micdoodle8.mods.crossbowmod.block.BlockCrossbowBench;
-import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 
 public class Items
 {
-    public static Block crossbowBench;
-
     public static ItemWoodCrossbow woodenCrossbowBase;
     public static ItemStoneCrossbow stoneCrossbowBase;
     public static ItemIronCrossbow ironCrossbowBase;
@@ -17,10 +13,8 @@ public class Items
 
     public static Item attachmentLimbBolt;
 
-    public Items()
+    public static void initItems()
     {
-        Items.crossbowBench = new BlockCrossbowBench(ConfigManager.idBlockCrossbowBench).setHardness(2.5F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("crossbowBench");
-
         Items.woodenCrossbowBase = (ItemWoodCrossbow) new ItemWoodCrossbow(ConfigManager.idItemWoodCrossbow - 256).setUnlocalizedName("woodenCrossbow").setMaxStackSize(1);
         Items.stoneCrossbowBase = (ItemStoneCrossbow) new ItemStoneCrossbow(ConfigManager.idItemStoneCrossbow - 256).setUnlocalizedName("stoneCrossbow").setMaxStackSize(1);
         Items.ironCrossbowBase = (ItemIronCrossbow) new ItemIronCrossbow(ConfigManager.idItemIronCrossbow - 256).setUnlocalizedName("ironCrossbow").setMaxStackSize(1);

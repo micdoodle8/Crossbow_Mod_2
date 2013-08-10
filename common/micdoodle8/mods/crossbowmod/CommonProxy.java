@@ -1,7 +1,7 @@
 package micdoodle8.mods.crossbowmod;
 
+import micdoodle8.mods.crossbowmod.block.Blocks;
 import micdoodle8.mods.crossbowmod.inventory.ContainerCrossbowBench;
-import micdoodle8.mods.crossbowmod.item.Items;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
@@ -37,7 +37,7 @@ public class CommonProxy implements IGuiHandler
 
         if (ID == ConfigManager.GUIID_BlockCrossbowBench)
         {
-            if (!(blockID == Items.crossbowBench.blockID))
+            if (!(blockID == Blocks.crossbowBench.blockID))
             {
                 return null;
             }

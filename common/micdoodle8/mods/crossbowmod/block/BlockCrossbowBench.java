@@ -3,7 +3,6 @@ package micdoodle8.mods.crossbowmod.block;
 import java.util.ArrayList;
 import micdoodle8.mods.crossbowmod.ConfigManager;
 import micdoodle8.mods.crossbowmod.CrossbowModCore;
-import micdoodle8.mods.crossbowmod.item.Items;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
@@ -70,10 +69,11 @@ public class BlockCrossbowBench extends Block
         return true;
     }
 
+    @SuppressWarnings({ "unchecked", "rawtypes" })
     @Override
     public void addCreativeItems(ArrayList itemList)
     {
-        if (this.blockID == Items.crossbowBench.blockID)
+        if (this.blockID == Blocks.crossbowBench.blockID)
         {
             itemList.add(new ItemStack(this));
         }

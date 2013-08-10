@@ -47,6 +47,7 @@ public class ItemCBMod extends Item
         this.setHasSubtypes(true);
     }
 
+    @SuppressWarnings({ "unchecked", "rawtypes" })
     @SideOnly(Side.CLIENT)
     @Override
     public void getSubItems(int par1, CreativeTabs par2CreativeTabs, List par3List)

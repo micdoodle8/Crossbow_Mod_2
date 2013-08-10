@@ -21,6 +21,7 @@ public class CrossbowModTransformer implements net.minecraft.launchwrapper.IClas
     HashMap<String, String> nodemap = new HashMap<String, String>();
     private boolean deobfuscated = true;
 
+    @SuppressWarnings("resource")
     public CrossbowModTransformer()
     {
         try
@@ -80,32 +81,32 @@ public class CrossbowModTransformer implements net.minecraft.launchwrapper.IClas
         final Iterator<MethodNode> methods = node.methods.iterator();
 
         label4123:
-            while (methods.hasNext())
+        while (methods.hasNext())
+        {
+            final MethodNode methodnode = methods.next();
+
+            if (methodnode.name.equals(map.get("setRotationAnglesMethod")) && methodnode.desc.equals(map.get("setRotationAnglesDesc")))
             {
-                final MethodNode methodnode = methods.next();
-                
-                if (methodnode.name.equals(map.get("setRotationAnglesMethod")) && methodnode.desc.equals(map.get("setRotationAnglesDesc")))
+                for (int count = 0; count < methodnode.instructions.size(); count++)
                 {
-                    for (int count = 0; count < methodnode.instructions.size(); count++)
+                    final AbstractInsnNode insnNode = methodnode.instructions.get(count);
+
+                    if (insnNode instanceof FieldInsnNode && ((FieldInsnNode) insnNode).name.equals("aimedBow"))
                     {
-                        final AbstractInsnNode insnNode = methodnode.instructions.get(count);
-                        
-                        if (insnNode instanceof FieldInsnNode && ((FieldInsnNode) insnNode).name.equals("aimedBow"))
-                        {
-                            InsnList toAdd = new InsnList();
-                            
-                            toAdd.add(new VarInsnNode(Opcodes.ALOAD, 0));
-                            toAdd.add(new VarInsnNode(Opcodes.ALOAD, 7));
-                            toAdd.add(new VarInsnNode(Opcodes.FLOAD, 3));
-                            toAdd.add(new MethodInsnNode(Opcodes.INVOKESTATIC, "micdoodle8/mods/crossbowmod/client/ClientProxy", "bipedRotationHook", "(L" + this.nodemap.get("modelBipedClass") + ";L" + this.nodemap.get("entityClass") + ";F)V"));
-                        
-                            methodnode.instructions.insertBefore(methodnode.instructions.get(count - 1), toAdd);
-                            injectionCount++;
-                            break label4123;
-                        }
+                        InsnList toAdd = new InsnList();
+
+                        toAdd.add(new VarInsnNode(Opcodes.ALOAD, 0));
+                        toAdd.add(new VarInsnNode(Opcodes.ALOAD, 7));
+                        toAdd.add(new VarInsnNode(Opcodes.FLOAD, 3));
+                        toAdd.add(new MethodInsnNode(Opcodes.INVOKESTATIC, "micdoodle8/mods/crossbowmod/client/ClientProxy", "bipedRotationHook", "(L" + this.nodemap.get("modelBipedClass") + ";L" + this.nodemap.get("entityClass") + ";F)V"));
+
+                        methodnode.instructions.insertBefore(methodnode.instructions.get(count - 1), toAdd);
+                        injectionCount++;
+                        break label4123;
                     }
                 }
             }
+        }
 
         final ClassWriter writer = new ClassWriter(ClassWriter.COMPUTE_MAXS);
         node.accept(writer);

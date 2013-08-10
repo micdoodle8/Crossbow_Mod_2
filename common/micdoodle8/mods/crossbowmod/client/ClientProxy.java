@@ -3,6 +3,7 @@ package micdoodle8.mods.crossbowmod.client;
 import java.util.EnumSet;
 import micdoodle8.mods.crossbowmod.CommonProxy;
 import micdoodle8.mods.crossbowmod.ConfigManager;
+import micdoodle8.mods.crossbowmod.block.Blocks;
 import micdoodle8.mods.crossbowmod.client.gui.GuiCrossbowBench;
 import micdoodle8.mods.crossbowmod.item.ItemCrossbow;
 import micdoodle8.mods.crossbowmod.item.ItemDiamondCrossbow;
@@ -10,7 +11,6 @@ import micdoodle8.mods.crossbowmod.item.ItemGoldCrossbow;
 import micdoodle8.mods.crossbowmod.item.ItemIronCrossbow;
 import micdoodle8.mods.crossbowmod.item.ItemStoneCrossbow;
 import micdoodle8.mods.crossbowmod.item.ItemWoodCrossbow;
-import micdoodle8.mods.crossbowmod.item.Items;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.model.ModelBiped;
@@ -20,7 +20,6 @@ import net.minecraft.src.ModLoader;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
-import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.ITickHandler;
 import cpw.mods.fml.common.TickType;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
@@ -119,7 +118,7 @@ public class ClientProxy extends CommonProxy
 
         if (ID == ConfigManager.GUIID_BlockCrossbowBench)
         {
-            if (!(blockID == Items.crossbowBench.blockID))
+            if (!(blockID == Blocks.crossbowBench.blockID))
             {
                 return null;
             }
@@ -133,7 +132,7 @@ public class ClientProxy extends CommonProxy
             return null;
         }
     }
-    
+
     public static void bipedRotationHook(ModelBiped modelPlayer, Entity entity, float var3)
     {
         if (entity instanceof EntityPlayer && ((EntityPlayer) entity).inventory.getCurrentItem() != null && ((EntityPlayer) entity).inventory.getCurrentItem().getItem() instanceof ItemCrossbow)
@@ -146,10 +145,10 @@ public class ClientProxy extends CommonProxy
             float var8 = 0.0F;
             modelPlayer.bipedRightArm.rotateAngleZ = 0.0F;
             modelPlayer.bipedLeftArm.rotateAngleZ = 0.0F;
-            modelPlayer.bipedRightArm.rotateAngleY = (0.1F - var7 * 0.6F) + modelPlayer.bipedHead.rotateAngleY - 0.3F;
+            modelPlayer.bipedRightArm.rotateAngleY = 0.1F - var7 * 0.6F + modelPlayer.bipedHead.rotateAngleY - 0.3F;
             modelPlayer.bipedLeftArm.rotateAngleY = 0.1F - var7 * 0.6F + modelPlayer.bipedHead.rotateAngleY + 0.3F;
-            modelPlayer.bipedRightArm.rotateAngleX = -((float)Math.PI / 2F) + modelPlayer.bipedHead.rotateAngleX;
-            modelPlayer.bipedLeftArm.rotateAngleX = -((float)Math.PI / 2F) + modelPlayer.bipedHead.rotateAngleX;
+            modelPlayer.bipedRightArm.rotateAngleX = -((float) Math.PI / 2F) + modelPlayer.bipedHead.rotateAngleX;
+            modelPlayer.bipedLeftArm.rotateAngleX = -((float) Math.PI / 2F) + modelPlayer.bipedHead.rotateAngleX;
             modelPlayer.bipedRightArm.rotateAngleX -= var7 * 1.2F - var8 * 0.4F;
             modelPlayer.bipedLeftArm.rotateAngleX -= var7 * 1.2F - var8 * 0.4F;
             modelPlayer.bipedRightArm.rotateAngleZ += MathHelper.cos(var3 * 0.09F) * 0.05F + 0.05F;
@@ -182,15 +181,19 @@ public class ClientProxy extends CommonProxy
                 i2 = 0.016F;
             }
 
-            if ((MathHelper.sin(i * i2) * 1.2F) > 0 && !ModLoader.getMinecraftInstance().thePlayer.isUsingItem())
+            if (MathHelper.sin(i * i2) * 1.2F > 0 && !ModLoader.getMinecraftInstance().thePlayer.isUsingItem())
+            {
                 modelPlayer.bipedLeftArm.rotateAngleZ += MathHelper.sin(i * i2) * 1.2F;
+            }
 
-            if ((MathHelper.sin(i * i2) * 1.2F) > 0 && !ModLoader.getMinecraftInstance().thePlayer.isUsingItem())
+            if (MathHelper.sin(i * i2) * 1.2F > 0 && !ModLoader.getMinecraftInstance().thePlayer.isUsingItem())
+            {
                 modelPlayer.bipedRightArm.rotateAngleZ -= MathHelper.sin(i * i2) * 0.2F;
+            }
 
             if (i > 0 && !ModLoader.getMinecraftInstance().thePlayer.isUsingItem())
             {
-                modelPlayer.bipedLeftArm.rotateAngleX += -(0.5);
+                modelPlayer.bipedLeftArm.rotateAngleX += -0.5;
             }
         }
     }

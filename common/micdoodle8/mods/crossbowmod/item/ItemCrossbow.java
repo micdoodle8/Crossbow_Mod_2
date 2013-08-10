@@ -19,7 +19,6 @@ import net.minecraft.world.World;
 import org.lwjgl.input.Keyboard;
 import org.lwjgl.input.Mouse;
 import cpw.mods.fml.client.FMLClientHandler;
-import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.network.PacketDispatcher;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -98,14 +97,14 @@ public abstract class ItemCrossbow extends Item
             {
                 itemstack = this.shoot(itemstack, world, entityplayer);
             }
-            
+
             if (Util.hasBasicScope(itemstack) || Util.hasLongRangeScope(itemstack))
             {
-                if (mouseHeld && !lastMouseHeld)
+                if (this.mouseHeld && !this.lastMouseHeld)
                 {
                     FMLClientHandler.instance().getClient().gameSettings.hideGUI = true;
                 }
-                else if (!mouseHeld && lastMouseHeld)
+                else if (!this.mouseHeld && this.lastMouseHeld)
                 {
                     FMLClientHandler.instance().getClient().gameSettings.hideGUI = false;
                 }
@@ -294,6 +293,7 @@ public abstract class ItemCrossbow extends Item
         return EnumRarity.epic;
     }
 
+    @SuppressWarnings({ "rawtypes" })
     @Override
     public void addInformation(ItemStack stack, EntityPlayer player, List var2, boolean b)
     {
@@ -355,6 +355,7 @@ public abstract class ItemCrossbow extends Item
         }
     }
 
+    @SuppressWarnings({ "unchecked", "rawtypes" })
     private void addAttachmentName(int damage, List itemList)
     {
         itemList.add(Items.attachmentLimbBolt.getItemStackDisplayName(new ItemStack(Items.attachmentLimbBolt, 1, damage)));
