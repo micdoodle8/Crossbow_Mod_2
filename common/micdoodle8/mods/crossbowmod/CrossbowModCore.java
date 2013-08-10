@@ -86,6 +86,8 @@ public class CrossbowModCore
     public void load(FMLInitializationEvent event)
     {
         Items.initItems();
+        Blocks.initBlocks();
+        Blocks.registerBlocks();
 
         EntityRegistry.registerModEntity(EntityWoodBolt.class, "CB_WoodBolt", ConfigManager.idEntityWoodCrossbow, this, 64, 4, true);
         EntityRegistry.registerModEntity(EntityStoneBolt.class, "CB_StoneBolt", ConfigManager.idEntityStoneCrossbow, this, 64, 4, true);
