@@ -64,15 +64,15 @@ public class ItemRendererCrossbowMod implements IItemRenderer
             ItemCrossbow crossbow = (ItemCrossbow) item.getItem();
 
             EntityPlayer par1EntityLiving = (EntityPlayer) data[1];
-            GL11.glPushMatrix();
             float i = (float) crossbow.reloadingTime + (crossbow.reloadingTime - crossbow.prevReloadingTime);
             float i2 = 0f;
 
             if (par1EntityLiving.inventory.getCurrentItem() == null || !(par1EntityLiving.inventory.getCurrentItem().getItem() instanceof ItemCrossbow))
             {
-                GL11.glPopMatrix();
                 return;
             }
+            
+            GL11.glPushMatrix();
 
             if (par1EntityLiving.inventory.getCurrentItem().getItem() instanceof ItemWoodCrossbow)
             {
@@ -138,6 +138,8 @@ public class ItemRendererCrossbowMod implements IItemRenderer
             }
 
             this.renderItemCustom(type, item, data);
+            GL11.glPopMatrix();
+            GL11.glPushMatrix();
 
             float f28 = item.getMaxItemUseDuration() - ((float) par1EntityLiving.getItemInUseCount() - 1 + 1.0F);
             float f32 = f28 / 50F;
@@ -202,14 +204,15 @@ public class ItemRendererCrossbowMod implements IItemRenderer
                 }
             }
 
+            GL11.glPopMatrix();
         }
-        GL11.glPopMatrix();
     }
 
     private void renderItemCustom(ItemRenderType type, ItemStack item, Object... data)
     {
         int par3 = 0;
         EntityLivingBase par1EntityLiving = (EntityLivingBase) data[1];
+        GL11.glPushMatrix();
 
         Tessellator var4 = Tessellator.instance;
         Icon icon = par1EntityLiving.getItemIcon(item, par3);
@@ -230,5 +233,7 @@ public class ItemRendererCrossbowMod implements IItemRenderer
         ItemRenderer.renderItemIn2D(var4, f1, f2, f, f3, icon.getOriginX(), icon.getOriginY(), 0.0625F);
 
         GL11.glDisable(GL12.GL_RESCALE_NORMAL);
+
+        GL11.glPopMatrix();
     }
 }
