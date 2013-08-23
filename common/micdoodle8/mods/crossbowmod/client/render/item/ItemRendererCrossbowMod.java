@@ -70,6 +70,7 @@ public class ItemRendererCrossbowMod implements IItemRenderer
 
             if (par1EntityLiving.inventory.getCurrentItem() == null || !(par1EntityLiving.inventory.getCurrentItem().getItem() instanceof ItemCrossbow))
             {
+                GL11.glPopMatrix();
                 return;
             }
 
@@ -137,8 +138,6 @@ public class ItemRendererCrossbowMod implements IItemRenderer
             }
 
             this.renderItemCustom(type, item, data);
-            GL11.glPopMatrix();
-            GL11.glPushMatrix();
 
             float f28 = item.getMaxItemUseDuration() - ((float) par1EntityLiving.getItemInUseCount() - 1 + 1.0F);
             float f32 = f28 / 50F;
@@ -203,30 +202,17 @@ public class ItemRendererCrossbowMod implements IItemRenderer
                 }
             }
 
-            GL11.glPopMatrix();
         }
+        GL11.glPopMatrix();
     }
 
     private void renderItemCustom(ItemRenderType type, ItemStack item, Object... data)
     {
         int par3 = 0;
         EntityLivingBase par1EntityLiving = (EntityLivingBase) data[1];
-        GL11.glPushMatrix();
 
         Tessellator var4 = Tessellator.instance;
         Icon icon = par1EntityLiving.getItemIcon(item, par3);
-
-        // if (item.getItem() instanceof ItemCrossbow)
-        // {
-        // if (((ItemCrossbow)item.getItem()).reloadStage == 1)
-        // {
-        // var5 += 16;
-        // }
-        // else if (((ItemCrossbow)item.getItem()).reloadStage == 2)
-        // {
-        // var5 += 32;
-        // }
-        // }
 
         float f = icon.getMinU();
         float f1 = icon.getMaxU();
@@ -243,42 +229,6 @@ public class ItemRendererCrossbowMod implements IItemRenderer
         GL11.glTranslatef(-0.9375F, -0.0625F, 0.0F);
         ItemRenderer.renderItemIn2D(var4, f1, f2, f, f3, icon.getOriginX(), icon.getOriginY(), 0.0625F);
 
-        // if (item.hasEffect(par3))
-        // {
-        // GL11.glDepthFunc(GL11.GL_EQUAL);
-        // GL11.glDisable(GL11.GL_LIGHTING);
-        // this.mcinstance.renderEngine.bindTexture("%blur%/misc/glint.png");
-        // GL11.glEnable(GL11.GL_BLEND);
-        // GL11.glBlendFunc(GL11.GL_SRC_COLOR, GL11.GL_ONE);
-        // float f7 = 0.76F;
-        // GL11.glColor4f(0.5F * f7, 0.25F * f7, 0.8F * f7, 1.0F);
-        // GL11.glMatrixMode(GL11.GL_TEXTURE);
-        // GL11.glPushMatrix();
-        // float f8 = 0.125F;
-        // GL11.glScalef(f8, f8, f8);
-        // float f9 = (float)(Minecraft.getSystemTime() % 3000L) / 3000.0F *
-        // 8.0F;
-        // GL11.glTranslatef(f9, 0.0F, 0.0F);
-        // GL11.glRotatef(-50.0F, 0.0F, 0.0F, 1.0F);
-        // ItemRenderer.renderItemIn2D(var4, 0.0F, 0.0F, 1.0F, 1.0F, 256, 256,
-        // 0.0625F);
-        // GL11.glPopMatrix();
-        // GL11.glPushMatrix();
-        // GL11.glScalef(f8, f8, f8);
-        // f9 = (float)(Minecraft.getSystemTime() % 4873L) / 4873.0F * 8.0F;
-        // GL11.glTranslatef(-f9, 0.0F, 0.0F);
-        // GL11.glRotatef(10.0F, 0.0F, 0.0F, 1.0F);
-        // ItemRenderer.renderItemIn2D(var4, 0.0F, 0.0F, 1.0F, 1.0F, 256, 256,
-        // 0.0625F);
-        // GL11.glPopMatrix();
-        // GL11.glMatrixMode(GL11.GL_MODELVIEW);
-        // GL11.glDisable(GL11.GL_BLEND);
-        // GL11.glEnable(GL11.GL_LIGHTING);
-        // GL11.glDepthFunc(GL11.GL_LEQUAL);
-        // }
-
         GL11.glDisable(GL12.GL_RESCALE_NORMAL);
-
-        GL11.glPopMatrix();
     }
 }
