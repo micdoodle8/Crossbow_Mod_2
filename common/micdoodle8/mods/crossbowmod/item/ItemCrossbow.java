@@ -590,8 +590,11 @@ public abstract class ItemCrossbow extends Item
     {
         for (int i = 1; i < 179; i++)
         {
-            String s = i < 10 ? "0" + i : "" + i;
-            this.icons[i - 1] = par1IconRegister.registerIcon(CrossbowModCore.TEXTURE_PREFIX + this.getShortName() + "_" + s);
+            if (i <= 146 || (i <= 178 && (i - 1) % 16 < 2))
+            {
+                String s = i < 10 ? "0" + i : "" + i;
+                this.icons[i - 1] = par1IconRegister.registerIcon(CrossbowModCore.TEXTURE_PREFIX + this.getShortName() + "_" + s);
+            }
         }
 
         this.itemIcon = this.icons[0];
