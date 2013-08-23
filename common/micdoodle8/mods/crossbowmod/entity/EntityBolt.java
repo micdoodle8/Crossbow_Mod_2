@@ -138,6 +138,30 @@ public abstract class EntityBolt extends Entity
     }
 
     @Override
+    public void setFire(int par1)
+    {
+        if (!inSpace(this.worldObj))
+        {
+            super.setFire(par1);
+        }
+    }
+    
+    public static boolean inSpace(World world)
+    {
+        Class<?>[] interfaces = world.provider.getClass().getInterfaces();
+        
+        for (Class<?> c : interfaces)
+        {
+            if (c != null && c.getSimpleName().equals("IGalacticraftWorldProvider"))
+            {
+                return true;
+            }
+        }
+        
+        return false;
+    }
+
+    @Override
     @SideOnly(Side.CLIENT)
     public void setVelocity(double d, double d1, double d2)
     {
@@ -475,8 +499,11 @@ public abstract class EntityBolt extends Entity
 
         if (this.hasFireAttachment)
         {
-            this.worldObj.setBlock((int) Math.floor(this.posX), (int) this.posY, (int) Math.floor(this.posZ), Block.fire.blockID);
-            this.setDead();
+            if (!inSpace(this.worldObj))
+            {
+                this.worldObj.setBlock((int) Math.floor(this.posX), (int) this.posY, (int) Math.floor(this.posZ), Block.fire.blockID);
+                this.setDead();
+            }
         }
 
         if (this.hasLavaAttachment)
@@ -489,7 +516,23 @@ public abstract class EntityBolt extends Entity
         {
             if (this.worldObj.getBlockId((int) Math.floor(this.posX), (int) Math.floor(this.posY), (int) Math.floor(this.posZ)) == 0)
             {
-                this.worldObj.setBlock((int) Math.floor(this.posX), (int) this.posY, (int) Math.floor(this.posZ), Block.torchWood.blockID);
+                if (inSpace(this.worldObj))
+                {
+                    try
+                    {
+                        Class<?> c = Class.forName("micdoodle8.mods.galacticraft.core.blocks.GCCoreBlocks");
+                        Block unlitTorch = (Block) c.getField("unlitTorch").get(null);
+                        this.worldObj.setBlock((int) Math.floor(this.posX), (int) this.posY, (int) Math.floor(this.posZ), unlitTorch.blockID);
+                    }
+                    catch (Exception e)
+                    {
+                        e.printStackTrace();
+                    }
+                }
+                else
+                {
+                    this.worldObj.setBlock((int) Math.floor(this.posX), (int) this.posY, (int) Math.floor(this.posZ), Block.torchWood.blockID);
+                }
                 this.setDead();
             }
             else
