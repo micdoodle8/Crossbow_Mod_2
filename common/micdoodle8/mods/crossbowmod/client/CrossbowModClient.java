@@ -1,14 +1,6 @@
 package micdoodle8.mods.crossbowmod.client;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.text.DecimalFormat;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-import micdoodle8.mods.crossbowmod.ConfigManager;
 import micdoodle8.mods.crossbowmod.CrossbowModCore;
 import micdoodle8.mods.crossbowmod.client.render.RenderDiamondBolt;
 import micdoodle8.mods.crossbowmod.client.render.RenderGoldBolt;
@@ -35,9 +27,7 @@ import net.minecraftforge.client.IItemRenderer;
 import net.minecraftforge.client.MinecraftForgeClient;
 import org.lwjgl.input.Mouse;
 import org.lwjgl.opengl.GL11;
-import cpw.mods.fml.client.FMLClientHandler;
 import cpw.mods.fml.client.registry.RenderingRegistry;
-import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.registry.LanguageRegistry;
@@ -47,8 +37,6 @@ public class CrossbowModClient
     private static DecimalFormat oneDigit = new DecimalFormat("#,##0.0");
 
     public static int shootTime = 0;
-
-    public static boolean checkVersion;
 
     private static final ResourceLocation longScopeTexture = new ResourceLocation(CrossbowModCore.TEXTURE_DOMAIN, "textures/gui/longScope.png");
     private static final ResourceLocation shortScopeTexture = new ResourceLocation(CrossbowModCore.TEXTURE_DOMAIN, "textures/gui/shortScope.png");
@@ -65,8 +53,6 @@ public class CrossbowModClient
         LanguageRegistry.instance().addStringLocalization(CrossbowModCore.createCrossbow.getName() + ".desc", "Create any crossbow on a Crossbow Crafting Bench");
         LanguageRegistry.instance().addStringLocalization(CrossbowModCore.sniper.getName(), "Sniper King");
         LanguageRegistry.instance().addStringLocalization(CrossbowModCore.sniper.getName() + ".desc", "Kill a chicken with any crossbow bolt from more than 75 meters away using a long range scope");
-
-        CrossbowModClient.checkVersion = ConfigManager.shouldCheckVersion;
     }
 
     public static void onRenderTick()
@@ -214,12 +200,6 @@ public class CrossbowModClient
 
     public static void onTickInGame()
     {
-        if (CrossbowModClient.checkVersion)
-        {
-            CrossbowModClient.checkVersion();
-            CrossbowModClient.checkVersion = false;
-        }
-
         if (CrossbowModClient.shootTime > 0)
         {
             CrossbowModClient.shootTime--;
@@ -228,70 +208,6 @@ public class CrossbowModClient
 
     public static int remoteVer;
     public static int localVer = 59;
-
-    private static void checkVersion()
-    {
-        try
-        {
-            URL url = new URL("http://micdoodle8.com/version.html");
-
-            BufferedReader in = new BufferedReader(new InputStreamReader(url.openStream()));
-            Pattern pat = Pattern.compile("Version=\\d+");
-            Pattern.compile("Desc=\\S+");
-            Matcher matcher;
-            String str;
-
-            while ((str = in.readLine()) != null)
-            {
-                if (str.contains("Version"))
-                {
-                    matcher = pat.matcher(str);
-                    if (matcher.find())
-                    {
-                        CrossbowModClient.remoteVer = Integer.parseInt(matcher.group(0).substring(8));
-                    }
-
-                    if (CrossbowModClient.remoteVer > CrossbowModClient.localVer)
-                    {
-                        FMLClientHandler.instance().getClient().thePlayer.addChatMessage("\u00a77New \u00a73Crossbow Mod 2 \u00a77version available! v" + String.valueOf(CrossbowModClient.remoteVer).substring(String.valueOf(CrossbowModClient.remoteVer).length() - 1) + " \u00a71http://bit.ly/U0WYXP");
-                    }
-                }
-
-                if (str.contains("Desc="))
-                {
-                    if (CrossbowModClient.remoteVer > CrossbowModClient.localVer)
-                    {
-                        str = str.replace("Desc=", "");
-
-                        String[] strs = str.split("#");
-
-                        for (String string : strs)
-                        {
-                            FMLClientHandler.instance().getClient().thePlayer.addChatMessage("\u00a78 - " + string);
-                        }
-                    }
-                }
-            }
-        }
-        catch (MalformedURLException e)
-        {
-            e.printStackTrace();
-            FMLClientHandler.instance().getClient().thePlayer.addChatMessage("[Crossbow Mod] Update Check Failed!");
-            FMLLog.info("Crossbow Mod Update Check Failure - MalformedURLException");
-        }
-        catch (IOException e)
-        {
-            e.printStackTrace();
-            FMLClientHandler.instance().getClient().thePlayer.addChatMessage("[Crossbow Mod] Update Check Failed!");
-            FMLLog.info("Crossbow Mod Update Check Failure - IOException");
-        }
-        catch (NumberFormatException e)
-        {
-            e.printStackTrace();
-            FMLClientHandler.instance().getClient().thePlayer.addChatMessage("[Crossbow Mod] Update Check Failed!");
-            FMLLog.info("Crossbow Mod Update Check Failure - NumberFormatException");
-        }
-    }
 
     public static void registerRenderInformation()
     {
