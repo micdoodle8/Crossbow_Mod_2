@@ -1,0 +1,39 @@
+# Translation by Toltol
+
+item.woodenCrossbow.name=Tahta Makinalı Yay
+item.stoneCrossbow.name=Taş Makinalı Yay
+item.ironCrossbow.name=Demir Makinalı Yay
+item.goldCrossbow.name=Altın Makinalı Yay
+item.diamondCrossbow.name=Elmas Makinalı Yay
+
+item.attachLimbBolt.woodBolt.name=Tahta Civata
+item.attachLimbBolt.stoneBolt.name=Taş Civata
+item.attachLimbBolt.ironBolt.name=Demir Civata
+item.attachLimbBolt.goldBolt.name=Altın Civata
+item.attachLimbBolt.diamondBolt.name=Elmas Civata
+
+item.attachLimbBolt.woodLimb.name=Tahta Sopa
+item.attachLimbBolt.stoneLimb.name=Taş Sopa
+item.attachLimbBolt.ironLimb.name=Demir Sopa
+item.attachLimbBolt.goldLimb.name=Altın Sopa
+item.attachLimbBolt.diamondLimb.name=Elmas Sopa
+
+item.attachLimbBolt.mechanismSemiAuto.name=Basit Makinalı Yay Mekanizması
+item.attachLimbBolt.mechanismLightAuto.name=Işıklı Otomatik Makinalı Yay Mekanizması
+item.attachLimbBolt.mechanismMediumAuto.name=Orta Hızlı Otomatik Makinalı Yay Mekanizması
+item.attachLimbBolt.mechanismHeavyAuto.name=Hızlı Otomatik Makinalı Yay Mekanizması
+item.attachLimbBolt.mechanismTriShot.name=Üçlü Atış Mekanizması
+
+item.attachLimbBolt.attachmentShortScope.name=Basit Makinalı Yay 
+item.attachLimbBolt.attachmentLongScope.name=Uzun Menzilli Makinalı Yay
+item.attachLimbBolt.attachmentExplosive.name=Tnt Atıcı Makinalı Yay
+item.attachLimbBolt.attachmentFire.name=Ateş Atıcı Makinalı Yay
+item.attachLimbBolt.attachmentLava.name=Lav Atıcı Makinalı Yay
+item.attachLimbBolt.attachmentIce.name=Kar Atıcı Makinalı Yay
+item.attachLimbBolt.attachmentLightning.name=Yıldırım Atıcı Makinalı Yay
+item.attachLimbBolt.attachmentTorch.name=Meşale Atıcı Makinalı Yay
+item.attachLimbBolt.attachmentPoison.name=Zehir Atıcı Makinalı Yay
+
+tile.crossbowBench.name=Makinalı Yay Üretim Masası
+
+itemGroup.crossbows=Makinalı Yaylar
