@@ -21,8 +21,8 @@ public class GuiCrossbowBench extends GuiContainer
     @Override
     protected void drawGuiContainerForegroundLayer(int par1, int par2)
     {
-        this.fontRenderer.drawString("Crossbow Workbench", 10, -13, 4210752);
-        this.fontRenderer.drawString(StatCollector.translateToLocal("container.inventory"), 8, 202 - 113 + 2, 4210752);
+        this.fontRenderer.drawString("Crossbow Workbench", 10, -13 + 18, 4210752);
+        this.fontRenderer.drawString(StatCollector.translateToLocal("container.inventory"), 8, 202 - 113 + 2 + 18, 4210752);
     }
 
     @Override
@@ -32,6 +32,6 @@ public class GuiCrossbowBench extends GuiContainer
         this.mc.renderEngine.bindTexture(GuiCrossbowBench.crossbowTableTexture);
         int var5 = (this.width - this.xSize) / 2;
         int var6 = (this.height - this.ySize) / 2;
-        this.drawTexturedModalRect(var5, var6, 0, 0, this.xSize, 202);
+        this.drawTexturedModalRect(var5, var6, 0, 0, this.xSize, this.ySize);
     }
 }

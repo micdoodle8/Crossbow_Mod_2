@@ -21,7 +21,7 @@ public class ContainerCrossbowBench extends Container
     public ContainerCrossbowBench(InventoryPlayer par1InventoryPlayer)
     {
         this.worldObj = par1InventoryPlayer.player.worldObj;
-        this.addSlotToContainer(new SlotCrossbowBenchResult(par1InventoryPlayer.player, this.craftMatrix, this.craftResult, 0, 142, 36));
+        this.addSlotToContainer(new SlotCrossbowBenchResult(par1InventoryPlayer.player, this.craftMatrix, this.craftResult, 0, 142, 36 + 18));
         int var6;
         int var7;
         this.player = par1InventoryPlayer.player;
@@ -29,30 +29,30 @@ public class ContainerCrossbowBench extends Container
         // Mech, Limb, Stick, Stick, Stick
         for (var6 = 1; var6 < 6; ++var6)
         {
-            this.addSlotToContainer(new Slot(this.craftMatrix, var6, 16 + var6 * 18 - 18, 36));
+            this.addSlotToContainer(new Slot(this.craftMatrix, var6, 16 + var6 * 18 - 18, 36 + 18));
         }
         // Middle-Top Limb
-        this.addSlotToContainer(new Slot(this.craftMatrix, 6, 16 + 18, 36 - 18));
+        this.addSlotToContainer(new Slot(this.craftMatrix, 6, 16 + 18, 36 - 18 + 18));
         // Middle-Bottom Limb
-        this.addSlotToContainer(new Slot(this.craftMatrix, 7, 16 + 18, 36 + 18));
+        this.addSlotToContainer(new Slot(this.craftMatrix, 7, 16 + 18, 36 + 18 + 18));
         // Top Limb
-        this.addSlotToContainer(new Slot(this.craftMatrix, 8, 16 + 18 * 2, 36 + 18 * 2));
+        this.addSlotToContainer(new Slot(this.craftMatrix, 8, 16 + 18 * 2, 36 + 18 * 2 + 18));
         // Bottom Limb
-        this.addSlotToContainer(new Slot(this.craftMatrix, 9, 16 + 18 * 2, 36 - 18 * 2));
+        this.addSlotToContainer(new Slot(this.craftMatrix, 9, 16 + 18 * 2, 36 - 18 * 2 + 18));
         // Scope
-        this.addSlotToContainer(new Slot(this.craftMatrix, 10, 15 + 18 * 4, 36 - 18 * 2));
+        this.addSlotToContainer(new Slot(this.craftMatrix, 10, 15 + 18 * 4, 36 - 18 * 2 + 18));
 
         for (var6 = 0; var6 < 3; ++var6)
         {
             for (var7 = 0; var7 < 9; ++var7)
             {
-                this.addSlotToContainer(new Slot(par1InventoryPlayer, var7 + var6 * 9 + 9, 8 + var7 * 18, 102 + var6 * 18));
+                this.addSlotToContainer(new Slot(par1InventoryPlayer, var7 + var6 * 9 + 9, 8 + var7 * 18, 102 + var6 * 18 + 18));
             }
         }
 
         for (var6 = 0; var6 < 9; ++var6)
         {
-            this.addSlotToContainer(new Slot(par1InventoryPlayer, var6, 8 + var6 * 18, 160));
+            this.addSlotToContainer(new Slot(par1InventoryPlayer, var6, 8 + var6 * 18, 160 + 18));
         }
 
         this.onCraftMatrixChanged(this.craftMatrix);
