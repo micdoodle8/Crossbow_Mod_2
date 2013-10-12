@@ -76,7 +76,7 @@ public class CrossbowModClient
             GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);
             GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
             GL11.glDisable(GL11.GL_ALPHA_TEST);
-            mc.renderEngine.func_110577_a(CrossbowModClient.longScopeTexture);
+            mc.renderEngine.bindTexture(CrossbowModClient.longScopeTexture);
             Tessellator tessellator = Tessellator.instance;
             tessellator.startDrawingQuads();
             tessellator.addVertexWithUV(i / 2 - 2 * k, k, -90D, 0.0D, 1.0D);
@@ -165,7 +165,7 @@ public class CrossbowModClient
             GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);
             GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
             GL11.glDisable(GL11.GL_ALPHA_TEST);
-            mc.renderEngine.func_110577_a(CrossbowModClient.shortScopeTexture);
+            mc.renderEngine.bindTexture(CrossbowModClient.shortScopeTexture);
             Tessellator tessellator = Tessellator.instance;
             tessellator.startDrawingQuads();
             tessellator.addVertexWithUV(i / 2 - 2 * k, k, -90D, 0.0D, 1.0D);

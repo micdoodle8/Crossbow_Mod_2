@@ -21,7 +21,7 @@ public class RenderGoldBolt extends Render
             return;
         }
 
-        this.func_110776_a(RenderGoldBolt.goldBoltTexture);
+        this.bindTexture(RenderGoldBolt.goldBoltTexture);
         GL11.glPushMatrix();
         GL11.glTranslatef((float) d, (float) d1, (float) d2);
         GL11.glRotatef(entitygoldbolt.prevRotationYaw + (entitygoldbolt.rotationYaw - entitygoldbolt.prevRotationYaw) * f1 - 90.0F, 0.0F, 1.0F, 0.0F);
@@ -86,7 +86,7 @@ public class RenderGoldBolt extends Render
     }
 
     @Override
-    protected ResourceLocation func_110775_a(Entity par1Entity)
+    protected ResourceLocation getEntityTexture(Entity par1Entity)
     {
         return this.func_110779_a((EntityGoldBolt) par1Entity);
     }

@@ -230,7 +230,7 @@ public class ItemRendererCrossbowMod implements IItemRenderer
         GL11.glRotatef(50.0F, 0.0F, 1.0F, 0.0F);
         GL11.glRotatef(335.0F, 0.0F, 0.0F, 1.0F);
         GL11.glTranslatef(-0.9375F, -0.0625F, 0.0F);
-        ItemRenderer.renderItemIn2D(var4, f1, f2, f, f3, icon.getOriginX(), icon.getOriginY(), 0.0625F);
+        ItemRenderer.renderItemIn2D(var4, f1, f2, f, f3, icon.getIconWidth(), icon.getIconHeight(), 0.0625F);
 
         GL11.glDisable(GL12.GL_RESCALE_NORMAL);
 

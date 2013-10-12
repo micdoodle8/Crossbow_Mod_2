@@ -22,7 +22,7 @@ public class CrossbowModPlugin implements IFMLLoadingPlugin, IFMLCallHook
     private static String transformerDir = "micdoodle8.mods.crossbowmod.asm.";
     private static String transformerMain = CrossbowModPlugin.transformerDir + "CrossbowModTransformer";
     public static boolean hasRegistered = false;
-    public static final String mcVersion = "[1.6.2]";
+    public static final String mcVersion = "[1.6.4]";
     public static File mcDir;
 
     @Override

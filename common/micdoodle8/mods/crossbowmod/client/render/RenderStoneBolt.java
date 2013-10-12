@@ -21,7 +21,7 @@ public class RenderStoneBolt extends Render
             return;
         }
 
-        this.func_110776_a(RenderStoneBolt.stoneBoltTexture);
+        this.bindTexture(RenderStoneBolt.stoneBoltTexture);
         GL11.glPushMatrix();
         GL11.glTranslatef((float) d, (float) d1, (float) d2);
         GL11.glRotatef(entitystonebolt.prevRotationYaw + (entitystonebolt.rotationYaw - entitystonebolt.prevRotationYaw) * f1 - 90.0F, 0.0F, 1.0F, 0.0F);
@@ -86,7 +86,7 @@ public class RenderStoneBolt extends Render
     }
 
     @Override
-    protected ResourceLocation func_110775_a(Entity par1Entity)
+    protected ResourceLocation getEntityTexture(Entity par1Entity)
     {
         return this.func_110779_a((EntityStoneBolt) par1Entity);
     }

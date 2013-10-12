@@ -21,7 +21,7 @@ public class RenderWoodBolt extends Render
             return;
         }
 
-        this.func_110776_a(RenderWoodBolt.woodBoltTexture);
+        this.bindTexture(RenderWoodBolt.woodBoltTexture);
         GL11.glPushMatrix();
         GL11.glTranslatef((float) d, (float) d1, (float) d2);
         GL11.glRotatef(entitywoodbolt.prevRotationYaw + (entitywoodbolt.rotationYaw - entitywoodbolt.prevRotationYaw) * f1 - 90.0F, 0.0F, 1.0F, 0.0F);
@@ -86,7 +86,7 @@ public class RenderWoodBolt extends Render
     }
 
     @Override
-    protected ResourceLocation func_110775_a(Entity par1Entity)
+    protected ResourceLocation getEntityTexture(Entity par1Entity)
     {
         return this.func_110779_a((EntityWoodBolt) par1Entity);
     }

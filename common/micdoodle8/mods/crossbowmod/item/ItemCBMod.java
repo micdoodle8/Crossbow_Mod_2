@@ -75,7 +75,7 @@ public class ItemCBMod extends Item
             this.icons[i - offset] = par1IconRegister.registerIcon(CrossbowModCore.TEXTURE_PREFIX + "other_" + s);
         }
 
-        this.itemIcon = par1IconRegister.registerIcon(this.func_111208_A());
+        this.itemIcon = par1IconRegister.registerIcon(this.getIconString());
     }
 
     @Override
