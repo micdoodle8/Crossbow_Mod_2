@@ -21,7 +21,6 @@ public class CrossbowModTransformer implements net.minecraft.launchwrapper.IClas
     HashMap<String, String> nodemap = new HashMap<String, String>();
     private boolean deobfuscated = true;
 
-    @SuppressWarnings("resource")
     public CrossbowModTransformer()
     {
         try
@@ -51,8 +50,8 @@ public class CrossbowModTransformer implements net.minecraft.launchwrapper.IClas
         }
         else
         {
-            this.nodemap.put("entityClass", "nm");
-            this.nodemap.put("modelBipedClass", "bbg");
+            this.nodemap.put("entityClass", "nn");
+            this.nodemap.put("modelBipedClass", "bbj");
             this.nodemap.put("setRotationAnglesMethod", "a");
             this.nodemap.put("setRotationAnglesDesc", "(FFFFFFL" + this.nodemap.get("entityClass") + ";)V");
         }
