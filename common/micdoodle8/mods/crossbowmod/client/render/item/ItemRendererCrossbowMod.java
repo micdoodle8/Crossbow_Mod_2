@@ -14,17 +14,20 @@ import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
-import net.minecraft.src.ModLoader;
 import net.minecraft.util.Icon;
 import net.minecraftforge.client.IItemRenderer;
 import org.lwjgl.input.Keyboard;
 import org.lwjgl.input.Mouse;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL12;
+import cpw.mods.fml.client.FMLClientHandler;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
+@SideOnly(Side.CLIENT)
 public class ItemRendererCrossbowMod implements IItemRenderer
 {
-    private Minecraft mcinstance = ModLoader.getMinecraftInstance();
+    private Minecraft mcinstance = FMLClientHandler.instance().getClient();
 
     @Override
     public boolean handleRenderType(ItemStack item, ItemRenderType type)
@@ -137,6 +140,7 @@ public class ItemRendererCrossbowMod implements IItemRenderer
                 GL11.glScalef(1.3F, 1.3F, 1.3F);
             }
 
+            
             this.renderItemCustom(type, item, data);
             GL11.glPopMatrix();
             GL11.glPushMatrix();

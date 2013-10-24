@@ -13,7 +13,6 @@ import net.minecraft.item.EnumRarity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.src.ModLoader;
 import net.minecraft.util.Icon;
 import net.minecraft.world.World;
 import org.lwjgl.input.Keyboard;
@@ -363,7 +362,7 @@ public abstract class ItemCrossbow extends Item
 
     @Override
     public ItemStack onItemRightClick(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer)
-    {
+    {        
         if (par3EntityPlayer.capabilities.isCreativeMode || par3EntityPlayer.inventory.hasItemStack(new ItemStack(Items.attachmentLimbBolt, 1, this.requiredMetadata(par3EntityPlayer))))
         {
             par3EntityPlayer.setItemInUse(par1ItemStack, this.getMaxItemUseDuration(par1ItemStack));
@@ -387,6 +386,39 @@ public abstract class ItemCrossbow extends Item
         }
 
         return stack;
+    }
+    
+    public static EnumAttachmentType getAttachmentType(ItemStack stack)
+    {
+        if (stack.stackTagCompound != null)
+        {
+            int attachmentType = stack.getTagCompound().getInteger("attachment");
+            return EnumAttachmentType.values()[attachmentType];
+        }
+        
+        return null;
+    }
+    
+    public static EnumCrossbowMaterial getMaterialType(ItemStack stack)
+    {
+        if (stack.stackTagCompound != null)
+        {
+            int attachmentType = stack.getTagCompound().getInteger("material");
+            return EnumCrossbowMaterial.values()[attachmentType];
+        }
+        
+        return null;
+    }
+    
+    public static EnumCrossbowFireRate getFireRateType(ItemStack stack)
+    {
+        if (stack.stackTagCompound != null)
+        {
+            int attachmentType = stack.getTagCompound().getInteger("firerate");
+            return EnumCrossbowFireRate.values()[attachmentType];
+        }
+        
+        return null;
     }
 
     public int getUpdatedCrossbowIndex(ItemStack stack)
@@ -546,9 +578,10 @@ public abstract class ItemCrossbow extends Item
         return 0;
     }
 
+    @SideOnly(Side.CLIENT)
     public int getIconIndexModifier()
     {
-        if (!(ModLoader.getMinecraftInstance().currentScreen != null && ModLoader.getMinecraftInstance().currentScreen.allowUserInput) && (Mouse.getEventDWheel() != 0 || Keyboard.isKeyDown(Keyboard.KEY_0) || Keyboard.isKeyDown(Keyboard.KEY_1) || Keyboard.isKeyDown(Keyboard.KEY_2) || Keyboard.isKeyDown(Keyboard.KEY_3) || Keyboard.isKeyDown(Keyboard.KEY_4) || Keyboard.isKeyDown(Keyboard.KEY_5) || Keyboard.isKeyDown(Keyboard.KEY_6) || Keyboard.isKeyDown(Keyboard.KEY_7) || Keyboard.isKeyDown(Keyboard.KEY_8) || Keyboard.isKeyDown(Keyboard.KEY_9)))
+        if (!(FMLClientHandler.instance().getClient().currentScreen != null && FMLClientHandler.instance().getClient().currentScreen.allowUserInput) && (Mouse.getEventDWheel() != 0 || Keyboard.isKeyDown(Keyboard.KEY_0) || Keyboard.isKeyDown(Keyboard.KEY_1) || Keyboard.isKeyDown(Keyboard.KEY_2) || Keyboard.isKeyDown(Keyboard.KEY_3) || Keyboard.isKeyDown(Keyboard.KEY_4) || Keyboard.isKeyDown(Keyboard.KEY_5) || Keyboard.isKeyDown(Keyboard.KEY_6) || Keyboard.isKeyDown(Keyboard.KEY_7) || Keyboard.isKeyDown(Keyboard.KEY_8) || Keyboard.isKeyDown(Keyboard.KEY_9)))
         {
             return 0;
         }
