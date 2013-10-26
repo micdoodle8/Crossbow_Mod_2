@@ -80,10 +80,11 @@ public class ContainerCrossbowBench extends Container
     @Override
     public void onCraftMatrixChanged(IInventory par1IInventory)
     {
-        if (Util.findMatchingCrossbowRecipe(this.craftMatrix) != null)
-        {
-            this.craftResult.setInventorySlotContents(0, Util.findMatchingCrossbowRecipe(this.craftMatrix));
+        ItemStack result = Util.findMatchingCrossbowRecipe(this.craftMatrix);
+        this.craftResult.setInventorySlotContents(0, result);
 
+        if (result != null)
+        {
             this.player.addStat(CrossbowModCore.createCrossbow, 1);
         }
     }
