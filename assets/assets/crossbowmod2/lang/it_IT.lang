@@ -6,11 +6,11 @@ item.ironCrossbow.name=Balestra di Ferro
 item.goldCrossbow.name=Balestra di Oro
 item.diamondCrossbow.name=Balestra di Diamante
 
-item.attachLimbBolt.woodBolt.name=Freccia di Legno
-item.attachLimbBolt.stoneBolt.name=Freccia di Pietra
-item.attachLimbBolt.ironBolt.name=Freccia di Ferro
-item.attachLimbBolt.goldBolt.name=Freccia di Oro
-item.attachLimbBolt.diamondBolt.name=Freccia di Diamante
+item.attachLimbBolt.woodBolt.name=Dardo di Legno
+item.attachLimbBolt.stoneBolt.name=Dardo di Pietra
+item.attachLimbBolt.ironBolt.name=Dardo di Ferro
+item.attachLimbBolt.goldBolt.name=Dardo di Oro
+item.attachLimbBolt.diamondBolt.name=Dardo di Diamante
 
 item.attachLimbBolt.woodLimb.name=Arco di Legno
 item.attachLimbBolt.stoneLimb.name=Arco di Pietra
