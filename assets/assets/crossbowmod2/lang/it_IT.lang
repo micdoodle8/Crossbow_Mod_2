@@ -1,0 +1,39 @@
+#Translation by QuodQuaeris
+
+item.woodenCrossbow.name=Balestra di Legno
+item.stoneCrossbow.name=Balestra di Pietra
+item.ironCrossbow.name=Balestra di Ferro
+item.goldCrossbow.name=Balestra di Oro
+item.diamondCrossbow.name=Balestra di Diamante
+
+item.attachLimbBolt.woodBolt.name=Dardo di Legno
+item.attachLimbBolt.stoneBolt.name=Dardo di Pietra
+item.attachLimbBolt.ironBolt.name=Dardo di Ferro
+item.attachLimbBolt.goldBolt.name=Dardo di Oro
+item.attachLimbBolt.diamondBolt.name=Dardo di Diamante
+
+item.attachLimbBolt.woodLimb.name=Arco di Legno
+item.attachLimbBolt.stoneLimb.name=Arco di Pietra
+item.attachLimbBolt.ironLimb.name=Arco di Ferro
+item.attachLimbBolt.goldLimb.name=Arco di Oro
+item.attachLimbBolt.diamondLimb.name=Arco di Diamante
+
+item.attachLimbBolt.mechanismSemiAuto.name=Meccanismo Base della Balestra
+item.attachLimbBolt.mechanismLightAuto.name=Meccanismo Leggero Automatico della Balestra
+item.attachLimbBolt.mechanismMediumAuto.name=Meccanismo Medio Automatico della Balestra
+item.attachLimbBolt.mechanismHeavyAuto.name=Meccanismo Pesante Automatico della Balestra
+item.attachLimbBolt.mechanismTriShot.name=Meccanismo a Tre Colpi
+
+item.attachLimbBolt.attachmentShortScope.name=Mirino Base per Balestra
+item.attachLimbBolt.attachmentLongScope.name=Mirino a Lungo Raggio per Balestra
+item.attachLimbBolt.attachmentExplosive.name=Accessorio Per Colpi Esplosivi Per Balestra
+item.attachLimbBolt.attachmentFire.name=Accessorio Per Colpi Infiammati Per Balestra
+item.attachLimbBolt.attachmentLava.name=Accessorio Per Colpi Con Lava Per Balestra
+item.attachLimbBolt.attachmentIce.name=Accessorio Per Colpi Ghiacciati Per Balestra
+item.attachLimbBolt.attachmentLightning.name=Accessorio Per Colpi Con Fulmine Per Balestra
+item.attachLimbBolt.attachmentTorch.name=Accessorio Per Colpi Con Torcia Per Balestra
+item.attachLimbBolt.attachmentPoison.name=Accessorio Per Colpi Avvelenati Per Balestra
+
+tile.crossbowBench.name=Tavolo Da Lavoro Per Balestre
+
+itemGroup.crossbows=Balestre
