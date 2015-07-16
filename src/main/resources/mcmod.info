@@ -3,8 +3,8 @@
   "modid": "CrossbowMod2",
   "name": "Crossbow Mod 2",
   "description": "Crossbow Mod 2 is an advanced crossbows mod, allowing for over 250 variations of crossbows while only using 6 item IDs!",
-  "version": "a0.1.6",
-  "mcversion": "1.6",
+  "version": "0.2.13",
+  "mcversion": "1.7.10",
   "url": "http://www.micdoodle8.com/",
   "updateUrl": "http://www.micdoodle8.com/",
   "authors": [
