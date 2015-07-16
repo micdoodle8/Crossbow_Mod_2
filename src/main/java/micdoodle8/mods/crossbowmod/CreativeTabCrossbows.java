@@ -1,7 +1,10 @@
 package micdoodle8.mods.crossbowmod;
 
-import micdoodle8.mods.crossbowmod.item.Items;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import micdoodle8.mods.crossbowmod.item.CrossbowItems;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.item.Item;
 
 public class CreativeTabCrossbows extends CreativeTabs
 {
@@ -11,9 +14,10 @@ public class CreativeTabCrossbows extends CreativeTabs
     }
 
     @Override
-    public int getTabIconItemIndex()
+    @SideOnly(Side.CLIENT)
+    public Item getTabIconItem()
     {
-        return Items.diamondCrossbowBase.itemID;
+        return CrossbowItems.diamondCrossbowBase;
     }
 
     // @Override

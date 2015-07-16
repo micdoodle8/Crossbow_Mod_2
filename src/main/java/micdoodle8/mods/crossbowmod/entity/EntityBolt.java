@@ -1,27 +1,26 @@
 package micdoodle8.mods.crossbowmod.entity;
 
-import java.util.List;
-import micdoodle8.mods.crossbowmod.item.Items;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import micdoodle8.mods.crossbowmod.item.CrossbowItems;
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockAir;
 import net.minecraft.block.BlockFlower;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.effect.EntityLightningBolt;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
-import net.minecraft.util.AxisAlignedBB;
-import net.minecraft.util.DamageSource;
-import net.minecraft.util.MathHelper;
-import net.minecraft.util.MovingObjectPosition;
-import net.minecraft.util.Vec3;
+import net.minecraft.util.*;
 import net.minecraft.world.World;
-import net.minecraftforge.common.ForgeDirection;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
+import net.minecraftforge.common.util.ForgeDirection;
+
+import java.util.List;
 
 public abstract class EntityBolt extends Entity
 {
@@ -36,7 +35,7 @@ public abstract class EntityBolt extends Entity
     public int xTile;
     public int yTile;
     public int zTile;
-    public int inTile;
+    public Block inTile;
     public int inData;
     public boolean inGround;
     public int arrowShake;
@@ -95,7 +94,7 @@ public abstract class EntityBolt extends Entity
         this.xTile = -1;
         this.yTile = -1;
         this.zTile = -1;
-        this.inTile = 0;
+        this.inTile = Blocks.air;
         this.inGround = false;
         this.arrowShake = 0;
         this.ticksFlying = 0;
@@ -204,7 +203,7 @@ public abstract class EntityBolt extends Entity
         }
         if (this.inGround)
         {
-            int i = this.worldObj.getBlockId(this.xTile, this.yTile, this.zTile);
+            Block i = this.worldObj.getBlock(this.xTile, this.yTile, this.zTile);
             int j = this.worldObj.getBlockMetadata(this.xTile, this.yTile, this.zTile);
             if (i != this.inTile || j != this.inData)
             {
@@ -233,7 +232,7 @@ public abstract class EntityBolt extends Entity
         this.tickFlying();
         Vec3 vec3d = Vec3.createVectorHelper(this.posX, this.posY, this.posZ);
         Vec3 vec3d1 = Vec3.createVectorHelper(this.posX + this.motionX, this.posY + this.motionY, this.posZ + this.motionZ);
-        MovingObjectPosition movingobjectposition = this.worldObj.clip(vec3d, vec3d1);
+        MovingObjectPosition movingobjectposition = this.worldObj.rayTraceBlocks(vec3d, vec3d1);
         vec3d = Vec3.createVectorHelper(this.posX, this.posY, this.posZ);
         vec3d1 = Vec3.createVectorHelper(this.posX + this.motionX, this.posY + this.motionY, this.posZ + this.motionZ);
         if (movingobjectposition != null)
@@ -293,9 +292,9 @@ public abstract class EntityBolt extends Entity
                 this.xTile = movingobjectposition.blockX;
                 this.yTile = movingobjectposition.blockY;
                 this.zTile = movingobjectposition.blockZ;
-                this.inTile = this.worldObj.getBlockId(this.xTile, this.yTile, this.zTile);
+                this.inTile = this.worldObj.getBlock(this.xTile, this.yTile, this.zTile);
                 this.inData = this.worldObj.getBlockMetadata(this.xTile, this.yTile, this.zTile);
-                Block block = Block.blocksList[this.inTile];
+                Block block = this.inTile;
                 if (block != null && !(block instanceof BlockFlower))
                 {
                     if (this.onHitBlock(movingobjectposition))
@@ -390,7 +389,7 @@ public abstract class EntityBolt extends Entity
         nbttagcompound.setShort("xTile", (short) this.xTile);
         nbttagcompound.setShort("yTile", (short) this.yTile);
         nbttagcompound.setShort("zTile", (short) this.zTile);
-        nbttagcompound.setByte("inTile", (byte) this.inTile);
+        nbttagcompound.setByte("inTile", (byte) Block.getIdFromBlock(this.inTile));
         nbttagcompound.setByte("inData", (byte) this.inData);
         nbttagcompound.setByte("shake", (byte) this.arrowShake);
         nbttagcompound.setByte("inGround", (byte) (this.inGround ? 1 : 0));
@@ -403,7 +402,7 @@ public abstract class EntityBolt extends Entity
         this.xTile = nbttagcompound.getShort("xTile");
         this.yTile = nbttagcompound.getShort("yTile");
         this.zTile = nbttagcompound.getShort("zTile");
-        this.inTile = nbttagcompound.getByte("inTile") & 0xff;
+        this.inTile = Block.getBlockById(nbttagcompound.getByte("inTile") & 0xff);
         this.inData = nbttagcompound.getByte("inData") & 0xff;
         this.arrowShake = nbttagcompound.getByte("shake") & 0xff;
         this.inGround = nbttagcompound.getByte("inGround") == 1;
@@ -418,7 +417,7 @@ public abstract class EntityBolt extends Entity
             return;
         }
 
-        if (this.inGround && this.shotByPlayer && this.arrowShake <= 0 && entityplayer.inventory.addItemStackToInventory(new ItemStack(Items.attachmentLimbBolt, 1, this.item)))
+        if (this.inGround && this.shotByPlayer && this.arrowShake <= 0 && entityplayer.inventory.addItemStackToInventory(new ItemStack(CrossbowItems.attachmentLimbBolt, 1, this.item)))
         {
             this.worldObj.playSoundAtEntity(this, "random.pop", 0.2F, ((this.rand.nextFloat() - this.rand.nextFloat()) * 0.7F + 1.0F) * 2.0F);
             entityplayer.onItemPickup(this, 1);
@@ -438,7 +437,7 @@ public abstract class EntityBolt extends Entity
 
     public boolean onHitTarget(Entity entity)
     {
-        this.worldObj.playSoundAtEntity(this, "random.drr", 1.0F, 1.2F / (this.rand.nextFloat() * 0.2F + 0.7F));
+        this.worldObj.playSoundAtEntity(this, "random.pop", 1.0F, 1.2F / (this.rand.nextFloat() * 0.2F + 0.7F));
 
         if (!(entity instanceof EntityLiving))
         {
@@ -487,9 +486,9 @@ public abstract class EntityBolt extends Entity
             {
                 for (int j = -1; j <= 1; j++)
                 {
-                    if (this.worldObj.getBlockId((int) Math.floor(this.posX + i), (int) this.posY, (int) Math.floor(this.posZ + j)) == 0 && this.worldObj.isBlockSolidOnSide((int) Math.floor(this.posX + i), (int) this.posY - 1, (int) Math.floor(this.posZ + j), ForgeDirection.DOWN))
+                    if (this.worldObj.getBlock((int) Math.floor(this.posX + i), (int) this.posY, (int) Math.floor(this.posZ + j)) instanceof BlockAir && this.worldObj.isSideSolid((int) Math.floor(this.posX + i), (int) this.posY - 1, (int) Math.floor(this.posZ + j), ForgeDirection.DOWN))
                     {
-                        this.worldObj.setBlock((int) Math.floor(this.posX + i), (int) this.posY, (int) Math.floor(this.posZ + j), Block.snow.blockID);
+                        this.worldObj.setBlock((int) Math.floor(this.posX + i), (int) this.posY, (int) Math.floor(this.posZ + j), Blocks.snow);
                     }
                 }
             }
@@ -501,20 +500,20 @@ public abstract class EntityBolt extends Entity
         {
             if (!inSpace(this.worldObj))
             {
-                this.worldObj.setBlock((int) Math.floor(this.posX), (int) this.posY, (int) Math.floor(this.posZ), Block.fire.blockID);
+                this.worldObj.setBlock((int) Math.floor(this.posX), (int) this.posY, (int) Math.floor(this.posZ), Blocks.fire);
                 this.setDead();
             }
         }
 
         if (this.hasLavaAttachment)
         {
-            this.worldObj.setBlock((int) Math.floor(this.posX), (int) this.posY, (int) Math.floor(this.posZ), Block.lavaMoving.blockID);
+            this.worldObj.setBlock((int) Math.floor(this.posX), (int) this.posY, (int) Math.floor(this.posZ), Blocks.flowing_lava);
             this.setDead();
         }
 
         if (this.hasTorchAttachment)
         {
-            if (this.worldObj.getBlockId((int) Math.floor(this.posX), (int) Math.floor(this.posY), (int) Math.floor(this.posZ)) == 0)
+            if (this.worldObj.getBlock((int) Math.floor(this.posX), (int) Math.floor(this.posY), (int) Math.floor(this.posZ)) instanceof BlockAir)
             {
                 if (inSpace(this.worldObj))
                 {
@@ -522,7 +521,7 @@ public abstract class EntityBolt extends Entity
                     {
                         Class<?> c = Class.forName("micdoodle8.mods.galacticraft.core.blocks.GCCoreBlocks");
                         Block unlitTorch = (Block) c.getField("unlitTorch").get(null);
-                        this.worldObj.setBlock((int) Math.floor(this.posX), (int) this.posY, (int) Math.floor(this.posZ), unlitTorch.blockID);
+                        this.worldObj.setBlock((int) Math.floor(this.posX), (int) this.posY, (int) Math.floor(this.posZ), unlitTorch);
                     }
                     catch (Exception e)
                     {
@@ -531,7 +530,7 @@ public abstract class EntityBolt extends Entity
                 }
                 else
                 {
-                    this.worldObj.setBlock((int) Math.floor(this.posX), (int) this.posY, (int) Math.floor(this.posZ), Block.torchWood.blockID);
+                    this.worldObj.setBlock((int) Math.floor(this.posX), (int) this.posY, (int) Math.floor(this.posZ), Blocks.torch);
                 }
                 this.setDead();
             }
@@ -549,7 +548,7 @@ public abstract class EntityBolt extends Entity
 
     public boolean onHitBlock()
     {
-        this.worldObj.playSoundAtEntity(this, "random.drr", 1.0F, 1.2F / (this.rand.nextFloat() * 0.2F + 0.7F));
+        this.worldObj.playSoundAtEntity(this, "random.pop", 1.0F, 1.2F / (this.rand.nextFloat() * 0.2F + 0.7F));
         return true;
     }
 

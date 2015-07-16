@@ -11,14 +11,15 @@ import micdoodle8.mods.crossbowmod.entity.EntityWoodBolt;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class ItemDiamondCrossbow extends ItemCrossbow
 {
-    public ItemDiamondCrossbow(int par1)
+    public ItemDiamondCrossbow()
     {
-        super(par1);
+        super();
         CrossbowModCore.diamondCrossbowsList.add(this);
     }
 
@@ -27,23 +28,23 @@ public class ItemDiamondCrossbow extends ItemCrossbow
     {
         EntityPlayer player = (EntityPlayer) entityliving;
 
-        if (player.inventory.hasItemStack(new ItemStack(Items.attachmentLimbBolt, 1, 4)) || player.capabilities.isCreativeMode)
+        if (player.inventory.hasItemStack(new ItemStack(CrossbowItems.attachmentLimbBolt, 1, 4)) || player.capabilities.isCreativeMode)
         {
             return new EntityDiamondBolt(world, entityliving, 2F, f);
         }
-        else if (player.inventory.hasItemStack(new ItemStack(Items.attachmentLimbBolt, 1, 3)))
+        else if (player.inventory.hasItemStack(new ItemStack(CrossbowItems.attachmentLimbBolt, 1, 3)))
         {
             return new EntityGoldBolt(world, entityliving, 2F, f);
         }
-        else if (player.inventory.hasItemStack(new ItemStack(Items.attachmentLimbBolt, 1, 2)))
+        else if (player.inventory.hasItemStack(new ItemStack(CrossbowItems.attachmentLimbBolt, 1, 2)))
         {
             return new EntityIronBolt(world, entityliving, 2F, f);
         }
-        else if (player.inventory.hasItemStack(new ItemStack(Items.attachmentLimbBolt, 1, 1)))
+        else if (player.inventory.hasItemStack(new ItemStack(CrossbowItems.attachmentLimbBolt, 1, 1)))
         {
             return new EntityStoneBolt(world, entityliving, 2F, f);
         }
-        else if (player.inventory.hasItemStack(new ItemStack(Items.attachmentLimbBolt, 1, 0)))
+        else if (player.inventory.hasItemStack(new ItemStack(CrossbowItems.attachmentLimbBolt, 1, 0)))
         {
             return new EntityWoodBolt(world, entityliving, 2F, f);
         }
@@ -59,7 +60,7 @@ public class ItemDiamondCrossbow extends ItemCrossbow
 
     @SuppressWarnings({ "unchecked", "rawtypes" })
     @Override
-    public void getSubItems(int par1, CreativeTabs par2CreativeTabs, List par3List)
+    public void getSubItems(Item par1, CreativeTabs par2CreativeTabs, List par3List)
     {
         par3List.add(ItemCrossbow.setAttachmentAndMaterial(new ItemStack(par1, 1, 0), EnumAttachmentType.none, EnumCrossbowMaterial.diamond, EnumCrossbowFireRate.none));
         par3List.add(ItemCrossbow.setAttachmentAndMaterial(new ItemStack(par1, 1, 0), EnumAttachmentType.none, EnumCrossbowMaterial.diamond, EnumCrossbowFireRate.light));
@@ -122,7 +123,7 @@ public class ItemDiamondCrossbow extends ItemCrossbow
     @Override
     public int getReloadTime()
     {
-        return 100;
+        return 20;
     }
 
     @Override
@@ -130,23 +131,23 @@ public class ItemDiamondCrossbow extends ItemCrossbow
     {
         EntityPlayer player = (EntityPlayer) entityliving;
 
-        if (player.inventory.hasItemStack(new ItemStack(Items.attachmentLimbBolt, 1, 4)) || player.capabilities.isCreativeMode)
+        if (player.inventory.hasItemStack(new ItemStack(CrossbowItems.attachmentLimbBolt, 1, 4)) || player.capabilities.isCreativeMode)
         {
             return 4;
         }
-        else if (player.inventory.hasItemStack(new ItemStack(Items.attachmentLimbBolt, 1, 3)))
+        else if (player.inventory.hasItemStack(new ItemStack(CrossbowItems.attachmentLimbBolt, 1, 3)))
         {
             return 3;
         }
-        else if (player.inventory.hasItemStack(new ItemStack(Items.attachmentLimbBolt, 1, 2)))
+        else if (player.inventory.hasItemStack(new ItemStack(CrossbowItems.attachmentLimbBolt, 1, 2)))
         {
             return 2;
         }
-        else if (player.inventory.hasItemStack(new ItemStack(Items.attachmentLimbBolt, 1, 1)))
+        else if (player.inventory.hasItemStack(new ItemStack(CrossbowItems.attachmentLimbBolt, 1, 1)))
         {
             return 1;
         }
-        else if (player.inventory.hasItemStack(new ItemStack(Items.attachmentLimbBolt, 1, 0)))
+        else if (player.inventory.hasItemStack(new ItemStack(CrossbowItems.attachmentLimbBolt, 1, 0)))
         {
             return 0;
         }

@@ -1,11 +1,15 @@
 package micdoodle8.mods.crossbowmod.item;
 
-import java.util.List;
+import cpw.mods.fml.client.FMLClientHandler;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import micdoodle8.mods.crossbowmod.CrossbowModCore;
 import micdoodle8.mods.crossbowmod.client.CrossbowModClient;
 import micdoodle8.mods.crossbowmod.entity.EntityBolt;
+import micdoodle8.mods.crossbowmod.network.PacketSimple;
 import micdoodle8.mods.crossbowmod.util.Util;
-import net.minecraft.client.renderer.texture.IconRegister;
+import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -13,18 +17,16 @@ import net.minecraft.item.EnumRarity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.util.Icon;
+import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 import org.lwjgl.input.Keyboard;
 import org.lwjgl.input.Mouse;
-import cpw.mods.fml.client.FMLClientHandler;
-import cpw.mods.fml.common.network.PacketDispatcher;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
+
+import java.util.List;
 
 public abstract class ItemCrossbow extends Item
 {
-    private Icon[] icons = new Icon[256];
+    private IIcon[] icons = new IIcon[256];
     public boolean mouseHeld;
     public boolean lastMouseHeld;
     public int reloadStage;
@@ -32,9 +34,8 @@ public abstract class ItemCrossbow extends Item
     public int reloadingTime;
     public int prevReloadingTime;
 
-    public ItemCrossbow(int i)
+    public ItemCrossbow()
     {
-        super(i);
         this.setMaxStackSize(1);
         this.setMaxDamage(this.getCrossbowMaxDamage());
         this.isBoltLoaded = false;
@@ -50,13 +51,13 @@ public abstract class ItemCrossbow extends Item
         {
             EntityPlayer entityplayer = (EntityPlayer) entity;
             this.lastMouseHeld = this.mouseHeld;
-            this.mouseHeld = FMLClientHandler.instance().getClient().gameSettings.keyBindUseItem.pressed;
+            this.mouseHeld = FMLClientHandler.instance().getClient().gameSettings.keyBindUseItem.getIsKeyPressed();
 
             this.prevReloadingTime = this.reloadingTime;
 
             if (this.reloadingTime > 0)
             {
-                this.reloadingTime -= 5;
+                this.reloadingTime--;
             }
 
             if (this.reloadingTime < 0)
@@ -84,17 +85,20 @@ public abstract class ItemCrossbow extends Item
                 this.reloadingTime = this.getReloadTime() * 2;
             }
 
-            if ((Util.hasHeavyMech(itemstack) || Util.hasMediumMech(itemstack) || Util.hasLightMech(itemstack)) && this.mouseHeld)
+            if (this.reloadStage == 2)
             {
-                itemstack = this.shoot(itemstack, world, entityplayer);
-            }
-            else if (this.mouseHeld && !this.lastMouseHeld && !Util.hasBasicScope(itemstack) && !Util.hasLongRangeScope(itemstack))
-            {
-                itemstack = this.shoot(itemstack, world, entityplayer);
-            }
-            else if ((Util.hasBasicScope(itemstack) || Util.hasLongRangeScope(itemstack)) && this.lastMouseHeld && !this.mouseHeld)
-            {
-                itemstack = this.shoot(itemstack, world, entityplayer);
+                if ((Util.hasHeavyMech(itemstack) || Util.hasMediumMech(itemstack) || Util.hasLightMech(itemstack)) && this.mouseHeld)
+                {
+                    itemstack = this.shoot(itemstack, world, entityplayer);
+                }
+                else if (this.mouseHeld && !this.lastMouseHeld && !Util.hasBasicScope(itemstack) && !Util.hasLongRangeScope(itemstack))
+                {
+                    itemstack = this.shoot(itemstack, world, entityplayer);
+                }
+                else if ((Util.hasBasicScope(itemstack) || Util.hasLongRangeScope(itemstack)) && this.lastMouseHeld && !this.mouseHeld)
+                {
+                    itemstack = this.shoot(itemstack, world, entityplayer);
+                }
             }
 
             if (Util.hasBasicScope(itemstack) || Util.hasLongRangeScope(itemstack))
@@ -116,7 +120,7 @@ public abstract class ItemCrossbow extends Item
     {
         if (CrossbowModClient.shootTime <= 0)
         {
-            if (player.capabilities.isCreativeMode || player.inventory.hasItemStack(new ItemStack(Items.attachmentLimbBolt, 1, this.requiredMetadata(player))))
+            if (player.capabilities.isCreativeMode || player.inventory.hasItemStack(new ItemStack(CrossbowItems.attachmentLimbBolt, 1, this.requiredMetadata(player))))
             {
                 EntityBolt entityarrow = this.getEntity(world, player);
                 EntityBolt entityarrow2 = this.getEntity(world, player);
@@ -235,17 +239,17 @@ public abstract class ItemCrossbow extends Item
                     entityarrow3.hasPoisonAttachment = false;
                 }
 
-                world.playSoundAtEntity(player, "crossbow.cbowfire", 1.0F, 0.92F);
+                world.playSoundAtEntity(player, CrossbowModCore.TEXTURE_PREFIX + "crossbow_fire", 1.0F, 0.92F);
 
                 itemstack.damageItem(1, player);
                 for (int j = 0; j < player.inventory.getSizeInventory(); j++)
                 {
                     ItemStack stack = player.inventory.getStackInSlot(j);
 
-                    if (player.capabilities.isCreativeMode || stack != null && stack.getItem().itemID == Items.attachmentLimbBolt.itemID && stack.getItemDamage() == this.requiredMetadata(player))
+                    if (player.capabilities.isCreativeMode || stack != null && stack.getItem() == CrossbowItems.attachmentLimbBolt && stack.getItemDamage() == this.requiredMetadata(player))
                     {
-                        Object[] toSend = { itemstack, Util.hasTriShotMech(itemstack) };
-                        PacketDispatcher.sendPacketToServer(Util.createPacket(CrossbowModCore.MOD_ID, 0, toSend));
+                        Object[] toSend = { Util.hasTriShotMech(itemstack) };
+                        CrossbowModCore.packetPipeline.sendToServer(new PacketSimple(PacketSimple.EnumSimplePacket.S_SHOOT_SERVER, toSend));
 
                         if (!player.capabilities.isCreativeMode && stack != null)
                         {
@@ -357,13 +361,13 @@ public abstract class ItemCrossbow extends Item
     @SuppressWarnings({ "unchecked", "rawtypes" })
     private void addAttachmentName(int damage, List itemList)
     {
-        itemList.add(Items.attachmentLimbBolt.getItemStackDisplayName(new ItemStack(Items.attachmentLimbBolt, 1, damage)));
+        itemList.add(CrossbowItems.attachmentLimbBolt.getItemStackDisplayName(new ItemStack(CrossbowItems.attachmentLimbBolt, 1, damage)));
     }
 
     @Override
     public ItemStack onItemRightClick(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer)
     {        
-        if (par3EntityPlayer.capabilities.isCreativeMode || par3EntityPlayer.inventory.hasItemStack(new ItemStack(Items.attachmentLimbBolt, 1, this.requiredMetadata(par3EntityPlayer))))
+        if (par3EntityPlayer.capabilities.isCreativeMode || par3EntityPlayer.inventory.hasItemStack(new ItemStack(CrossbowItems.attachmentLimbBolt, 1, this.requiredMetadata(par3EntityPlayer))))
         {
             par3EntityPlayer.setItemInUse(par1ItemStack, this.getMaxItemUseDuration(par1ItemStack));
         }
@@ -610,7 +614,7 @@ public abstract class ItemCrossbow extends Item
     }
 
     @Override
-    public Icon getIconFromDamage(int par1)
+    public IIcon getIconFromDamage(int par1)
     {
         return this.icons[0];
     }
@@ -619,7 +623,7 @@ public abstract class ItemCrossbow extends Item
 
     @Override
     @SideOnly(Side.CLIENT)
-    public void registerIcons(IconRegister par1IconRegister)
+    public void registerIcons(IIconRegister par1IconRegister)
     {
         for (int i = 1; i < 179; i++)
         {
@@ -634,7 +638,7 @@ public abstract class ItemCrossbow extends Item
     }
 
     @Override
-    public Icon getIcon(ItemStack stack, int pass)
+    public IIcon getIcon(ItemStack stack, int pass)
     {
         int index = this.getUpdatedCrossbowIndex(stack) + this.getIconIndexModifier();
 
@@ -654,7 +658,7 @@ public abstract class ItemCrossbow extends Item
     }
 
     @Override
-    public Icon getIcon(ItemStack stack, int renderPass, EntityPlayer player, ItemStack usingItem, int useRemaining)
+    public IIcon getIcon(ItemStack stack, int renderPass, EntityPlayer player, ItemStack usingItem, int useRemaining)
     {
         int index = this.getUpdatedCrossbowIndex(stack) + this.getIconIndexModifier();
 

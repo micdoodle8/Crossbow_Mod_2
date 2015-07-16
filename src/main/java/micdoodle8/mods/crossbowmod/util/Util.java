@@ -1,208 +1,55 @@
 package micdoodle8.mods.crossbowmod.util;
 
-import java.io.ByteArrayOutputStream;
-import java.io.DataInputStream;
-import java.io.DataOutputStream;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-import micdoodle8.mods.crossbowmod.block.Blocks;
+import micdoodle8.mods.crossbowmod.block.CrossbowBlocks;
 import micdoodle8.mods.crossbowmod.inventory.InventoryCrossbowBench;
-import micdoodle8.mods.crossbowmod.item.CrossbowInfo;
-import micdoodle8.mods.crossbowmod.item.EnumAttachmentType;
-import micdoodle8.mods.crossbowmod.item.EnumCrossbowFireRate;
-import micdoodle8.mods.crossbowmod.item.EnumCrossbowMaterial;
-import micdoodle8.mods.crossbowmod.item.ItemCrossbow;
-import micdoodle8.mods.crossbowmod.item.Items;
-import net.minecraft.block.Block;
-import net.minecraft.item.Item;
+import micdoodle8.mods.crossbowmod.item.*;
+import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.network.packet.Packet250CustomPayload;
 import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.registry.GameRegistry;
 
 public class Util
 {
-    public static Packet250CustomPayload createPacket(String channel, int packetID, Object[] input)
-    {
-        ByteArrayOutputStream bytes = new ByteArrayOutputStream();
-        DataOutputStream data = new DataOutputStream(bytes);
-        try
-        {
-            data.write(packetID);
-
-            if (input != null)
-            {
-                for (Object obj : input)
-                {
-                    Util.writeObjectToStream(obj, data);
-                }
-            }
-
-        }
-        catch (IOException e)
-        {
-            e.printStackTrace();
-        }
-
-        Packet250CustomPayload packet = new Packet250CustomPayload();
-        packet.channel = channel;
-        packet.data = bytes.toByteArray();
-        packet.length = packet.data.length;
-
-        return packet;
-    }
-
-    public static Object[] readPacketData(DataInputStream data, Class<?>[] packetDataTypes)
-    {
-        List<Object> result = new ArrayList<Object>();
-
-        try
-        {
-            for (Class<?> curClass : packetDataTypes)
-            {
-                result.add(Util.readObjectFromStream(data, curClass));
-            }
-        }
-        catch (IOException e)
-        {
-            e.printStackTrace();
-        }
-
-        return result.toArray();
-    }
-
-    private static void writeObjectToStream(Object obj, DataOutputStream data) throws IOException
-    {
-        Class<? extends Object> objClass = obj.getClass();
-
-        if (objClass.equals(Boolean.class))
-        {
-            data.writeBoolean((Boolean) obj);
-        }
-        else if (objClass.equals(Byte.class))
-        {
-            data.writeByte((Byte) obj);
-        }
-        else if (objClass.equals(Integer.class))
-        {
-            data.writeInt((Integer) obj);
-        }
-        else if (objClass.equals(String.class))
-        {
-            data.writeUTF((String) obj);
-        }
-        else if (objClass.equals(Double.class))
-        {
-            data.writeDouble((Double) obj);
-        }
-        else if (objClass.equals(Float.class))
-        {
-            data.writeFloat((Float) obj);
-        }
-        else if (objClass.equals(Long.class))
-        {
-            data.writeLong((Long) obj);
-        }
-        else if (objClass.equals(Short.class))
-        {
-            data.writeShort((Short) obj);
-        }
-    }
-
-    private static Object readObjectFromStream(DataInputStream data, Class<?> curClass) throws IOException
-    {
-        if (curClass.equals(Boolean.class))
-        {
-            return data.readBoolean();
-        }
-        else if (curClass.equals(Byte.class))
-        {
-            return data.readByte();
-        }
-        else if (curClass.equals(Integer.class))
-        {
-            return data.readInt();
-        }
-        else if (curClass.equals(String.class))
-        {
-            return data.readUTF();
-        }
-        else if (curClass.equals(Double.class))
-        {
-            return data.readDouble();
-        }
-        else if (curClass.equals(Float.class))
-        {
-            return data.readFloat();
-        }
-        else if (curClass.equals(Long.class))
-        {
-            return data.readLong();
-        }
-        else if (curClass.equals(Short.class))
-        {
-            return data.readShort();
-        }
-
-        return null;
-    }
-
-    public static int readPacketID(DataInputStream data)
-    {
-        int result = -1;
-
-        try
-        {
-            result = data.read();
-        }
-        catch (IOException e)
-        {
-            e.printStackTrace();
-        }
-
-        return result;
-    }
-
     public static void addRecipes()
     {
-        GameRegistry.addRecipe(new ItemStack(Items.attachmentLimbBolt, 3, 5), new Object[] { "XY", "XY", "XY", Character.valueOf('X'), Item.stick, Character.valueOf('Y'), Block.planks });
-        GameRegistry.addRecipe(new ItemStack(Items.attachmentLimbBolt, 3, 6), new Object[] { "XY", "XY", "XY", Character.valueOf('X'), Item.stick, Character.valueOf('Y'), Block.cobblestone });
-        GameRegistry.addRecipe(new ItemStack(Items.attachmentLimbBolt, 3, 6), new Object[] { "XY", "XY", "XY", Character.valueOf('X'), Item.stick, Character.valueOf('Y'), Block.stone });
-        GameRegistry.addRecipe(new ItemStack(Items.attachmentLimbBolt, 3, 7), new Object[] { "XY", "XY", "XY", Character.valueOf('X'), Item.stick, Character.valueOf('Y'), Item.ingotIron });
-        GameRegistry.addRecipe(new ItemStack(Items.attachmentLimbBolt, 3, 8), new Object[] { "XY", "XY", "XY", Character.valueOf('X'), Item.stick, Character.valueOf('Y'), Item.ingotGold });
-        GameRegistry.addRecipe(new ItemStack(Items.attachmentLimbBolt, 3, 9), new Object[] { "XY", "XY", "XY", Character.valueOf('X'), Item.stick, Character.valueOf('Y'), Item.diamond });
-        GameRegistry.addRecipe(new ItemStack(Items.attachmentLimbBolt, 1, 10), new Object[] { "XXX", "XYZ", "XZY", Character.valueOf('X'), Block.cobblestone, Character.valueOf('Y'), Item.stick, Character.valueOf('Z'), Item.silk });
-        GameRegistry.addRecipe(new ItemStack(Items.attachmentLimbBolt, 1, 11), new Object[] { "AXX", "XBZ", "XZY", Character.valueOf('X'), Block.cobblestone, Character.valueOf('Y'), Item.stick, Character.valueOf('Z'), Item.silk, Character.valueOf('A'), Item.ingotIron, Character.valueOf('B'), new ItemStack(Items.attachmentLimbBolt, 1, 10) });
-        GameRegistry.addRecipe(new ItemStack(Items.attachmentLimbBolt, 1, 12), new Object[] { "XXX", "XBZ", "XZY", Character.valueOf('X'), Item.ingotIron, Character.valueOf('Y'), Item.stick, Character.valueOf('Z'), Item.redstone, Character.valueOf('B'), new ItemStack(Items.attachmentLimbBolt, 1, 11) });
-        GameRegistry.addRecipe(new ItemStack(Items.attachmentLimbBolt, 1, 13), new Object[] { "XAA", "ABZ", "AZY", Character.valueOf('X'), Item.diamond, Character.valueOf('A'), Item.ingotIron, Character.valueOf('Y'), Item.stick, Character.valueOf('Z'), Item.redstone, Character.valueOf('B'), new ItemStack(Items.attachmentLimbBolt, 1, 12) });
-        GameRegistry.addRecipe(new ItemStack(Items.attachmentLimbBolt, 1, 14), new Object[] { "ZX ", "XAX", " XZ", Character.valueOf('X'), Item.ingotIron, Character.valueOf('A'), Block.torchRedstoneActive, Character.valueOf('Z'), Block.thinGlass });
-        GameRegistry.addRecipe(new ItemStack(Items.attachmentLimbBolt, 1, 15), new Object[] { "ZX ", "XAB", " XZ", Character.valueOf('X'), Item.ingotIron, Character.valueOf('A'), new ItemStack(Items.attachmentLimbBolt, 1, 14), Character.valueOf('Z'), Block.thinGlass, Character.valueOf('B'), Block.stoneButton });
-        GameRegistry.addRecipe(new ItemStack(Items.attachmentLimbBolt, 8, 0), new Object[] { "X", "#", Character.valueOf('X'), Block.planks, Character.valueOf('#'), Item.stick });
-        GameRegistry.addRecipe(new ItemStack(Items.attachmentLimbBolt, 8, 1), new Object[] { "X", "#", Character.valueOf('X'), Block.cobblestone, Character.valueOf('#'), Item.stick });
-        GameRegistry.addRecipe(new ItemStack(Items.attachmentLimbBolt, 8, 2), new Object[] { "X", "#", Character.valueOf('X'), Item.ingotIron, Character.valueOf('#'), Item.stick });
-        GameRegistry.addRecipe(new ItemStack(Items.attachmentLimbBolt, 8, 3), new Object[] { "X", "#", Character.valueOf('X'), Item.ingotGold, Character.valueOf('#'), Item.stick });
-        GameRegistry.addRecipe(new ItemStack(Items.attachmentLimbBolt, 8, 4), new Object[] { "X", "#", Character.valueOf('X'), Item.diamond, Character.valueOf('#'), Item.stick });
-        GameRegistry.addRecipe(new ItemStack(Blocks.crossbowBench, 1), new Object[] { "YYY", "ZXZ", "ZZZ", Character.valueOf('X'), Block.workbench, Character.valueOf('Y'), Item.ingotIron, Character.valueOf('Z'), Block.planks });
-        GameRegistry.addRecipe(new ItemStack(Items.attachmentLimbBolt, 1, 16), new Object[] { "XZZ", "ZXZ", "ZZX", Character.valueOf('X'), Item.flintAndSteel, Character.valueOf('Z'), Item.ingotIron });
-        GameRegistry.addRecipe(new ItemStack(Items.attachmentLimbBolt, 1, 18), new Object[] { "XZZ", "ZXZ", "ZZX", Character.valueOf('X'), Item.bucketLava, Character.valueOf('Z'), Item.ingotIron });
-        GameRegistry.addRecipe(new ItemStack(Items.attachmentLimbBolt, 1, 17), new Object[] { "XZZ", "ZXZ", "ZZX", Character.valueOf('X'), Block.tnt, Character.valueOf('Z'), Item.ingotIron });
-        GameRegistry.addRecipe(new ItemStack(Items.attachmentLimbBolt, 1, 19), new Object[] { "XZZ", "ZXZ", "ZZX", Character.valueOf('X'), Block.blockSnow, Character.valueOf('Z'), Item.ingotIron });
-        GameRegistry.addRecipe(new ItemStack(Items.attachmentLimbBolt, 1, 20), new Object[] { "GZZ", "ZRZ", "ZZG", Character.valueOf('G'), Item.glowstone, Character.valueOf('Z'), Item.ingotIron, Character.valueOf('R'), Item.redstone });
-        GameRegistry.addRecipe(new ItemStack(Items.attachmentLimbBolt, 1, 21), new Object[] { "SZZ", "ZCZ", "ZZF", Character.valueOf('S'), Item.stick, Character.valueOf('C'), Item.coal, Character.valueOf('F'), Item.flintAndSteel, Character.valueOf('Z'), Item.ingotIron });
-        GameRegistry.addRecipe(new ItemStack(Items.attachmentLimbBolt, 1, 22), new Object[] { "NZZ", "ZSZ", "ZZN", Character.valueOf('N'), Item.netherStalkSeeds, Character.valueOf('Z'), Item.ingotIron, Character.valueOf('S'), Item.spiderEye });
-        GameRegistry.addRecipe(new ItemStack(Items.attachmentLimbBolt, 1, 23), new Object[] { "XXZ", "XZX", "ZXC", Character.valueOf('C'), Item.redstone, Character.valueOf('Z'), new ItemStack(Items.attachmentLimbBolt, 1, 10), Character.valueOf('X'), Item.ingotIron });
+        GameRegistry.addRecipe(new ItemStack(CrossbowItems.attachmentLimbBolt, 3, 5), "XY", "XY", "XY", Character.valueOf('X'), Items.stick, Character.valueOf('Y'), Blocks.planks);
+        GameRegistry.addRecipe(new ItemStack(CrossbowItems.attachmentLimbBolt, 3, 6), "XY", "XY", "XY", Character.valueOf('X'), Items.stick, Character.valueOf('Y'), Blocks.cobblestone);
+        GameRegistry.addRecipe(new ItemStack(CrossbowItems.attachmentLimbBolt, 3, 6), "XY", "XY", "XY", Character.valueOf('X'), Items.stick, Character.valueOf('Y'), Blocks.stone);
+        GameRegistry.addRecipe(new ItemStack(CrossbowItems.attachmentLimbBolt, 3, 7), "XY", "XY", "XY", Character.valueOf('X'), Items.stick, Character.valueOf('Y'), Items.iron_ingot);
+        GameRegistry.addRecipe(new ItemStack(CrossbowItems.attachmentLimbBolt, 3, 8), "XY", "XY", "XY", Character.valueOf('X'), Items.stick, Character.valueOf('Y'), Items.gold_ingot);
+        GameRegistry.addRecipe(new ItemStack(CrossbowItems.attachmentLimbBolt, 3, 9), "XY", "XY", "XY", Character.valueOf('X'), Items.stick, Character.valueOf('Y'), Items.diamond);
+        GameRegistry.addRecipe(new ItemStack(CrossbowItems.attachmentLimbBolt, 1, 10), "XXX", "XYZ", "XZY", Character.valueOf('X'), Blocks.cobblestone, Character.valueOf('Y'), Items.stick, Character.valueOf('Z'), Items.string);
+        GameRegistry.addRecipe(new ItemStack(CrossbowItems.attachmentLimbBolt, 1, 11), "AXX", "XBZ", "XZY", Character.valueOf('X'), Blocks.cobblestone, Character.valueOf('Y'), Items.stick, Character.valueOf('Z'), Items.string, Character.valueOf('A'), Items.iron_ingot, Character.valueOf('B'), new ItemStack(CrossbowItems.attachmentLimbBolt, 1, 10));
+        GameRegistry.addRecipe(new ItemStack(CrossbowItems.attachmentLimbBolt, 1, 12), "XXX", "XBZ", "XZY", Character.valueOf('X'), Items.iron_ingot, Character.valueOf('Y'), Items.stick, Character.valueOf('Z'), Items.redstone, Character.valueOf('B'), new ItemStack(CrossbowItems.attachmentLimbBolt, 1, 11));
+        GameRegistry.addRecipe(new ItemStack(CrossbowItems.attachmentLimbBolt, 1, 13), "XAA", "ABZ", "AZY", Character.valueOf('X'), Items.diamond, Character.valueOf('A'), Items.iron_ingot, Character.valueOf('Y'), Items.stick, Character.valueOf('Z'), Items.redstone, Character.valueOf('B'), new ItemStack(CrossbowItems.attachmentLimbBolt, 1, 12));
+        GameRegistry.addRecipe(new ItemStack(CrossbowItems.attachmentLimbBolt, 1, 14), "ZX ", "XAX", " XZ", Character.valueOf('X'), Items.iron_ingot, Character.valueOf('A'), Blocks.redstone_torch, Character.valueOf('Z'), Blocks.glass_pane);
+        GameRegistry.addRecipe(new ItemStack(CrossbowItems.attachmentLimbBolt, 1, 15), "ZX ", "XAB", " XZ", Character.valueOf('X'), Items.iron_ingot, Character.valueOf('A'), new ItemStack(CrossbowItems.attachmentLimbBolt, 1, 14), Character.valueOf('Z'), Blocks.glass_pane, Character.valueOf('B'), Blocks.stone_button);
+        GameRegistry.addRecipe(new ItemStack(CrossbowItems.attachmentLimbBolt, 8, 0), "X", "#", Character.valueOf('X'), Blocks.planks, Character.valueOf('#'), Items.stick);
+        GameRegistry.addRecipe(new ItemStack(CrossbowItems.attachmentLimbBolt, 8, 1), "X", "#", Character.valueOf('X'), Blocks.cobblestone, Character.valueOf('#'), Items.stick);
+        GameRegistry.addRecipe(new ItemStack(CrossbowItems.attachmentLimbBolt, 8, 2), "X", "#", Character.valueOf('X'), Items.iron_ingot, Character.valueOf('#'), Items.stick);
+        GameRegistry.addRecipe(new ItemStack(CrossbowItems.attachmentLimbBolt, 8, 3), "X", "#", Character.valueOf('X'), Items.gold_ingot, Character.valueOf('#'), Items.stick);
+        GameRegistry.addRecipe(new ItemStack(CrossbowItems.attachmentLimbBolt, 8, 4), "X", "#", Character.valueOf('X'), Items.diamond, Character.valueOf('#'), Items.stick);
+        GameRegistry.addRecipe(new ItemStack(CrossbowBlocks.crossbowBench, 1), "YYY", "ZXZ", "ZZZ", Character.valueOf('X'), Blocks.crafting_table, Character.valueOf('Y'), Items.iron_ingot, Character.valueOf('Z'), Blocks.planks);
+        GameRegistry.addRecipe(new ItemStack(CrossbowItems.attachmentLimbBolt, 1, 16), "XZZ", "ZXZ", "ZZX", Character.valueOf('X'), Items.flint_and_steel, Character.valueOf('Z'), Items.iron_ingot);
+        GameRegistry.addRecipe(new ItemStack(CrossbowItems.attachmentLimbBolt, 1, 18), "XZZ", "ZXZ", "ZZX", Character.valueOf('X'), Items.lava_bucket, Character.valueOf('Z'), Items.iron_ingot);
+        GameRegistry.addRecipe(new ItemStack(CrossbowItems.attachmentLimbBolt, 1, 17), "XZZ", "ZXZ", "ZZX", Character.valueOf('X'), Blocks.tnt, Character.valueOf('Z'), Items.iron_ingot);
+        GameRegistry.addRecipe(new ItemStack(CrossbowItems.attachmentLimbBolt, 1, 19), "XZZ", "ZXZ", "ZZX", Character.valueOf('X'), Blocks.snow, Character.valueOf('Z'), Items.iron_ingot);
+        GameRegistry.addRecipe(new ItemStack(CrossbowItems.attachmentLimbBolt, 1, 20), "GZZ", "ZRZ", "ZZG", Character.valueOf('G'), Items.glowstone_dust, Character.valueOf('Z'), Items.iron_ingot, Character.valueOf('R'), Items.redstone);
+        GameRegistry.addRecipe(new ItemStack(CrossbowItems.attachmentLimbBolt, 1, 21), "SZZ", "ZCZ", "ZZF", Character.valueOf('S'), Items.stick, Character.valueOf('C'), Items.coal, Character.valueOf('F'), Items.flint_and_steel, Character.valueOf('Z'), Items.iron_ingot);
+        GameRegistry.addRecipe(new ItemStack(CrossbowItems.attachmentLimbBolt, 1, 22), "NZZ", "ZSZ", "ZZN", Character.valueOf('N'), Items.nether_wart, Character.valueOf('Z'), Items.iron_ingot, Character.valueOf('S'), Items.spider_eye);
+        GameRegistry.addRecipe(new ItemStack(CrossbowItems.attachmentLimbBolt, 1, 23), "XXZ", "XZX", "ZXC", Character.valueOf('C'), Items.redstone, Character.valueOf('Z'), new ItemStack(CrossbowItems.attachmentLimbBolt, 1, 10), Character.valueOf('X'), Items.iron_ingot);
         
         for (EnumAttachmentType attachment : EnumAttachmentType.values())
         {
             for (EnumCrossbowFireRate fireRate : EnumCrossbowFireRate.values())
             {
-                Util.addCrossbowBenchRecipe(new ItemStack(Items.woodenCrossbowBase), attachment, EnumCrossbowMaterial.wooden, fireRate);
-                Util.addCrossbowBenchRecipe(new ItemStack(Items.stoneCrossbowBase), attachment, EnumCrossbowMaterial.stone, fireRate);
-                Util.addCrossbowBenchRecipe(new ItemStack(Items.ironCrossbowBase), attachment, EnumCrossbowMaterial.iron, fireRate);
-                Util.addCrossbowBenchRecipe(new ItemStack(Items.goldCrossbowBase), attachment, EnumCrossbowMaterial.gold, fireRate);
-                Util.addCrossbowBenchRecipe(new ItemStack(Items.diamondCrossbowBase), attachment, EnumCrossbowMaterial.diamond, fireRate);
+                Util.addCrossbowBenchRecipe(new ItemStack(CrossbowItems.woodenCrossbowBase), attachment, EnumCrossbowMaterial.wooden, fireRate);
+                Util.addCrossbowBenchRecipe(new ItemStack(CrossbowItems.stoneCrossbowBase), attachment, EnumCrossbowMaterial.stone, fireRate);
+                Util.addCrossbowBenchRecipe(new ItemStack(CrossbowItems.ironCrossbowBase), attachment, EnumCrossbowMaterial.iron, fireRate);
+                Util.addCrossbowBenchRecipe(new ItemStack(CrossbowItems.goldCrossbowBase), attachment, EnumCrossbowMaterial.gold, fireRate);
+                Util.addCrossbowBenchRecipe(new ItemStack(CrossbowItems.diamondCrossbowBase), attachment, EnumCrossbowMaterial.diamond, fireRate);
             }
         }
         
@@ -248,7 +95,7 @@ public class Util
     /**
      * If the provided Itemstack is any stone crossbow
      * 
-     * @param Itemstack
+     * @param stack
      *            The item to check
      * @return True if the provided Itemstack is any stone crossbow
      */
@@ -276,7 +123,7 @@ public class Util
     /**
      * If the provided Itemstack is any iron crossbow
      * 
-     * @param Itemstack
+     * @param stack
      *            The item to check
      * @return True if the provided Itemstack is any iron crossbow
      */
@@ -304,7 +151,7 @@ public class Util
     /**
      * If the provided Itemstack is any gold crossbow
      * 
-     * @param Itemstack
+     * @param stack
      *            The item to check
      * @return True if the provided Itemstack is any gold crossbow
      */
@@ -332,7 +179,7 @@ public class Util
     /**
      * If the provided Itemstack is any diamond crossbow
      * 
-     * @param Itemstack
+     * @param stack
      *            The item to check
      * @return True if the provided Itemstack is any diamond crossbow
      */
@@ -360,7 +207,7 @@ public class Util
     /**
      * If the provided Itemstack has a basic scope
      * 
-     * @param Itemstack
+     * @param stack
      *            The item to check
      * @return True if the provided Itemstack has a basic scope
      */
@@ -388,7 +235,7 @@ public class Util
     /**
      * If the provided Itemstack has a long range scope
      * 
-     * @param Itemstack
+     * @param stack
      *            The item to check
      * @return True if the provided Itemstack has a long range scope
      */
@@ -416,7 +263,7 @@ public class Util
     /**
      * If the provided Itemstack has a light mechanism attachment
      * 
-     * @param Itemstack
+     * @param stack
      *            The item to check
      * @return True if the provided Itemstack has a light mechanism attachment
      */
@@ -444,7 +291,7 @@ public class Util
     /**
      * If the provided Itemstack has a medium mechanism attachment
      * 
-     * @param Itemstack
+     * @param stack
      *            The item to check
      * @return True if the provided Itemstack has a medium mechanism attachment
      */
@@ -472,7 +319,7 @@ public class Util
     /**
      * If the provided Itemstack has a heavy mechanism attachment
      * 
-     * @param Itemstack
+     * @param stack
      *            The item to check
      * @return True if the provided Itemstack has a heavy mechanism attachment
      */
@@ -500,7 +347,7 @@ public class Util
     /**
      * If the provided Itemstack has a tri shot mechanism attachment
      * 
-     * @param Itemstack
+     * @param stack
      *            The item to check
      * @return True if the provided Itemstack has a tri shot mechanism
      *         attachment
@@ -529,7 +376,7 @@ public class Util
     /**
      * If the provided Itemstack has a Flame attachment
      * 
-     * @param Itemstack
+     * @param stack
      *            The item to check
      * @return True if the provided Itemstack has a Flame attachment
      */
@@ -557,7 +404,7 @@ public class Util
     /**
      * If the provided Itemstack has an explosive attachment
      * 
-     * @param Itemstack
+     * @param stack
      *            The item to check
      * @return True if the provided Itemstack has an explosive attachment
      */
@@ -585,7 +432,7 @@ public class Util
     /**
      * If the provided Itemstack has a lava attachment
      * 
-     * @param Itemstack
+     * @param stack
      *            The item to check
      * @return True if the provided Itemstack has a lava attachment
      */
@@ -613,7 +460,7 @@ public class Util
     /**
      * If the provided Itemstack has an ice attachment
      * 
-     * @param Itemstack
+     * @param stack
      *            The item to check
      * @return True if the provided Itemstack has a lava attachment
      */
@@ -641,7 +488,7 @@ public class Util
     /**
      * If the provided Itemstack has an ice attachment
      * 
-     * @param Itemstack
+     * @param stack
      *            The item to check
      * @return True if the provided Itemstack has a lava attachment
      */

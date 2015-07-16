@@ -1,12 +1,9 @@
 package micdoodle8.mods.crossbowmod.client.render.item;
 
-import micdoodle8.mods.crossbowmod.item.ItemCrossbow;
-import micdoodle8.mods.crossbowmod.item.ItemDiamondCrossbow;
-import micdoodle8.mods.crossbowmod.item.ItemGoldCrossbow;
-import micdoodle8.mods.crossbowmod.item.ItemIronCrossbow;
-import micdoodle8.mods.crossbowmod.item.ItemStoneCrossbow;
-import micdoodle8.mods.crossbowmod.item.ItemWoodCrossbow;
-import micdoodle8.mods.crossbowmod.item.Items;
+import cpw.mods.fml.client.FMLClientHandler;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import micdoodle8.mods.crossbowmod.item.*;
 import micdoodle8.mods.crossbowmod.util.Util;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.ItemRenderer;
@@ -14,15 +11,12 @@ import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.Icon;
+import net.minecraft.util.IIcon;
 import net.minecraftforge.client.IItemRenderer;
 import org.lwjgl.input.Keyboard;
 import org.lwjgl.input.Mouse;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL12;
-import cpw.mods.fml.client.FMLClientHandler;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 
 @SideOnly(Side.CLIENT)
 public class ItemRendererCrossbowMod implements IItemRenderer
@@ -184,27 +178,27 @@ public class ItemRendererCrossbowMod implements IItemRenderer
                 GL11.glScalef(1.3F, 1.3F, 1.3F);
             }
 
-            if (crossbow.reloadingTime <= 0 && (par1EntityLiving.inventory.hasItemStack(new ItemStack(Items.attachmentLimbBolt, 1, crossbow.requiredMetadata(par1EntityLiving))) || par1EntityLiving.capabilities.isCreativeMode))
+            if (crossbow.reloadingTime <= 0 && (par1EntityLiving.inventory.hasItemStack(new ItemStack(CrossbowItems.attachmentLimbBolt, 1, crossbow.requiredMetadata(par1EntityLiving))) || par1EntityLiving.capabilities.isCreativeMode))
             {
                 if (crossbow.requiredMetadata(par1EntityLiving) == 4)
                 {
-                    this.renderItemCustom(type, new ItemStack(Items.attachmentLimbBolt, 1, 4), data);
+                    this.renderItemCustom(type, new ItemStack(CrossbowItems.attachmentLimbBolt, 1, 4), data);
                 }
                 else if (crossbow.requiredMetadata(par1EntityLiving) == 3)
                 {
-                    this.renderItemCustom(type, new ItemStack(Items.attachmentLimbBolt, 1, 3), data);
+                    this.renderItemCustom(type, new ItemStack(CrossbowItems.attachmentLimbBolt, 1, 3), data);
                 }
                 else if (crossbow.requiredMetadata(par1EntityLiving) == 2)
                 {
-                    this.renderItemCustom(type, new ItemStack(Items.attachmentLimbBolt, 1, 2), data);
+                    this.renderItemCustom(type, new ItemStack(CrossbowItems.attachmentLimbBolt, 1, 2), data);
                 }
                 else if (crossbow.requiredMetadata(par1EntityLiving) == 1)
                 {
-                    this.renderItemCustom(type, new ItemStack(Items.attachmentLimbBolt, 1, 1), data);
+                    this.renderItemCustom(type, new ItemStack(CrossbowItems.attachmentLimbBolt, 1, 1), data);
                 }
                 else if (crossbow.requiredMetadata(par1EntityLiving) == 0)
                 {
-                    this.renderItemCustom(type, new ItemStack(Items.attachmentLimbBolt, 1, 0), data);
+                    this.renderItemCustom(type, new ItemStack(CrossbowItems.attachmentLimbBolt, 1, 0), data);
                 }
             }
 
@@ -219,7 +213,7 @@ public class ItemRendererCrossbowMod implements IItemRenderer
         GL11.glPushMatrix();
 
         Tessellator var4 = Tessellator.instance;
-        Icon icon = par1EntityLiving.getItemIcon(item, par3);
+        IIcon icon = par1EntityLiving.getItemIcon(item, par3);
 
         float f = icon.getMinU();
         float f1 = icon.getMaxU();

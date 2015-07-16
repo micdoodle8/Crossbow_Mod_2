@@ -1,38 +1,32 @@
 package micdoodle8.mods.crossbowmod;
 
-import java.io.ByteArrayInputStream;
-import java.io.DataInputStream;
 import micdoodle8.mods.crossbowmod.entity.EntityBolt;
+import micdoodle8.mods.crossbowmod.item.CrossbowItems;
 import micdoodle8.mods.crossbowmod.item.ItemCrossbow;
-import micdoodle8.mods.crossbowmod.item.Items;
 import micdoodle8.mods.crossbowmod.util.Util;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemStack;
-import net.minecraft.network.INetworkManager;
-import net.minecraft.network.packet.Packet250CustomPayload;
 import net.minecraft.world.World;
-import cpw.mods.fml.common.network.Player;
 
 public class CrossbowModServer
 {
-    public static void onPacketData(INetworkManager networkmanager, Packet250CustomPayload packet, Player p)
-    {
-        DataInputStream data = new DataInputStream(new ByteArrayInputStream(packet.data));
-        int packetID = Util.readPacketID(data);
-        EntityPlayerMP player = (EntityPlayerMP) p;
-
-        if (packetID == 0)
-        {
-            Class<?>[] decodeAs = { ItemStack.class, Boolean.class };
-            Object[] packetReadout = Util.readPacketData(data, decodeAs);
-
-            if (player.worldObj != null)
-            {
-                CrossbowModServer.shootServer(player, (Boolean) packetReadout[1]);
-            }
-        }
-    }
+//    public static void onPacketData(INetworkManager networkmanager, Packet250CustomPayload packet, Player p)
+//    {
+//        DataInputStream data = new DataInputStream(new ByteArrayInputStream(packet.data));
+//        int packetID = Util.readPacketID(data);
+//        EntityPlayerMP player = (EntityPlayerMP) p;
+//
+//        if (packetID == 0)
+//        {
+//            Class<?>[] decodeAs = { ItemStack.class, Boolean.class };
+//            Object[] packetReadout = Util.readPacketData(data, decodeAs);
+//
+//            if (player.worldObj != null)
+//            {
+//                CrossbowModServer.shootServer(player, (Boolean) packetReadout[1]);
+//            }
+//        }
+//    }
 
     public static void shootServer(EntityPlayer entityplayer, boolean triShot)
     {
@@ -150,7 +144,7 @@ public class CrossbowModServer
         }
 
         itemstack.damageItem(1, entityplayer);
-        world.playSoundAtEntity(entityplayer, "crossbow.cbowfire", 1.0F, 0.92F);
+        world.playSoundAtEntity(entityplayer, CrossbowModCore.TEXTURE_PREFIX + "crossbow_fire", 1.0F, 0.92F);
 
         int totalBolts = 0;
 
@@ -158,7 +152,7 @@ public class CrossbowModServer
         {
             ItemStack stack = entityplayer.inventory.getStackInSlot(j);
 
-            if (stack != null && stack.getItem().itemID == Items.attachmentLimbBolt.itemID && stack.getItemDamage() == crossbow.requiredMetadata(entityplayer))
+            if (stack != null && stack.getItem() == CrossbowItems.attachmentLimbBolt && stack.getItemDamage() == crossbow.requiredMetadata(entityplayer))
             {
                 totalBolts += stack.stackSize;
             }
@@ -168,7 +162,7 @@ public class CrossbowModServer
         {
             ItemStack stack = entityplayer.inventory.getStackInSlot(j);
 
-            if (stack != null && stack.getItem().itemID == Items.attachmentLimbBolt.itemID && stack.getItemDamage() == crossbow.requiredMetadata(entityplayer))
+            if (stack != null && stack.getItem() == CrossbowItems.attachmentLimbBolt && stack.getItemDamage() == crossbow.requiredMetadata(entityplayer))
             {
                 stack.stackSize--;
 

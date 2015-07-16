@@ -1,36 +1,30 @@
 package micdoodle8.mods.crossbowmod.client;
 
-import java.text.DecimalFormat;
+import cpw.mods.fml.client.FMLClientHandler;
+import cpw.mods.fml.client.registry.RenderingRegistry;
+import cpw.mods.fml.common.FMLCommonHandler;
+import cpw.mods.fml.common.event.FMLInitializationEvent;
+import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import cpw.mods.fml.common.eventhandler.SubscribeEvent;
+import cpw.mods.fml.common.gameevent.TickEvent;
+import cpw.mods.fml.common.registry.LanguageRegistry;
 import micdoodle8.mods.crossbowmod.CrossbowModCore;
-import micdoodle8.mods.crossbowmod.client.render.RenderDiamondBolt;
-import micdoodle8.mods.crossbowmod.client.render.RenderGoldBolt;
-import micdoodle8.mods.crossbowmod.client.render.RenderIronBolt;
-import micdoodle8.mods.crossbowmod.client.render.RenderStoneBolt;
-import micdoodle8.mods.crossbowmod.client.render.RenderWoodBolt;
+import micdoodle8.mods.crossbowmod.client.render.*;
 import micdoodle8.mods.crossbowmod.client.render.item.ItemRendererCrossbowMod;
-import micdoodle8.mods.crossbowmod.entity.EntityDiamondBolt;
-import micdoodle8.mods.crossbowmod.entity.EntityGoldBolt;
-import micdoodle8.mods.crossbowmod.entity.EntityIronBolt;
-import micdoodle8.mods.crossbowmod.entity.EntityStoneBolt;
-import micdoodle8.mods.crossbowmod.entity.EntityWoodBolt;
+import micdoodle8.mods.crossbowmod.entity.*;
 import micdoodle8.mods.crossbowmod.item.ItemCrossbow;
 import micdoodle8.mods.crossbowmod.util.Util;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.gui.ScaledResolution;
-import net.minecraft.client.renderer.EntityRenderer;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.settings.KeyBinding;
-import net.minecraft.src.ModLoader;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.IItemRenderer;
 import net.minecraftforge.client.MinecraftForgeClient;
 import org.lwjgl.input.Mouse;
 import org.lwjgl.opengl.GL11;
-import cpw.mods.fml.client.registry.RenderingRegistry;
-import cpw.mods.fml.common.event.FMLInitializationEvent;
-import cpw.mods.fml.common.event.FMLPreInitializationEvent;
-import cpw.mods.fml.common.registry.LanguageRegistry;
+
+import java.text.DecimalFormat;
 
 public class CrossbowModClient
 {
@@ -47,17 +41,19 @@ public class CrossbowModClient
 
     public static void init(FMLInitializationEvent event)
     {
-        LanguageRegistry.instance().addStringLocalization(CrossbowModCore.createBench.getName(), "First Step");
-        LanguageRegistry.instance().addStringLocalization(CrossbowModCore.createBench.getName() + ".desc", "Create a Crossbow Bench");
-        LanguageRegistry.instance().addStringLocalization(CrossbowModCore.createCrossbow.getName(), "Well-Prepared!");
-        LanguageRegistry.instance().addStringLocalization(CrossbowModCore.createCrossbow.getName() + ".desc", "Create any crossbow on a Crossbow Crafting Bench");
-        LanguageRegistry.instance().addStringLocalization(CrossbowModCore.sniper.getName(), "Sniper King");
-        LanguageRegistry.instance().addStringLocalization(CrossbowModCore.sniper.getName() + ".desc", "Kill a chicken with any crossbow bolt from more than 75 meters away using a long range scope");
+        FMLCommonHandler.instance().bus().register(new CrossbowModClient());
+        LanguageRegistry.instance().addStringLocalization(CrossbowModCore.createBench.func_150951_e().getUnformattedText(), "First Step");
+        LanguageRegistry.instance().addStringLocalization(CrossbowModCore.createBench.func_150951_e().getUnformattedText() + ".desc", "Create a Crossbow Bench");
+        LanguageRegistry.instance().addStringLocalization(CrossbowModCore.createCrossbow.func_150951_e().getUnformattedText(), "Well-Prepared!");
+        LanguageRegistry.instance().addStringLocalization(CrossbowModCore.createCrossbow.func_150951_e().getUnformattedText() + ".desc", "Create any crossbow on a Crossbow Crafting Bench");
+        LanguageRegistry.instance().addStringLocalization(CrossbowModCore.sniper.func_150951_e().getUnformattedText(), "Sniper King");
+        LanguageRegistry.instance().addStringLocalization(CrossbowModCore.sniper.func_150951_e().getUnformattedText() + ".desc", "Kill a chicken with any crossbow bolt from more than 75 meters away using a long range scope");
     }
 
-    public static void onRenderTick()
+    @SubscribeEvent
+    public void onRenderTick(TickEvent.RenderTickEvent event)
     {
-        Minecraft mc = ModLoader.getMinecraftInstance();
+        Minecraft mc = FMLClientHandler.instance().getClient();
 
         if (mc == null || mc.thePlayer == null || mc.thePlayer.getCurrentEquippedItem() == null)
         {
@@ -66,7 +62,7 @@ public class CrossbowModClient
 
         if (mc.thePlayer.isUsingItem() && Util.hasLongRangeScope(mc.thePlayer.getCurrentEquippedItem()) && mc.gameSettings.thirdPersonView == 0 && !mc.renderViewEntity.isPlayerSleeping())
         {
-            ScaledResolution scaledresolution = new ScaledResolution(mc.gameSettings, mc.displayWidth, mc.displayHeight);
+            ScaledResolution scaledresolution = new ScaledResolution(mc, mc.displayWidth, mc.displayHeight);
             int i = scaledresolution.getScaledWidth();
             int k = scaledresolution.getScaledHeight();
             mc.entityRenderer.setupOverlayRendering();
@@ -155,7 +151,7 @@ public class CrossbowModClient
         }
         else if (mc.thePlayer.isUsingItem() && Util.hasBasicScope(mc.thePlayer.getCurrentEquippedItem()) && mc.gameSettings.thirdPersonView == 0 && !mc.renderViewEntity.isPlayerSleeping())
         {
-            ScaledResolution scaledresolution = new ScaledResolution(mc.gameSettings, mc.displayWidth, mc.displayHeight);
+            ScaledResolution scaledresolution = new ScaledResolution(mc, mc.displayWidth, mc.displayHeight);
             int i = scaledresolution.getScaledWidth();
             int k = scaledresolution.getScaledHeight();
             mc.entityRenderer.setupOverlayRendering();
@@ -184,7 +180,8 @@ public class CrossbowModClient
 
             try
             {
-                ModLoader.setPrivateValue(EntityRenderer.class, ModLoader.getMinecraftInstance().entityRenderer, 39, 1);
+                // TODO
+//                ModLoader.setPrivateValue(EntityRenderer.class, ModLoader.getMinecraftInstance().entityRenderer, 39, 1);
             }
             catch (Exception ex)
             {
@@ -193,12 +190,8 @@ public class CrossbowModClient
         }
     }
 
-    public static void onTickInGUI(GuiScreen guiscreen)
-    {
-
-    }
-
-    public static void onTickInGame()
+    @SubscribeEvent
+    public void onTickInGame(TickEvent.WorldTickEvent event)
     {
         if (CrossbowModClient.shootTime > 0)
         {
@@ -225,64 +218,64 @@ public class CrossbowModClient
         {
             ItemCrossbow crossbow = CrossbowModCore.crossbowsList.get(i);
 
-            MinecraftForgeClient.registerItemRenderer(crossbow.itemID, itemRenderer);
+            MinecraftForgeClient.registerItemRenderer(crossbow, itemRenderer);
         }
 
     }
 
     public static void zoom(double d)
     {
-        if (CrossbowModClient.getZoom() < 10 && CrossbowModClient.getZoom() > 1)
-        {
-            try
-            {
-                ModLoader.setPrivateValue(EntityRenderer.class, ModLoader.getMinecraftInstance().entityRenderer, 39, CrossbowModClient.getZoom() + d);
-            }
-            catch (Exception ex)
-            {
-                ex.printStackTrace();
-            }
-        }
-        if (CrossbowModClient.getZoom() >= 10 && d < 0)
-        {
-            try
-            {
-                ModLoader.setPrivateValue(EntityRenderer.class, ModLoader.getMinecraftInstance().entityRenderer, 39, CrossbowModClient.getZoom() + d);
-            }
-            catch (Exception ex)
-            {
-                ex.printStackTrace();
-            }
-        }
-        if (CrossbowModClient.getZoom() <= 1 && d > 0)
-        {
-            try
-            {
-                ModLoader.setPrivateValue(EntityRenderer.class, ModLoader.getMinecraftInstance().entityRenderer, 39, CrossbowModClient.getZoom() + d);
-            }
-            catch (Exception ex)
-            {
-                ex.printStackTrace();
-            }
-        }
-        if (CrossbowModClient.getZoom() < 1)
-        {
-            ModLoader.setPrivateValue(EntityRenderer.class, ModLoader.getMinecraftInstance().entityRenderer, 39, 1);
-        }
+//        if (CrossbowModClient.getZoom() < 10 && CrossbowModClient.getZoom() > 1)
+//        {
+//            try
+//            {
+//                ModLoader.setPrivateValue(EntityRenderer.class, ModLoader.getMinecraftInstance().entityRenderer, 39, CrossbowModClient.getZoom() + d);
+//            }
+//            catch (Exception ex)
+//            {
+//                ex.printStackTrace();
+//            }
+//        }
+//        if (CrossbowModClient.getZoom() >= 10 && d < 0)
+//        {
+//            try
+//            {
+//                ModLoader.setPrivateValue(EntityRenderer.class, ModLoader.getMinecraftInstance().entityRenderer, 39, CrossbowModClient.getZoom() + d);
+//            }
+//            catch (Exception ex)
+//            {
+//                ex.printStackTrace();
+//            }
+//        }
+//        if (CrossbowModClient.getZoom() <= 1 && d > 0)
+//        {
+//            try
+//            {
+//                ModLoader.setPrivateValue(EntityRenderer.class, ModLoader.getMinecraftInstance().entityRenderer, 39, CrossbowModClient.getZoom() + d);
+//            }
+//            catch (Exception ex)
+//            {
+//                ex.printStackTrace();
+//            }
+//        }
+//        if (CrossbowModClient.getZoom() < 1)
+//        {
+//            ModLoader.setPrivateValue(EntityRenderer.class, ModLoader.getMinecraftInstance().entityRenderer, 39, 1);
+//        } TODO
     }
 
     public static double getZoom()
     {
         double zoom = 0;
 
-        try
-        {
-            zoom = (Double) ModLoader.getPrivateValue(EntityRenderer.class, ModLoader.getMinecraftInstance().entityRenderer, 39);
-        }
-        catch (Exception ex)
-        {
-            ex.printStackTrace();
-        }
+//        try
+//        {
+//            zoom = (Double) ModLoader.getPrivateValue(EntityRenderer.class, ModLoader.getMinecraftInstance().entityRenderer, 39);
+//        }
+//        catch (Exception ex)
+//        {
+//            ex.printStackTrace();
+//        }
 
         return zoom;
     }

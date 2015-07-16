@@ -1,31 +1,21 @@
 package micdoodle8.mods.crossbowmod.client;
 
-import java.util.EnumSet;
+import cpw.mods.fml.client.FMLClientHandler;
+import cpw.mods.fml.common.event.FMLInitializationEvent;
+import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import micdoodle8.mods.crossbowmod.CommonProxy;
-import micdoodle8.mods.crossbowmod.ConfigManager;
-import micdoodle8.mods.crossbowmod.block.Blocks;
+import micdoodle8.mods.crossbowmod.block.CrossbowBlocks;
 import micdoodle8.mods.crossbowmod.client.gui.GuiCrossbowBench;
-import micdoodle8.mods.crossbowmod.item.ItemCrossbow;
-import micdoodle8.mods.crossbowmod.item.ItemDiamondCrossbow;
-import micdoodle8.mods.crossbowmod.item.ItemGoldCrossbow;
-import micdoodle8.mods.crossbowmod.item.ItemIronCrossbow;
-import micdoodle8.mods.crossbowmod.item.ItemStoneCrossbow;
-import micdoodle8.mods.crossbowmod.item.ItemWoodCrossbow;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.GuiScreen;
+import micdoodle8.mods.crossbowmod.item.*;
+import net.minecraft.block.Block;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.src.ModLoader;
+import net.minecraft.network.INetHandler;
+import net.minecraft.network.NetHandlerPlayServer;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
-import cpw.mods.fml.common.ITickHandler;
-import cpw.mods.fml.common.TickType;
-import cpw.mods.fml.common.event.FMLInitializationEvent;
-import cpw.mods.fml.common.event.FMLPreInitializationEvent;
-import cpw.mods.fml.common.registry.TickRegistry;
-import cpw.mods.fml.relauncher.Side;
 
 public class ClientProxy extends CommonProxy
 {
@@ -39,71 +29,26 @@ public class ClientProxy extends CommonProxy
     @Override
     public void load(FMLInitializationEvent event)
     {
-        TickRegistry.registerTickHandler(new ClientTickHandler(), Side.CLIENT);
         CrossbowModClient.init(event);
+    }
+
+    @Override
+    public EntityPlayer getPlayerFromNetHandler(INetHandler handler)
+    {
+        if (handler instanceof NetHandlerPlayServer)
+        {
+            return ((NetHandlerPlayServer) handler).playerEntity;
+        }
+        else
+        {
+            return FMLClientHandler.instance().getClientPlayerEntity();
+        }
     }
 
     @Override
     public void registerRenderInformation()
     {
         CrossbowModClient.registerRenderInformation();
-    }
-
-    public class ClientTickHandler implements ITickHandler
-    {
-        @Override
-        public void tickStart(EnumSet<TickType> type, Object... tickData)
-        {
-        }
-
-        @Override
-        public void tickEnd(EnumSet<TickType> type, Object... tickData)
-        {
-            if (type.equals(EnumSet.of(TickType.RENDER)))
-            {
-                this.onRenderTick();
-            }
-            else if (type.equals(EnumSet.of(TickType.CLIENT)))
-            {
-                GuiScreen guiscreen = Minecraft.getMinecraft().currentScreen;
-
-                if (guiscreen != null)
-                {
-                    this.onTickInGUI(guiscreen);
-                }
-                else
-                {
-                    this.onTickInGame();
-                }
-            }
-        }
-
-        @Override
-        public EnumSet<TickType> ticks()
-        {
-            return EnumSet.of(TickType.RENDER, TickType.CLIENT);
-        }
-
-        @Override
-        public String getLabel()
-        {
-            return "Crossbow Mod 2 Render/Gui";
-        }
-
-        public void onRenderTick()
-        {
-            CrossbowModClient.onRenderTick();
-        }
-
-        public void onTickInGUI(GuiScreen guiscreen)
-        {
-            CrossbowModClient.onTickInGUI(guiscreen);
-        }
-
-        public void onTickInGame()
-        {
-            CrossbowModClient.onTickInGame();
-        }
     }
 
     @Override
@@ -114,18 +59,11 @@ public class ClientProxy extends CommonProxy
             return null;
         }
 
-        int blockID = world.getBlockId(x, y, z);
+        Block blockID = world.getBlock(x, y, z);
 
-        if (ID == ConfigManager.GUIID_BlockCrossbowBench)
+        if (blockID == CrossbowBlocks.crossbowBench)
         {
-            if (!(blockID == Blocks.crossbowBench.blockID))
-            {
-                return null;
-            }
-            else
-            {
-                return new GuiCrossbowBench(player.inventory);
-            }
+            return new GuiCrossbowBench(player.inventory);
         }
         else
         {
@@ -181,17 +119,16 @@ public class ClientProxy extends CommonProxy
                 i2 = 0.016F;
             }
 
-            if (MathHelper.sin(i * i2) * 1.2F > 0 && !ModLoader.getMinecraftInstance().thePlayer.isUsingItem())
+            if (MathHelper.sin(i * i2) * 1.2F > 0 && !FMLClientHandler.instance().getClient().thePlayer.isUsingItem())
             {
                 modelPlayer.bipedLeftArm.rotateAngleZ += MathHelper.sin(i * i2) * 1.2F;
             }
 
-            if (MathHelper.sin(i * i2) * 1.2F > 0 && !ModLoader.getMinecraftInstance().thePlayer.isUsingItem())
+            if (MathHelper.sin(i * i2) * 1.2F > 0 && !FMLClientHandler.instance().getClient().thePlayer.isUsingItem())
             {
                 modelPlayer.bipedRightArm.rotateAngleZ -= MathHelper.sin(i * i2) * 0.2F;
             }
 
-            if (i > 0 && !ModLoader.getMinecraftInstance().thePlayer.isUsingItem())
             {
                 modelPlayer.bipedLeftArm.rotateAngleX += -0.5;
             }

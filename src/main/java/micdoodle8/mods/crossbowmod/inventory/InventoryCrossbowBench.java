@@ -62,13 +62,34 @@ public class InventoryCrossbowBench implements IInventory
         }
     }
 
-    /**
-     * Returns the name of the inventory.
-     */
     @Override
-    public String getInvName()
-    {
+    public String getInventoryName() {
         return "container.crafting";
+    }
+
+    @Override
+    public boolean hasCustomInventoryName() {
+        return false;
+    }
+
+    @Override
+    public void markDirty() {
+
+    }
+
+    @Override
+    public void openInventory() {
+
+    }
+
+    @Override
+    public void closeInventory() {
+
+    }
+
+    @Override
+    public boolean isItemValidForSlot(int p_94041_1_, ItemStack p_94041_2_) {
+        return false;
     }
 
     /**
@@ -150,14 +171,6 @@ public class InventoryCrossbowBench implements IInventory
     }
 
     /**
-     * Called when an the contents of an Inventory change, usually
-     */
-    @Override
-    public void onInventoryChanged()
-    {
-    }
-
-    /**
      * Do not make give this method the name canInteractWith because it clashes
      * with Container
      */
@@ -165,29 +178,5 @@ public class InventoryCrossbowBench implements IInventory
     public boolean isUseableByPlayer(EntityPlayer par1EntityPlayer)
     {
         return true;
-    }
-
-    @Override
-    public void openChest()
-    {
-    }
-
-    @Override
-    public void closeChest()
-    {
-    }
-
-    @Override
-    public boolean isInvNameLocalized()
-    {
-        // TODO Auto-generated method stub
-        return false;
-    }
-
-    @Override
-    public boolean isItemValidForSlot(int i, ItemStack itemstack)
-    {
-        // TODO Auto-generated method stub
-        return false;
     }
 }

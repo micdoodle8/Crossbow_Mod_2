@@ -9,14 +9,15 @@ import micdoodle8.mods.crossbowmod.entity.EntityWoodBolt;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class ItemIronCrossbow extends ItemCrossbow
 {
-    public ItemIronCrossbow(int par1)
+    public ItemIronCrossbow()
     {
-        super(par1);
+        super();
         CrossbowModCore.ironCrossbowsList.add(this);
     }
 
@@ -25,15 +26,15 @@ public class ItemIronCrossbow extends ItemCrossbow
     {
         EntityPlayer player = (EntityPlayer) entityliving;
 
-        if (player.inventory.hasItemStack(new ItemStack(Items.attachmentLimbBolt, 1, 2)) || player.capabilities.isCreativeMode)
+        if (player.inventory.hasItemStack(new ItemStack(CrossbowItems.attachmentLimbBolt, 1, 2)) || player.capabilities.isCreativeMode)
         {
             return new EntityIronBolt(world, entityliving, 1.33F, f);
         }
-        else if (player.inventory.hasItemStack(new ItemStack(Items.attachmentLimbBolt, 1, 1)))
+        else if (player.inventory.hasItemStack(new ItemStack(CrossbowItems.attachmentLimbBolt, 1, 1)))
         {
             return new EntityStoneBolt(world, entityliving, 1.33F, f);
         }
-        else if (player.inventory.hasItemStack(new ItemStack(Items.attachmentLimbBolt, 1, 0)))
+        else if (player.inventory.hasItemStack(new ItemStack(CrossbowItems.attachmentLimbBolt, 1, 0)))
         {
             return new EntityWoodBolt(world, entityliving, 1.33F, f);
         }
@@ -48,7 +49,7 @@ public class ItemIronCrossbow extends ItemCrossbow
 
     @SuppressWarnings({ "unchecked", "rawtypes" })
     @Override
-    public void getSubItems(int par1, CreativeTabs par2CreativeTabs, List par3List)
+    public void getSubItems(Item par1, CreativeTabs par2CreativeTabs, List par3List)
     {
         par3List.add(ItemCrossbow.setAttachmentAndMaterial(new ItemStack(par1, 1, 0), EnumAttachmentType.none, EnumCrossbowMaterial.iron, EnumCrossbowFireRate.none));
         par3List.add(ItemCrossbow.setAttachmentAndMaterial(new ItemStack(par1, 1, 0), EnumAttachmentType.none, EnumCrossbowMaterial.iron, EnumCrossbowFireRate.light));
@@ -111,7 +112,7 @@ public class ItemIronCrossbow extends ItemCrossbow
     @Override
     public int getReloadTime()
     {
-        return 80;
+        return 16;
     }
 
     @Override
@@ -119,15 +120,15 @@ public class ItemIronCrossbow extends ItemCrossbow
     {
         EntityPlayer player = (EntityPlayer) entityliving;
 
-        if (player.inventory.hasItemStack(new ItemStack(Items.attachmentLimbBolt, 1, 2)) || player.capabilities.isCreativeMode)
+        if (player.inventory.hasItemStack(new ItemStack(CrossbowItems.attachmentLimbBolt, 1, 2)) || player.capabilities.isCreativeMode)
         {
             return 2;
         }
-        else if (player.inventory.hasItemStack(new ItemStack(Items.attachmentLimbBolt, 1, 1)))
+        else if (player.inventory.hasItemStack(new ItemStack(CrossbowItems.attachmentLimbBolt, 1, 1)))
         {
             return 1;
         }
-        else if (player.inventory.hasItemStack(new ItemStack(Items.attachmentLimbBolt, 1, 0)))
+        else if (player.inventory.hasItemStack(new ItemStack(CrossbowItems.attachmentLimbBolt, 1, 0)))
         {
             return 0;
         }

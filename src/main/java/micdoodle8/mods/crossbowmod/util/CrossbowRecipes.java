@@ -1,15 +1,12 @@
 package micdoodle8.mods.crossbowmod.util;
 
-import java.util.HashMap;
-import java.util.Map.Entry;
-import micdoodle8.mods.crossbowmod.item.CrossbowInfo;
-import micdoodle8.mods.crossbowmod.item.EnumAttachmentType;
-import micdoodle8.mods.crossbowmod.item.EnumCrossbowFireRate;
-import micdoodle8.mods.crossbowmod.item.EnumCrossbowMaterial;
-import micdoodle8.mods.crossbowmod.item.Items;
-import net.minecraft.item.Item;
+import micdoodle8.mods.crossbowmod.item.*;
+import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+
+import java.util.HashMap;
+import java.util.Map.Entry;
 
 public class CrossbowRecipes
 {
@@ -31,7 +28,7 @@ public class CrossbowRecipes
         
         for (ItemStack stick : sticks)
         {
-            if (stick == null || stick.getItem().itemID != Item.stick.itemID)
+            if (stick == null || stick.getItem() != Items.stick)
             {
                 return null;
             }
@@ -41,7 +38,7 @@ public class CrossbowRecipes
         
         for (ItemStack limb : limbs)
         {
-            if (limb == null || limb.getItem().itemID != Items.attachmentLimbBolt.itemID)
+            if (limb == null || limb.getItem() != CrossbowItems.attachmentLimbBolt)
             {
                 return null;
             }
@@ -79,7 +76,7 @@ public class CrossbowRecipes
             break;
         }
 
-        if (mechanism == null || mechanism.getItem().itemID != Items.attachmentLimbBolt.itemID)
+        if (mechanism == null || mechanism.getItem() != CrossbowItems.attachmentLimbBolt)
         {
             return null;
         }
@@ -108,7 +105,7 @@ public class CrossbowRecipes
             }
         }
         
-        if (attachment == null || attachment.getItem().itemID != Items.attachmentLimbBolt.itemID)
+        if (attachment == null || attachment.getItem() != CrossbowItems.attachmentLimbBolt)
         {
             info.setAttachment(EnumAttachmentType.none);
         }

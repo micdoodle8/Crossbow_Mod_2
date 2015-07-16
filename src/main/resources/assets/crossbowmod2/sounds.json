@@ -1,0 +1,9 @@
+{
+	"crossbow_fire": {
+		"catagory": "master",
+		"sounds": [{
+			"name": "crossbow_fire", 
+			"stream": false
+		}]
+	}
+}

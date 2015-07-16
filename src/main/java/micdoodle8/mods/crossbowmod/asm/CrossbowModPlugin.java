@@ -25,12 +25,6 @@ public class CrossbowModPlugin implements IFMLLoadingPlugin, IFMLCallHook
     public static final String mcVersion = "[1.6.4]";
     public static File mcDir;
 
-    @Override
-    public String[] getLibraryRequestClass()
-    {
-        return null;
-    }
-
     public static void versionCheck(String reqVersion, String mod)
     {
         final String mcVersion = (String) FMLInjectionData.data()[4];
@@ -127,5 +121,10 @@ public class CrossbowModPlugin implements IFMLLoadingPlugin, IFMLCallHook
     public Void call() throws Exception
     {
         return null;
+    }
+
+    @Override
+    public String getAccessTransformerClass() {
+        return "micdoodle8.mods.crossbowmod.CrossbowModTransformer";
     }
 }

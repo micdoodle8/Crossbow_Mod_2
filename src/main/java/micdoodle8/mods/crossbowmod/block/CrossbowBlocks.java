@@ -6,17 +6,17 @@ import net.minecraft.block.Block;
 import net.minecraft.item.ItemBlock;
 import cpw.mods.fml.common.registry.GameRegistry;
 
-public class Blocks
+public class CrossbowBlocks
 {
     public static Block crossbowBench;
 
     public static void initBlocks()
     {
-        Blocks.crossbowBench = new BlockCrossbowBench(ConfigManager.idBlockCrossbowBench).setHardness(2.5F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("crossbowBench");
+        CrossbowBlocks.crossbowBench = new BlockCrossbowBench().setHardness(2.5F).setStepSound(Block.soundTypeWood).setBlockName("crossbowBench");
     }
 
     public static void registerBlocks()
     {
-        GameRegistry.registerBlock(Blocks.crossbowBench, ItemBlock.class, null, CrossbowModCore.MOD_ID);
+        GameRegistry.registerBlock(CrossbowBlocks.crossbowBench, CrossbowBlocks.crossbowBench.getUnlocalizedName());
     }
 }

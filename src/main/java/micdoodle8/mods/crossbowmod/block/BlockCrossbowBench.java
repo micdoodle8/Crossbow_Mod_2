@@ -1,27 +1,25 @@
 package micdoodle8.mods.crossbowmod.block;
 
-import java.util.ArrayList;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import micdoodle8.mods.crossbowmod.ConfigManager;
 import micdoodle8.mods.crossbowmod.CrossbowModCore;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.texture.IconRegister;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.Icon;
+import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
-import net.minecraftforge.common.ForgeDirection;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
+import net.minecraftforge.common.util.ForgeDirection;
 
 public class BlockCrossbowBench extends Block
 {
-    private Icon[] icons = new Icon[3];
+    private IIcon[] icons = new IIcon[3];
 
-    public BlockCrossbowBench(int par1)
+    public BlockCrossbowBench()
     {
-        super(par1, Material.wood);
+        super(Material.wood);
     }
 
     @Override
@@ -32,7 +30,7 @@ public class BlockCrossbowBench extends Block
     }
 
     @Override
-    public Icon getIcon(int side, int meta)
+    public IIcon getIcon(int side, int meta)
     {
         ForgeDirection direction = ForgeDirection.getOrientation(side);
 
@@ -52,7 +50,7 @@ public class BlockCrossbowBench extends Block
 
     @Override
     @SideOnly(Side.CLIENT)
-    public void registerIcons(IconRegister par1IconRegister)
+    public void registerBlockIcons(IIconRegister par1IconRegister)
     {
         for (int i = 1; i <= 3; i++)
         {
@@ -69,13 +67,10 @@ public class BlockCrossbowBench extends Block
         return true;
     }
 
-    @SuppressWarnings({ "unchecked", "rawtypes" })
-    @Override
-    public void addCreativeItems(ArrayList itemList)
-    {
-        if (this.blockID == Blocks.crossbowBench.blockID)
-        {
-            itemList.add(new ItemStack(this));
-        }
-    }
+//    @SuppressWarnings({ "unchecked", "rawtypes" })
+//    @Override
+//    public void addCreativeItems(ArrayList itemList)
+//    {
+//        itemList.add(new ItemStack(this));
+//    }
 }

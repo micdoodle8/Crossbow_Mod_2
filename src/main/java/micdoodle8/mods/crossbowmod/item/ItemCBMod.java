@@ -1,14 +1,15 @@
 package micdoodle8.mods.crossbowmod.item;
 
-import java.util.List;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import micdoodle8.mods.crossbowmod.CrossbowModCore;
-import net.minecraft.client.renderer.texture.IconRegister;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.Icon;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
+import net.minecraft.util.IIcon;
+
+import java.util.List;
 
 public class ItemCBMod extends Item
 {
@@ -37,11 +38,11 @@ public class ItemCBMod extends Item
     "attachmentPoison", // 22
     "mechanismTriShot" }; // 23
 
-    private Icon[] icons = new Icon[ItemCBMod.names.length];
+    private IIcon[] icons = new IIcon[ItemCBMod.names.length];
 
-    public ItemCBMod(int i)
+    public ItemCBMod()
     {
-        super(i);
+        super();
         this.setCreativeTab(CrossbowModCore.crossbowTab);
         this.setMaxDamage(0);
         this.setHasSubtypes(true);
@@ -50,7 +51,7 @@ public class ItemCBMod extends Item
     @SuppressWarnings({ "unchecked", "rawtypes" })
     @SideOnly(Side.CLIENT)
     @Override
-    public void getSubItems(int par1, CreativeTabs par2CreativeTabs, List par3List)
+    public void getSubItems(Item par1, CreativeTabs par2CreativeTabs, List par3List)
     {
         for (int var4 = 0; var4 < ItemCBMod.names.length; ++var4)
         {
@@ -66,7 +67,7 @@ public class ItemCBMod extends Item
 
     @Override
     @SideOnly(Side.CLIENT)
-    public void registerIcons(IconRegister par1IconRegister)
+    public void registerIcons(IIconRegister par1IconRegister)
     {
         int offset = 4;
         for (int i = offset; i < ItemCBMod.names.length + offset; i++)
@@ -75,11 +76,11 @@ public class ItemCBMod extends Item
             this.icons[i - offset] = par1IconRegister.registerIcon(CrossbowModCore.TEXTURE_PREFIX + "other_" + s);
         }
 
-        this.itemIcon = par1IconRegister.registerIcon(this.getIconString());
+        this.itemIcon = this.icons[0];
     }
 
     @Override
-    public Icon getIconFromDamage(int meta)
+    public IIcon getIconFromDamage(int meta)
     {
         return this.icons[this.getIconIndex(meta) - 3];
     }
