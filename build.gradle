@@ -37,7 +37,7 @@ if (System.getenv("BUILD_NUMBER") != null)
 	
 version = "${mcVersion}-${versionMajor}.${versionMinor}.${versionBuild}" // Set the version number
 group= "micdoodle8.mods.crossbowmod"
-archivesBaseName = "CrossbowMod"
+archivesBaseName = "Crossbow-Mod-2"
 	
 minecraft {
     version = "1.7.10-10.13.4.1448-1.7.10" // Forge version
