@@ -1,6 +1,5 @@
 package micdoodle8.mods.crossbowmod.network;
 
-import com.sun.xml.internal.messaging.saaj.util.ByteOutputStream;
 import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.network.ByteBufUtils;
 import io.netty.buffer.ByteBuf;
@@ -16,6 +15,7 @@ import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fluids.FluidTank;
 
 import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
@@ -343,10 +343,10 @@ public class NetworkUtil
         }
         else
         {
-            ByteOutputStream stream = new ByteOutputStream();
+            ByteArrayOutputStream stream = new ByteArrayOutputStream();
             CompressedStreamTools.writeCompressed(nbt, stream);
-            buffer.writeShort((short) stream.getBytes().length);
-            buffer.writeBytes(stream.getBytes());
+            buffer.writeShort((short) stream.toByteArray().length);
+            buffer.writeBytes(stream.toByteArray());
             stream.close();
         }
     }
