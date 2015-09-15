@@ -191,7 +191,7 @@ public class CrossbowModClient
     }
 
     @SubscribeEvent
-    public void onTickInGame(TickEvent.WorldTickEvent event)
+    public void onTickInGame(TickEvent.PlayerTickEvent event)
     {
         if (CrossbowModClient.shootTime > 0)
         {
